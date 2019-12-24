@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+	            <form action="{% url 'users:create' %}" method="post" id="user-create-form"
+                      class="enable-print user-creation" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                        <div class="form-group">
+                            <label class="col col-md-4 small" for="id_{{ field.label|lower }}">{{ field.label }}</label>
+                            {{ field }}
+                            {{ field.help }}
+                        </div>
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <small class="alert text-danger">{{ error|striptags }}</small>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+{% endblock content %}

@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html, body {
+    font-family: 'Montserrat', serif;
+}
+
+.my-badge {
+    display: none;
+}
+
+
+/*pre {*/
+/*    margin-top: -23px;*/
+/*    font-family: inherit;*/
+/*    border: none;*/
+/*}*/
+
+@media print {
+    /*.page-break {*/
+    /*    height: 0;*/
+    /*    page-break-before: always;*/
+    /*    margin: 0;*/
+    /*    border-top: none;*/
+    /*}*/
+    /** {*/
+    /*    float: none;*/
+    /*}*/
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /*.A4 * {*/
+    /*    visibility: visible;*/
+    /*}*/
+    /*.A4 {*/
+    /*    box-shadow: none;*/
+    /*    margin: 0;*/
+    /*    width: 21cm;*/
+    /*    height: auto;*/
+    /*    padding: 0 20mm 15mm 15mm;*/
+    /*}*/
+    @page {
+        size: A4 portrait;
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        visibility: hidden;
+    }
+
+    #page-container {
+        top: 0 !important;
+    }
+
+    span {
+        visibility: visible;
+    }
+
+    .enable-print * {
+        visibility: visible;
+    }
+
+    .container {
+        width: 9cm !important;
+    }
+
+    /*body {*/
+    /*    zoom: 150%;*/
+    /*}*/
+    /*.document {*/
+    /*    display: block;*/
+    /*}*/
+    /*.document u {*/
+    /*    text-decoration: unset;*/
+    /*    border-bottom: 0.015629px solid black;*/
+    /*}*/
+    /*.A4 pre {*/
+    /*    margin-top: -1.2em;*/
+    /*    font-family: inherit;*/
+    /*    border: none;*/
+    /*}*/
+    /*.document .second-page {*/
+    /*    margin-top: 30px;*/
+    /*    break-after: page;*/
+    /*}*/
+    /* Styles for user creation form printing */
+    .user-creation {
+        position: absolute;
+        left: 3em;
+        top: -3em;
+    }
+
+    /* Styles for badge printing   */
+    #dontPrint {
+        visibility: hidden;
+    }
+
+    .my-badge {
+        display: unset;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        width: 90mm;
+        height: 130mm;
+        zoom: normal;
+        indent-edge-reset: border-edge;
+    }
+
+    .badge-header {
+        width: 8.9cm;
+        color: white;
+
+    }
+
+    .badge-header img {
+        margin-left: 15px;
+        margin-top: 15px;
+        width: 55px;
+        float: left;
+    }
+
+    .badge-header .c {
+        padding-top: 30px;
+        padding-bottom: 15px;
+        line-height: 0;
+    }
+
+    .badge-header p {
+        padding: 0;
+        margin-bottom: 1.4em;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: .5em;
+        font-weight: bolder;
+        letter-spacing: 1px;
+    }
+
+    .badge-body {
+        width: 9cm;
+        margin-bottom: 15px;
+        position: absolute;
+        top: 110px;
+        zoom: 127%;
+    }
+
+    .badge-body > div:first-child {
+        padding-top: 10px;
+    }
+
+    .first-c {
+        text-align: right;
+        margin-left: 25px;
+        padding-right: 10px;
+        width: auto;
+        float: left;
+    }
+
+    .first-c p {
+        margin-bottom: .1em;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .first-c .certificate {
+        font-size: 1em;
+        color: red;
+        margin-bottom: .7em;
+        text-transform: uppercase;
+
+    }
+
+    .first-c .role {
+        color: red;
+        font-size: 1.3em;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: .7em;
+    }
+
+    .user-image {
+        width: 3cm;
+        height: 4cm;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+
+    .badge-body .r:nth-child(2) {
+        margin: 30px 20px 0;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        border: 1px solid black;
+        border-radius: 15px;
+        display: flex;
+
+    }
+
+    .badge-body .r:nth-child(2) .c:first-child {
+        font-size: 0.4em;
+        margin-left: 10px;
+        margin-top: -15px;
+        line-height: 0;
+        font-weight: bold;
+        display: grid;
+        text-align: center;
+        vertical-align: bottom;
+    }
+
+    .badge-body .r:nth-child(2) .c:nth-child(2) p:nth-child(2n+1) {
+        border-bottom: 1px solid black;
+        font-size: .7em;
+        letter-spacing: -.04em;
+        padding-bottom: -1px;
+        margin-bottom: 0;
+    }
+
+    .verification {
+        margin-bottom: 1em;
+    }
+
+    .badge-body .r:nth-child(2) .c:nth-child(2) p:nth-child(2n) {
+        font-size: 0.3em;
+        font-weight: bolder;
+    }
+
+    .qr-code {
+        margin-left: 10%;
+        width: 80px;
+
+    }
+
+    .badge-footer {
+        width: 9cm;
+        height: 57px;
+        background-color: #12344a;
+        justify-content: center;
+        display: flex;
+
+    }
+
+    .badge-footer img {
+        margin: auto;
+
+    }
+
+    .badge-footer::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .badge-footer img {
+        width: 55px;
+    }
+
+    #lack {
+        display: none;
+    }
+
+    _:-ms-lang(x), .page-break {
+        page-break-before: avoid;
+    }
+
+    _:-ms-lang(x), .A4 {
+        padding: 0;
+    }
+}
+
+/* optional */
+input.masked,
+.shell span {
+    font-size: 16px;
+    font-family: monospace;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.form-row {
+    flex-wrap: nowrap;
+}

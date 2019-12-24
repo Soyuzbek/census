@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load replace_asterisk %}
+{% block title %}
+    Кызматкер
+{% endblock %}
+{% block content %}
+
+        <p style="color: red;" class="h3 text-uppercase font-weight-bold text-center">{% trans 'certificate' %}
+                &#8470;{{ object.agreement }}</p>
+        <p style="color: red;" class="h1 text-uppercase font-weight-bold text-center">{{ object.get_role }}</p>
+    <div class="row">
+        <div class="col-4 text-right font-weight-bold">
+            <p>{{ object.last_name|cover:"*" }}</p>
+            <p>{{ object.first_name|cover:"*" }}</p>
+            {% if object.patronymic %}
+                <p>{{ object.patronymic|cover:"*" }}</p>
+            {% endif %}
+        </div>
+        <div class="col">
+            <img src="{{ object.photo.url }}" class="col-12 col-md-6 col-lg-3"
+                 alt="{% trans 'photo does not exist' %}">
+        </div>
+    </div>
+    <p class="text-center">Коопсуздук эрежелерин сактоо максатында ысымдар толук эмес түрдө берилген</p>
+    <div class="row no-gutters justify-content-around mt-5 border border-secondary rounded">
+        <div class="col-auto">
+            <img class="ml-5 mr-5" src="{{ object.qrcode.url }}" alt="{% trans 'QR code does not exist' %}">
+        </div>
+        <div class="col-auto">
+            <p>{% trans 'government administrator' %}: {{ object.district.gov_admin }}</p>
+            <p>{% trans 'statistic committee administrator' %}: {{ object.district.stat_admin }}</p>
+            {% if request.user.is_authenticated %}
+                <button id="badgeprint" type="button" class="btn btn-md no-gutters" style="padding: 0;"
+                        onclick="printWindow()"
+                        title="{% trans 'Print the badge' %}" aria-hidden="true">
+                    <span id="dontPrint">{% trans 'Print badge' %}</span>
+                    <img src="{% static 'img/print.jpg' %}" alt="Print"
+                         style="width: 50px; height: 50px; padding: 0;">
+                </button>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="my-badge enable-print">
+        <div class="badge-body">
+            <div class="r">
+                <div class="first-c">
+                    <p class="certificate">{% trans 'certificate' %} &#8470;{{ object.agreement }}</p>
+                    <p class="role">{{ object.get_role }}</p>
+                    <p>{{ object.last_name|upper }}</p>
+                    <p>{{ object.first_name|upper }}</p>
+                    {% if object.patronymic %}
+                        <p>{{ object.patronymic|upper }}</p>
+                    {% endif %}
+                </div>
+                <img class="user-image" src="{{ object.photo.url }}" alt="">
+            </div>
+            <div class="r">
+                <div class="c">
+                    <span class="verification">{% trans 'for verification of document' %}</span><br>
+                    <span class="verification">{% trans 'scan the QR code below' %}</span><br>
+                    <img class="qr-code" src="{{ object.qrcode.url }}" alt="">
+                </div>
+                <div class="c">
+                    <p>{{ object.district.gov_admin }}</p>
+                    <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы, колу</p>
+                    <p>{{ object.district.stat_admin }}</p>
+                    <p class="badge-help">Райондук(шаардык) мамстатистика башчысы, колу</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

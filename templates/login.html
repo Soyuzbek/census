@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {% trans 'Home' %}
+{% endblock %}
+{% block content %}
+    <div class="row justify-content-sm-center">
+        <form action="{% url 'users:login' %}" method="post" class="col-md-12 col-lg-6 col-xl-4">
+            {% csrf_token %}
+            {% for field in form %}
+                {% ifnotequal field.name 'next' %}
+                    <div class="form-group">
+                        <label class="" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <small class="invalid-feedback text-danger">{{ error|striptags }}</small>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endifnotequal %}
+            {% endfor %}
+            <div class="submit-row">
+                <div class="w-100" style="height: 5px"></div>
+                <input type="submit" value="{% trans 'login' %}" class="btn btn-primary col-12">
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
+{% endblock %}

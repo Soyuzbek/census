@@ -1,0 +1,190 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+{% get_current_language as curr %}
+<html lang="ky" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/temp-style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    {% block head %}
+
+    {% endblock %}
+    <title> {% block title %}
+
+    {% endblock %} </title>
+
+</head>
+<body>
+
+<header class="header">
+    <div class="header__top">
+        <div class="container d-flex">
+            <a href="#"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+            <span class="mx-auto top-sentence">{% trans 'Kyrgyz Republic Population and housing census 2020' %}</span>
+        </div>
+    </div>
+
+    <div class="header-container">
+        <div class="container">
+            <div class="header-main d-flex flex-row align-items-center justify-content-start">
+                <nav class="main-nav-container d-flex w-100">
+                    <ul class="main-nav">
+                        {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'users:home' %}">{% trans 'Home' %}</a></li>
+                        {% endif %}
+                        {% if request.user.is_superuser %}
+                        <li><a href="{% url 'users:list' %}">{% trans 'Employees' %}</a></li>
+                        {% endif %}
+                    </ul>
+
+                    <ul class="main-nav main-nav__left ml-auto">
+                        <div class="language-picker">
+                            <div class="language-picker__items">
+                                {% get_available_languages as langs %}
+                                {% for lang, val in langs %}
+                                {% ifnotequal lang curr %}
+                                <a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a>
+                                {% endifnotequal %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'users:logout' %}">{% trans 'Logout' %}</a>
+                            {% else %}
+                            {% if request.path != '/' %}
+                            <a href="{% url 'users:login' %}">{% trans 'Login' %}</a>
+                            {% endif %}
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="#"><i class="fa fa-user"></i> {{ request.user }}</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-mobile">
+        <div class="header-toggle">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        
+        <div class="header-mobile__item header-right-menu">
+            <div class="header-right-menu__item header-button">
+                <div class="language-picker">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button"
+                        id="language-picker__items" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-flag"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="language-picker__items">
+                            <a class="dropdown-item" href="#">Кыргызча</a>
+                            <a class="dropdown-item" href="#">English</a>
+                            <a class="dropdown-item" href="#">Русский</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-right-menu__item header-button">
+                <div class="header-button__icon">
+                    <i class="fa fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <div class="mobile-menu__scrollable">
+        <div class="mobile-menu__top">
+            <div class="mobile-menu__logo">
+                <span>НСК</span>
+            </div>
+            <div class="mobile-menu__close-menu">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+
+        <div class="mobile-menu__links">
+            <a href="{% url 'users:home' %}" class="mobile-menu__link">
+                <i class="fa fa-home"></i> {% trans 'Home' %}</a>
+            <a href="{% url 'users:list' %}" class="mobile-menu__link">
+                <i class="fa fa-users"></i> {% trans 'Employees' %}</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert{% if message.extra_tags %} {{ message.tags }} {% endif %} alert-dismissible " role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="container main-content">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+</body>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script>
+        $('#toggle').click(function(){
+            if($('#navbarSupportedContent').hasClass('show')) {
+                document.querySelector("#page-container").style.top = "132px";
+            }
+            else {
+                document.querySelector("#page-container").style.top = "332px";
+            }
+        })
+    </script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'js/bootstrap.bundle.js' %}"></script>#}
+<script src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
+<script src="{% static 'js/tableToCards.js' %}"></script>
+<script>
+    $(document).ready(function () {
+    $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
+    $('.date').mask('00.00.0000');
+    });
+</script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+</script>
+{% block js %}
+
+{% endblock %}
+</html>
