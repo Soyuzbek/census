@@ -63,8 +63,10 @@ class EmployeeCreateView(APIView):
     @csrf_exempt
     def post(self, request):
         serializer = EmployeeSerializer(data=request.data)
-        serializer.is_valid()
-        serializer.save(district=request.user.district)
+        if serializer.is_valid()
+            serializer.save(district=request.user.district)
+        else:
+            return Response({'errors': serializer.errors})
 
         return Response({'message': 'OK'},
                         status=HTTP_200_OK)
