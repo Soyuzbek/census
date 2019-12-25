@@ -48,7 +48,7 @@ class IndexView(View):
     @method_decorator(login_required)
     def get(self, request):
         if request.user.is_superuser:
-            form = self.form_class(request.user, initial={'district': request.user.district})
+            form = self.form_class()
             pass
         if not request.user.is_authenticated:
             meta_lang = 'ky'
@@ -57,9 +57,11 @@ class IndexView(View):
     @method_decorator(login_required)
     def post(self, request):
         if request.user.is_superuser:
-            form = self.form_class(request.user, request.POST, request.FILES)
+            form = self.form_class(request.POST, request.FILES)
             if form.is_valid():
-                form.save(commit=False)
+                user = form.save(commit=False)
+                user.district = request.user.district
+                user.save()
                 messages.success(request, _('The employee added successfully.'), 'alert-success')
                 return redirect('users:home')
             messages.add_message(request, messages.ERROR, _('Please check the fields below form!'), 'alert-danger')
