@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+     <title>Census API Documentation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/docs-style.css' %}">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <p><code>curl hello world ...</code></p>
+                <p class="command-line">
+                    <span class="output">HTTP/1.1 200 OK</span>
+                    <span class="output">Server: nginx</span>
+                    <span class="output">Date: Fri, 12 Oct 2012 23:33:14 GMT</span>
+                    <span class="output">Content-Type: application/json; charset=utf-8</span>
+                    <span class="output">Connection: keep-alive</span>
+                    <span class="output">Status: 200 OK</span>
+                    <span class="output">ETag: "a00049ba79152d03380c34652f2cb612"</span>
+                    <span class="output">X-GitHub-Media-Type: github.v3</span>
+                    <span class="output">X-RateLimit-Limit: 5000</span>
+                    <span class="output">X-RateLimit-Remaining: 4987</span>
+                    <span class="output">X-RateLimit-Reset: 1350085394</span>
+                    <span class="output">Content-Length: 5</span>
+                    <span class="output">Cache-Control: max-age=0, private, must-revalidate</span>
+                </p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</body>
+</html>

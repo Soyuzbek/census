@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets
@@ -70,3 +71,7 @@ class EmployeeCreateView(APIView):
 
         return Response({'message': 'OK'},
                         status=HTTP_200_OK)
+
+
+class APIDocsView(TemplateView):
+    template_name = 'docs.html'

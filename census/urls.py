@@ -28,7 +28,6 @@ urlpatterns = [
     path('lang/<str:lang>', LanguageView.as_view(), name='lang'),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('api/', include('users.api.urls', namespace='api-users')),
-
 ]
 
 if settings.DEBUG:

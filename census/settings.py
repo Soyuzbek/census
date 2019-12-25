@@ -12,12 +12,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 from django.conf.global_settings import DATE_INPUT_FORMATS
-DATE_INPUT_FORMATS = ("%d.%m.%Y",)
 
+DATE_INPUT_FORMATS = ("%d.%m.%Y",)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -93,28 +92,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'census.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'censusdb',
-#         'USER': 'soyuz',
-#         'PASSWORD': 'census',
-#         'HOST': 'localhost',
-#         'PORT': ''
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'censusdb',
+        'USER': 'soyuz',
+        'PASSWORD': 'census',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -152,6 +149,7 @@ EXTRA_LANG_INFO = {
     }
 }
 import django.conf.locale
+
 LANG_INFO = {**django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO}
 django.conf.locale.LANG_INFO = LANG_INFO
 

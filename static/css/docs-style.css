@@ -1,0 +1,22 @@
+.command-line {
+    background-color: #444;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    position: relative;
+}
+
+p {
+    border: 1px solid #cacaca;
+    line-height: 1.4em;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 3px;
+    background-color: #fafafb;
+    color: #393939;
+    margin: 2em 0;
+}
+span.output {
+    color: #63E463;
+    display: block;
+}
