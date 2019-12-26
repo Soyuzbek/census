@@ -59,6 +59,7 @@ class LogoutView(APIView):
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Employee.objects.all().order_by('-date_joined')
     serializer_class = EmployeeSerializer
 
