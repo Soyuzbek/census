@@ -19,26 +19,128 @@
 <body>
     <div class="container">
         <div class="row">
+            <div class="col-12 header-docs">
+                <h1>Census API Documentation</h1>
+            </div>
             <div class="col-8">
-                <p><code>curl hello world ...</code></p>
+                <h3>Authentication</h3>
                 <p class="command-line">
-                    <span class="output">HTTP/1.1 200 OK</span>
-                    <span class="output">Server: nginx</span>
-                    <span class="output">Date: Fri, 12 Oct 2012 23:33:14 GMT</span>
-                    <span class="output">Content-Type: application/json; charset=utf-8</span>
-                    <span class="output">Connection: keep-alive</span>
-                    <span class="output">Status: 200 OK</span>
-                    <span class="output">ETag: "a00049ba79152d03380c34652f2cb612"</span>
-                    <span class="output">X-GitHub-Media-Type: github.v3</span>
-                    <span class="output">X-RateLimit-Limit: 5000</span>
-                    <span class="output">X-RateLimit-Remaining: 4987</span>
-                    <span class="output">X-RateLimit-Reset: 1350085394</span>
-                    <span class="output">Content-Length: 5</span>
-                    <span class="output">Cache-Control: max-age=0, private, must-revalidate</span>
+                    <code>curl -X POST http://census.kg/api/login/ \
+                        <br>
+                        --header "Content-type:application/json" \
+                        <br>
+                        --data-raw "{\"number\":\"<em>number</em>\",\"password\":\"<em>password</em>\"}"
+                    </code>
+                    <span class="output">{"token":"9fc3befd92b22991bb9e1b51e90f88332e34d90c"}</span>
                 </p>
+                <h3>Logout</h3>
+                <p class="command-line">
+                    <code>curl -X POST http://census.kg/api/logout/ \
+                        <br>
+                        -H "Authorization:Token 8c654d533794218fe011bd01789ce68bb6e96e1c"
+                    </code>
+                    <span class="output">{"message":"You successfully log out"}</span>
+                </p>
+
+                <p>If token is not provided it will raise an error</p>
+                <p class="command-line">
+                    <code>curl -X POST http://census.kg/api/logout/</code>
+                    <span class="output">{"error":"Invalid Credentials"}</span>
+                </p>
+
+                <h3>Employee List</h3>
+                <p class="command-line">
+                    <code>curl -X GET http://census.kg/api/employees/
+                    </code>
+                    <span class="output" style="white-space: pre">
+                        {
+                            "count": 11,
+                            "next": "http://localhost:8000/api/employees/?page=2",
+                            "previous": null,
+                            "results": [
+                                {
+                                    "id": 16,
+                                    "district": {
+                                        "id": 1,
+                                        "name": "Tyup",
+                                        "code": "12121412312",
+                                        "gov_admin": "12345",
+                                        "stat_admin": "12345",
+                                        "counter": "000012",
+                                        "region": 1
+                                    },
+                                    "agreement": "000011",
+                                    "login": "4171212141231212121412312_1_1_1",
+                                    "password": "Kol111uomk",
+                                    "number": "111111140",
+                                    "last_name": "qwerty2",
+                                    "first_name": "qwerty2",
+                                    "patronymic": null,
+                                    "gender": "2",
+                                    "birth_day": "2004-12-31",
+                                    "serial": "AN",
+                                    "passport_num": "1111111",
+                                    "address": "qwertyqwerty",
+                                    "authority": "qwertyuiqq",
+                                    "PIN": "12345678901234",
+                                    "photo": "http://localhost:8000/media/users/img/profile_user_gLcB7Jn.jpg",
+                                    "role": "cor",
+                                    "department": 1,
+                                    "sector": 1,
+                                    "plot": 1,
+                                    "qrcode": "http://localhost:8000/media/users/qr-codes/111111140",
+                                    "date_joined": "2019-12-25T10:45:18.960341+06:00"
+                                },
+                            ]
+                        }
+                    </span>
+                </p>
+
+                <p class="command-line">
+                    <code>curl -X GET http://census.kg/api/employees/16/
+                    </code>
+                    <span class="output" style="white-space: pre;">
+                        {
+                            "id": 16,
+                            "district": {
+                                "id": 1,
+                                "name": "Tyup",
+                                "code": "12121412312",
+                                "gov_admin": "12345",
+                                "stat_admin": "12345",
+                                "counter": "000012",
+                                "region": 1
+                            },
+                            "agreement": "000011",
+                            "login": "4171212141231212121412312_1_1_1",
+                            "password": "Kol111uomk",
+                            "number": "111111140",
+                            "last_name": "qwerty2",
+                            "first_name": "qwerty2",
+                            "patronymic": null,
+                            "gender": "2",
+                            "birth_day": "2004-12-31",
+                            "serial": "AN",
+                            "passport_num": "1111111",
+                            "address": "qwertyqwerty",
+                            "authority": "qwertyuiqq",
+                            "PIN": "12345678901234",
+                            "photo": "http://localhost:8000/media/users/img/profile_user_gLcB7Jn.jpg",
+                            "role": "cor",
+                            "department": 1,
+                            "sector": 1,
+                            "plot": 1,
+                            "qrcode": "http://localhost:8000/media/users/qr-codes/111111140",
+                            "date_joined": "2019-12-25T10:45:18.960341+06:00"
+                        }
+                    </span>
+                </p>
+
             </div>
             <div class="col-4"></div>
         </div>
     </div>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+</script>
 </body>
 </html>

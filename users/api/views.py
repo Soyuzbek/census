@@ -29,6 +29,8 @@ class LoginView(APIView):
         number = data.get('number', None)
         password = data.get('password', None)
 
+        print(number, password)
+
         if number is None or password is None:
             return Response({'error': 'Please provide both username and password'},
                             status=HTTP_400_BAD_REQUEST)
@@ -47,9 +49,13 @@ class LoginView(APIView):
 class LogoutView(APIView):
 
     @permission_classes((IsAuthenticated,))
-    def get(self, request):
+    def post(self, request):
+        if request.user.is_anonymous:
+            return Response({'error': 'Invalid Credentials'},
+                            status=HTTP_404_NOT_FOUND)
         request.user.auth_token.delete()
-        return Response(status=HTTP_200_OK)
+        return Response({'message': 'You successfully log out'},
+                        status=HTTP_200_OK)
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):

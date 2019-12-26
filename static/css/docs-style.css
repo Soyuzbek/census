@@ -19,4 +19,26 @@ p {
 span.output {
     color: #63E463;
     display: block;
+    font-size: 12px;
+}
+
+
+p.command-line code {
+    color: #FFFFFF;
+}
+code {
+    padding: 0;
+    background: 0 0;
+    font-size: 12px;
+}
+
+
+.header-docs h1{
+    margin: 25px 0;
+    font-size: 33px;
+    font-weight: 400;
+}
+
+h3{
+    font-weight: 400;
 }
