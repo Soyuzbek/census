@@ -14,8 +14,11 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 from django.utils.translation import ugettext_lazy as _
 
-from users.forms import EmployeeForm, UserLoginForm
+from users.forms import EmployeeForm, UserLoginForm, EmployeeCreateForm
 from users.models import Employee
+
+# my imports
+from django.views.generic.edit import FormView, CreateView
 
 
 class LoginView(View):
@@ -35,39 +38,12 @@ class LoginView(View):
             if user is not None:
                 login(request, user)
                 return redirect(form.cleaned_data.get('next'))
-            messages.add_message(request, messages.ERROR, _("Number or password is incorrect. Note that both fields might be case-sensitive"), 'alert-danger')
+            messages.add_message(request, messages.ERROR,
+                                 _("Number or password is incorrect. Note that both fields might be case-sensitive"),
+                                 'alert-danger')
             return render(request, self.template_name, locals())
 
         return render(request, self.template_name, locals())
-
-
-class IndexView(View):
-    template_name = 'index.html'
-    form_class = EmployeeForm
-
-    @method_decorator(login_required)
-    def get(self, request):
-        if request.user.is_superuser:
-            form = self.form_class()
-            pass
-        if not request.user.is_authenticated:
-            meta_lang = 'ky'
-        return render(request, self.template_name, locals())
-
-    @method_decorator(login_required)
-    def post(self, request):
-        if request.user.is_superuser:
-            form = self.form_class(request.POST, request.FILES)
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.district = request.user.district
-                user.save()
-                messages.success(request, _('The employee added successfully.'), 'alert-success')
-                return redirect('users:home')
-            messages.add_message(request, messages.ERROR, _('Please check the fields below form!'), 'alert-danger')
-            print(form.errors)
-            return render(request, self.template_name, locals())
-        return HttpResponseForbidden(b'Forbidden')
 
 
 class EmployeeListView(LoginRequiredMixin, ListView):
@@ -103,26 +79,14 @@ class LanguageView(View):
         return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
-class EmployeeCreateView(View):
-    template_name = 'index-temp.html'
-    form_class = EmployeeForm
+class EmployeeCreateView(LoginRequiredMixin, CreateView):
+    model = Employee
+    template_name = 'index.html'
+    form_class = EmployeeCreateForm
+    success_url = '/'
 
-    def get(self, request):
-        return render(request, self.template_name, {'form': EmployeeForm()})
-
-    def post(self, request):
-        if request.user.is_superuser:
-            form = self.form_class(request.POST, request.FILES)
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.district = request.user.district
-                print(request.user.district)
-                user.save()
-                messages.success(request, _('The employee added successfully.'), 'alert-success')
-                return redirect('users:create')
-            else:
-                return HttpResponse("Ooops!!! There something is wrong:(")
-            messages.add_message(request, messages.ERROR, _('Please check the fields below form!'), 'alert-danger')
-            print(form.errors)
-            return render(request, self.template_name, locals())
-        return HttpResponseForbidden(b'Forbidden')
+    def form_valid(self, form):
+        employee = form.save(commit=False)
+        employee.district = self.request.user.district
+        employee.save()
+        return super().form_valid(form)

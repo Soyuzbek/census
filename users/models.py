@@ -176,7 +176,7 @@ class Employee(models.Model):
 
     @property
     def get_role(self):
-        return dict(Employee.ROLE_CHOICES)[self.role]
+        return dict(Employee.ROLE_CHOICES).get(self.role)
 
     def __str__(self):
         return f'{self.first_name}'

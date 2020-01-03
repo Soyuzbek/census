@@ -258,3 +258,7 @@ button[type="button"]:focus {
 	color: #fff;
     background: #ff8a00;
 }
+
+.col-form-label{
+    display:block;
+}

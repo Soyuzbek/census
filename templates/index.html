@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load widget_tweaks %}
 {% block title %}
     {% trans 'Home' %}
 {% endblock %}
@@ -10,49 +11,38 @@
         {#margin-left: -21px;#}
         }
     </style>
-    <section class="row">
-        <div class="container">
-            <div class="col col-md-6 mt-xl-5 border-bottom">
-                <h5 class="mt-3">{% trans 'Employee Creation Form' %}</h5>
-                <form action="{% url 'users:home' %}" method="post" id="user-create-form"
-                      class="enable-print user-creation" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form.visible_fields %}
-                        <div class="form-group">
-                            <label class="col col-md-4 small" for="id_{{ field.label|lower }}">{{ field.label }}</label>
-                            {{ field }}
-                            {{ field.help }}
-                        </div>
-                        {% if field.errors %}
-                            {% for error in field.errors %}
-                                <small class="alert text-danger">{{ error|striptags }}</small>
-                            {% endfor %}
-                        {% endif %}
+<section>
+    <div class="container">
+        <h5 class="mt-5">{% trans 'Employee Creation Form' %}</h5>
+        <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
+                    {% render_field field class="form-control" %}
+                </div>
+                {% if field.errors %}
+                <div class="col-sm-6">
+                    {% for error in field.errors %}
+                    <small id="passwordHelp" class="text-danger">
+                        {{ error|striptags }}
+                    </small>
                     {% endfor %}
-                    {% if form.errors %}
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger">
-                                    <strong>{{ error|escape }}</strong>
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                            <div class="alert alert-danger">
-                                <strong>{{ error|escape }}</strong>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                    <button type="submit" class="btn btn-primary">{% trans 'Add' %}</button>
-                </form>
+                </div>
+                {% endif %}
             </div>
-        </div>
-    </section>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">{% trans 'Add' %}</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
 {% block js %}
-    <script>
-        $('#id_passport_num').mask('0000000');
-        $('#id_PIN').mask('00000000000000')
-    </script>
+    <script src="{% static 'js/my-custom.js' %}"></script>
+<!--    <script>-->
+<!--        $('#id_passport_num').mask('0000000');-->
+<!--        $('#id_PIN').mask('00000000000000')-->
+<!--    </script>-->
     <script src="https://kit.fontawesome.com/07d7ccd1a6.js" crossorigin="anonymous"></script>
 {% endblock %}

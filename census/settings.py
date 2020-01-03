@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 
     # Local Apps
     'users.apps.UsersConfig',
+
+    'widget_tweaks',
 ]
 
 REST_FRAMEWORK = {
@@ -95,23 +97,23 @@ WSGI_APPLICATION = 'census.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'censusdb',
-#         'USER': 'soyuz',
-#         'PASSWORD': 'census',
-#         'HOST': 'localhost',
-#         'PORT': ''
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'census_db',
+        'USER': 'census',
+        'PASSWORD': 'census2020',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation

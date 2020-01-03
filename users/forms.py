@@ -22,7 +22,7 @@ class EmployeeForm(forms.ModelForm):
         widgets = {
             'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '550XXXXXX',
                                       'pattern': '\d{9}'}),
-            'last_name': TextInput(attrs={ 'class': 'form-control'}),
+            'last_name': TextInput(attrs={'class': 'form-control'}),
             'first_name': TextInput(attrs={'class': 'form-control'}),
             'patronymic': TextInput(attrs={'class': 'form-control'}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
@@ -55,3 +55,9 @@ class UserLoginForm(forms.Form):
 
     class Meta:
         fields = ['number', 'password', 'next']
+
+
+class EmployeeCreateForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'district']
