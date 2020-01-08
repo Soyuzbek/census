@@ -6,11 +6,6 @@
     {% trans 'Home' %}
 {% endblock %}
 {% block content %}
-    <style>
-        .form-group {
-        {#margin-left: -21px;#}
-        }
-    </style>
 <section>
     <div class="container">
         <h5 class="mt-5">{% trans 'Employee Creation Form' %}</h5>
@@ -40,9 +35,4 @@
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/my-custom.js' %}"></script>
-<!--    <script>-->
-<!--        $('#id_passport_num').mask('0000000');-->
-<!--        $('#id_PIN').mask('00000000000000')-->
-<!--    </script>-->
-    <script src="https://kit.fontawesome.com/07d7ccd1a6.js" crossorigin="anonymous"></script>
-{% endblock %}
+{% endblock js %}

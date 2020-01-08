@@ -262,3 +262,41 @@ button[type="button"]:focus {
 .col-form-label{
     display:block;
 }
+
+
+.image__item{
+	display: inline-block;
+}
+
+.image{
+	width: 200px;
+	height: 100%;
+}
+
+.employee__info{
+	display: inline-block;
+}
+
+.employee-info{
+	margin: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.qrcode__container{
+	display: inline-block;
+}
+
+.qrcode__container img{
+	width: 200px;
+	height: 100%;		
+}
+
+
+.detail__header{
+	text-align: center;
+}
+
+.detail__header h1{
+	text-transform: uppercase;
+}

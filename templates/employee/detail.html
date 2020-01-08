@@ -2,10 +2,43 @@
 {% load static %}
 {% load i18n %}
 {% load replace_asterisk %}
+
 {% block title %}
     Кызматкер
 {% endblock %}
 {% block content %}
+
+<section>
+    <div class="container">
+        <div class="detail__header">
+            <h1>{% trans 'certificate' %} &#8470;{{ object.agreement }}</h1>
+            <h1>{{ object.get_role }}</h1>
+        </div>
+        <div class="detail__items d-flex">
+            <div class="image__item">
+                <img src="{{ object.photo.url }}" alt="" class="image">
+            </div>
+            <div class="employee__info mr-5 ml-5">
+                <div class="employee-info">
+                    <label for="surname">Surname:</label>
+                    <span id="surname">{{object.last_name}}</span>
+                </div>
+                <div class="employee-info">
+                    <label for="name">Name:</label>
+                    <span id="name">{{object.first_name}}</span>
+                </div>
+                <div class="employee-info">
+                    <label for="patronymic">Patronymic:</label>
+                    <span id="patronymic">{{object.patronymic}}</span>
+                </div>
+            </div>
+
+            <div class="qrcode__container ml-auto">
+                <img src="{{ object.qrcode.url }}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
 
         <p style="color: red;" class="h3 text-uppercase font-weight-bold text-center">{% trans 'certificate' %}
                 &#8470;{{ object.agreement }}</p>

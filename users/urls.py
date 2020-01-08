@@ -4,7 +4,9 @@ from users.views import (LoginView,
                          EmployeeCreateView,
                          AgreementDetailView,
                          EmployeeListView,
-                         EmployeeDetailView)
+                         EmployeeDetailView,
+                         EmployeeUpdateView,
+                         EmployeeDeleteView)
 
 urlpatterns = [
     path('', LoginView.as_view(), name='login'),
@@ -12,5 +14,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('employee/list/', EmployeeListView.as_view(), name='list'),
     path('employee/<int:pk>/', EmployeeDetailView.as_view(), name='detail'),
+    path('employee/update/<int:pk>/', EmployeeUpdateView.as_view(), name='update'),
+    path('employee/delete/<int:pk>/', EmployeeDeleteView.as_view(), name='delete'),
     path('employee/agreement/<int:pk>/', AgreementDetailView.as_view(), name='agreement_detail'),
 ]

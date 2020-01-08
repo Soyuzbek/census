@@ -7,9 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/temp-style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -23,12 +20,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    {% block head %}
-
-    {% endblock %}
-    <title> {% block title %}
-
-    {% endblock %} </title>
+    {% block head %}{% endblock head %}
+    <title> {% block title %}{% endblock title %} </title>
 
 </head>
 <body>
@@ -149,42 +142,12 @@
     {% endif %}
 </div>
 
-<div class="container main-content">
-    {% block content %}
-
-    {% endblock %}
+<div class="container main-content mb-5">
+    {% block content %}{% endblock content%}
 </div>
 
-</body>
-
-<script src="{% static 'js/jquery.min.js' %}"></script>
-  <script>
-        $('#toggle').click(function(){
-            if($('#navbarSupportedContent').hasClass('show')) {
-                document.querySelector("#page-container").style.top = "132px";
-            }
-            else {
-                document.querySelector("#page-container").style.top = "332px";
-            }
-        })
-    </script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-{#<script src="{% static 'js/bootstrap.bundle.js' %}"></script>#}
+{% block js %}{% endblock js%}
 <script src="{% static 'js/custom.js' %}"></script>
-<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-<script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
-<script src="{% static 'js/tableToCards.js' %}"></script>
-<script>
-    $(document).ready(function () {
-    $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
-    $('.date').mask('00.00.0000');
-    });
-</script>
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
-</script>
-{% block js %}
-
-{% endblock %}
+<script src="{% static 'js/main.js' %}"></script>
+</body>
 </html>

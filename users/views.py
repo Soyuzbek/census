@@ -8,17 +8,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden, HttpResponse
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic import DetailView, ListView
 from django.utils.translation import ugettext_lazy as _
 
-from users.forms import EmployeeForm, UserLoginForm, EmployeeCreateForm
+from users.forms import UserLoginForm, EmployeeCreateForm
 from users.models import Employee
 
 # my imports
-from django.views.generic.edit import FormView, CreateView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
 
 class LoginView(View):
@@ -90,3 +90,12 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         employee.district = self.request.user.district
         employee.save()
         return super().form_valid(form)
+
+class EmployeeUpdateView(UpdateView):
+    model = Employee
+    template_name = 'index.html'
+    fields = ['first_name', 'last_name']
+
+class EmployeeDeleteView(DeleteView):
+    model = Employee
+    success_url = reverse_lazy('users:list')
