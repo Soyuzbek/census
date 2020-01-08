@@ -30,6 +30,14 @@ html, body {
         padding: 0;
     }
 
+    .section-detail{
+        display: none;
+    }
+
+    .badge-body{
+        border: 1px solid red;
+    }
+
     /*.A4 * {*/
     /*    visibility: visible;*/
     /*}*/
