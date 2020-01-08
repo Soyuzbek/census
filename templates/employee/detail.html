@@ -67,52 +67,29 @@
 
 <div class="my-badge enable-print">
     <div class="badge-body">
-        <div class="badge__header">
-            <h1 class="badge-header__certificate">{% trans 'certificate' %} &#8470;{{ object.agreement }}</h1>
-            <h2 class="badge-header__role">{{ object.get_role }}</h2>
-        </div>
-
-        <div class="badge__employee-detail mt-3 mb-3">
-            <div class="employee-info__image d-flex">
-                <img src="{{ object.photo.url }}" alt="" class="employee-image mx-auto my-auto">
-            </div>
-
-            <div class="badge__employee-info-items">
-                <div class="badge__employee-info-item">
-                    <span>Surname: </span>
-                    <span>{{ object.last_name|upper }}</span>
-                </div>
-                <div class="badge__employee-info-item">
-                    <span>Name: </span>
-                    <span>{{ object.first_name|upper }}</span>
-                </div>
+        <div class="r">
+            <div class="first-c">
+                <p class="certificate">{% trans 'certificate' %} &#8470;{{ object.agreement }}</p>
+                <p class="role">{{ object.get_role }}</p>
+                <p>{{ object.last_name|upper }}</p>
+                <p>{{ object.first_name|upper }}</p>
                 {% if object.patronymic %}
-                <div class="badge__employee-info-item">
-                    <span>Patronymic: </span>
-                    <span>{{ object.patronymic|upper }}</span>
-                </div>
+                    <p>{{ object.patronymic|upper }}</p>
                 {% endif %}
             </div>
+            <img class="user-image" src="{{ object.photo.url }}" alt="">
         </div>
-
-        <div class="qr-code__container">
-            <div class="qr-code__image d-flex">
-                <img class="qr-code mx-auto my-auto" src="{{ object.qrcode.url }}" alt="">
+        <div class="r">
+            <div class="c">
+                <span class="verification">{% trans 'for verification of document' %}</span><br>
+                <span class="verification">{% trans 'scan the QR code below' %}</span><br>
+                <img class="qr-code" src="{{ object.qrcode.url }}" alt="">
             </div>
-            <div class="verification">
-                <span>{% trans 'for verification of document' %}</span>
-                <span>{% trans 'scan the QR code' %}</span>
-            </div>
-        </div>
-
-        <div class="badge-signs__items p-2">
-            <div class="badge-signs__item">
-                <p class="badge-admin">{{ object.district.gov_admin }}</p>
-                <p class="badge-help">Райондук (шаардык) мам. администрация башчысы, колу</p>
-            </div>
-            <div class="badge-signs__item">
-                <p class="badge-admin">{{ object.district.stat_admin }}</p>
-                <p class="badge-help">Райондук(шаардык) мам. статистика башчысы, колу</p>
+            <div class="c">
+                <p>{{ object.district.gov_admin }}</p>
+                <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы, колу</p>
+                <p>{{ object.district.stat_admin }}</p>
+                <p class="badge-help">Райондук(шаардык) мамстатистика башчысы, колу</p>
             </div>
         </div>
     </div>
