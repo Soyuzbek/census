@@ -13,7 +13,7 @@
             {% csrf_token %}
             <div class="form-row">
                 {% for field in form.visible_fields %}
-                <div class="form-group col-7 mx-auto">
+                <div class="form-group col-md-7 col-sm-12 mx-auto">
                     <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
                     {% if field.errors %}
                     {% render_field field class="form-control is-invalid" %}
@@ -32,7 +32,7 @@
             </div>
             
             <div class="row">
-                <div class="col-6 mx-auto mt-5">
+                <div class="col-md-6 col-sm-12 mx-auto mt-5">
                      <button type="submit" class="btn btn-primary btn-block">{% trans 'Add' %}</button>
                 </div>
             </div>
