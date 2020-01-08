@@ -14,8 +14,6 @@
                 <th scope="col">{% trans 'Last name' %}</th>
                 <th scope="col">{% trans 'Agreement' %}</th>
                 <th scope="col">{% trans 'Role' %}</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Update</th>
             </tr>
             </thead>
             <tbody>
@@ -26,10 +24,6 @@
                     <td>{{ object.last_name }}</td>
                     <td><a href="{% url 'users:agreement_detail' object.pk %}">№ {{ object.agreement }}</a></td>
                     <td>{{ object.get_role }}</td>
-                    <td>
-                        <a href="{% url 'users:delete' object.id %}"><span><i class="fa fa-trash"></i></span></a>
-                    </td>
-                    <td><a href="{% url 'users:update' object.id %}"><span><i class="fa fa-pencil"></i></span></a></td>
                 </tr>
             {% endfor %}
 
