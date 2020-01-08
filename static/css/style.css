@@ -30,6 +30,10 @@ html, body {
         padding: 0;
     }
 
+    .section-detail{
+        display: none;
+    }
+
     /*.A4 * {*/
     /*    visibility: visible;*/
     /*}*/
