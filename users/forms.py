@@ -1,10 +1,9 @@
-from PIL import Image
 from django import forms
-from django.core.exceptions import ValidationError
-from django.core.validators import RegexValidator
-from django.forms import TextInput, PasswordInput, DateInput
+from django import forms
+from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
-from users.models import User, phone, District, Employee
+
+from users.models import phone, Employee
 
 
 class TelInput(TextInput):

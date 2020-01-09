@@ -1,31 +1,26 @@
-import random
-import string
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseForbidden, HttpResponse
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.utils.decorators import method_decorator
+from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import DetailView, ListView
-from django.utils.translation import ugettext_lazy as _
+# my imports
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from users.forms import UserLoginForm, EmployeeCreateForm
 from users.models import Employee
 
-# my imports
-from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-from django.contrib.messages.views import SuccessMessageMixin
 
 class DistrictRequiredMixin(object):
     def get(self, request, *args, **kwargs):
         if request.user.district == None:
             return render(request, 'required.html')
         return super().get(request, *args, **kwargs)
+
 
 class LoginView(View):
     template_name = 'login.html'
@@ -87,23 +82,23 @@ class LanguageView(View):
         return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
-class EmployeeCreateView(DistrictRequiredMixin, SuccessMessageMixin, LoginRequiredMixin, CreateView):
+class EmployeeCreateView(DistrictRequiredMixin, LoginRequiredMixin, CreateView):
     model = Employee
     template_name = 'index.html'
     form_class = EmployeeCreateForm
-    success_url = '/'
-    success_message = "Employee was created successfully"
 
     def form_valid(self, form):
         employee = form.save(commit=False)
         employee.district = self.request.user.district
         employee.save()
-        return super().form_valid(form)
+        return redirect(employee.get_absolute_url())
+
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
     template_name = 'index.html'
     fields = ['first_name', 'last_name']
+
 
 class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
     model = Employee
