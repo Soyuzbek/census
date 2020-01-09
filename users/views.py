@@ -19,7 +19,13 @@ from users.models import Employee
 
 # my imports
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+from django.contrib.messages.views import SuccessMessageMixin
 
+class DistrictRequiredMixin(object):
+    def get(self, request, *args, **kwargs):
+        if request.user.district == None:
+            return render(request, 'required.html')
+        return super().get(request, *args, **kwargs)
 
 class LoginView(View):
     template_name = 'login.html'
@@ -30,6 +36,7 @@ class LoginView(View):
             return redirect('users:home')
         form = self.form_class()
         redirect_url = request.GET.get('next', reverse('users:home'))
+
         return render(request, self.template_name, locals())
 
     def post(self, request):
@@ -80,11 +87,12 @@ class LanguageView(View):
         return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
-class EmployeeCreateView(LoginRequiredMixin, CreateView):
+class EmployeeCreateView(DistrictRequiredMixin, SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Employee
     template_name = 'index.html'
     form_class = EmployeeCreateForm
     success_url = '/'
+    success_message = "Employee was created successfully"
 
     def form_valid(self, form):
         employee = form.save(commit=False)
@@ -92,11 +100,11 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         employee.save()
         return super().form_valid(form)
 
-class EmployeeUpdateView(UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
     template_name = 'index.html'
     fields = ['first_name', 'last_name']
 
-class EmployeeDeleteView(DeleteView):
+class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
     model = Employee
     success_url = reverse_lazy('users:list')
