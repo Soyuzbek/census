@@ -19,14 +19,10 @@ class UserLoginForm(forms.Form):
     number = forms.CharField(
         validators=[phone],
         widget=TelInput(),
-        required=True,
-        help_text=_('This field required'),
         label=_('number'))
 
     password = forms.CharField(
         widget=PasswordInput(),
-        required=True,
-        help_text=_('Password required'),
         label=_('password'))
 
     next = forms.CharField(

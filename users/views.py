@@ -28,7 +28,8 @@ class LoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect('users:home')
-        form = self.form_class({'next': request.GET.get('next', reverse('users:home'))})
+        form = self.form_class()
+        redirect_url = request.GET.get('next', reverse('users:home'))
         return render(request, self.template_name, locals())
 
     def post(self, request):

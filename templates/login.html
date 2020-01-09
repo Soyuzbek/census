@@ -14,24 +14,34 @@
                 <img src="{% static 'img/avatar_2x.png' %}" alt="profile image" id="profile-img">
             </div>
             <form action="{% url 'users:login' %}" method="POST" class="form__login">
-                {% csrf_token %}
-                {% for field in form %}
-                    {% ifnotequal field.name 'next' %}
-                    <div class="form-group">
-                        {% render_field field class="form-control" placeholder=field.label %}
-                        <div class="invalid-feedback">
-                            {% for error in field.errors %}
-                            <small>
-                                {{ error|striptags }}
-                            </small><br>
-                            {% endfor %}
-                        </div>
-                    </div>
+            {% csrf_token %}
+            {% for field in form %}
+                {% ifnotequal field.name 'next' %}
+                <div class="form-group">
+                    {% ifequal field.name 'number' %}
+                        {% if field.errors %}
+                            {% render_field field class="form-control is-invalid" placeholder='550XXXXXX' %}
+                        {% else %}
+                            {% render_field field class="form-control" placeholder='550XXXXXX' %}
+                        {% endif %}
                     {% else %}
-                    {{field}}
-                    {% endifnotequal %}
-                {% endfor %}
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{% trans 'login' %}</button>
+                        {% if field.errors %}
+                            {% render_field field class="form-control is-invalid" placeholder=field.label %}
+                        {% else %}
+                            {% render_field field class="form-control" placeholder=field.label %}
+                        {% endif %}
+                    {% endifequal %}
+                    <div class="invalid-feedback">
+                    {% for error in field.errors %}
+                        <small>{{ error|striptags }}</small><br>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                    {% render_field field value=redirect_url %}
+                {% endifnotequal %}
+            {% endfor %}
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{% trans 'login' %}</button>
             </form>
         </div>
     </div>
