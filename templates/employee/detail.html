@@ -56,8 +56,8 @@
     {% if request.user.is_authenticated %}
     <div class="buttons-group mt-5">
         <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link btn btn-info" href="#">Update</a>
-            <a class="nav-item nav-link btn btn-info" href="#">Delete</a>
+            <a class="nav-item nav-link btn btn-info" href="{% url 'users:update' object.id %}">Update</a>
+            <a class="nav-item nav-link btn btn-info" href="{% url 'users:delete' object.id %}">Delete</a>
             <button class="nav-item nav-link btn btn-info" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Print</button>
         </nav>
     </div>

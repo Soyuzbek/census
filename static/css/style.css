@@ -8,23 +8,8 @@ html, body {
     display: none;
 }
 
-
-/*pre {*/
-/*    margin-top: -23px;*/
-/*    font-family: inherit;*/
-/*    border: none;*/
-/*}*/
-
 @media print {
-    /*.page-break {*/
-    /*    height: 0;*/
-    /*    page-break-before: always;*/
-    /*    margin: 0;*/
-    /*    border-top: none;*/
-    /*}*/
-    /** {*/
-    /*    float: none;*/
-    /*}*/
+
     body {
         margin: 0;
         padding: 0;
@@ -34,16 +19,6 @@ html, body {
         display: none;
     }
 
-    /*.A4 * {*/
-    /*    visibility: visible;*/
-    /*}*/
-    /*.A4 {*/
-    /*    box-shadow: none;*/
-    /*    margin: 0;*/
-    /*    width: 21cm;*/
-    /*    height: auto;*/
-    /*    padding: 0 20mm 15mm 15mm;*/
-    /*}*/
     @page {
         size: A4 portrait;
         margin: 0;
@@ -70,26 +45,6 @@ html, body {
         width: 9cm !important;
     }
 
-    /*body {*/
-    /*    zoom: 150%;*/
-    /*}*/
-    /*.document {*/
-    /*    display: block;*/
-    /*}*/
-    /*.document u {*/
-    /*    text-decoration: unset;*/
-    /*    border-bottom: 0.015629px solid black;*/
-    /*}*/
-    /*.A4 pre {*/
-    /*    margin-top: -1.2em;*/
-    /*    font-family: inherit;*/
-    /*    border: none;*/
-    /*}*/
-    /*.document .second-page {*/
-    /*    margin-top: 30px;*/
-    /*    break-after: page;*/
-    /*}*/
-    /* Styles for user creation form printing */
     .user-creation {
         position: absolute;
         left: 3em;

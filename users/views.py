@@ -91,13 +91,13 @@ class EmployeeCreateView(DistrictRequiredMixin, LoginRequiredMixin, CreateView):
         employee = form.save(commit=False)
         employee.district = self.request.user.district
         employee.save()
-        return redirect(employee.get_absolute_url())
+        return redirect(reverse('users:agreement_detail', args=[employee.pk]))
 
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
+    form_class = EmployeeCreateForm
     template_name = 'index.html'
-    fields = ['first_name', 'last_name']
 
 
 class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
