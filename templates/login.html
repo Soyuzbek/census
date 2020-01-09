@@ -1,32 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load widget_tweaks %}
 {% block title %}
     {% trans 'Home' %}
 {% endblock %}
 {% block content %}
-    <div class="row justify-content-sm-center">
-        <form action="{% url 'users:login' %}" method="post" class="col-md-12 col-lg-6 col-xl-4">
-            {% csrf_token %}
-            {% for field in form %}
-                {% ifnotequal field.name 'next' %}
-                    <div class="form-group">
-                        <label class="" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        {{ field }}
-                        {% for error in field.errors %}
-                            <small class="invalid-feedback text-danger">{{ error|striptags }}</small>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ field }}
-                {% endifnotequal %}
-            {% endfor %}
-            <div class="submit-row">
-                <div class="w-100" style="height: 5px"></div>
-                <input type="submit" value="{% trans 'login' %}" class="btn btn-primary col-12">
+
+<section class="section__login">
+    <div class="container">
+        <div class="card card-container">
+            <div class="profile-img-card">
+                <img src="{% static 'img/avatar_2x.png' %}" alt="profile image" id="profile-img">
             </div>
-        </form>
+            <form action="{% url 'users:login' %}" method="POST" class="form__login">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% ifnotequal field.name 'next' %}
+                    <div class="form-group">
+                        {% render_field field class="form-control" placeholder=field.label %}
+                        <div class="invalid-feedback">
+                            {% for error in field.errors %}
+                            <small>
+                                {{ error|striptags }}
+                            </small><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% else %}
+                    {{field}}
+                    {% endifnotequal %}
+                {% endfor %}
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{% trans 'login' %}</button>
+            </form>
+        </div>
     </div>
+</section>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
