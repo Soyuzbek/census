@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-12 11:58+0600\n"
+"POT-Creation-Date: 2020-01-10 00:33+0600\n"
 "PO-Revision-Date: 2019-11-27 12:28+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,18 +16,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: .\census\settings.py:144
+#: .\census\settings.py:170
 msgid "English"
 msgstr "Английский"
 
-#: .\census\settings.py:145 .\census\settings.py:150
+#: .\census\settings.py:171 .\census\settings.py:176
 msgid "Kirghiz"
 msgstr "Кыргызский"
 
-#: .\census\settings.py:146 .\census\settings.py:151
+#: .\census\settings.py:172 .\census\settings.py:177
 msgid "Russian"
 msgstr "Русский"
 
@@ -84,8 +86,8 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:246
 msgid ""
-"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or"
-" hyphens."
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:255
@@ -286,15 +288,15 @@ msgstr ""
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1292
 #, python-format
 msgid ""
-"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ] format."
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1296
 #, python-format
 msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1300
@@ -313,8 +315,8 @@ msgstr ""
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1589
 #, python-format
 msgid ""
-"'%(value)s' value has an invalid format. It must be in [DD] "
-"[HH:[MM:]]ss[.uuuuuu] format."
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1592
@@ -448,8 +450,7 @@ msgid "Many-to-many relationship"
 msgstr ""
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the
-#. label
+#. characters will prevent the default label_suffix to be appended to the label
 #: .\env\Lib\site-packages\django\forms\boundfield.py:146
 msgid ":?.!"
 msgstr ""
@@ -499,8 +500,7 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\fields.py:536
 #, python-format
-msgid ""
-"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -600,8 +600,7 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\models.py:1158
-msgid ""
-"Select a valid choice. That choice is not one of the available choices."
+msgid "Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\models.py:1272
@@ -1064,11 +1063,11 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:124
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
-" including the 'Referrer-Policy: no-referrer' header, please remove them. "
-"The CSRF protection requires the 'Referer' header to do strict referer "
-"checking. If you're concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" ...> for links to third-party sites."
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" ...> for links to third-party sites."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:132
@@ -1119,8 +1118,8 @@ msgstr ""
 #: .\env\Lib\site-packages\django\views\generic\dates.py:589
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because "
-"%(class_name)s.allow_future is False."
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\generic\dates.py:623
@@ -1179,10 +1178,10 @@ msgstr ""
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:368
 #, python-format
 msgid ""
-"You are seeing this page because <a "
-"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-"and you have not configured any URLs."
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:383
@@ -1378,72 +1377,47 @@ msgstr "Выйти"
 msgid "Project"
 msgstr "Сайт"
 
-#: .\templates\agreements\enumerator.html:5 .\templates\employee\list.html:15
+#: .\templates\agreements\enumerator.html:12 .\templates\employee\list.html:15
 msgid "Agreement"
 msgstr "Договор"
 
-#: .\templates\agreements\enumerator.html:125
+#: .\templates\agreements\enumerator.html:75
 msgid "Print the document"
 msgstr "Иш кагазды басуу"
 
-#: .\templates\base.html:26
-msgid "Kyrgyz Republic Population and housing"
+#: .\templates\base.html:33
+#, fuzzy
+#| msgid "Kyrgyz Republic Population and housing"
+msgid "Kyrgyz Republic Population and housing census 2020"
 msgstr "Кыргыз Республикасынын 2020-жылдагы"
 
-#: .\templates\base.html:27
-msgid "census 2020"
-msgstr "эл жана турак жай фондун каттоосу"
-
-#: .\templates\base.html:35 .\templates\index.html:5 .\templates\login.html:5
+#: .\templates\base.html:43 .\templates\base.html:125 .\templates\index.html:6
+#: .\templates\login.html:6
 msgid "Home"
 msgstr "Башкы"
 
-#: .\templates\base.html:45 .\templates\employee\list.html:5
-#: .\users\models.py:89
+#: .\templates\base.html:46 .\templates\base.html:127
+#: .\templates\employee\list.html:5 .\users\models.py:145
 msgid "Employees"
 msgstr "Кызматкерлер"
 
-#: .\templates\base.html:74
+#: .\templates\base.html:63
 msgid "Logout"
 msgstr "Выйти"
 
-#: .\templates\base.html:77
+#: .\templates\base.html:66
 msgid "Login"
 msgstr "Вход"
 
-#: .\templates\employee\detail.html:10 .\templates\employee\detail.html:47
+#: .\templates\employee\detail.html:14 .\templates\employee\detail.html:72
 msgid "certificate"
 msgstr "Күбөлүк"
 
-#: .\templates\employee\detail.html:21
-msgid "photo does not exist"
-msgstr "Сүрөт жок"
-
-#: .\templates\employee\detail.html:26
-msgid "QR code does not exist"
-msgstr "QR жок"
-
-#: .\templates\employee\detail.html:29
-msgid "government administrator"
-msgstr ""
-
-#: .\templates\employee\detail.html:30
-msgid "statistic committee administrator"
-msgstr ""
-
-#: .\templates\employee\detail.html:34
-msgid "Print the badge"
-msgstr "Бэжик басуу"
-
-#: .\templates\employee\detail.html:35
-msgid "Print badge"
-msgstr "Бэжик басуу"
-
-#: .\templates\employee\detail.html:59
+#: .\templates\employee\detail.html:84
 msgid "for verification of document"
 msgstr "Күбөлүктү тастыктоо үчүн"
 
-#: .\templates\employee\detail.html:60
+#: .\templates\employee\detail.html:85
 msgid "scan the QR code below"
 msgstr "төмөндө QRди скандаңыз"
 
@@ -1463,19 +1437,15 @@ msgstr "Фамилия"
 msgid "Role"
 msgstr "Роль"
 
-#: .\templates\index.html:12
+#: .\templates\index.html:11
 msgid "Employee Creation Form"
 msgstr "Кызматкер кошуу"
 
-#: .\templates\index.html:32
+#: .\templates\index.html:36
 msgid "Add"
 msgstr "Добавить"
 
-#: .\templates\index.html:35
-msgid "Print the Form"
-msgstr "Формду басуу"
-
-#: .\templates\login.html:26
+#: .\templates\login.html:44 .\users\models.py:140
 msgid "login"
 msgstr "Вход"
 
@@ -1497,171 +1467,258 @@ msgstr "Регенерация QR кода"
 msgid "users"
 msgstr "кызматкерлер"
 
-#: .\users\forms.py:33 .\users\views.py:64
-msgid "You can not add the user who belongs to other district"
-msgstr ""
-
-#: .\users\forms.py:48
-msgid "This field required"
-msgstr "Бул талаа керектүү"
-
-#: .\users\forms.py:48 .\users\models.py:69 .\users\models.py:127
+#: .\users\forms.py:21 .\users\models.py:45 .\users\models.py:119
 msgid "number"
 msgstr "номер"
 
-#: .\users\forms.py:50
-msgid "Password required"
-msgstr "Пароль обязателен"
-
-#: .\users\forms.py:50
+#: .\users\forms.py:25 .\users\models.py:141
 msgid "password"
 msgstr "Сырсөз"
 
-#: .\users\models.py:18
-msgid "must be in +996 (123) 45 67 89 format!"
+#: .\users\models.py:19
+#, fuzzy
+#| msgid "must be in +996 (123) 45 67 89 format!"
+msgid "must be in 123456789 format!"
 msgstr "+(996)(123)456789 форматта болуу керек"
 
-#: .\users\models.py:46
-msgid "Bishkek"
-msgstr "Бишкек"
-
-#: .\users\models.py:47
-msgid "Chue"
-msgstr "Чүй"
-
-#: .\users\models.py:48
-msgid "Osh"
-msgstr "Ош"
-
-#: .\users\models.py:49
-msgid "Batken"
-msgstr "Баткен"
-
-#: .\users\models.py:50
-msgid "Jalalabad"
-msgstr "Жалалабад"
-
-#: .\users\models.py:51
-msgid "Talas"
-msgstr "Талас"
-
-#: .\users\models.py:52
-msgid "Narin"
-msgstr "Нарын"
-
-#: .\users\models.py:53
-msgid "Issikkol"
-msgstr "Ысыккөл"
-
-#: .\users\models.py:55
-msgid "name"
-msgstr "имя"
-
-#: .\users\models.py:56
-msgid "region"
-msgstr "район"
-
-#: .\users\models.py:57
-msgid "gov admin (NSP)"
-msgstr "рай админ(Аты Атасы Теги)"
-
-#: .\users\models.py:58
-msgid "stat admin (NSP)"
-msgstr "рай стат(Аты Атасы Теги)"
-
-#: .\users\models.py:61
-msgid "District"
+#: .\users\models.py:47 .\users\models.py:81
+msgid "Region"
 msgstr "Район"
 
-#: .\users\models.py:62
-msgid "Districts"
-msgstr "Райондор"
-
-#: .\users\models.py:70
-msgid "first name"
-msgstr "имя"
-
-#: .\users\models.py:71
-msgid "last name"
-msgstr "фамилия"
-
-#: .\users\models.py:72
-msgid "patronymic"
-msgstr "отчество"
-
-#: .\users\models.py:73
-msgid "address"
-msgstr "адрес"
-
-#: .\users\models.py:74
-msgid "agreement"
-msgstr "договор"
-
-#: .\users\models.py:75 .\users\models.py:129
+#: .\users\models.py:48 .\users\models.py:136
 msgid "district"
 msgstr "район"
 
-#: .\users\models.py:76
-msgid "image"
-msgstr "картинка"
-
-#: .\users\models.py:78
-msgid "Controller"
-msgstr "Инструктор"
-
-#: .\users\models.py:79
-msgid "Coordinator"
-msgstr "Координатор"
-
-#: .\users\models.py:80
-msgid "Enumerator"
-msgstr "Каттоочу"
-
-#: .\users\models.py:83
-msgid "role"
-msgstr "Роль"
-
-#: .\users\models.py:84
-msgid "QR code"
-msgstr "QR код"
-
-#: .\users\models.py:85
-msgid "date joined"
-msgstr "дата регистрации"
-
-#: .\users\models.py:88
-msgid "Employee"
-msgstr "Кызматкер"
-
-#: .\users\models.py:130
+#: .\users\models.py:49
 msgid "is staff"
 msgstr "Кызматкер статусу"
 
-#: .\users\models.py:131
+#: .\users\models.py:50
 msgid "super user"
 msgstr "супер пользователь"
 
-#: .\users\models.py:139
+#: .\users\models.py:58
 msgid "User"
 msgstr "Колдонуучу"
 
-#: .\users\models.py:140
+#: .\users\models.py:59
 msgid "Users"
 msgstr "Колдонуучулар"
 
-#: .\users\views.py:38
+#: .\users\models.py:67
+msgid "Bishkek"
+msgstr "Бишкек"
+
+#: .\users\models.py:68
+msgid "Chue"
+msgstr "Чүй"
+
+#: .\users\models.py:69
+msgid "Osh"
+msgstr "Ош"
+
+#: .\users\models.py:70
+msgid "Batken"
+msgstr "Баткен"
+
+#: .\users\models.py:71
+msgid "Jalalabad"
+msgstr "Жалалабад"
+
+#: .\users\models.py:72
+msgid "Talas"
+msgstr "Талас"
+
+#: .\users\models.py:73
+msgid "Narin"
+msgstr "Нарын"
+
+#: .\users\models.py:74
+msgid "Issikkol"
+msgstr "Ысыккөл"
+
+#: .\users\models.py:76 .\users\models.py:89
+msgid "name"
+msgstr "имя"
+
+#: .\users\models.py:77
+#, fuzzy
+#| msgid "QR code"
+msgid "code"
+msgstr "QR код"
+
+#: .\users\models.py:78 .\users\models.py:128
+msgid "address"
+msgstr "адрес"
+
+#: .\users\models.py:82
+msgid "Regions"
+msgstr "Районы"
+
+#: .\users\models.py:90
+msgid "region"
+msgstr "район"
+
+#: .\users\models.py:91
+msgid "code SOATE"
+msgstr ""
+
+#: .\users\models.py:92
+msgid "gov admin (NSP)"
+msgstr "рай админ(Аты Атасы Теги)"
+
+#: .\users\models.py:93
+msgid "stat admin (NSP)"
+msgstr "рай стат(Аты Атасы Теги)"
+
+#: .\users\models.py:94
+#, fuzzy
+#| msgid "agreement"
+msgid "counter of agreements"
+msgstr "договор"
+
+#: .\users\models.py:97
+msgid "District"
+msgstr "Район"
+
+#: .\users\models.py:98
+msgid "Districts"
+msgstr "Райондор"
+
+#: .\users\models.py:106
+msgid "male"
+msgstr ""
+
+#: .\users\models.py:107
+msgid "female"
+msgstr ""
+
+#: .\users\models.py:110
+msgid "Controller"
+msgstr "Инструктор"
+
+#: .\users\models.py:111
+msgid "Coordinator"
+msgstr "Координатор"
+
+#: .\users\models.py:112
+msgid "Enumerator"
+msgstr "Каттоочу"
+
+#: .\users\models.py:120
+msgid "last name"
+msgstr "фамилия"
+
+#: .\users\models.py:121
+msgid "first name"
+msgstr "имя"
+
+#: .\users\models.py:122
+msgid "patronymic"
+msgstr "отчество"
+
+#: .\users\models.py:123
+msgid "gender"
+msgstr ""
+
+#: .\users\models.py:124
+msgid "birth day"
+msgstr ""
+
+#: .\users\models.py:125
+msgid "serial"
+msgstr ""
+
+#: .\users\models.py:127
+msgid "number of passport"
+msgstr ""
+
+#: .\users\models.py:129
+msgid "Authority"
+msgstr ""
+
+#: .\users\models.py:130
+msgid "PIN"
+msgstr ""
+
+#: .\users\models.py:131
+msgid "photo"
+msgstr ""
+
+#: .\users\models.py:132
+msgid "role"
+msgstr "Роль"
+
+#: .\users\models.py:133
+msgid "Census department"
+msgstr ""
+
+#: .\users\models.py:134
+#, fuzzy
+#| msgid "Coordinator"
+msgid "Coordinator sector"
+msgstr "Координатор"
+
+#: .\users\models.py:135
+#, fuzzy
+#| msgid "Enumerator"
+msgid "Enumerator plot"
+msgstr "Каттоочу"
+
+#: .\users\models.py:137
+msgid "agreement"
+msgstr "договор"
+
+#: .\users\models.py:138
+msgid "QR code"
+msgstr "QR код"
+
+#: .\users\models.py:139
+msgid "date joined"
+msgstr "дата регистрации"
+
+#: .\users\models.py:144
+msgid "Employee"
+msgstr "Кызматкер"
+
+#: .\users\views.py:45
 msgid ""
 "Number or password is incorrect. Note that both fields might be case-"
 "sensitive"
 msgstr "Номер же сырсөз туура эмес. Экөө тең СезГич болушу мүмкүн"
 
-#: .\users\views.py:61
-msgid "The employee added successfully."
-msgstr "Кызматкер ийгиликтүү кошулду"
+#~ msgid "census 2020"
+#~ msgstr "эл жана турак жай фондун каттоосу"
 
-#: .\users\views.py:66
-msgid "Please check the fields below form!"
-msgstr "Төмөнкү талааларды текшер"
+#~ msgid "photo does not exist"
+#~ msgstr "Сүрөт жок"
+
+#~ msgid "QR code does not exist"
+#~ msgstr "QR жок"
+
+#~ msgid "Print the badge"
+#~ msgstr "Бэжик басуу"
+
+#~ msgid "Print badge"
+#~ msgstr "Бэжик басуу"
+
+#~ msgid "Print the Form"
+#~ msgstr "Формду басуу"
+
+#~ msgid "This field required"
+#~ msgstr "Бул талаа керектүү"
+
+#~ msgid "Password required"
+#~ msgstr "Пароль обязателен"
+
+#~ msgid "image"
+#~ msgstr "картинка"
+
+#~ msgid "The employee added successfully."
+#~ msgstr "Кызматкер ийгиликтүү кошулду"
+
+#~ msgid "Please check the fields below form!"
+#~ msgstr "Төмөнкү талааларды текшер"
 
 #~ msgid "Statistics"
 #~ msgstr "Статистика"
@@ -1725,12 +1782,6 @@ msgstr "Төмөнкү талааларды текшер"
 
 #~ msgid "province"
 #~ msgstr "область"
-
-#~ msgid "Region"
-#~ msgstr "Район"
-
-#~ msgid "Regions"
-#~ msgstr "Районы"
 
 #~ msgid "Town"
 #~ msgstr "Город"

@@ -87,7 +87,7 @@ class Region(models.Model):
 
 class District(models.Model):
     name = models.CharField(_('name'), max_length=55)
-    region = models.ForeignKey(Region, models.CASCADE, max_length=9)
+    region = models.ForeignKey(Region, models.CASCADE, max_length=9, verbose_name=_('region'))
     code = models.CharField(_('code SOATE'), max_length=45)
     gov_admin = models.CharField(_('gov admin (NSP)'), max_length=255)
     stat_admin = models.CharField(_('stat admin (NSP)'), max_length=255)
