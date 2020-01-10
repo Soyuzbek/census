@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-10 00:33+0600\n"
-"PO-Revision-Date: 2020-01-10 00:41+0458\n"
+"PO-Revision-Date: 2020-01-10 17:31+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1525,7 +1525,7 @@ msgstr "+996 (123) 45 67 89 форматта болуу керек"
 
 #: .\users\models.py:47 .\users\models.py:81
 msgid "Region"
-msgstr "Аймак"
+msgstr "Облус"
 
 #: .\users\models.py:48 .\users\models.py:136
 msgid "district"
@@ -1595,11 +1595,11 @@ msgstr "дарек"
 
 #: .\users\models.py:82
 msgid "Regions"
-msgstr "Аймактар"
+msgstr "Облустар"
 
 #: .\users\models.py:90
 msgid "region"
-msgstr "аймак"
+msgstr "облус"
 
 #: .\users\models.py:91
 msgid "code SOATE"

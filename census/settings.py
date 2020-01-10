@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'users.apps.UsersConfig',
+    'survey.apps.SurveyConfig',
 
     'widget_tweaks',
 ]
@@ -104,6 +105,17 @@ DATABASES = {
         'USER': 'soyuz',
         'PASSWORD': 'census',
         'HOST': 'localhost',
+        'PORT': ''
+    },
+    'survey': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'SurveySolutions',
+        'OPTIONS': {
+        'options': '-c search_path=django,users'
+        },
+        'USER': 'proger',
+        'PASSWORD': 'proger',
+        'HOST': '212.42.101.105',
         'PORT': ''
     }
 }
