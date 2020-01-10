@@ -97,27 +97,27 @@ WSGI_APPLICATION = 'census.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'census',
-        'USER': 'soyuz',
-        'PASSWORD': 'census',
-        'HOST': 'localhost',
-        'PORT': ''
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'census_db',
-#         'USER': 'census',
-#         'PASSWORD': 'census2020',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'censusdb',
+#         'USER': 'soyuz',
+#         'PASSWORD': 'census',
 #         'HOST': 'localhost',
 #         'PORT': ''
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'census_db',
+        'USER': 'census',
+        'PASSWORD': 'census2020',
+        'HOST': 'localhost',
+        'PORT': ''
+    }
+}
 
 # DATABASES = {
 #     'default': {

@@ -102,7 +102,7 @@
 
         <div id="pf3" class="pf w0 h0" data-page-no="3">
             <div class="pc pc3 w0 h0">
-                <div class="t m0 x2 h2 y4 ff4 fs0 fc0 sc0 ls0 ws0">{{ object.first_name}} {{ object.last_name }} {{ object.patronymic|default:"" }}</div>
+                <div class="t m0 x2 h2 y4 ff4 fs0 fc0 sc0 ls0 ws0">{{ object.first_name|capfirst}} {{ object.last_name|capfirst }} {{ object.patronymic|capfirst|default:"" }}</div>
                 <div class="t m0 x2 h1 y5 ff4 fs0 fc0 sc0 ls0 ws0">ЛОГИН:                                <span class="ff3"> </span>{{ object.login }}</div>
                 <div class="t m0 x2 h2 y6 ff3 fs0 fc0 sc0 ls0 ws0"><span class="ff4"><span>СЫРСӨЗ:                                 {{ object.password }} </span> </div>
                 <div class="t m0 x2 h2 y7 ff3 fs0 fc0 sc0 ls0 ws0"><span class="ff4">НОМЕР:                                   {{ object.number }} </div>
