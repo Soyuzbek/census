@@ -2,14 +2,18 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import DetailView, ListView
+from pyexcel_xls import get_data as xls_get
+from pyexcel_xlsx import get_data as xlsx_get
 # my imports
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from rest_framework.views import APIView
 
 from users.forms import UserLoginForm, EmployeeCreateForm
 from users.models import Employee
@@ -103,3 +107,29 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
 class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
     model = Employee
     success_url = reverse_lazy('users:list')
+
+
+class ParseExcel(APIView):
+
+    def get(self, request):
+        return render(request, 'users/upload-excel.html')
+
+    def post(self, request, format=None):
+        try:
+            excel_file = request.FILES['file']
+
+        except MultiValueDictKeyError:
+            return HttpResponse("Oops! Something is wrong.")
+
+        if str(excel_file).split('.')[-1] == "xls":
+            data = xls_get(excel_file, column_limit=4)
+            print('xls')
+        elif str(excel_file).split('.')[-1] == "xlsx":
+            data = xlsx_get(excel_file, column_limit=4)
+            print('xlsx')
+        else:
+            return HttpResponse("Oops! Something is wrong in checking excel type")
+
+        for item in data['SOAT']:
+            print(item)
+        return HttpResponse(data['SOAT'])
