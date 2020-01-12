@@ -428,4 +428,8 @@ button[type="button"]:focus {
     width: 120px;
     min-width: 120px;
   }
+
+  table tr{
+  	border: 1px solid;
+  }
 }

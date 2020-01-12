@@ -21,16 +21,16 @@
             <div class="employee__info mr-5 ml-5">
                 <div class="employee-info">
                     <span>Surname:</span>
-                    <span>{{object.last_name}}</span>
+                    <span>{{object.last_name|cover:"*"}}</span>
                 </div>
                 <div class="employee-info">
                     <span>Name:</span>
-                    <span>{{object.first_name}}</span>
+                    <span>{{object.first_name|cover:"*"}}</span>
                 </div>
                  {% if object.patronymic %}
                 <div class="employee-info">
                     <span>Patronymic:</span>
-                    <span>{{object.patronymic}}</span>
+                    <span>{{object.patronymic|cover:"*"}}</span>
                 </div>
                 {% endif %}
                  <div class="employee-info">
