@@ -487,7 +487,6 @@ button[type="button"]:focus {
 	}
 
 	.pf{
-		width: 100% !important;
 		zoom: 50%;
 	}
 }
