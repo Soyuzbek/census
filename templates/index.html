@@ -15,8 +15,9 @@
                 {% for field in form.visible_fields %}
                 <div class="form-group col-md-7 col-sm-12 mx-auto">
                     <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {{ field.help }}
                     {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
                     <div class="invalid-feedback">
                         {% for error in field.errors %}
                         <small>
@@ -24,8 +25,6 @@
                         </small><br>
                         {% endfor %}
                     </div>
-                    {% else %}
-                    {% render_field field class="form-control" %}
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -43,4 +42,11 @@
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/my-custom.js' %}"></script>
+    <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
+    <script>
+    $(document).ready(function () {
+        $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
+        $('.date').mask('00.00.0000');
+    });
+</script>
 {% endblock js %}
