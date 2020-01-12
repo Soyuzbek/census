@@ -485,4 +485,9 @@ button[type="button"]:focus {
 		border: none;
 		outline: none;
 	}
+
+	.pf{
+		width: 100%;
+		zoom: 50%;
+	}
 }
