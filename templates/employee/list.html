@@ -31,3 +31,8 @@
         </table>
     </div>
 {% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/my-custom.js' %}"></script>
+    <script>setMobileTable('table');</script>
+{% endblock js %}
