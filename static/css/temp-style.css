@@ -510,3 +510,12 @@ button[type="button"]:focus {
 		zoom: 1;
 	}
 }
+
+
+.button__items{
+	position: fixed;
+	bottom: 5px;
+	left: 10px;
+	right: 10px;
+
+}
