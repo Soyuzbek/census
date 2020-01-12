@@ -485,8 +485,28 @@ button[type="button"]:focus {
 		border: none;
 		outline: none;
 	}
+}
 
+@media screen and (min-width: 320px){
 	.pf{
-		zoom: 50%;
+		zoom: 0.5;
+	}
+}
+
+@media screen and (min-width: 375px){
+	.pf{
+		zoom: 0.6;
+	}
+}
+
+@media screen and (min-width: 425px){
+	.pf{
+		zoom: 0.7;
+	}
+}
+
+@media screen and (min-width: 768px){
+	.pf{
+		zoom: 1;
 	}
 }
