@@ -11,7 +11,7 @@
         <h5 class="mt-5 text-center">{% trans 'Employee Creation Form' %}</h5>
         <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-row">
+            <div class="row">
                 {% for field in form.visible_fields %}
                 <div class="form-group col-md-7 col-sm-12 mx-auto">
                     <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>

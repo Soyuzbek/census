@@ -31,6 +31,13 @@
 .header-button{
 	position: relative;
 	display: inline-block;
+	height: 50px;
+	font-size: 16px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-right: 10px;
 }
 
 .header-toggle{
@@ -471,5 +478,11 @@ button[type="button"]:focus {
 	.qrcode__container{
 		margin: 0 !important;
 		text-align: center;
+	}
+
+	.language-picker select{
+		background: #ffffff;
+		border: none;
+		outline: none;
 	}
 }

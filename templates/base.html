@@ -86,23 +86,15 @@
         <div class="header-mobile__item header-right-menu">
             <div class="header-right-menu__item header-button">
                 <div class="language-picker">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button"
-                        id="language-picker__items" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-flag"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="language-picker__items">
-                            <a class="dropdown-item" href="#">Кыргызча</a>
-                            <a class="dropdown-item" href="#">English</a>
-                            <a class="dropdown-item" href="#">Русский</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="header-right-menu__item header-button">
-                <div class="header-button__icon">
-                    <i class="fa fa-user"></i>
+                    <select>
+                        <option>{{ curr }}</option>
+                        {% get_available_languages as langs %}
+                        {% for lang, val in langs %}
+                        {% ifnotequal lang curr %}
+                        <option>{{ lang }}</option>
+                        {% endifnotequal %}
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
         </div>
@@ -125,6 +117,10 @@
                 <i class="fa fa-home"></i> {% trans 'Home' %}</a>
             <a href="{% url 'users:list' %}" class="mobile-menu__link">
                 <i class="fa fa-users"></i> {% trans 'Employees' %}</a>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'users:logout' %}" class="mobile-menu__link">
+                <i class="fa fa-sign-out"></i> {% trans 'Logout' %}</a>
+            {% endif %}
         </div>
     </div>
 </div>
