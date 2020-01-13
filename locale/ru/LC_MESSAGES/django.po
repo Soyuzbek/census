@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-10 00:33+0600\n"
-"PO-Revision-Date: 2020-01-13 10:20+0458\n"
+"PO-Revision-Date: 2020-01-13 10:48+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1387,7 +1387,6 @@ msgid "Print the document"
 msgstr "Распечатать документ"
 
 #: .\templates\base.html:33
-#, fuzzy
 #| msgid "Kyrgyz Republic Population and housing"
 msgid "Kyrgyz Republic Population and housing census 2020"
 msgstr "Республика Кыргызстан Перепись населения и жилищного фонда 2020"
@@ -1536,7 +1535,7 @@ msgstr "Нарын"
 
 #: .\users\models.py:74
 msgid "Issikkol"
-msgstr "Ысыккөл"
+msgstr "Иссык-Куль"
 
 #: .\users\models.py:76 .\users\models.py:89
 msgid "name"
@@ -1652,23 +1651,21 @@ msgstr "Роль"
 
 #: .\users\models.py:133
 msgid "Census department"
-msgstr ""
+msgstr "Отдел переписи населения"
 
 #: .\users\models.py:134
-#, fuzzy
 #| msgid "Coordinator"
 msgid "Coordinator sector"
-msgstr "Координатор"
+msgstr "Инструкторский участок"
 
 #: .\users\models.py:135
-#, fuzzy
 #| msgid "Enumerator"
 msgid "Enumerator plot"
-msgstr "Каттоочу"
+msgstr "Счетный участок"
 
 #: .\users\models.py:137
 msgid "agreement"
-msgstr "договор"
+msgstr "соглашение"
 
 #: .\users\models.py:138
 msgid "QR code"
