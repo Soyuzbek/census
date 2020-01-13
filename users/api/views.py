@@ -74,7 +74,7 @@ class EmployeeCreateView(APIView):
         if serializer.is_valid():
             serializer.save(district=request.user.district)
         else:
-            return Response({'errors': serializer.errors})
+            return Response({'errors': serializer.errors}, status=HTTP_404_NOT_FOUND)
 
         return Response({'message': 'OK'},
                         status=HTTP_200_OK)
