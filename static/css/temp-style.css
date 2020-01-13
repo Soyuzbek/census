@@ -514,8 +514,9 @@ button[type="button"]:focus {
 
 .button__items{
 	position: fixed;
-	bottom: 5px;
-	left: 10px;
+	width: 250px;
+	bottom: 10px;
+	right: 25px;
 }
 
 @media screen and (max-width: 425px){

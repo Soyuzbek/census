@@ -58,3 +58,32 @@ class EmployeeCreateForm(forms.ModelForm):
             'plot': forms.Select(attrs={'class': 'form-control'}),
 
         }
+
+
+
+class EmployeeUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'district', 'photo']
+        widgets = {
+            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '550XXXXXX',
+                                      'pattern': '\d{9}'}),
+            'last_name': TextInput(attrs={ 'class': 'form-control'}),
+            'first_name': TextInput(attrs={'class': 'form-control'}),
+            'patronymic': TextInput(attrs={'class': 'form-control'}),
+            'gender': forms.Select(attrs={'class': 'form-control'}),
+            'birth_day': forms.DateInput(
+                attrs={'class': 'date form-control', 'placeholder': 'Мисалы: 31.12.2004'},
+                format='%d.%m.%Y'),
+            'serial': forms.Select(attrs={'style': 'text-transform: uppercase;', 'class': 'form-control'}),
+            'passport_num': TelInput(attrs={'class': 'form-control'}),
+            'address': TextInput(attrs={'class': 'form-control'}),
+            'authority': TextInput(attrs={'style': 'text-transform: uppercase;', 'class': 'form-control'}),
+            'PIN': TelInput(attrs={'class': 'form-control'}),
+            'photo': forms.FileInput(attrs={'class': 'form-control-file', 'required': False}),
+            'role': forms.Select(attrs={'class': 'form-control'}),
+            'department': forms.Select(attrs={'class': 'form-control'}),
+            'sector': forms.Select(attrs={'class': 'form-control'}),
+            'plot': forms.Select(attrs={'class': 'form-control'}),
+
+        }

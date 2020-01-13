@@ -15,7 +15,7 @@ from pyexcel_xlsx import get_data as xlsx_get
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.views import APIView
 
-from users.forms import UserLoginForm, EmployeeCreateForm
+from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm
 from users.models import Employee
 
 
@@ -93,8 +93,8 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
-    form_class = EmployeeCreateForm
-    template_name = 'index.html'
+    form_class = EmployeeUpdateForm
+    template_name = 'users/update.html'
 
 
 class ParseExcel(APIView):
