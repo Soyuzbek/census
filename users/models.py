@@ -128,7 +128,7 @@ class Employee(models.Model):
     address = models.CharField(_('address'), max_length=255)
     authority = models.CharField(_('Authority'), max_length=10)
     PIN = models.CharField(_('PIN'), max_length=14)
-    photo = models.ImageField(_('photo'), upload_to='users/img')
+    photo = models.ImageField(_('photo'), upload_to='users/img', blank=True, null=True)
     role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2])
     department = models.PositiveSmallIntegerField(_('Census department'), choices=NUM_CHOICES, default=1)
     sector = models.PositiveSmallIntegerField(_('Coordinator sector'), choices=NUM_CHOICES, default=1)
