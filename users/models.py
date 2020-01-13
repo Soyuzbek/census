@@ -10,7 +10,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -51,7 +51,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'number'
     EMAIL_FIELD = 'number'
-
     objects = UserManager()
 
     class Meta(AbstractBaseUser.Meta):
@@ -64,7 +63,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Region(models.Model):
     REGION_CHOICES = (
-        ('bis_c', _('Bishkek')),
         ('chu', _('Chue')),
         ('osh', _('Osh')),
         ('bat', _('Batken')),
@@ -74,7 +72,6 @@ class Region(models.Model):
         ('kol', _('Issikkol'))
     )
     name = models.CharField(_('name'), max_length=9, choices=REGION_CHOICES, unique=True)
-    code = models.CharField(_('code'), max_length=45, unique=True)
     address = models.CharField(_('address'), max_length=255)
 
     class Meta:
@@ -87,8 +84,7 @@ class Region(models.Model):
 
 class District(models.Model):
     name = models.CharField(_('name'), max_length=55)
-    region = models.ForeignKey(Region, models.CASCADE, max_length=9, verbose_name=_('region'))
-    code = models.CharField(_('code SOATE'), max_length=45)
+    region = models.ForeignKey(Region, models.CASCADE, verbose_name=_('region'))
     gov_admin = models.CharField(_('gov admin (NSP)'), max_length=255)
     stat_admin = models.CharField(_('stat admin (NSP)'), max_length=255)
     counter = models.CharField(_('counter of agreements'), max_length=8, default='000001')
@@ -96,6 +92,28 @@ class District(models.Model):
     class Meta:
         verbose_name = _('District')
         verbose_name_plural = _('Districts')
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+def increment_territory_country():
+    last_territory = Territory.objects.order_by('counter').last()
+    if not last_territory:
+        return '0001'
+    return '{:04}'.format(int(last_territory.counter) + 1)
+
+
+class Territory(models.Model):
+    name = models.CharField(_('name'), max_length=90)
+    code = models.CharField(_('code'), max_length=14, unique=True)
+    district = models.ForeignKey(District, models.CASCADE)
+    counter = models.CharField(_('counter of Territory'), max_length=4, default=increment_territory_country,
+                               editable=False, unique=True)
+
+    class Meta:
+        verbose_name = _('Territory')
+        verbose_name_plural = _('Territories')
 
     def __str__(self):
         return f'{self.name}'
@@ -134,6 +152,7 @@ class Employee(models.Model):
     sector = models.PositiveSmallIntegerField(_('Coordinator sector'), choices=NUM_CHOICES, default=1)
     plot = models.PositiveSmallIntegerField(_('Enumerator plot'), choices=NUM_CHOICES, default=1)
     district = models.ForeignKey(District, models.CASCADE, verbose_name=_('district'))
+    territory = models.ForeignKey(Territory, models.CASCADE, verbose_name=_('territory'))
     agreement = models.CharField(_('agreement'), max_length=6)
     qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
@@ -186,11 +205,9 @@ class Employee(models.Model):
 def set_agreement_number(sender, instance, created=False, **kwargs):
     if created:
         instance.generate_qrcode()
-        instance.login = f"""417{instance.district.region.code}{instance.district.code}_{instance.department}_{
-        instance.sector}_{instance.plot}"""
-        # password generation using region, department, sector, plot and 4 random character
-        instance.password = f'{instance.district.region.name[:3]}{instance.department}{instance.sector}{instance.plot}'.\
-            capitalize() + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
+        instance.login = f"T{instance.territory.counter}P{instance.department}I{instance.sector}S{instance.plot}"
+        # password generation using department, sector, plot and 4 random character
+        instance.password = f'{instance.login}' + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
         instance.agreement = instance.district.counter
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()

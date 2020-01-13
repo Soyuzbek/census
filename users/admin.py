@@ -4,7 +4,7 @@ from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 
-from users.models import User, District, Employee, Region
+from users.models import User, District, Employee, Region, Territory
 from django.utils.translation import ugettext_lazy as _, ngettext
 
 
@@ -78,14 +78,23 @@ class EmployeeAdmin(admin.ModelAdmin):
     actions = [regenerate]
 
 
+class TerritoryAdmin(admin.TabularInline):
+    model = Territory
+    extra = 5
+
 @admin.register(District)
 class DistrictAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('counter',)
+    inlines = [TerritoryAdmin]
 
 
 @admin.register(Region)
 class RegionAdmin(admin.ModelAdmin):
     pass
 
+
+@admin.register(Territory)
+class TerritoryAdminPure(admin.ModelAdmin):
+    pass
 
 admin.site.unregister(Group)

@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'users.apps.UsersConfig',
-    'survey.apps.SurveyConfig',
+    # 'survey.apps.SurveyConfig',
 
     'widget_tweaks',
 ]

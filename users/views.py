@@ -1,8 +1,11 @@
+import json
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -10,6 +13,8 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 # my imports
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from requests import Response
+from django.http import HttpResponse
 
 from users.forms import UserLoginForm, EmployeeCreateForm
 from users.models import Employee
@@ -103,3 +108,12 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
 class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
     model = Employee
     success_url = reverse_lazy('users:list')
+
+
+class ExampleView(View):
+
+    def get(self, request):
+        with open("try.json", 'r', encoding='utf8') as file:
+            son = json.load(file)
+            # return HTTPResponse(json.dumps(son, ensure_ascii=False), safe=False)
+            return HttpResponse(son)
