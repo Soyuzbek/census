@@ -101,6 +101,17 @@ WSGI_APPLICATION = 'census.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'censusdb',
+#         'USER': 'soyuz',
+#         'PASSWORD': 'census',
+#         'HOST': 'localhost',
+#         'PORT': ''
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #         'NAME': 'census_db',
 #         'USER': 'census',
 #         'PASSWORD': 'census2020',
@@ -108,6 +119,7 @@ WSGI_APPLICATION = 'census.wsgi.application'
 #         'PORT': ''
 #     }
 # }
+
 
 DATABASES = {
     'default': {
