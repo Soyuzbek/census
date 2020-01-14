@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 11:29+0600\n"
-"PO-Revision-Date: 2020-01-14 11:35+0458\n"
+"POT-Creation-Date: 2020-01-14 16:23+0600\n"
+"PO-Revision-Date: 2020-01-14 16:27+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -127,6 +127,17 @@ msgstr "Кирүү"
 msgid "certificate"
 msgstr "күбөлүк"
 
+#: .\templates\employee\detail.html:59 .\templates\users\update.html:34
+#: .\venv\Lib\site-packages\django\forms\widgets.py:397
+msgid "Change"
+msgstr "Өзгөрт"
+
+#: .\templates\employee\detail.html:60
+#, fuzzy
+#| msgid "Print badge"
+msgid "Print"
+msgstr "Бэйжик басуу"
+
 #: .\templates\employee\list.html:12
 msgid "Number"
 msgstr "Номери"
@@ -152,14 +163,8 @@ msgid "login"
 msgstr "кирүү"
 
 #: .\templates\users\update.html:10
-#| msgid "Employee Creation Form"
 msgid "Employee Update Form"
 msgstr "Кызматкер Өзгөртүү Форму"
-
-#: .\templates\users\update.html:34
-#: .\venv\Lib\site-packages\django\forms\widgets.py:397
-msgid "Change"
-msgstr "Өзгөрт"
 
 #: .\users\admin.py:18
 #, python-format
@@ -186,7 +191,6 @@ msgid "password"
 msgstr "сырсөз"
 
 #: .\users\models.py:19
-#| msgid "must be in +996 (123) 45 67 89 format!"
 msgid "must be in 123456789 format!"
 msgstr "550456789 форматта болуу керек"
 
@@ -259,7 +263,6 @@ msgid "stat admin (NSP)"
 msgstr "статистика башчы (ААТ)"
 
 #: .\users\models.py:90
-#| msgid "agreement"
 msgid "counter of agreements"
 msgstr "келишимдер санакчысы"
 
@@ -272,12 +275,10 @@ msgid "Districts"
 msgstr "Райондор"
 
 #: .\users\models.py:109
-#| msgid "QR code"
 msgid "code"
 msgstr "QR коду"
 
 #: .\users\models.py:111
-#| msgid "agreement"
 msgid "counter of Territory"
 msgstr "Териториа санакчысы"
 
@@ -358,12 +359,10 @@ msgid "Census department"
 msgstr "Каттоо бөлүмү"
 
 #: .\users\models.py:152
-#| msgid "Coordinator"
 msgid "Instructor sector"
 msgstr "Инструктордук участок"
 
 #: .\users\models.py:153
-#| msgid "Enumerator"
 msgid "Enumerator plot"
 msgstr "Каттоо участогу"
 
@@ -1817,9 +1816,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 #~ msgstr "мамстатистика башчысы"
 
 #~ msgid "Print the badge"
-#~ msgstr "Бэйжик басуу"
-
-#~ msgid "Print badge"
 #~ msgstr "Бэйжик басуу"
 
 #~ msgid "Print the Form"
