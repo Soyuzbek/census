@@ -527,3 +527,8 @@ button[type="button"]:focus {
 		right: 10px;
 	}
 }
+
+.pagination{
+	margin: 45px auto;
+	text-align: center;
+}
