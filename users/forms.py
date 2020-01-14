@@ -73,7 +73,7 @@ class EmployeeCreateForm(forms.ModelForm):
 class EmployeeUpdateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        exclude = ['qrcode', 'agreement', 'login', 'password', 'district', 'photo']
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'district', 'photo', 'territory']
         widgets = {
             'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '550XXXXXX',
                                       'pattern': '\d{9}'}),
