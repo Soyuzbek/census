@@ -3,7 +3,7 @@ from django import forms
 from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
 
-from users.models import phone, Employee
+from users.models import phone, Employee, District, Territory
 
 
 class TelInput(TextInput):
@@ -35,7 +35,7 @@ class UserLoginForm(forms.Form):
 class EmployeeCreateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        exclude = ['qrcode', 'agreement', 'login', 'password', 'district']
+        exclude = ['qrcode', 'agreement', 'login', 'password']
         widgets = {
             'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '550XXXXXX',
                                       'pattern': '\d{9}'}),
@@ -56,9 +56,18 @@ class EmployeeCreateForm(forms.ModelForm):
             'department': forms.Select(attrs={'class': 'form-control'}),
             'sector': forms.Select(attrs={'class': 'form-control'}),
             'plot': forms.Select(attrs={'class': 'form-control'}),
+            'territory': forms.Select(attrs={'class': 'form-control'}),
+            'district': forms.HiddenInput(
+                attrs={'class': 'text-dark font-weight-bold form-control'}),
 
         }
 
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['district'].queryset = None
+        self.fields['district'].queryset = District.objects.filter(user=user)
+        self.fields['territory'].queryset = None
+        self.fields['territory'].queryset = Territory.objects.filter(district=user.district)
 
 
 class EmployeeUpdateForm(forms.ModelForm):

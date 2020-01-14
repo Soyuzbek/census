@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'users.apps.UsersConfig',
+    # 'survey.apps.SurveyConfig',
 
     'widget_tweaks',
 ]
@@ -97,36 +98,24 @@ WSGI_APPLICATION = 'census.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'censusdb',
-#         'USER': 'soyuz',
-#         'PASSWORD': 'census',
-#         'HOST': 'localhost',
-#         'PORT': ''
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'census_db',
-#         'USER': 'census',
-#         'PASSWORD': 'census2020',
-#         'HOST': 'localhost',
-#         'PORT': ''
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'census_db',
+        'USER': 'census',
+        'PASSWORD': 'census2020',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -169,14 +158,12 @@ LANG_INFO = {**django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO}
 django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (
-    ('en', _('English')),
+    # ('en', _('English')),
     ('ky', _('Kirghiz')),
-    ('ru', _('Russian'))
 
 )
 ROSETTA_LANGUAGES = (
     ('ky', _('Kirghiz')),
-    ('ru', _('Russian'))
 )
 LANGUAGE_CODE = 'en'
 

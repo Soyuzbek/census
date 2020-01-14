@@ -68,7 +68,7 @@
     <div class="badge-body">
         <div class="r">
             <div class="first-c">
-                <p class="certificate">{% trans 'certificate' %} &#8470;{{ object.agreement }}</p>
+                <p class="certificate">күбөлүк &#8470;{{ object.agreement }}</p>
                 <p class="role">{{ object.get_role }}</p>
                 <p>{{ object.last_name|upper }}</p>
                 <p>{{ object.first_name|upper }}</p>
@@ -80,8 +80,8 @@
         </div>
         <div class="r">
             <div class="c">
-                <span class="verification">{% trans 'for verification of document' %}</span><br>
-                <span class="verification">{% trans 'scan the QR code below' %}</span><br>
+                <span class="verification">Иш кагаздын аныктыгын</span><br>
+                <span class="verification">текшерүүгө QR ди скандаңыз</span><br>
                 <img class="qr-code" src="{{ object.qrcode.url }}" alt="">
             </div>
             <div class="c">

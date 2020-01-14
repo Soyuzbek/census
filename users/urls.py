@@ -6,11 +6,12 @@ from users.views import (LoginView,
                          EmployeeListView,
                          EmployeeDetailView,
                          EmployeeUpdateView,
-                         ParseExcel)
+                         ParseExcel, IndexView)
+
 
 urlpatterns = [
     path('', LoginView.as_view(), name='login'),
-    path('home/', EmployeeCreateView.as_view(), name='home'),
+    path('home/', IndexView.as_view(), name='home'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('employee/list/', EmployeeListView.as_view(), name='list'),
     path('employee/<int:pk>/', EmployeeDetailView.as_view(), name='detail'),

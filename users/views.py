@@ -1,18 +1,20 @@
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django.utils.datastructures import MultiValueDictKeyError
+from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import DetailView, ListView
+# my imports
+from django.views.generic.edit import CreateView, UpdateView
 from pyexcel_xls import get_data as xls_get
 from pyexcel_xlsx import get_data as xlsx_get
-# my imports
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.views import APIView
 
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm
@@ -89,6 +91,33 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         employee.district = self.request.user.district
         employee.save()
         return redirect(reverse('users:agreement_detail', args=[employee.pk]))
+
+
+class IndexView(View):
+    template_name = 'index.html'
+    form_class = EmployeeCreateForm
+
+    @method_decorator(login_required)
+    def get(self, request):
+        if request.user.is_superuser:
+            form = self.form_class(request.user, initial={'district': request.user.district})
+            pass
+        if not request.user.is_authenticated:
+            meta_lang = 'ky'
+        return render(request, self.template_name, locals())
+
+    @method_decorator(login_required)
+    def post(self, request):
+        if request.user.is_superuser:
+            form = self.form_class(request.user, request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request, _('The employee added successfully.'), 'alert-success')
+                return redirect('users:home')
+            messages.add_message(request, messages.ERROR, _('Please check the fields below form!'), 'alert-danger')
+            print(form.errors)
+            return render(request, self.template_name, locals())
+        return HttpResponseForbidden(b'Forbidden')
 
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):

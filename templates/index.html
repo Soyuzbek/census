@@ -28,6 +28,15 @@
                     {% endif %}
                 </div>
                 {% endfor %}
+                {% for field in form.hidden_fields %}
+                        <div style="display:none;">{{ field }}</div>
+                        {% if field.errors %}
+                            {% for error in errors %}
+                                <small class="alert text-danger">{{ error|striptags }}</small>
+                            {% endfor %}
+
+                        {% endif %}
+                    {% endfor %}
             </div>
             
             <div class="row">
