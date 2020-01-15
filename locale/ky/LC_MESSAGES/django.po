@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-14 16:23+0600\n"
-"PO-Revision-Date: 2020-01-14 16:27+0458\n"
+"PO-Revision-Date: 2020-01-15 08:43+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -280,11 +280,11 @@ msgstr "QR коду"
 
 #: .\users\models.py:111
 msgid "counter of Territory"
-msgstr "Териториа санакчысы"
+msgstr "Территория санакчысы"
 
 #: .\users\models.py:115
 msgid "Territory"
-msgstr "Териториа"
+msgstr "Территория"
 
 #: .\users\models.py:116
 msgid "Territories"
@@ -368,7 +368,7 @@ msgstr "Каттоо участогу"
 
 #: .\users\models.py:155
 msgid "territory"
-msgstr "териториа"
+msgstr "территория"
 
 #: .\users\models.py:156
 msgid "agreement"
