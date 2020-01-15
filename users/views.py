@@ -49,7 +49,7 @@ class LoginView(View):
 
 
 class EmployeeListView(LoginRequiredMixin, ListView):
-    paginate_by = 2
+    paginate_by = 20
     model = Employee
     template_name = 'employee/list.html'
 
