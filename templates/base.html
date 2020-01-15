@@ -83,7 +83,7 @@
                         {% get_available_languages as langs %}
                         {% for lang, val in langs %}
                             {% ifnotequal lang curr %}
-                                <option>{{ lang }}</option>
+                                <option><a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a></option>
                             {% endifnotequal %}
                         {% endfor %}
                     </select>
