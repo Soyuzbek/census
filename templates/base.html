@@ -79,7 +79,6 @@
             <div class="header-right-menu__item header-button">
                 <div class="language-picker">
                     <select>
-                        <option>{{ curr }}</option>
                         {% get_available_languages as langs %}
                         {% for lang, val in langs %}
                             {% ifnotequal lang curr %}
