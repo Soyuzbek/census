@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-14 16:23+0600\n"
-"PO-Revision-Date: 2020-01-15 08:43+0458\n"
+"PO-Revision-Date: 2020-01-16 09:47+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -28,7 +28,6 @@ msgid "Role"
 msgstr "Ролу"
 
 #: .\survey\models.py:33
-#, fuzzy
 #| msgid "Role"
 msgid "Roles"
 msgstr "Ролдор"
@@ -276,7 +275,7 @@ msgstr "Райондор"
 
 #: .\users\models.py:109
 msgid "code"
-msgstr "QR коду"
+msgstr "коду"
 
 #: .\users\models.py:111
 msgid "counter of Territory"
