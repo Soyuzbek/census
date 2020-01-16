@@ -37,7 +37,7 @@ class EmployeeCreateForm(forms.ModelForm):
         model = Employee
         exclude = ['qrcode', 'agreement', 'login', 'password']
         widgets = {
-            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '550XXXXXX',
+            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789',
                                       'pattern': '\d{9}'}),
             'last_name': TextInput(attrs={ 'class': 'form-control'}),
             'first_name': TextInput(attrs={'class': 'form-control'}),
