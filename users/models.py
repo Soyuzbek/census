@@ -114,6 +114,7 @@ class Territory(models.Model):
     class Meta:
         verbose_name = _('Territory')
         verbose_name_plural = _('Territories')
+        ordering = ['name']
 
     def __str__(self):
         return f'{self.name}'
