@@ -11,7 +11,7 @@
 ### create database censusdb;
 ### create user soyuzbek with password 'census';
 ### alter role soyuzbek set client_encoding to 'utf8';
-### alter role soyuzbek set default_transaction_encoding to 'read committed';
+### alter role soyuzbek set default_transaction_isolation to 'read committed';
 ### alter role soyuzbek set timezone to 'utc';
 ### grant all privileges on database censusdb to soyuzbek;
 ### \q
