@@ -1,8 +1,11 @@
 import os
 
 from django.contrib import admin, messages
+from django.contrib.admin import widgets
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
+from django.db import models
+from rest_framework.authtoken.models import Token
 
 from users.models import User, District, Employee, Region, Territory
 from django.utils.translation import ugettext_lazy as _, ngettext
@@ -34,7 +37,7 @@ class UserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide', 'extrapretty'),
-            'fields': ('number', 'password1', 'password2', 'region'),
+            'fields': ('number', 'password1', 'password2'),
         }),
     )
     ordering = ('number',)
@@ -65,22 +68,28 @@ class EmployeeAdmin(admin.ModelAdmin):
                 'sector',
                 'plot',
                 'district',
+                'territory',
                 'agreement',
                 'login',
                 'password'
             )
         }),
     )
+
     ordering = ('first_name',)
-    list_display = ('first_name', 'last_name', 'login')
+    list_display = ('first_name', 'last_name', 'login', 'birth_day')
     list_filter = ('role', 'district', 'department', 'sector')
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
+    formfield_overrides = {
+        models.DateField: {'widget': None}
+    }
 
 
 class TerritoryAdmin(admin.TabularInline):
     model = Territory
     extra = 5
+
 
 @admin.register(District)
 class DistrictAdmin(admin.ModelAdmin):
@@ -98,3 +107,4 @@ class TerritoryAdminPure(admin.ModelAdmin):
     pass
 
 admin.site.unregister(Group)
+admin.site.unregister(Token)

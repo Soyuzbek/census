@@ -64,9 +64,9 @@ class EmployeeCreateForm(forms.ModelForm):
 
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['district'].queryset = None
         self.fields['district'].queryset = District.objects.filter(user=user)
-        self.fields['territory'].queryset = None
+        self.fields['district'].initial = District.objects.first()
+        self.fields['district'].empty_label = None
         self.fields['territory'].queryset = Territory.objects.filter(district=user.district)
 
 

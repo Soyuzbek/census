@@ -1,13 +1,15 @@
 from django.urls import path
+
 from users.views import (LoginView,
                          LogoutView,
-                         EmployeeCreateView,
                          AgreementDetailView,
                          EmployeeListView,
                          EmployeeDetailView,
                          EmployeeUpdateView,
-                         ParseExcel, IndexView)
-
+                         ParseExcel,
+                         IndexView,
+                         load_territories_view,
+                         load_districts_view)
 
 urlpatterns = [
     path('', LoginView.as_view(), name='login'),
@@ -18,4 +20,6 @@ urlpatterns = [
     path('employee/update/<int:pk>/', EmployeeUpdateView.as_view(), name='update'),
     path('employee/agreement/<int:pk>/', AgreementDetailView.as_view(), name='agreement_detail'),
     path('upload-excel/', ParseExcel.as_view(), name='upload_excel'),
+    path('ajax/load-districts/', load_districts_view, name='load_districts'),
+    path('ajax/load-territories/', load_territories_view, name='load_territories')
 ]

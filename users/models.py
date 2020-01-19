@@ -45,7 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     number = models.CharField(_('number'), max_length=255, validators=[phone],
                               unique=True)
     region = models.ForeignKey('Region', models.CASCADE, verbose_name=_('Region'), null=True)
-    district = models.ForeignKey('District', models.CASCADE, verbose_name=_('district'), null=True, blank=True)
+    district = models.ForeignKey('District', models.CASCADE, verbose_name=_('district'), null=True)
     is_staff = models.BooleanField(_('is staff'), default=True)
     is_superuser = models.BooleanField(_('super user'), default=False)
 
@@ -140,7 +140,7 @@ class Employee(models.Model):
     first_name = models.CharField(_('first name'), max_length=45)
     patronymic = models.CharField(_('patronymic'), max_length=45, null=True, blank=True)
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES, default='2')
-    birth_day = models.DateField(_('birth day'))
+    birth_day = models.DateField(_('birth day'), )
     serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
                               default='ID')
     passport_num = models.CharField(_('number of passport'), max_length=7)
@@ -163,6 +163,7 @@ class Employee(models.Model):
     class Meta:
         verbose_name = _('Employee')
         verbose_name_plural = _('Employees')
+        unique_together = ('district', 'agreement')
 
     def get_absolute_url(self):
         return reverse('users:detail', args=[self.id])

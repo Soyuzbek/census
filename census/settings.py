@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
 
-from django.conf.global_settings import DATE_INPUT_FORMATS
+import django.conf.locale
+from django.utils.translation import ugettext_lazy as _
+from django.conf.locale.en import formats as en_formats
+from django.conf.locale.ky import formats as ky_formats
 
-DATE_INPUT_FORMATS = ("%d.%m.%Y",)
-
+DATE_FORMAT = '%d.%m.%Y'
+en_formats.DATE_FORMAT = '%d.%m.%Y'
+ky_formats.DATE_FORMAT = '%d.%m.%Y'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#&3pc3!^34g6rfs*8+gb2*&5j95^#z5^*q6m+8_!-4+f1znrz^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -100,22 +104,14 @@ WSGI_APPLICATION = 'census.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'census_db',
-        'USER': 'census',
-        'PASSWORD': 'census2020',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'census',
+        'USER': os.environ.get('DJANGO_CENSUS_CENSUS'),
+        'PASSWORD': os.environ.get('DJANGO_CENSUS_PASSWORD'),
         'HOST': 'localhost',
         'PORT': ''
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 
 # Password validation
@@ -140,9 +136,9 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'users:home'
 LOGOUT_REDIRECT_URL = 'users:home'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-from django.utils.translation import ugettext_lazy as _
 
 EXTRA_LANG_INFO = {
     'ky': {
@@ -152,9 +148,9 @@ EXTRA_LANG_INFO = {
         'name_local': u'Кыргызча',
     }
 }
-import django.conf.locale
 
 LANG_INFO = {**django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO}
+
 django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (

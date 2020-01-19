@@ -6,8 +6,12 @@
 {% block extrahead %}
     {#    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>#}
     {#    <link rel="stylesheet" type="text/css" href="{% static 'css/custom_admin.css' %}"/>#}
+    {#    <link href="{% static 'css/cropper.min.css' %}" rel="stylesheet">#}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
+    <script src="{% static 'js/custom.js' %}">
 
-{#    <link href="{% static 'css/cropper.min.css' %}" rel="stylesheet">#}
+    </script>
     {{ block.super }}
 {% endblock %}
 
