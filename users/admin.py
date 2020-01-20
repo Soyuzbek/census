@@ -81,9 +81,6 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_filter = ('role', 'district', 'department', 'sector')
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
-    formfield_overrides = {
-        models.DateField: {'widget': None}
-    }
 
 
 class TerritoryAdmin(admin.TabularInline):
@@ -105,6 +102,7 @@ class RegionAdmin(admin.ModelAdmin):
 @admin.register(Territory)
 class TerritoryAdminPure(admin.ModelAdmin):
     pass
+
 
 admin.site.unregister(Group)
 admin.site.unregister(Token)
