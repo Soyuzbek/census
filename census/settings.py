@@ -14,11 +14,11 @@ import os
 import django.conf.locale
 from django.utils.translation import ugettext_lazy as _
 from django.conf.locale.en import formats as en_formats
-from django.conf.locale.ky import formats as ky_formats
+# from django.conf.locale.ky import formats as ky_formats
 
 DATE_FORMAT = '%d.%m.%Y'
 en_formats.DATE_FORMAT = '%d.%m.%Y'
-ky_formats.DATE_FORMAT = '%d.%m.%Y'
+# ky_formats.DATE_FORMAT = '%d.%m.%Y'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -106,7 +106,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'census',
-        'USER': os.environ.get('DJANGO_CENSUS_CENSUS'),
+        'USER': os.environ.get('DJANGO_CENSUS_USER'),
         'PASSWORD': os.environ.get('DJANGO_CENSUS_PASSWORD'),
         'HOST': 'localhost',
         'PORT': ''
