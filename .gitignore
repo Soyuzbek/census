@@ -118,3 +118,5 @@ staticroot/
 # nohup
 nohup.out
 package-lock.json
+
+.env
