@@ -21,5 +21,5 @@ urlpatterns = [
     path('employee/agreement/<int:pk>/', AgreementDetailView.as_view(), name='agreement_detail'),
     path('upload-excel/', ParseExcel.as_view(), name='upload_excel'),
     path('ajax/load-districts/', load_districts_view, name='load_districts'),
-    path('ajax/load-territories/', load_territories_view, name='load_territories')
+    path('ajax/load-territories/', load_territories_view, name='load_territories'),
 ]

@@ -95,3 +95,11 @@
 </div>
 
 {% endblock %}
+
+{% block js %}
+    <script>
+    $(document).ready(function(){
+        $('.image__item img').attr("src", "{{ object.photo.url }}");
+    });
+    </script>
+{% endblock js %}
