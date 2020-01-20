@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.decorators import method_decorator
@@ -158,7 +158,7 @@ def load_districts_view(request):
     if request.method == 'GET':
         region = request.GET.get('region')
         districts = District.objects.filter(region=region)
-        data = serializers.serialize('json', districts, fields=('name', ))
+        data = serializers.serialize('json', districts, fields=('name',))
         return JsonResponse({'data': data})
 
 
@@ -166,5 +166,5 @@ def load_territories_view(request):
     if request.method == 'GET':
         district = request.GET.get('district')
         territory = Territory.objects.filter(district=district)
-        data = serializers.serialize('json', territory, fields=('name', ))
+        data = serializers.serialize('json', territory, fields=('name',))
         return JsonResponse({'data': data})
