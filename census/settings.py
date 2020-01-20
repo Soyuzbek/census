@@ -10,11 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
+import environ
 
 import django.conf.locale
 from django.utils.translation import ugettext_lazy as _
 from django.conf.locale.en import formats as en_formats
 # from django.conf.locale.ky import formats as ky_formats
+
+env = environ.Env(
+    DEBUG=(bool, True)
+)
+# reading .env file
+environ.Env.read_env('.env')
 
 DATE_FORMAT = '%d.%m.%Y'
 en_formats.DATE_FORMAT = '%d.%m.%Y'
@@ -106,8 +113,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'census',
-        'USER': os.environ.get('DJANGO_CENSUS_USER'),
-        'PASSWORD': 'census2020',
+        'USER': env('DJANGO_CENSUS_USER'),
+        'PASSWORD': env('DJANGO_CENSUS_PASSWORD'),
         'HOST': 'localhost',
         'PORT': ''
     }
