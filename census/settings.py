@@ -35,7 +35,7 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['*']
 
-DOMAIN_NAME = 'census.kg:8000'
+DOMAIN_NAME = '212.42.101.110:8080'
 
 # Application definition
 
