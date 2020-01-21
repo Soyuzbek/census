@@ -156,7 +156,6 @@ LANG_INFO = {**django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO}
 django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (
-    # ('en', _('English')),
     ('ky', _('Kirghiz')),
 
 )

@@ -70,7 +70,7 @@ $('document').ready(function () {
 });
 
 window.setMobileTable = function (selector) {
-    conableEl = document.querySelector(selector);
+    const tableEl = document.querySelector(selector);
     const thEls = tableEl.querySelectorAll('thead th');
     const tdLabels = Array.from(thEls).map(el => el.innerText);
     tableEl.querySelectorAll('tbody tr').forEach(tr => {

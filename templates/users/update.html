@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load widget_tweaks %}
 {% block title %}
     {% trans 'Home' %}
 {% endblock %}
 {% block content %}
 <section>
     <div class="container">
-        <h5 class="mt-5 text-center">{% trans 'Employee Update Form' %}</h5>
+        <h5 class="mt-5 text-center">Өзгөртүү Формасы</h5>
         <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">
                 {% for field in form.visible_fields %}
                 <div class="form-group col-md-7 col-sm-12 mx-auto">
-                    <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
-                    {{ field }}
+                    <label for="id_{{ field.name|lower }}" class="col-form-label">{{ field.label }}</label>
+                    {% ifequal field.name 'photo' %}
+                        {% render_field field %}
+                    {% else %}
+                        {% render_field field class="form-control" %}
+                    {% endifequal %}
                     {{ field.help }}
                     {% if field.errors %}
                     <div class="invalid-feedback">
@@ -31,7 +36,7 @@
             
             <div class="row">
                 <div class="col-md-6 col-sm-12 mx-auto mt-5">
-                     <button type="submit" class="btn btn-primary btn-block">{% trans 'Change' %}</button>
+                     <button type="submit" class="btn btn-primary btn-block">Өзгөртүү</button>
                 </div>
             </div>
         </form>
@@ -46,6 +51,7 @@
     $(document).ready(function () {
         $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
         $('.date').mask('00.00.0000');
+        $('#id_territory').val({{ object.territory.id }});
     });
 </script>
 {% endblock js %}

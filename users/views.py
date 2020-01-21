@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.decorators import method_decorator
@@ -124,8 +124,13 @@ class IndexView(View):
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
-    form_class = EmployeeUpdateForm
     template_name = 'users/update.html'
+    form_class = EmployeeUpdateForm
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['territory'] = Territory.objects.filter(district=self.object.district)
+        return initial
 
 
 class ParseExcel(APIView):
