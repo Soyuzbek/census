@@ -11,7 +11,7 @@
 <section class="section-detail mt-5">
     <div class="container">
         <div class="detail__header">
-            <h1 class="detail-header__certificate">{% trans 'certificate' %} &#8470;{{ object.agreement }}</h1>
+            <h1 class="detail-header__certificate">Кубөлүк &#8470;{{ object.agreement }}</h1>
             <h1 class="detail-header__role">{{ object.get_role }}</h1>
         </div>
         <div class="detail__items d-flex">
@@ -20,32 +20,35 @@
             </div>
             <div class="employee__info mr-5 ml-5">
                 <div class="employee-info">
-                    <span>Surname:</span>
+                    <span>Фамилиясы:</span>
                     <span>{{object.last_name|cover:"*"}}</span>
                 </div>
                 <div class="employee-info">
-                    <span>Name:</span>
+                    <span>Аты:</span>
                     <span>{{object.first_name|cover:"*"}}</span>
                 </div>
                  {% if object.patronymic %}
                 <div class="employee-info">
-                    <span>Patronymic:</span>
+                    <span>Атасынын аты:</span>
                     <span>{{object.patronymic|cover:"*"}}</span>
                 </div>
                 {% endif %}
-                 <div class="employee-info">
-                    <span>government administrator:</span>
-                    <span>{{ object.district.gov_admin }}</span>
-                </div>
-                <div class="employee-info">
-                    <span>statistic committee administrator:</span>
-                    <span>{{ object.district.stat_admin }}</span>
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="employee-info">
+                        <span>Мамадминистрация башчысы:</span>
+                        <span>{{ object.district.gov_admin }}</span>
+                    </div>
+                    <div class="employee-info">
+                        <span>Мамстатистика башчысы:</span>
+                        <span>{{ object.district.stat_admin }}</span>
+                    </div>
+                {% endif %}
             </div>
-
+            {% if user.is_authenticated %}
             <div class="qrcode__container ml-auto">
                 <img src="{{ object.qrcode.url }}" alt="">
             </div>
+            {% endif %}
         </div>
     </div>
 
@@ -56,8 +59,8 @@
     {% if request.user.is_authenticated %}
     <div class="buttons-group mt-5">
         <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link btn btn-info" href="{% url 'users:update' object.id %}">{% trans 'Change' %}</a>
-            <button class="nav-item nav-link btn btn-info" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> {% trans 'Print' %}</button>
+            <a class="nav-item nav-link btn btn-info" href="{% url 'users:update' object.id %}">Өзгөртүү</a>
+            <button class="nav-item nav-link btn btn-info" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
         </nav>
     </div>
     {% endif %}

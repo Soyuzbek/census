@@ -207,6 +207,12 @@
 	text-transform: uppercase;
 }
 
+@media screen and (max-width: 990px){
+	.top-sentence{
+		font-size: 13px;
+	}
+}
+
 /* .header{
 	position: fixed;
 	top: 0;
