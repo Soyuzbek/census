@@ -102,21 +102,8 @@
 {% block js %}
     <script>
     $(document).ready(function(){
-        $('.image__item img').attr("src", "{{ object.photo.url }}");
-    });
-
-    $(document).ready(function()
-    {
-      if( window.localStorage )
-      {
-        if( !localStorage.getItem('firstLoad') )
-        {
-          localStorage['firstLoad'] = true;
-          window.location.reload();
-        }
-        else
-          localStorage.removeItem('firstLoad');
-      }
+        let d = new Date();
+        $('.image__item img').attr("src", "{{ object.photo.url }}?" + d.getTime());
     });
     </script>
 {% endblock js %}
