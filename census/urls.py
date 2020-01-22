@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.i18n import JavaScriptCatalog
 
-from users.views import LanguageView
+from users.views import LanguageView, error_404, error_500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,9 @@ urlpatterns = [
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('api/', include('users.api.urls', namespace='api-users')),
 ]
+
+handler404 = error_404
+handler500 = error_500
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
