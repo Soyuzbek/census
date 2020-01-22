@@ -173,3 +173,12 @@ def load_territories_view(request):
         territory = Territory.objects.filter(district=district)
         data = serializers.serialize('json', territory, fields=('name',))
         return JsonResponse({'data': data})
+
+
+# Error handler
+def error_404(request, exception):
+    return render(request, 'errors/404.html', status=404)
+
+
+def error_500(request):
+    return render(request, 'errors/500.html', status=404)
