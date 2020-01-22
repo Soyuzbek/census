@@ -102,8 +102,18 @@
 {% block js %}
     <script>
     $(document).ready(function(){
-        let d = new Date();
-        $('.image__item img').attr("src", "{{ object.photo.url }}?" + d.getTime());
+        if( window.localStorage )
+        {
+            if(!localStorage.getItem('firstLoad'))
+            {
+                localStorage['firstLoad'] = true;
+                window.location.reload();
+            }
+            else
+            {
+                localStorage.removeItem('firstLoad');
+            }
+        }
     });
     </script>
 {% endblock js %}
