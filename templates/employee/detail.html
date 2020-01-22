@@ -16,7 +16,7 @@
         </div>
         <div class="detail__items d-flex">
             <div class="image__item">
-                <img src="{{ object.photo.url }}" alt="" class="image">
+                <img src="{{ request.get_host }}{{ object.photo.url }}" alt="" class="image">
             </div>
             <div class="employee__info mr-5 ml-5">
                 <div class="employee-info">
