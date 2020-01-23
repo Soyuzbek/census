@@ -123,9 +123,8 @@
 		display: none;
 	}
 
-	.main-content
-	{
-		padding-top: 90px;
+	.messages{
+		margin-top: 70px;
 	}
 }
 
