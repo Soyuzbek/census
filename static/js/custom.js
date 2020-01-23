@@ -67,6 +67,8 @@ $('document').ready(function () {
         let value = date.split('.').join('');
         PIN.value = ($(this).val() + value);
     });
+
+    $('.invalid-feedback').closest('.form-group').find('.form-control').addClass('is-invalid');
 });
 
 window.setMobileTable = function (selector) {
