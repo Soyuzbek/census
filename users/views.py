@@ -54,6 +54,11 @@ class EmployeeListView(LoginRequiredMixin, ListView):
     model = Employee
     template_name = 'employee/list.html'
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        filtered = qs.filter(district=self.request.user.district)
+        return filtered
+
 
 class EmployeeDetailView(DetailView):
     model = Employee
