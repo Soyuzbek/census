@@ -1,7 +1,7 @@
 import os
+import random
 import string
 from io import BytesIO
-import random
 
 import qrcode
 from django.conf import settings
@@ -10,7 +10,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -135,7 +135,8 @@ class Employee(models.Model):
         (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'),
         (11, '11'),
         (12, '12'), (13, '13'), (14, '14'), (15, '15'))
-    number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру')
+    number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру',
+                              error_messages={'unique': "Мундай номер бар."})
     last_name = models.CharField(max_length=45, verbose_name='фамилиясы')
     first_name = models.CharField(max_length=45, verbose_name='аты')
     patronymic = models.CharField(max_length=45, null=True, blank=True, verbose_name='атасынын аты')

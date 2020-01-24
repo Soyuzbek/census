@@ -1,5 +1,6 @@
 from django import forms
 from django import forms
+from django.core.exceptions import NON_FIELD_ERRORS
 from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
 
@@ -37,8 +38,7 @@ class EmployeeCreateForm(forms.ModelForm):
         model = Employee
         exclude = ['qrcode', 'agreement', 'login', 'password']
         widgets = {
-            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789',
-                                      'pattern': '\d{9}'}),
+            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789'}),
             'last_name': TextInput(attrs={ 'class': 'form-control'}),
             'first_name': TextInput(attrs={'class': 'form-control'}),
             'patronymic': TextInput(attrs={'class': 'form-control'}),
@@ -59,7 +59,6 @@ class EmployeeCreateForm(forms.ModelForm):
             'territory': forms.Select(attrs={'class': 'form-control'}),
             'district': forms.HiddenInput(
                 attrs={'class': 'text-dark font-weight-bold form-control'}),
-
         }
 
     def __init__(self, user, *args, **kwargs):

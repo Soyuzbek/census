@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 .header-main{
 	height: 90px;
 }
@@ -199,7 +210,7 @@
 .header__top{
 	height: 90px;
 	line-height: 90px;
-	background: lightgrey;
+	background-color: lightgrey;
 }
 
 .top-sentence{
@@ -537,3 +548,4 @@ button[type="button"]:focus {
 	margin: 45px auto;
 	text-align: center;
 }
+
