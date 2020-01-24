@@ -1,5 +1,6 @@
 from django import forms
 from django import forms
+from django.core.exceptions import NON_FIELD_ERRORS
 from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
 
@@ -59,7 +60,6 @@ class EmployeeCreateForm(forms.ModelForm):
             'territory': forms.Select(attrs={'class': 'form-control'}),
             'district': forms.HiddenInput(
                 attrs={'class': 'text-dark font-weight-bold form-control'}),
-
         }
 
     def __init__(self, user, *args, **kwargs):
