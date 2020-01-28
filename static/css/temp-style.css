@@ -536,6 +536,10 @@ button[type="button"]:focus {
 	input#id_photo{
 		width: 100%;
 	}
+
+	#page-container{
+		top: 60px;
+	}
 }
 
 
@@ -560,7 +564,7 @@ button[type="button"]:focus {
 	text-align: center;
 }
 
-.buttons-group button{
+.buttons-group button, .btn-add{
 	display: inline-block;
 	padding: 0.2em 1.45em;
 	margin: 0.1em;
@@ -576,16 +580,16 @@ button[type="button"]:focus {
 	outline: none;
 }
 
-.buttons-group button:hover{
+.buttons-group button:hover, .btn-add:hover{
 	border-color: #7a7a7a;
 }
 
-.buttons-group button:active{
+.buttons-group button:active, .btn-add:active{
 	background-color: #999999;
 }
 
 @media all and (max-width:30em){
-	.buttons-group button{
+	.buttons-group button, .btn-add{
 		display:block;
 		margin:0.2em auto;
 	}
