@@ -594,3 +594,7 @@ button[type="button"]:focus {
 		margin:0.2em auto;
 	}
 }
+
+.btn-full{
+	width: 100%;
+}
