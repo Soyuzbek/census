@@ -137,31 +137,9 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
         initial['territory'] = Territory.objects.filter(district=self.object.district)
         return initial
 
-
-class ParseExcel(APIView):
-
-    def get(self, request):
-        return render(request, 'users/upload-excel.html')
-
-    def post(self, request, format=None):
-        try:
-            excel_file = request.FILES['file']
-
-        except MultiValueDictKeyError:
-            return HttpResponse("Oops! Something is wrong.")
-
-        if str(excel_file).split('.')[-1] == "xls":
-            data = xls_get(excel_file, column_limit=4)
-            print('xls')
-        elif str(excel_file).split('.')[-1] == "xlsx":
-            data = xlsx_get(excel_file, column_limit=4)
-            print('xlsx')
-        else:
-            return HttpResponse("Oops! Something is wrong in checking excel type")
-
-        for item in data['SOAT']:
-            print(item)
-        return HttpResponse(data['SOAT'])
+    def get_success_url(self):
+        view_name = 'users:update'
+        return reverse(view_name, kwargs={'pk': self.object.pk})
 
 
 def load_districts_view(request):

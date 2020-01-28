@@ -21,16 +21,28 @@
             <div class="employee__info mr-5 ml-5">
                 <div class="employee-info">
                     <span>Фамилиясы:</span>
-                    <span>{{object.last_name|cover:"*"}}</span>
+                    {% if user.is_authenticated %}
+                        <span>{{object.last_name}}</span>
+                    {% else %}
+                        <span>{{object.last_name|cover:"*"}}</span>
+                    {% endif %}
                 </div>
                 <div class="employee-info">
                     <span>Аты:</span>
-                    <span>{{object.first_name|cover:"*"}}</span>
+                    {% if user.is_authenticated %}
+                        <span>{{object.first_name}}</span>
+                    {% else %}
+                        <span>{{object.first_name|cover:"*"}}</span>
+                    {% endif %}
                 </div>
                  {% if object.patronymic %}
                 <div class="employee-info">
                     <span>Атасынын аты:</span>
-                    <span>{{object.patronymic|cover:"*"}}</span>
+                    {% if user.is_authenticated %}
+                        <span>{{object.patronymic}}</span>
+                    {% else %}
+                        <span>{{object.patronymic|cover:"*"}}</span>
+                    {% endif %}
                 </div>
                 {% endif %}
                 {% if user.is_authenticated %}
@@ -52,9 +64,11 @@
         </div>
     </div>
 
+    {% if not user.is_authenticated %}
     <div class="mt-5">
          <p class="text-center">Коопсуздук эрежелерин сактоо максатында ысымдар толук эмес түрдө берилген</p>
     </div>
+    {% endif %}
 
     {% if request.user.is_authenticated %}
     <div class="buttons-group mt-5">

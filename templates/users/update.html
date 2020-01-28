@@ -2,50 +2,83 @@
 {% load static %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load replace_asterisk %}
 {% block title %}
     {% trans 'Home' %}
 {% endblock %}
 {% block content %}
-<section>
-    <div class="container">
-        <h5 class="mt-5 text-center">Өзгөртүү Формасы</h5>
-        <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="row">
-                {% for field in form.visible_fields %}
-                <div class="form-group col-md-7 col-sm-12 mx-auto">
-                    <label for="id_{{ field.name|lower }}" class="col-form-label">{{ field.label }}</label>
-                    {% ifequal field.name 'photo' %}
-                        {% render_field field %}
-                    {% else %}
-                        {% render_field field class="form-control" %}
-                    {% endifequal %}
-                    {{ field.help }}
-                    {% if field.errors %}
-                    <div class="invalid-feedback">
-                        {% for error in field.errors %}
-                        <small>
-                            {{ error|striptags }}
-                        </small><br>
+    <section class="no-print mt-5">
+        <div class="container">
+            <div class="detail__header">
+                <h1 class="detail-header__certificate">Күбөлүк &#8470;{{ object.agreement }}</h1>
+                <h1 class="detail-header__role">{{ object.get_role }}</h1>
+            </div>
+            <div class="detail__items d-flex mt-5">
+                <div class="image__item mx-auto">
+                    <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
+                </div>
+            </div>
+        </div>
+
+        {% if request.user.is_authenticated %}
+            <div class="container mt-5 no-print">
+                <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data" id="update-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        {% for field in form.visible_fields %}
+                            <div class="form-group row">
+                                <label for="id_{{ field.name|lower }}" class="col-sm-3 col-form-label">{{ field.label }}</label>
+                                <div class="col-sm-9">
+                                    {% if field.name == 'photo' or field.name == 'is_printed' or field.name == 'is_returned' %}
+                                        {% render_field field %}
+                                    {% else %}
+                                        {% render_field field class="form-control" %}
+                                    {% endif %}
+                                </div>
+                            </div>
                         {% endfor %}
-                    </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="buttons-group mt-5">
+                <button class="nav-item" onclick="update()">Өзгөртүү</button>
+                <button class="nav-item" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
+            </div>
+        {% endif %}
+    </section>
+
+    <div class="my-badge enable-print">
+        <div class="badge-body">
+            <div class="r">
+                <div class="first-c">
+                    <p class="certificate">күбөлүк &#8470;{{ object.agreement }}</p>
+                    <p class="role">{{ object.get_role }}</p>
+                    <p>{{ object.last_name|upper }}</p>
+                    <p>{{ object.first_name|upper }}</p>
+                    {% if object.patronymic %}
+                        <p>{{ object.patronymic|upper }}</p>
                     {% endif %}
                 </div>
-                {% endfor %}
+                <img class="user-image" src="{{ object.photo.url }}" alt="">
             </div>
-            
-            <div class="row">
-                <div class="col-md-6 col-sm-12 mx-auto mt-5">
-                     <button type="submit" class="btn btn-primary btn-block">Өзгөртүү</button>
+            <div class="r">
+                <div class="c">
+                    <span class="verification">Иш кагаздын аныктыгын</span><br>
+                    <span class="verification">текшерүүгө QR ди скандаңыз</span><br>
+                    <img class="qr-code" src="{{ object.qrcode.url }}" alt="">
+                </div>
+                <div class="c">
+                    <p>{{ object.district.gov_admin }}</p>
+                    <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы, колу</p>
+                    <p>{{ object.district.stat_admin }}</p>
+                    <p class="badge-help">Райондук(шаардык) мамстатистика башчысы, колу</p>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</section>
 
 {% endblock %}
 {% block js %}
-    <script src="{% static 'js/my-custom.js' %}"></script>
     <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
     <script>
     $(document).ready(function () {
@@ -53,5 +86,8 @@
         $('.date').mask('00.00.0000');
         $('#id_territory').val({{ object.territory.id }});
     });
+    function update() {
+        document.getElementById('update-form').submit();
+    }
 </script>
 {% endblock js %}

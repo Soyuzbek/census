@@ -101,7 +101,7 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(Territory)
 class TerritoryAdminPure(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'counter']
 
 
 admin.site.unregister(Group)
