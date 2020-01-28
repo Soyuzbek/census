@@ -18,7 +18,8 @@ class HiddenSelectInput(forms.Select):
 class UserLoginForm(forms.Form):
     number = forms.CharField(
         validators=[phone],
-        widget=TelInput(),
+        widget=TelInput(attrs={'placeholder': '550XXXXXX',
+            'pattern': '^\d{9}$'}),
         label=_('number'))
 
     password = forms.CharField(
@@ -38,7 +39,8 @@ class EmployeeCreateForm(forms.ModelForm):
         model = Employee
         exclude = ['qrcode', 'agreement', 'login', 'password', 'is_badge_printed', 'is_badge_returned']
         widgets = {
-            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789'}),
+            'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789',
+                'pattern': '\d{9}'}),
             'last_name': TextInput(attrs={ 'class': 'form-control'}),
             'first_name': TextInput(attrs={'class': 'form-control'}),
             'patronymic': TextInput(attrs={'class': 'form-control'}),

@@ -31,6 +31,8 @@
                                 <div class="col-sm-9">
                                     {% if field.name == 'photo' or field.name == 'is_badge_printed' or field.name == 'is_badge_returned' %}
                                         {% render_field field %}
+                                    {% elif field.name == 'number' %}
+                                        {% render_field field class="form-control masked" %}
                                     {% else %}
                                         {% render_field field class="form-control" %}
                                     {% endif %}

@@ -20,9 +20,9 @@
                 <div class="form-group">
                     {% ifequal field.name 'number' %}
                         {% if field.errors %}
-                            {% render_field field class="form-control is-invalid" placeholder='550XXXXXX' %}
+                            {% render_field field class="form-control masked is-invalid" placeholder='550XXXXXX' %}
                         {% else %}
-                            {% render_field field class="form-control" placeholder='550XXXXXX' %}
+                            {% render_field field class="form-control masked" placeholder='550XXXXXX' %}
                         {% endif %}
                     {% else %}
                         {% if field.errors %}
@@ -31,11 +31,13 @@
                             {% render_field field class="form-control" placeholder=field.label %}
                         {% endif %}
                     {% endifequal %}
-                    <div class="invalid-feedback">
-                    {% for error in field.errors %}
-                        <small>{{ error|striptags }}</small><br>
-                    {% endfor %}
-                    </div>
+                    {% if field.errors %}
+                        <div class="invalid-feedback">
+                        {% for error in field.errors %}
+                            <small>{{ error|striptags }}</small><br>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 {% else %}
                     {% render_field field value=redirect_url %}
@@ -49,4 +51,9 @@
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
+    <script>
+    $(document).ready(function () {
+        $('.masked').mask('000000000');
+    });
+</script>
 {% endblock %}
