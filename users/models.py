@@ -160,8 +160,8 @@ class Employee(models.Model):
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Ишке алынган күнү')
     login = models.CharField(max_length=50, verbose_name='логин')
     password = models.CharField(max_length=16, verbose_name='пароль')
-    is_badge_printed = models.BooleanField(default=False)
-    is_badge_returned = models.BooleanField(default=False)
+    is_badge_printed = models.BooleanField(default=False, verbose_name='бейджик басып чыгарылдыбы?')
+    is_badge_returned = models.BooleanField(default=False, verbose_name='бейджик кайтарылдыбы?')
 
     class Meta:
         verbose_name = 'Кызматкер'
