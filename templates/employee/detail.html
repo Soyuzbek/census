@@ -18,7 +18,7 @@
             <div class="image__item">
                 <img src="{{ object.photo.url }}" alt="" class="image">
             </div>
-            <div class="employee__info mr-5 ml-5">
+            <div class="employee__info mr-5 ml-5 my-auto">
                 <div class="employee-info">
                     <span>Фамилиясы:</span>
                     {% if user.is_authenticated %}
@@ -45,22 +45,7 @@
                     {% endif %}
                 </div>
                 {% endif %}
-                {% if user.is_authenticated %}
-                    <div class="employee-info">
-                        <span>Мамадминистрация башчысы:</span>
-                        <span>{{ object.district.gov_admin }}</span>
-                    </div>
-                    <div class="employee-info">
-                        <span>Мамстатистика башчысы:</span>
-                        <span>{{ object.district.stat_admin }}</span>
-                    </div>
-                {% endif %}
             </div>
-            {% if user.is_authenticated %}
-            <div class="qrcode__container ml-auto">
-                <img src="{{ object.qrcode.url }}" alt="">
-            </div>
-            {% endif %}
         </div>
     </div>
 
