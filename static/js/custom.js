@@ -54,7 +54,7 @@ $('document').ready(function () {
     let PIN = document.getElementById('id_PIN');
     let gender = document.getElementById('id_gender');
     let birth_day = document.getElementById('id_birth_day');
-    if (PIN.length < 2) {
+    if (PIN && PIN.length < 2) {
         if (gender) {
             PIN.value = gender.value;
         }
