@@ -70,46 +70,7 @@
     </div>
     {% endif %}
 
-    {% if request.user.is_authenticated %}
-    <div class="buttons-group mt-5">
-        <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link btn btn-info" href="{% url 'users:update' object.id %}">Өзгөртүү</a>
-            <button class="nav-item nav-link btn btn-info" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
-        </nav>
-    </div>
-    {% endif %}
-
 </section>
-
-<div class="my-badge enable-print">
-    <div class="badge-body">
-        <div class="r">
-            <div class="first-c">
-                <p class="certificate">күбөлүк &#8470;{{ object.agreement }}</p>
-                <p class="role">{{ object.get_role }}</p>
-                <p>{{ object.last_name|upper }}</p>
-                <p>{{ object.first_name|upper }}</p>
-                {% if object.patronymic %}
-                    <p>{{ object.patronymic|upper }}</p>
-                {% endif %}
-            </div>
-            <img class="user-image" src="{{ object.photo.url }}" alt="">
-        </div>
-        <div class="r">
-            <div class="c">
-                <span class="verification">Иш кагаздын аныктыгын</span><br>
-                <span class="verification">текшерүүгө QR ди скандаңыз</span><br>
-                <img class="qr-code" src="{{ object.qrcode.url }}" alt="">
-            </div>
-            <div class="c">
-                <p>{{ object.district.gov_admin }}</p>
-                <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы, колу</p>
-                <p>{{ object.district.stat_admin }}</p>
-                <p class="badge-help">Райондук(шаардык) мамстатистика башчысы, колу</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
 

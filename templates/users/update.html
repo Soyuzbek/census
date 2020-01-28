@@ -85,6 +85,18 @@
         $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
         $('.date').mask('00.00.0000');
         $('#id_territory').val({{ object.territory.id }});
+        if( window.localStorage )
+        {
+            if(!localStorage.getItem('firstLoad'))
+            {
+                localStorage['firstLoad'] = true;
+                window.location.reload();
+            }
+            else
+            {
+                localStorage.removeItem('firstLoad');
+            }
+        }
     });
     function update() {
         document.getElementById('update-form').submit();
