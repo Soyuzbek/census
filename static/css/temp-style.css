@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 .header-main{
 	height: 90px;
 }
@@ -597,4 +587,12 @@ button[type="button"]:focus {
 
 .btn-full{
 	width: 100%;
+}
+
+.my-badge{
+	visibility: hidden;
+}
+
+.section__print{
+    visibility: hidden;
 }
