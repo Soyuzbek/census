@@ -272,3 +272,14 @@
 	.y69{bottom: 205pt;}
 	.y70{bottom: 180pt;}
 }
+
+@media print {
+	html, body{
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	#page-container{
+		top: 0 !important;
+	}
+}
