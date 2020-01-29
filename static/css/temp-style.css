@@ -231,14 +231,6 @@ html, body {
     #lack {
         display: none;
     }
-
-    _:-ms-lang(x), .page-break {
-        page-break-before: avoid;
-    }
-
-    _:-ms-lang(x), .A4 {
-        padding: 0;
-    }
 }
 
 /* optional */
