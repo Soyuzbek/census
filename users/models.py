@@ -88,6 +88,7 @@ class District(models.Model):
     gov_admin = models.CharField(max_length=255, verbose_name='Мам админстрациа башчы (ААТ)')
     stat_admin = models.CharField(max_length=255, verbose_name='Статистика башчы (ААТ)')
     counter = models.CharField(max_length=8, default='000001')
+    center = models.CharField(max_length=255, verbose_name='райондун борбору', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Район'

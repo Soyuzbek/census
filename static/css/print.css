@@ -84,8 +84,9 @@ html, body{
 }
 
 .verification {
-    font-size: 0.5em;
-    margin-top: 20px;
+    font-size: 9px;
+    margin-top: 15px;
+    margin-left: 5px;
 }
 
 .badge-help{
@@ -120,7 +121,7 @@ html, body{
 }
 
 .badge__main{
-    margin-top: 120px;
+    margin-top: 125px;
 }
 
 .button__items{
