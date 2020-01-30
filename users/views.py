@@ -63,7 +63,7 @@ class FilteredListView(ListView):
 
 class EmployeeListView(LoginRequiredMixin, FilteredListView):
     filterset_class = EmployeeFilter
-    paginate_by = 1
+    paginate_by = 20
     model = Employee
     template_name = 'employee/list.html'
 
