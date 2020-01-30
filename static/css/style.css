@@ -620,7 +620,8 @@ button[type='button']:focus
 }
 
 .buttons-group button,
-.btn-add
+.btn-add,
+.search-btn
 {
     font-family: 'Segoe UI','Roboto',sans-serif;
     font-weight: 400;
@@ -643,20 +644,23 @@ button[type='button']:focus
 }
 
 .buttons-group button:hover,
-.btn-add:hover
+.btn-add:hover,
+.search-btn:hover
 {
     border-color: #7a7a7a;
 }
 
 .buttons-group button:active,
-.btn-add:active
+.btn-add:active,
+.search-btn:active
 {
     background-color: #999;
 }
 
 @media all and (max-width:30em){
     .buttons-group button,
-    .btn-add
+    .btn-add,
+    .search-btn
     {
         display: block;
 

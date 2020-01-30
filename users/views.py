@@ -4,20 +4,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
-from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
+from django.http import HttpResponseForbidden, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import DetailView, ListView
 # my imports
 from django.views.generic.edit import CreateView, UpdateView
-from pyexcel_xls import get_data as xls_get
-from pyexcel_xlsx import get_data as xlsx_get
-from rest_framework.views import APIView
 
+from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm
 from users.models import Employee, District, Territory
 
@@ -49,8 +46,24 @@ class LoginView(View):
         return render(request, self.template_name, locals())
 
 
-class EmployeeListView(LoginRequiredMixin, ListView):
-    paginate_by = 20
+class FilteredListView(ListView):
+    filterset: object
+    filterset_class = None
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        return self.filterset.qs.distinct()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+
+class EmployeeListView(LoginRequiredMixin, FilteredListView):
+    filterset_class = EmployeeFilter
+    paginate_by = 1
     model = Employee
     template_name = 'employee/list.html'
 
