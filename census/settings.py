@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     # 'survey.apps.SurveyConfig',
 
     'widget_tweaks',
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {

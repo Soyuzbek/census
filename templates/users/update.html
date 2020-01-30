@@ -91,7 +91,7 @@
     <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
     <script>
     $(document).ready(function () {
-        $('.masked').mask('550000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
+        $('.masked').mask('000000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
         $('.date').mask('00.00.0000');
         $('#id_territory').val({{ object.territory.id }});
         if( window.localStorage )
