@@ -44,7 +44,7 @@
             </div>
             <div class="buttons-group mt-5 no-print">
                 <button class="nav-item" onclick="update()">Өзгөртүү</button>
-                <button class="nav-item" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
+                <button class="nav-item" onclick="printWindow()" id="badge_print"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
             </div>
         {% endif %}
     </section>
@@ -94,6 +94,7 @@
         $('.masked').mask('000000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
         $('.date').mask('00.00.0000');
         $('#id_territory').val({{ object.territory.id }});
+
         if( window.localStorage )
         {
             if(!localStorage.getItem('firstLoad'))
@@ -106,6 +107,10 @@
                 localStorage.removeItem('firstLoad');
             }
         }
+
+        $('#badge_print').on('click', function () {
+            console.log("{{ object.last_name }}");
+        });
     });
     function update() {
         document.getElementById('update-form').submit();

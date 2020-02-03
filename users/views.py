@@ -178,3 +178,7 @@ def error_404(request, exception):
 
 def error_500(request):
     return render(request, 'errors/500.html', status=404)
+
+
+class BadgePrintView(View):
+    pass
