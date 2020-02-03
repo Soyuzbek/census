@@ -15,7 +15,7 @@
                     {% for field in filterset.form.visible_fields %}
                         <div class="form-group col-md-3">
                             <label for="id_{{ field.name|lower }}">{{ field.label }}</label>
-                            {% render_field field class="form-control" %}
+                            {% render_field field class="form-control" autocomplete="off" %}
                         </div>
                     {% endfor %}
                 </div>
