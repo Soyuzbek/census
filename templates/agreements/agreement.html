@@ -13,20 +13,20 @@
 
     <section>
 		<div class="print-container">
-			<div class="text-center">№ 0000014 ЭМГЕК КЕЛИШИМИ</div>
-			<p class="text-right date">2020-жылдын 23-январы.</p>
-			<p class="text-center">Бишкек шаары</p>
+			<div class="text-center">№ {{ object.agreement }} ЭМГЕК КЕЛИШИМИ</div>
+			<p class="text-right date">«{{object.date_joined|date:"d"}}» {{ object.date_joined|date:"F" }} {{ object.date_joined|date:"Y"}} <span>ж.</span></p>
+			<p class="text-center">{{ object.district.center }}</p>
 			<p class="text-center">(келишим түзүлгөн жери)</p>
-			<p class="indent">Кыргыз Республикасынын Улуттук статистика комитети Бишкек ш., Фрунзе көчөсү 374 дарегинде жайгашкан, бир тарап,  Жобонун негизинде иш жүргүзүүчү Ош шаардык мамлекеттик статистикасы башкармалыгынын башчысы Таалайбек Насирбекович Сарыбашов аркылуу, мындан ары «Заказчы» деп аталуучу, экинчи тарап, жана кызматкер Эмильбеков Нурлан Эмильбекович</p>
-			<p class="m1">берилген СИМ карта номери +996 550 00 11 33</p>
+			<p class="indent">Кыргыз Республикасынын Улуттук статистика комитети Бишкек ш., Фрунзе көчөсү 374 дарегинде жайгашкан, бир тарап,  Жобонун негизинде иш жүргүзүүчү {{ object.district }} мамлекеттик статистикасы башкармалыгынын башчысы {{ object.district.gov_admin|title }} аркылуу, мындан ары «Заказчы» деп аталуучу, экинчи тарап, жана кызматкер {{ object.last_name }} {{ object.first_name }} {{ object.patronymic }}</p>
+			<p class="m1">берилген СИМ карта номери +996 {{ object.number }}</p>
 
-			<p class="m1">туулган күнү 1996-жылдын 9-январы</p>
+			<p class="m1">туулган күнү {{ object.birth_day|date:"d F Y" }}</p>
 
-			<p class="m1">төмөнкү дарек: Ысык-Көл облусу, Түп району, Түп айылы Чыгыш көчөсү, 102-үйү боюнча жашоочу</p>
+			<p class="m1">төмөнкү дарек: {{ object.address }} боюнча жашоочу</p>
 
-			<p class="m1">паспорт номери AN № 1111111 берген мекеме МКК – 21111</p>
+			<p class="m1">паспорт номери {{ object.serial}} № {{ object.passport_num }} берген мекеме {{ object.authority }}</p>
 
-			<p class="m1">өздүк идентификациялык номери 20901199600345</p>
+			<p class="m1">өздүк идентификациялык номери {{ object.PIN }}</p>
 
 			<p class="m1">мындан ары «Аткаруучу» деп аталуучу, башка тарап, төмөнкүлөр жөнүндө ушул келишимди түзүштү:</p>
 
@@ -57,9 +57,9 @@
 			<p class="list-item" id="i-22">Заказчы төмөнкүлөргө милдеттүү:</p>
 
 			<p class="list-item-inner" id="i-221">Жумуштун жыйынтыктарын кабыл алгандан кийин Аткаруучуга анын акысын төлөп берүүгө.</p>
+        </div>
 
-            <br><br><br><br>
-
+        <div class="print-container second">
 			<p class="text-center">3. Келишим боюнча акы төлөө</p>
 
 			<p class="list-item" id="i-31">Ушул келишим боюнча 1 ай иштеген эмгек акы суммасы 9187 сомду түзөт.</p>
@@ -135,13 +135,13 @@
 
 
 			<div class="credentials">
-				<p>Нурлан Эмильбеков Эмильбекович</p>
-				<p>ЛОГИН: T0098P1I1S1</p>
-				<p>СЫР СӨЗ: T0098P1I1S1robt</p>
-				<p>НОМЕР: 550001133</p>
-				<p>КАТТОО БӨЛҮМҮ: 1</p>
-				<p>ИНСТРУКТОРДУК УЧАСТОК: 1</p>
-				<p>ЭСЕПТӨӨ УЧАСТОГУ: 1</p>
+				<p>{{ object.first_name|capfirst}} {{ object.last_name|capfirst }} {{ object.patronymic|capfirst|default:"" }}</p>
+				<p>ЛОГИН: {{ object.login }}</p>
+				<p>СЫР СӨЗ: {{ object.password }}</p>
+				<p>НОМЕР: {{ object.number }}</p>
+				<p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
+				<p>ИНСТРУКТОРДУК УЧАСТОК: {{ object.sector }}</p>
+				<p>ЭСЕПТӨӨ УЧАСТОГУ: {{ object.plot }}</p>
 			</div>
 		</div>
 	</section>

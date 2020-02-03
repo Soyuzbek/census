@@ -80,7 +80,7 @@ class EmployeeDetailView(DetailView):
 
 class AgreementDetailView(LoginRequiredMixin, DetailView):
     model = Employee
-    template_name = 'agreements/enumerator.html'
+    template_name = 'agreements/agreement.html'
 
 
 class LogoutView(View):
