@@ -25,7 +25,7 @@ section{
 }
 
 .print-container{
-    font-size: 22px;
+    font-size: 21px;
     margin: 2cm 2cm 0 2cm;
     padding: 0;
 }
@@ -44,5 +44,5 @@ table{
 }
 
 .print-container.second{
-    padding-top: 2.2cm;
+    padding-top: 3.2cm;
 }
