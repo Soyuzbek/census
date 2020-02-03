@@ -26,10 +26,13 @@ section{
 
 .print-container{
     font-size: 21px;
-    margin: 2cm 2cm 0 2cm;
+    margin: 2cm 2cm 0 2.5cm;
     padding: 0;
 }
 
+.print-container:not(.second){
+    page-break-after: always;
+}
 
 p{
 	margin: 0px;
@@ -41,8 +44,4 @@ p.m1{
 
 table{
     width: 900px;
-}
-
-.print-container.second{
-    padding-top: 3.2cm;
 }
