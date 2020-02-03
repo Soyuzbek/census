@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'fonts/NewTimesRoman/stylesheet.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/agreement.css' %}"/>
+    <link rel="stylesheet" media="print" href="{% static 'css/agreement-print.css' %}" />
+{% endblock %}
+{% block title %}
+    Келишим
+{% endblock %}
+{% block content %}
+
+    <section>
+		<div class="print-container">
+			<div class="text-center">№ {{ object.agreement }} ЭМГЕК КЕЛИШИМИ</div>
+			<p class="text-right date">«{{object.date_joined|date:"d"}}» {{ object.date_joined|date:"F" }} {{ object.date_joined|date:"Y"}} <span>ж.</span></p>
+			<p class="text-center">{{ object.district.center }}</p>
+			<p class="text-center">(келишим түзүлгөн жери)</p>
+			<p class="indent">Кыргыз Республикасынын Улуттук статистика комитети Бишкек ш., Фрунзе көчөсү 374 дарегинде жайгашкан, бир тарап,  Жобонун негизинде иш жүргүзүүчү {{ object.district }} мамлекеттик статистикасы башкармалыгынын башчысы {{ object.district.gov_admin|title }} аркылуу, мындан ары «Заказчы» деп аталуучу, экинчи тарап, жана кызматкер {{ object.last_name }} {{ object.first_name }} {{ object.patronymic }}</p>
+			<p class="m1">берилген СИМ карта номери +996 {{ object.number }}</p>
+
+			<p class="m1">туулган күнү {{ object.birth_day|date:"d F Y" }}</p>
+
+			<p class="m1">төмөнкү дарек: {{ object.address }} боюнча жашоочу</p>
+
+			<p class="m1">паспорт номери {{ object.serial}} № {{ object.passport_num }} берген мекеме {{ object.authority }}</p>
+
+			<p class="m1">өздүк идентификациялык номери {{ object.PIN }}</p>
+
+			<p class="m1">мындан ары «Аткаруучу» деп аталуучу, башка тарап, төмөнкүлөр жөнүндө ушул келишимди түзүштү:</p>
+
+			<p class="text-center item-1">1. Келишимдин негизи</p>
+
+			<p class="list-item" id="i-11">Аткаруучу Заказчынын тапшырмасы боюнча ушул келишимдин 1.2. пунктунда көрсөтүлгөн жумушту аткарууга жана анын жыйынтыгын Заказчыга өткөрүүгө милдеттенет, ал эми Заказчы  жумуштун жыйынтыгын кабыл алууга жана акысын төлөөгө милдеттенет.</p>
+
+			<p class="list-item" id="i-12">Аткаруучу төмөнкү жумушту аткарууга милдеттенет: Кыргыз Республикасынын эл жана турак жай фондун каттоо маалыматтарын киргизүү боюнча мобилдик тиркемеге Координатор катары тестирлөө өткөрүүгө милдеттенет.</p>
+
+			<p class="list-item" id="i-13">Жумушту аткаруунун мөөнөтү  2020-жылдын 13-мартынан 2020-жылдын 23-мартына чейин.</p>
+
+			<p class="list-item" id="i-14">Ушул жумуш изилдөөчүлүк жана илимий иш болуп саналат. Ушул ишкердикти жүргүзүү негизги жумуш орду боюнча аткарыла турган ишинин санына жана сапатына таасирин тийгизбейт.</p>
+
+			<p class="text-center">2. Тараптардын милдеттери</p>
+
+			<p class="list-item" id="i-21">Аткаруучу төмөкүлөргө милдеттүү:</p>
+
+			<p class="list-item-inner" id="i-211">Жумушту талаптагыдай сапатта аткарууга.</p>
+
+			<p class="list-item-inner" id="i-212">Жумушту ушул келишимдин 1.3 пунктунда көрсөтүлгөн мөөнөттө аткарууга.</p>
+
+			<p class="list-item-inner" id="i-213">Жумуштун жыйынтыгын Заказчыга тапшырууга.</p>
+
+			<p class="list-item-inner" id="i-214">Эгерде Аткаруучу жумушту аткаруу процессинде көрсөтүлгөн Жумуштун сапатын төмөндөтүүгө алып келүүчү келишимдин шарттарынан четтөөгө жол берсе, бардык табылган кемчиликтерди Заказчынын талабы боюнча 3 күндүн ичинде акысыз оңдоого.</p>
+
+			<p class="list-item-inner" id="i-215">Аткаруучу Жумушту жеке өзү аткарууга милдеттүү.</p>
+
+			<p class="list-item" id="i-22">Заказчы төмөнкүлөргө милдеттүү:</p>
+
+			<p class="list-item-inner" id="i-221">Жумуштун жыйынтыктарын кабыл алгандан кийин Аткаруучуга анын акысын төлөп берүүгө.</p>
+        </div>
+
+        <div class="print-container second">
+			<p class="text-center">3. Келишим боюнча акы төлөө</p>
+
+			<p class="list-item" id="i-31">Ушул келишим боюнча 1 ай иштеген эмгек акы суммасы 9187 сомду түзөт.</p>
+
+			<p class="list-item" id="i-32">Эсептелген суммадан 10% Социалдык фондго, 10% киреше салыгына кармалат. (Төлөм Кыргыз Республикасынын Өкмөтүнүн 2017-жылдын 23-октябрындагы №690 токтомунун негизинде жүргүзүлөт).</p>
+
+			<p class="text-center">4. Тараптардын жоопкерчиликтери</p>
+
+			<p class="list-item" id="i-41">Ушул келишимдин алкагында Аткаруучу тарабынан кабыл алынган милдеттери аткарылбаса же талаптагыдай эмес аткарылса, аларды аткаруу боюнча талап коюу укугу Заказчыга таандык болот.</p>
+
+			<p class="list-item" id="i-42">Заказчы жана Аткаруучу ушул келишим боюнча өздөрүнүн милдеттерин   талаптагыдай түрдө аткарууга милдеттенишет.</p>
+
+			<p class="list-item" id="i-43">Ушул келишим боюнча милдеттеринин аткарылбаганы же талаптагыдай эмес аткарылганы үчүн күнөөлүү тарап башка тарапка келтирилген чыгымдарды төлөп берет жана Кыргыз Республикасынын колдонуудагы мыйзамдарына ылайык жоопккерчилик тартышат.</p>
+
+			<p class="text-center">5. Талаш тартыштарды чечүү тартиби</p>
+
+			<p class="list-item" id="i-51">Ушул келишим жана ага байланыштуу Тараптардын ортосунда жарала турган бардык талаш-тартыштар жана келишпестиктер Кыргыз Республикасынын кодонуудагы мыйзамдарына ылайык чечилет.</p>
+
+			<p class="text-center">6. Келишимди өзгөртүү жана толуктоо тартиби</p>
+
+			<p class="list-item" id="i-61">Ушул келишимге карата бардык өзгөртүүлөр жана толуктоолор, алар жазуу түрүндө түзүлсө, жана эки тарап тең кол коюлган учурда гана иштөө күчүндө болот.</p>
+
+			<p class="list-item" id="i-62">Келишимди мөөнөтүнөн мурда бузуу, тараптардын макулдашуусу боюнча же Кыргыз Республикасынын аймагында колдонуудагы жарандык мыйзамдарда каралган негиздер боюнча, келтирилген чыгымдарды төлөп калыбына келтирүү менен  гана жүргүзүлүшү мүмкүн.</p>
+
+			<p class="text-center">7. Кошумча шарттар</p>
+
+			<p class="list-item" id="i-71">Ушул келишим бирдей юридикалык күчкө ээ, ар бир тарап үчүн бирден, эки нускада түзүлдү.</p>
+
+			<p class="text-center">8. Тараптардын колдору</p>
+
+			<TABLE WIDTH=560 CELLPADDING=10 CELLSPACING=0>
+				<COL WIDTH=273>
+				<COL WIDTH=300>
+				<TR VALIGN=TOP>
+					<TD WIDTH=273 STYLE="border: none; padding: 0in">
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>Заказчы:</span></span></P>
+					</TD>
+					<TD WIDTH=300 STYLE="border: none; padding: 0in">
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>Аткаруучу:</span></span></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=280 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-bottom: 0in"><BR>
+						</P>
+						<P STYLE="margin-bottom: 0in"><BR>
+						</P>
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>_______
+						________________________</span></span></P>
+					</TD>
+					<TD WIDTH=280 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-bottom: 0in"><BR>
+						</P>
+						<P STYLE="margin-bottom: 0in"><BR>
+						</P>
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>_______
+						________________________</span></span></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=273 STYLE="border: none; padding: 0in">
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>(колу)
+						   (аты, фамилиясы)</span></span></P>
+					</TD>
+					<TD WIDTH=300 STYLE="border: none; padding: 0in">
+						<P><span FACE="Times New Roman, serif"><span SIZE=3>(колу)
+						            (аты, фамилиясы)</span></span></P>
+					</TD>
+				</TR>
+			</TABLE>
+
+			<p>М.О</p>
+
+
+			<div class="credentials">
+				<p>{{ object.first_name|capfirst}} {{ object.last_name|capfirst }} {{ object.patronymic|capfirst|default:"" }}</p>
+				<p>ЛОГИН: {{ object.login }}</p>
+				<p>СЫР СӨЗ: {{ object.password }}</p>
+				<p>НОМЕР: {{ object.number }}</p>
+				<p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
+				<p>ИНСТРУКТОРДУК УЧАСТОК: {{ object.sector }}</p>
+				<p>ЭСЕПТӨӨ УЧАСТОГУ: {{ object.plot }}</p>
+			</div>
+		</div>
+	</section>
+
+
+    <div class="button__items no-print">
+        <nav class="nav nav-pills nav-fill">
+            <button class="nav-item nav-link btn-add no-print" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Print</button>
+        </nav>
+    </div>
+
+{% endblock %}

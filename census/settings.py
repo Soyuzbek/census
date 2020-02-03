@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
-import environ
 
 import django.conf.locale
+import environ
 from django.utils.translation import ugettext_lazy as _
 
 DATE_INPUT_FORMATS = ("%d.%m.%Y",)
@@ -116,7 +116,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -191,3 +190,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+def FILTERS_VERBOSE_LOOKUPS():
+    from django_filters.conf import DEFAULTS
+
+    verbose_lookups = DEFAULTS['VERBOSE_LOOKUPS'].copy()
+    verbose_lookups.update({
+        'icontains': '',
+    })
+    return verbose_lookups

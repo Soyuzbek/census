@@ -1,0 +1,48 @@
+@charset "utf-8";
+@page{
+	size: A4 portrait;
+	margin: 0;
+    padding: 0;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    margin: 0;
+    padding: 0;
+}
+
+
+.no-print{
+    display: none;
+}
+
+.list-item-inner{
+    padding-left: 100px;
+}
+
+.print-container{
+    font-size: 22px;
+    margin: 2cm 2cm 0 2cm;
+    padding: 0;
+}
+
+
+p{
+	margin: 0px;
+    line-height: 27px;
+}
+
+p.m1{
+}
+
+table{
+    width: 900px;
+}
+
+.print-container.second{
+    padding-top: 2cm;
+}
