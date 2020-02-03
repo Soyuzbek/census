@@ -35,7 +35,7 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['*']
 
-DOMAIN_NAME = '212.42.101.110:8080'
+DOMAIN_NAME = '212.42.101.125'
 
 # Application definition
 
