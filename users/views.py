@@ -24,6 +24,7 @@ class LoginView(View):
     form_class = UserLoginForm
 
     def get(self, request):
+        request.session['_language'] = 'ky'
         if request.user.is_authenticated:
             return redirect('users:home')
         form = self.form_class()
@@ -119,6 +120,7 @@ class IndexView(View):
 
     @method_decorator(login_required)
     def get(self, request):
+        request.session['_language'] = 'ky'
         if request.user.is_superuser:
             form = self.form_class(request.user, initial={'district': request.user.district})
             pass
