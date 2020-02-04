@@ -11,3 +11,15 @@ def param_replace(context, **kwargs):
     for k in [k for k, v in d.items() if not v]:
         del d[k]
     return d.urlencode()
+
+
+@register.simple_tag(name='get_initials')
+def get_initials(full_name):
+    full_name_list = full_name.split()
+    if len(full_name_list) == 3:
+        surname = full_name_list[0]
+        name = full_name_list[1]
+        patronymic = full_name_list[2]
+
+    initials = "{} {}. {}.".format(surname, name[0], patronymic[0])
+    return initials

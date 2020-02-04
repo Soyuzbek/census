@@ -3,6 +3,12 @@
 {% load i18n %}
 {% load widget_tweaks %}
 {% load replace_asterisk %}
+{% load users_extras %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'fonts/Arial/stylesheet.css' %}">
+{% endblock head %}
+
 {% block title %}
     {% trans 'Home' %}
 {% endblock %}
@@ -76,9 +82,9 @@
                     </div>
 
                     <div class="admin-info__container">
-                        <p>{{ object.district.gov_admin }}</p>
+                        <p>{% get_initials object.district.gov_admin %}</p>
                         <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы, колу</p>
-                        <p>{{ object.district.stat_admin }}</p>
+                        <p>{% get_initials object.district.stat_admin %}</p>
                         <p class="badge-help">Райондук(шаардык) мамстатистика башчысы, колу</p>
                     </div>
                 </div>
