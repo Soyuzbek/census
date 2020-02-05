@@ -678,3 +678,8 @@ button[type='button']:focus
     display: none;
     visibility: hidden;
 }
+
+
+#id_authority{
+    text-transform: uppercase;
+}
