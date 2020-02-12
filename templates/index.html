@@ -6,54 +6,53 @@
     {% trans 'Home' %}
 {% endblock %}
 {% block content %}
-<section>
-    <div class="container">
-        <h5 class="mt-5 text-center">Кызматкер Кошуу Формасы</h5>
-        <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="row">
-                {% for field in form.visible_fields %}
-                <div class="form-group col-md-7 col-sm-12 mx-auto">
-                    <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
-                    {{ field }}
-                    {{ field.help }}
-                    {% if field.errors %}
-                    <div class="invalid-feedback">
-                        {% for error in field.errors %}
-                        <small>
-                            {{ error|striptags }}
-                        </small><br>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-                {% for field in form.hidden_fields %}
+    <section>
+        <div class="container">
+            <h5 class="mt-5 text-center">Кызматкер Кошуу Формасы</h5>
+            <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    {% for field in form.visible_fields %}
+                        <div class="form-group col-md-7 col-sm-12 mx-auto">
+                            <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
+                            {{ field }}
+                            {{ field.help }}
+                            {% if field.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in field.errors %}
+                                        <small>
+                                            {{ error|striptags }}
+                                        </small><br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    {% for field in form.hidden_fields %}
                         <div style="display:none;">{{ field }}</div>
                         {% if field.errors %}
                             {% for error in errors %}
                                 <small class="alert text-danger">{{ error|striptags }}</small>
                             {% endfor %}
-
                         {% endif %}
                     {% endfor %}
-            </div>
-            
-            <div class="row">
-                <div class="col-md-7 col-sm-12 mx-auto mt-5">
-                     <button type="submit" class="btn-full btn-add">Кошуу</button>
                 </div>
-            </div>
-        </form>
-    </div>
-</section>
+
+                <div class="row">
+                    <div class="col-md-7 col-sm-12 mx-auto mt-5">
+                        <button type="submit" class="btn-full btn-add">Кошуу</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 
 {% endblock %}
 {% block js %}
     <script>
-    $(document).ready(function () {
-        $('.masked').mask('000000000');
-        $('.date').mask('00.00.0000');
-    });
-</script>
+        $(document).ready(function () {
+            $('.masked').mask('000000000');
+            $('.date').mask('00.00.0000');
+        });
+    </script>
 {% endblock js %}
