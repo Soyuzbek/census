@@ -28,7 +28,7 @@
 
         {% if request.user.is_authenticated %}
             <div class="container mt-5 no-print">
-                <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data" id="update-form">
+                <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data" id="update-form" data-ajax="false">
                     {% csrf_token %}
                     <fieldset>
                         {% for field in form.visible_fields %}

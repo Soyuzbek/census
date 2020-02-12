@@ -9,7 +9,7 @@
     <section>
         <div class="container">
             <h5 class="mt-5 text-center">Кызматкер Кошуу Формасы</h5>
-            <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data" data-ajax="false">
                 {% csrf_token %}
                 <div class="row">
                     {% for field in form.visible_fields %}
