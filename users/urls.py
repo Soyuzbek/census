@@ -7,7 +7,6 @@ from users.views import (LoginView,
                          EmployeeDetailView,
                          EmployeeUpdateView,
                          IndexView,
-                            BadgePrintView,
                          load_territories_view,
                          load_districts_view)
 
@@ -21,5 +20,4 @@ urlpatterns = [
     path('employee/agreement/<int:pk>/', AgreementDetailView.as_view(), name='agreement_detail'),
     path('ajax/load-districts/', load_districts_view, name='load_districts'),
     path('ajax/load-territories/', load_territories_view, name='load_territories'),
-    path('ajax/badge-printing/', BadgePrintView.as_view(), name='print_badge'),
 ]

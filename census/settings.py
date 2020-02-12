@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['212.42.101.125', 'census.kg']
+ALLOWED_HOSTS = ['212.42.101.125', 'census.kg', 'localhost', '127.0.0.1']
 
 DOMAIN_NAME = '212.42.101.125'
 

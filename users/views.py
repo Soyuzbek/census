@@ -1,9 +1,13 @@
+from io import StringIO, BytesIO
+
+from PIL import Image
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
+from django.core.files.base import ContentFile
 from django.http import HttpResponseForbidden, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -14,6 +18,7 @@ from django.views.generic import DetailView, ListView
 # my imports
 from django.views.generic.edit import CreateView, UpdateView
 
+from users.image_cropper import FaceCropper
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm
 from users.models import Employee, District, Territory
@@ -133,7 +138,20 @@ class IndexView(View):
         if request.user.is_superuser:
             form = self.form_class(request.user, request.POST, request.FILES)
             if form.is_valid():
-                form.save()
+                temp_image = form.cleaned_data['photo']
+                employee = form.save()
+                image = employee.photo.url[1:]
+                if image:
+                    img_io = BytesIO()
+                    detector = FaceCropper()
+                    original_img = detector.generate(image, True)
+                    if original_img:
+                        icc_profile = original_img.info.get("icc_profile")
+
+                    original_img.save(img_io, format='JPEG', quality=100, icc_profile=icc_profile)
+                    img_content = ContentFile(img_io.getvalue(), 'profile.jpg')
+                    employee.photo = img_content
+                    employee.save()
                 messages.success(request, _('The employee added successfully.'), 'alert-success')
                 return redirect('users:home')
             messages.add_message(request, messages.ERROR, _('Please check the fields below form!'), 'alert-danger')
@@ -182,5 +200,10 @@ def error_500(request):
     return render(request, 'errors/500.html', status=404)
 
 
-class BadgePrintView(View):
-    pass
+def cropper(original_image, crop_coords):
+    img_io = StringIO()
+    original_image = Image.open(original_image)
+    cropped_img = original_image.crop(crop_coords)
+    cropped_img.save(img_io, format='JPEG', quality=100)
+    img_content = ContentFile(img_io.getvalue(), 'profile.jpg')
+    return img_content
