@@ -83,3 +83,13 @@ class EmployeeUpdateForm(forms.ModelForm):
 
         self.fields['territory'].queryset = territory
 
+
+class PhotoUpdateForm(forms.ModelForm):
+    x1 = forms.CharField(widget=forms.HiddenInput(), required=False)
+    y1 = forms.CharField(widget=forms.HiddenInput(), required=False)
+    x2 = forms.CharField(widget=forms.HiddenInput(), required=False)
+    y2 = forms.CharField(widget=forms.HiddenInput(), required=False)
+
+    class Meta:
+        model = Employee
+        fields = ['photo']
