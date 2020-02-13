@@ -199,11 +199,9 @@ class PhotoUpdateView(UpdateView):
         y2 = int(form.cleaned_data['y2'])
         image = form.cleaned_data['photo']
         img = Image.open(image)
-        img.show()
         profile_img = img.crop((x1, y1, x2, y2))
-        profile_img.show()
         profile_img.save(img_io, format='JPEG', quality=100)
         image = ContentFile(img_io.getvalue(), 'profile.jpg')
         self.object.photo = image
         self.object.save()
-        return JsonResponse({'message': 'OK'})
+        return redirect('users:update', pk=self.object.pk)
