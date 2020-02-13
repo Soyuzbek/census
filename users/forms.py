@@ -1,6 +1,4 @@
 from django import forms
-from django import forms
-from django.core.exceptions import NON_FIELD_ERRORS
 from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
 
@@ -19,7 +17,7 @@ class UserLoginForm(forms.Form):
     number = forms.CharField(
         validators=[phone],
         widget=TelInput(attrs={'placeholder': '550XXXXXX',
-            'pattern': '^\d{9}$'}),
+                               'pattern': '^\d{9}$'}),
         label=_('number'))
 
     password = forms.CharField(
@@ -37,11 +35,11 @@ class UserLoginForm(forms.Form):
 class EmployeeCreateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        exclude = ['qrcode', 'agreement', 'login', 'password', 'is_badge_printed', 'is_badge_returned']
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'is_badge_printed', 'is_badge_returned', 'photo']
         widgets = {
             'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '123456789',
-                'pattern': '\d{9}'}),
-            'last_name': TextInput(attrs={ 'class': 'form-control'}),
+                                      'pattern': '\d{9}'}),
+            'last_name': TextInput(attrs={'class': 'form-control'}),
             'first_name': TextInput(attrs={'class': 'form-control'}),
             'patronymic': TextInput(attrs={'class': 'form-control'}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
@@ -53,7 +51,7 @@ class EmployeeCreateForm(forms.ModelForm):
             'address': TextInput(attrs={'class': 'form-control'}),
             'authority': TextInput(attrs={'style': 'text-transform: uppercase;', 'class': 'form-control'}),
             'PIN': TelInput(attrs={'class': 'form-control'}),
-            'photo': forms.FileInput(attrs={'class': 'form-control-file'}),
+            # 'photo': forms.FileInput(attrs={'class': 'form-control-file'}),
             'role': forms.Select(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
             'sector': forms.Select(attrs={'class': 'form-control'}),
