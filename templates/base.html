@@ -12,6 +12,7 @@
 
     {% block head %}{% endblock head %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cropper.css' %}">
 {#    <link rel="stylesheet" href="{% static 'css/temp-style.css' %}">#}
     <link rel="stylesheet" media="print" href="{% static 'css/print.css' %}" />
     <title> {% block title %}{% endblock title %} </title>
@@ -147,6 +148,7 @@
 
 <script src="{% static 'js/custom.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/cropper.js' %}"></script>
 {% block js %}{% endblock js %}
 </body>
 </html>
