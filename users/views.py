@@ -200,6 +200,10 @@ class PhotoUpdateView(UpdateView):
         image = form.cleaned_data['photo']
         img = Image.open(image)
         w1, h1 = img.size
+        rotated = w1 > h1
+        if rotated:
+            print("Bugaga")
+            img = img.rotate(90)
         profile_img = img.crop((x1, y1, x2, y2))
         w2, h2 = profile_img.size
         profile_img.save(img_io, format='JPEG', quality=100)
