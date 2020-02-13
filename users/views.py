@@ -196,8 +196,4 @@ class PhotoUpdateView(View):
                 employee = get_object_or_404(Employee, pk=kwargs['pk'])
                 employee.photo = image
                 employee.save()
-                return JsonResponse({'message': "OK"})
-
-    def get_success_url(self):
-        view_name = 'users:update'
-        return reverse(view_name, kwargs={'pk': self.object.pk})
+                return redirect('users:update', pk=employee.pk)

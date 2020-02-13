@@ -29,7 +29,7 @@
     <div class="d-flex">
         <form class="mx-auto" method="post">
             {% csrf_token %}
-            <input type="file" name="image" id="img" title=" "/>
+            <input type="file" name="image" id="img" accept="image/*">
         </form>
         <div>
             <button class="btn btn-primary" id="save-btn">Save</button>
@@ -55,6 +55,7 @@
                 $('#save-btn').click(function () {
                     cropper.getCroppedCanvas().toBlob(function (blob) {
                         let form = new FormData();
+                        alert(blob);
                         form.append("image", blob);
                         alert(getCookie('csrftoken'));
                         form.append('csrfmiddlewaretoken', getCookie('csrftoken'));
