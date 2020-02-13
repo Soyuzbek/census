@@ -1,11 +1,15 @@
+from io import BytesIO
+
+from PIL import Image
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
+from django.core.files.base import ContentFile
 from django.http import HttpResponseForbidden, JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
@@ -15,7 +19,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 
 from users.filters import EmployeeFilter
-from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm
+from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
 from users.models import Employee, District, Territory
 
 
@@ -182,20 +186,24 @@ def error_500(request):
     return render(request, 'errors/500.html', status=404)
 
 
-class PhotoUpdateView(View):
+class PhotoUpdateView(UpdateView):
+    model = Employee
+    form_class = PhotoUpdateForm
     template_name = 'users/photo_update.html'
 
-    def get(self, request, *args, **kwargs):
-        employee = get_object_or_404(Employee, pk=kwargs['pk'])
-        return render(request, self.template_name, {'object': employee})
-
-    def post(self, request, *args, **kwargs):
-        if request.method == 'POST' and request.is_ajax():
-            if 'image' in request.FILES:
-                image = request.FILES['image']
-                print(image.content_type)
-                employee = get_object_or_404(Employee, pk=kwargs['pk'])
-                employee.photo = image
-                employee.save()
-                data = {'message': 'ok'}
-                return JsonResponse(data)
+    def form_valid(self, form):
+        img_io = BytesIO()
+        x1 = int(form.cleaned_data['x1'])
+        y1 = int(form.cleaned_data['y1'])
+        x2 = int(form.cleaned_data['x2'])
+        y2 = int(form.cleaned_data['y2'])
+        image = form.cleaned_data['photo']
+        img = Image.open(image)
+        img.show()
+        profile_img = img.crop((x1, y1, x2, y2))
+        profile_img.show()
+        profile_img.save(img_io, format='JPEG', quality=100)
+        image = ContentFile(img_io.getvalue(), 'profile.jpg')
+        self.object.photo = image
+        self.object.save()
+        return JsonResponse({'message': 'OK'})

@@ -15,7 +15,13 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+        }
+
+        #save-btn {
+            width: 100%;
+            display: block;
+            height: 60px;
         }
     </style>
 {% endblock %}
@@ -27,13 +33,11 @@
         </div>
     </div>
     <div class="d-flex">
-        <form class="mx-auto" method="post">
+        <form class="mx-auto" method="post" action="{% url 'users:update_photo' object.pk %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="image" id="img" accept="image/*">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
-        <div>
-            <button class="btn btn-primary" id="save-btn">Save</button>
-        </div>
     </div>
 
 {% endblock %}
@@ -41,56 +45,26 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $("input[id='img']").change(function () {
+            $("input[id='id_photo']").change(function () {
                 let image = document.getElementById('image');
                 let files = $(this)[0].files;
                 let file = files[0];
                 $('#image').attr('src', window.URL.createObjectURL(file));
                 let cropper = new Cropper(image, {
                     aspectRatio: 2 / 3,
+                    movable: false,
+                    zoomable: false,
+                    rotatable: false,
+                    crop: function (e) {
+                        $('#id_x1').val(Math.round(e.detail.x));
+                        $('#id_y1').val(Math.round(e.detail.y));
+                        $('#id_x2').val((Math.round(e.detail.x) + Math.round(e.detail.width)));
+                        $('#id_y2').val((Math.round(e.detail.y) + Math.round(e.detail.height)));
+                    }
                 });
 
                 cropper.crop();
-
-                $('#save-btn').click(function () {
-                    cropper.getCroppedCanvas().toBlob(function (blob) {
-                        let form = new FormData();
-                        blob = blob.slice(0, blob.size, "image/jpeg");
-                        form.append("image", blob);
-                        form.append('csrfmiddlewaretoken', getCookie('csrftoken'));
-                        $.ajax({
-                            type: 'POST',
-                            url: "{% url 'users:update_photo' object.pk %}",
-                            data: form,
-                            enctype: 'multipart/form-data',
-                            cache: false,
-                            processData: false,
-                            contentType: false,
-                            success: function (data) {
-                                console.log(data);
-                            },
-                            error: function (err) {
-                                console.log(data);
-                            }
-                        })
-                    });
-                });
             });
         });
-
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                let cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    let cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
     </script>
 {% endblock %}
