@@ -197,4 +197,5 @@ class PhotoUpdateView(View):
                 employee = get_object_or_404(Employee, pk=kwargs['pk'])
                 employee.photo = image
                 employee.save()
-                return redirect('users:update', pk=employee.pk)
+                data = {'message': 'ok'}
+                return JsonResponse(data)
