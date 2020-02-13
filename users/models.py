@@ -168,6 +168,7 @@ class Employee(models.Model):
         verbose_name = 'Кызматкер'
         verbose_name_plural = 'Кызматкерлер'
         unique_together = ('district', 'agreement')
+        ordering = ['-id']
 
     def get_absolute_url(self):
         return reverse('users:detail', args=[self.id])

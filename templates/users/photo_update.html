@@ -55,9 +55,8 @@
                 $('#save-btn').click(function () {
                     cropper.getCroppedCanvas().toBlob(function (blob) {
                         let form = new FormData();
-                        alert(blob);
+                        blob = blob.slice(0, blob.size, "image/jpeg")
                         form.append("image", blob);
-                        alert(getCookie('csrftoken'));
                         form.append('csrfmiddlewaretoken', getCookie('csrftoken'));
                         $.ajax({
                             type: 'POST',

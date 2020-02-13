@@ -193,6 +193,7 @@ class PhotoUpdateView(View):
         if request.method == 'POST' and request.is_ajax():
             if 'image' in request.FILES:
                 image = request.FILES['image']
+                print(image.content_type)
                 employee = get_object_or_404(Employee, pk=kwargs['pk'])
                 employee.photo = image
                 employee.save()
