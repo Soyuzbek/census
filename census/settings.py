@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'rosetta',
     'rest_framework',
     'rest_framework.authtoken',
-    'cropperjs',
 
     # Local Apps
     'users.apps.UsersConfig',
