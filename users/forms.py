@@ -72,7 +72,7 @@ class EmployeeCreateForm(forms.ModelForm):
 class EmployeeUpdateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        exclude = ['qrcode', 'agreement', 'login', 'password', 'district']
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'district', 'photo']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
