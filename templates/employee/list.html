@@ -47,52 +47,60 @@
             </tbody>
         </table>
 
-    {% if is_paginated %}
-        <div class="d-flex">
-        <nav aria-label="Employee list pagination" class="mx-auto">
-            <ul class="pagination">
-                {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?{% param_replace page=page_obj.previous_page_number %}">&laquo;</a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
+        {% if is_paginated %}
+            <div class="d-flex">
+                <nav aria-label="Employee list pagination" class="mx-auto">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?{% param_replace page=page_obj.previous_page_number %}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
                         <span class="page-link">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Мурдакы барак</span>
                         </span>
-                    </li>
-                {% endif %}
-                {% for i in paginator.page_range %}
-                    {% if i <= page_obj.number|add:5 and i >= page_obj.number|add:-5 %}
-                        {% if page_obj.number == i %}
-                            <li class="page-item active"><span class="page-link">{{ forloop.counter }} <span class="sr-only">(current)</span></span></li>
-                        {% else %}
-                            <li class="page-item">
-                                <a class="page-link" href="?{% param_replace page=forloop.counter %}">{{ forloop.counter }}</a>
                             </li>
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
-                {% if page_obj.has_next %}
-                     <li class="page-item">
-                        <a class="page-link" href="?{% param_replace page=page_obj.next_page_number %}">&raquo;</a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
+                        {% for i in paginator.page_range %}
+                            {% if i <= page_obj.number|add:5 and i >= page_obj.number|add:-5 %}
+                                {% if page_obj.number == i %}
+                                    <li class="page-item active"><span class="page-link">{{ forloop.counter }} <span
+                                            class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                           href="?{% param_replace page=forloop.counter %}">{{ forloop.counter }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="?{% param_replace page=page_obj.next_page_number %}">&raquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
                         <span class="page-link">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Кийинки барак</span>
                         </span>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>
-        </div>
-    {% endif %}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
 {% block js %}
     <script>setMobileTable('table');</script>
+    <script>
+        $(document).ready(function () {
+            $('#id_number').mask('000000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
+        });
+    </script>
 {% endblock js %}
