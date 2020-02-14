@@ -72,13 +72,14 @@ html, body{
 
 .badge-content__bottom{
     display: grid;
-    grid-template-columns: 120px auto;
+    grid-template-columns: 130px auto;
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 10px;
 }
 
 .qr-code__container{
+
 }
 
 .verification {
@@ -95,8 +96,7 @@ html, body{
 }
 
 .qr-code {
-    width: 100px;
-    margin-top: 10px;
+    width: 120px;
 }
 
 .admin-info__container{
