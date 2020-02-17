@@ -22,7 +22,10 @@
             <div class="detail__items d-flex mt-5">
                 <div class="image__item mx-auto">
                     {% if object.photo %}
-                    <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
+                        <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
+                    {% else %}
+                        <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
+                        <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">Cүрөт кошуу</a>
                     {% endif %}
                 </div>
             </div>
