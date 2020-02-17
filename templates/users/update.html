@@ -76,7 +76,9 @@
                         </div>
                         <div class="employee-info__image ml-auto">
                             {% if object.photo %}
-                            <img class="user-image" src="{{ object.photo.url }}" alt="">
+                                <img class="user-image" src="{{ object.photo.url }}" alt="">
+                            {% else %}
+                                <img class="user-image" src="{% static 'img/nophoto.png' %}" alt="">
                             {% endif %}
                         </div>
                     </div>

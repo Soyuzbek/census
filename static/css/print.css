@@ -26,7 +26,6 @@ html, body{
     width: 3.5cm;
     height: 4.5cm;
     object-fit: cover;
-    border: 1px solid black;
     box-sizing: border-box;
 }
 
