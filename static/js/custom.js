@@ -64,53 +64,6 @@ $('document').ready(function () {
     });
 
     $('.invalid-feedback').closest('.form-group').find('.form-control').addClass('is-invalid');
-
-    if (role == 'cor') {
-        $('#id_department').parents('.form-group').css({
-            "display": "block"
-        });
-        $('#id_sector').parents('.form-group').css({
-            "display": "none"
-        });
-        $('#id_plot').parents('.form-group').css({
-            "display": "none"
-        });
-    }
-
-    $('#id_role').change(function () {
-        let role = $("#id_role option:selected").val();
-        if (role == 'cor') {
-            $('#id_department').parents('.form-group').css({
-                "display": "block"
-            });
-            $('#id_sector').parents('.form-group').css({
-                "display": "none"
-            });
-            $('#id_plot').parents('.form-group').css({
-                "display": "none"
-            });
-        } else if (role == 'ins') {
-            $('#id_department').parents('.form-group').css({
-                "display": "block"
-            });
-            $('#id_sector').parents('.form-group').css({
-                "display": "block"
-            });
-            $('#id_plot').parents('.form-group').css({
-                "display": "none"
-            });
-        } else if (role == 'enum') {
-            $('#id_department').parents('.form-group').css({
-                "display": "block"
-            });
-            $('#id_sector').parents('.form-group').css({
-                "display": "block"
-            });
-            $('#id_plot').parents('.form-group').css({
-                "display": "block"
-            });
-        }
-    });
 });
 
 window.setMobileTable = function (selector) {
