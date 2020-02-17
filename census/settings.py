@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
     'django_filters',
+    'django_user_agents',
 ]
 
 REST_FRAMEWORK = {
@@ -80,6 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'census.urls'
@@ -134,6 +136,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = 'users:login'
@@ -190,6 +199,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+USER_AGENTS_CACHE = 'default'
 
 
 def FILTERS_VERBOSE_LOOKUPS():
