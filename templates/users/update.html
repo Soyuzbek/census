@@ -21,7 +21,9 @@
             </div>
             <div class="detail__items d-flex mt-5">
                 <div class="image__item mx-auto">
+                    {% if object.photo %}
                     <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -70,7 +72,9 @@
                             {% endif %}
                         </div>
                         <div class="employee-info__image ml-auto">
+                            {% if object.photo %}
                             <img class="user-image" src="{{ object.photo.url }}" alt="">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
