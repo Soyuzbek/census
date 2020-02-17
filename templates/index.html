@@ -53,6 +53,55 @@
         $(document).ready(function () {
             $('.masked').mask('000000000');
             $('.date').mask('00.00.0000');
+
+            let role = $('#id_role option:selected').val();
+
+            if (role == 'cor') {
+                $('#id_department').parents('.form-group').css({
+                    "display": "block"
+                });
+                $('#id_sector').parents('.form-group').css({
+                    "display": "none"
+                });
+                $('#id_plot').parents('.form-group').css({
+                    "display": "none"
+                });
+            }
+
+            $('#id_role').change(function () {
+                let role = $("#id_role option:selected").val();
+                if (role == 'cor') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "block"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "none"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "none"
+                    });
+                } else if (role == 'ins') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "block"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "block"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "none"
+                    });
+                } else if (role == 'enum') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "block"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "block"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "block"
+                    });
+                }
+            });
         });
     </script>
 {% endblock js %}

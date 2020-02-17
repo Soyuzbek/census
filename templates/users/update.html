@@ -26,7 +26,8 @@
                         <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
                     {% else %}
                         <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
-                        <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">Cүрөт кошуу</a>
+                        <a href="{% url 'users:update_photo' pk=object.pk %}"
+                           style="display: block; text-align: center;">Cүрөт кошуу</a>
                     {% endif %}
                 </div>
             </div>
@@ -34,12 +35,14 @@
 
         {% if request.user.is_authenticated %}
             <div class="container mt-5 no-print">
-                <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data" id="update-form" data-ajax="false">
+                <form action="{% url 'users:update' object.id %}" method="post" enctype="multipart/form-data"
+                      id="update-form" data-ajax="false">
                     {% csrf_token %}
                     <fieldset>
                         {% for field in form.visible_fields %}
                             <div class="form-group row">
-                                <label for="id_{{ field.name|lower }}" class="col-sm-3 col-form-label">{{ field.label }}</label>
+                                <label for="id_{{ field.name|lower }}"
+                                       class="col-sm-3 col-form-label">{{ field.label }}</label>
                                 <div class="col-sm-9">
                                     {% if field.name == 'photo' or field.name == 'is_badge_printed' or field.name == 'is_badge_returned' %}
                                         {% render_field field %}
@@ -57,7 +60,10 @@
             <div class="buttons-group mt-5 no-print">
                 <button class="nav-item" onclick="update()">Өзгөртүү</button>
                 {% if request|is_pc %}
-                    <button class="nav-item" onclick="printWindow()" id="badge_print"><span class="fa fa-print" aria-hidden="true"></span> Басып чыгаруу</button>
+                    <button class="nav-item" onclick="printWindow()" id="badge_print"><span class="fa fa-print"
+                                                                                            aria-hidden="true"></span>
+                        Басып чыгаруу
+                    </button>
                 {% endif %}
             </div>
         {% endif %}
@@ -106,30 +112,96 @@
 {% block js %}
     <script src="{% static 'js/masking-input.js' %}" data-autoinit="true"></script>
     <script>
-    $(document).ready(function () {
-        $('.masked').mask('000000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
-        $('.date').mask('00.00.0000');
-        $('#id_territory').val({{ object.territory.id }});
+        $(document).ready(function () {
+            $('.masked').mask('000000000', {'translation': {9: {pattern: '9'}, 6: {pattern: '6'}}});
+            $('.date').mask('00.00.0000');
+            $('#id_territory').val({{ object.territory.id }});
 
-        if( window.localStorage )
-        {
-            if(!localStorage.getItem('firstLoad'))
-            {
-                localStorage['firstLoad'] = true;
-                window.location.reload();
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                } else {
+                    localStorage.removeItem('firstLoad');
+                }
             }
-            else
-            {
-                localStorage.removeItem('firstLoad');
-            }
-        }
 
-        $('#badge_print').on('click', function () {
-            console.log("{{ object.last_name }}");
+            $('#badge_print').on('click', function () {
+                console.log("{{ object.last_name }}");
+            });
+
+            let role = $('#id_role option:selected').val();
+
+            if (role == 'cor') {
+                $('#id_department').parents('.form-group').css({
+                    "display": "flex"
+                });
+                $('#id_sector').parents('.form-group').css({
+                    "display": "none"
+                });
+                $('#id_plot').parents('.form-group').css({
+                    "display": "none"
+                });
+            } else if (role == 'ins') {
+                $('#id_department').parents('.form-group').css({
+                    "display": "flex"
+                });
+                $('#id_sector').parents('.form-group').css({
+                    "display": "flex"
+                });
+                $('#id_plot').parents('.form-group').css({
+                    "display": "none"
+                });
+            } else if (role == 'enum') {
+                $('#id_department').parents('.form-group').css({
+                    "display": "flex"
+                });
+                $('#id_sector').parents('.form-group').css({
+                    "display": "flex"
+                });
+                $('#id_plot').parents('.form-group').css({
+                    "display": "flex"
+                });
+            }
+
+            $('#id_role').change(function () {
+                let role = $("#id_role option:selected").val();
+                if (role == 'cor') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "none"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "none"
+                    });
+                } else if (role == 'ins') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "none"
+                    });
+                } else if (role == 'enum') {
+                    $('#id_department').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                    $('#id_sector').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                    $('#id_plot').parents('.form-group').css({
+                        "display": "flex"
+                    });
+                }
+            });
         });
-    });
-    function update() {
-        document.getElementById('update-form').submit();
-    }
-</script>
+
+        function update() {
+            document.getElementById('update-form').submit();
+        }
+    </script>
 {% endblock js %}
