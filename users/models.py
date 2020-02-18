@@ -56,6 +56,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta(AbstractBaseUser.Meta):
         verbose_name = 'Колдонуучу'
         verbose_name_plural = 'Колдонуучулар'
+        permissions = [
+            ("print_badge", "Can print a badge"),
+            ("close_task", "Can print an agreement"),
+        ]
 
     def __str__(self):
         return f'{self.number}'
