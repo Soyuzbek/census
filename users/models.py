@@ -136,10 +136,7 @@ class Employee(models.Model):
         ('cor', 'Координатор'),
 
     )
-    NUM_CHOICES = (
-        (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'),
-        (11, '11'),
-        (12, '12'), (13, '13'), (14, '14'), (15, '15'))
+
     number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру',
                               error_messages={'unique': "Мундай номер бар."})
     last_name = models.CharField(max_length=45, verbose_name='фамилиясы')
@@ -155,9 +152,9 @@ class Employee(models.Model):
     PIN = models.CharField(max_length=14, verbose_name='ПИН')
     photo = models.ImageField(upload_to='users/img', verbose_name='сүрөт')
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2], verbose_name='ролу')
-    department = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='каттоо бөлүмү')
-    sector = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='инструктордук участок')
-    plot = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='каттоо участогу')
+    department = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо бөлүмү')
+    sector = models.PositiveSmallIntegerField(default=1, verbose_name='инструктордук участок')
+    plot = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо участогу')
     district = models.ForeignKey(District, models.CASCADE, verbose_name='район')
     territory = models.ForeignKey(Territory, models.CASCADE, verbose_name='территория')
     agreement = models.CharField(max_length=6, verbose_name='келишим')

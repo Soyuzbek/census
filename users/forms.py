@@ -53,9 +53,9 @@ class EmployeeCreateForm(forms.ModelForm):
             'PIN': TelInput(attrs={'class': 'form-control'}),
             # 'photo': forms.FileInput(attrs={'class': 'form-control-file'}),
             'role': forms.Select(attrs={'class': 'form-control'}),
-            'department': forms.Select(attrs={'class': 'form-control'}),
-            'sector': forms.Select(attrs={'class': 'form-control'}),
-            'plot': forms.Select(attrs={'class': 'form-control'}),
+            'department': TextInput(attrs={'class': 'form-control'}),
+            'sector': TextInput(attrs={'class': 'form-control'}),
+            'plot': TextInput(attrs={'class': 'form-control'}),
             'territory': forms.Select(attrs={'class': 'form-control'}),
             'district': forms.HiddenInput(
                 attrs={'class': 'text-dark font-weight-bold form-control'}),
