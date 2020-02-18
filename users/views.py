@@ -126,7 +126,7 @@ class IndexView(View):
     @method_decorator(login_required)
     def get(self, request):
         request.session['_language'] = 'ky'
-        if request.user.is_superuser:
+        if request.user.is_staff:
             form = self.form_class(request.user, initial={'district': request.user.district})
             pass
         if not request.user.is_authenticated:
@@ -135,7 +135,7 @@ class IndexView(View):
 
     @method_decorator(login_required)
     def post(self, request):
-        if request.user.is_superuser:
+        if request.user.is_staff:
             form = self.form_class(request.user, request.POST, request.FILES)
             if form.is_valid():
                 employee = form.save()

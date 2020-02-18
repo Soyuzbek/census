@@ -26,9 +26,8 @@
                         <img src="{{ object.photo.url }}" alt="" class="image" style="object-fit: cover">
                     {% else %}
                         <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
-                        <a href="{% url 'users:update_photo' pk=object.pk %}"
-                           style="display: block; text-align: center;">Cүрөт кошуу</a>
                     {% endif %}
+                    <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">Cүрөт өзгөртүү</a>
                 </div>
             </div>
         </div>
@@ -58,8 +57,10 @@
                 </form>
             </div>
             <div class="buttons-group mt-5 no-print">
-                <button class="nav-item" onclick="update()">Өзгөртүү</button>
-                {% if request|is_pc %}
+                {% if perms.users.add_employee %}
+                    <button class="nav-item" onclick="update()">Өзгөртүү</button>
+                {% endif %}
+                {% if request|is_pc and perms.users.can_print_badge %}
                     <button class="nav-item" onclick="printWindow()" id="badge_print">
                         <span class="fa fa-print" aria-hidden="true"></span>
                         Басып чыгаруу

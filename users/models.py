@@ -57,8 +57,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'Колдонуучу'
         verbose_name_plural = 'Колдонуучулар'
         permissions = [
-            ("print_badge", "Can print a badge"),
-            ("close_task", "Can print an agreement"),
+            ("can_print_badge", "Can print a badge"),
+            ("can_print_agreement", "Can print an agreement"),
         ]
 
     def __str__(self):
