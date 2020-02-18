@@ -1,14 +1,11 @@
 import os
 
 from django.contrib import admin, messages
-from django.contrib.admin import widgets
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import Group
-from django.db import models
+from django.utils.translation import ugettext_lazy as _, ngettext
 from rest_framework.authtoken.models import Token
 
 from users.models import User, District, Employee, Region, Territory
-from django.utils.translation import ugettext_lazy as _, ngettext
 
 
 def regenerate(modeladmin, request, queryset):
@@ -33,6 +30,9 @@ class UserAdmin(UserAdmin):
         (None, {
             'fields': ('number', 'password', 'region', 'district', 'is_staff', 'is_superuser')
         }),
+        ('Permissions', {'fields': (
+            'groups', 'user_permissions',
+        )}),
     )
     add_fieldsets = (
         (None, {
@@ -44,6 +44,7 @@ class UserAdmin(UserAdmin):
     list_display = ('number', 'is_superuser')
     list_filter = ('number', 'is_superuser', 'is_staff')
     search_fields = ('number',)
+    filter_horizontal = ('groups', 'user_permissions',)
 
 
 @admin.register(Employee)
@@ -104,5 +105,4 @@ class TerritoryAdminPure(admin.ModelAdmin):
     list_display = ['name', 'counter']
 
 
-admin.site.unregister(Group)
 admin.site.unregister(Token)

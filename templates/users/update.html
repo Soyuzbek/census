@@ -60,11 +60,15 @@
             <div class="buttons-group mt-5 no-print">
                 <button class="nav-item" onclick="update()">Өзгөртүү</button>
                 {% if request|is_pc %}
-                    <button class="nav-item" onclick="printWindow()" id="badge_print"><span class="fa fa-print"
-                                                                                            aria-hidden="true"></span>
+                    <button class="nav-item" onclick="printWindow()" id="badge_print">
+                        <span class="fa fa-print" aria-hidden="true"></span>
                         Басып чыгаруу
                     </button>
                 {% endif %}
+            </div>
+
+            <div>
+                {{ perms.accounts }}
             </div>
         {% endif %}
     </section>
