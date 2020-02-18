@@ -13,7 +13,6 @@
     {% block head %}{% endblock head %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/cropper.css' %}">
-{#    <link rel="stylesheet" href="{% static 'css/temp-style.css' %}">#}
     <link rel="stylesheet" media="print" href="{% static 'css/print.css' %}" />
     <title> {% block title %}{% endblock title %} </title>
 
@@ -36,7 +35,7 @@
                         {% if request.user.is_authenticated %}
                             <li><a href="{% url 'users:home' %}">Башкы бет</a></li>
                         {% endif %}
-                        {% if request.user.is_superuser %}
+                        {% if request.user.is_staff %}
                             <li><a href="{% url 'users:list' %}">Кызматкерлер</a></li>
                         {% endif %}
                     </ul>
