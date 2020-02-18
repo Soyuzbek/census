@@ -11,13 +11,13 @@ from django.core import serializers
 from django.core.files.base import ContentFile
 from django.http import HttpResponseForbidden, JsonResponse
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import DetailView, ListView
 # my imports
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
@@ -160,6 +160,12 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         view_name = 'users:update'
         return reverse(view_name, kwargs={'pk': self.object.pk})
+
+
+class EmployeeDeleteView(DeleteView):
+    model = Employee
+    success_url = reverse_lazy('users:list')
+    template_name = 'users/employee_confirm_delete.html'
 
 
 def load_districts_view(request):
