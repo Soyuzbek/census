@@ -57,7 +57,8 @@
                 </form>
             </div>
             <div class="buttons-group mt-5 no-print">
-                {% if perms.users.add_employee %}
+                <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">Алып таштоо</a>
+                {% if perms.users.change_employee %}
                     <button class="nav-item" onclick="update()">Өзгөртүү</button>
                 {% endif %}
                 {% if request|is_pc and perms.users.can_print_badge %}

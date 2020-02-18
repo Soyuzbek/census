@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load user_agents %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <p>"{{ object }}" өчүрүлсүн?</p>
+                <input type="submit" value="Макул">
+            </form>
+        </div>
+    </section>
+{% endblock %}

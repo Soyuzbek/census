@@ -621,7 +621,8 @@ button[type='button']:focus
 
 .buttons-group button,
 .btn-add,
-.search-btn
+.search-btn,
+.delete-btn
 {
     font-family: 'Segoe UI','Roboto',sans-serif;
     font-weight: 400;
@@ -643,16 +644,23 @@ button[type='button']:focus
     background-color: #ccc;
 }
 
+.delete-btn:hover{
+    text-decoration: none;
+    color: #000;
+}
+
 .buttons-group button:hover,
 .btn-add:hover,
-.search-btn:hover
+.search-btn:hover,
+.delete-btn:hover
 {
     border-color: #7a7a7a;
 }
 
 .buttons-group button:active,
 .btn-add:active,
-.search-btn:active
+.search-btn:active,
+.delete-btn:active
 {
     background-color: #999;
 }
@@ -660,7 +668,8 @@ button[type='button']:focus
 @media all and (max-width:30em){
     .buttons-group button,
     .btn-add,
-    .search-btn
+    .search-btn,
+    .delete-btn
     {
         display: block;
 
