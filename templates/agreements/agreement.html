@@ -139,18 +139,23 @@
 				<p>{{ object.first_name|capfirst}} {{ object.last_name|capfirst }} {% if object.patronymic %} {{ object.patronymic|capfirst }} {% endif %}</p>
 				<p>ЛОГИН: {{ object.login }}</p>
 				<p>СЫР СӨЗ: {{ object.password }}</p>
-				<p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
-				<p>ИНСТРУКТОРДУК УЧАСТОК: {{ object.sector }}</p>
-				<p>ЭСЕПТӨӨ УЧАСТОГУ: {{ object.plot }}</p>
+                {% if object.role == 'cor' %}
+				    <p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
+                {% elif object.role == 'ins' %}
+                    <p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
+                    <p>ИНСТРУКТОРДУК УЧАСТОК: {{ object.sector }}</p>
+                {% elif object.role == 'enum' %}
+                    <p>КАТТОО БӨЛҮМҮ: {{ object.department }}</p>
+                    <p>ИНСТРУКТОРДУК УЧАСТОК: {{ object.sector }}</p>
+				    <p>ЭСЕПТӨӨ УЧАСТОГУ: {{ object.plot }}</p>
+                {% endif %}
 			</div>
 		</div>
 	</section>
 
     {% if request|is_pc %}
     <div class="button__items no-print">
-        <nav class="nav nav-pills nav-fill">
-            <button class="nav-item nav-link btn-add no-print" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Print</button>
-        </nav>
+        <button class="btn-add no-print" onclick="printWindow()"><span class="fa fa-print" aria-hidden="true"></span> Print</button>
     </div>
     {% endif %}
 
