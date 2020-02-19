@@ -136,10 +136,7 @@ class Employee(models.Model):
         ('cor', 'Координатор'),
 
     )
-    NUM_CHOICES = (
-        (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'),
-        (11, '11'),
-        (12, '12'), (13, '13'), (14, '14'), (15, '15'))
+
     number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру',
                               error_messages={'unique': "Мундай номер бар."})
     last_name = models.CharField(max_length=45, verbose_name='фамилиясы')
@@ -155,16 +152,16 @@ class Employee(models.Model):
     PIN = models.CharField(max_length=14, verbose_name='ПИН')
     photo = models.ImageField(upload_to='users/img', verbose_name='сүрөт')
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2], verbose_name='ролу')
-    department = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='каттоо бөлүмү')
-    sector = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='инструктордук участок')
-    plot = models.PositiveSmallIntegerField(choices=NUM_CHOICES, default=1, verbose_name='каттоо участогу')
+    department = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо бөлүмү')
+    sector = models.PositiveSmallIntegerField(default=1, verbose_name='инструктордук участок')
+    plot = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо участогу')
     district = models.ForeignKey(District, models.CASCADE, verbose_name='район')
     territory = models.ForeignKey(Territory, models.CASCADE, verbose_name='территория')
     agreement = models.CharField(max_length=6, verbose_name='келишим')
     qrcode = models.ImageField(upload_to='users/qr-codes', blank=True, null=True, verbose_name='QR код')
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Ишке алынган күнү')
-    login = models.CharField(max_length=14, verbose_name='логин')
-    password = models.CharField(max_length=18, verbose_name='пароль')
+    login = models.CharField(max_length=9, verbose_name='логин')
+    password = models.CharField(max_length=13, verbose_name='пароль')
     is_badge_printed = models.BooleanField(default=False, verbose_name='бейджик басып чыгарылдыбы?')
     is_badge_returned = models.BooleanField(default=False, verbose_name='бейджик кайтарылдыбы?')
 
@@ -216,9 +213,9 @@ class Employee(models.Model):
 def set_agreement_number(sender, instance, created=False, **kwargs):
     if created:
         instance.generate_qrcode()
-        instance.login = f"T{instance.territory.counter}P{instance.department}I{instance.sector}S{instance.plot}"
+        instance.login = instance.number
         # password generation using department, sector, plot and 4 random character
-        instance.password = f'{instance.login}' + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
+        instance.password = f'{instance.number}' + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
         instance.agreement = instance.district.counter
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()

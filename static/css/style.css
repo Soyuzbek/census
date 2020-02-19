@@ -682,6 +682,10 @@ button[type='button']:focus
     width: 100%;
 }
 
+.btn-add{
+    width: 100%;
+}
+
 .section__print
 {
     display: none;
