@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 15:12+0600\n"
-"PO-Revision-Date: 2020-02-19 15:13+0458\n"
+"POT-Creation-Date: 2020-02-19 16:55+0600\n"
+"PO-Revision-Date: 2020-02-19 16:59+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -158,6 +158,10 @@ msgstr "должно быть в формате 123456789!"
 msgid "region"
 msgstr "область"
 
+#: .\users\models.py:48 .\users\models.py:158
+msgid "district"
+msgstr "район"
+
 #: .\users\models.py:142
 msgid "last name"
 msgstr "фамилия"
@@ -191,9 +195,45 @@ msgid "address"
 msgstr "адрес"
 
 #: .\users\models.py:151
-#| msgid "Authority"
 msgid "authority"
 msgstr "орган выдавший документ"
+
+#: .\users\models.py:152
+msgid "PIN"
+msgstr "Персональный номер"
+
+#: .\users\models.py:153
+msgid "photo"
+msgstr "фото"
+
+#: .\users\models.py:154
+msgid "role"
+msgstr "Роль"
+
+#: .\users\models.py:155
+msgid "census department"
+msgstr "отдел переписи населения"
+
+#: .\users\models.py:156
+msgid "coordinator sector"
+msgstr "инструкторский участок"
+
+#: .\users\models.py:157
+#| msgid "Enumerator plot"
+msgid "enumerator plot"
+msgstr "cчетный участок"
+
+#: .\users\models.py:159
+msgid "territory"
+msgstr "территория"
+
+#: .\users\models.py:160
+msgid "agreement"
+msgstr "соглашение"
+
+#: .\users\models.py:161
+msgid "QR code"
+msgstr "QR код"
 
 #: .\users\views.py:48
 msgid ""
@@ -1578,9 +1618,6 @@ msgstr ""
 #~ msgid "Region"
 #~ msgstr "Область"
 
-#~ msgid "district"
-#~ msgstr "район"
-
 #~ msgid "is staff"
 #~ msgstr "персонал"
 
@@ -1654,30 +1691,6 @@ msgstr ""
 
 #~ msgid "Enumerator"
 #~ msgstr "Переписчик"
-
-#~ msgid "PIN"
-#~ msgstr "Персональный номер"
-
-#~ msgid "photo"
-#~ msgstr "фото"
-
-#~ msgid "role"
-#~ msgstr "Роль"
-
-#~ msgid "Census department"
-#~ msgstr "Отдел переписи населения"
-
-#~ msgid "Coordinator sector"
-#~ msgstr "Инструкторский участок"
-
-#~ msgid "Enumerator plot"
-#~ msgstr "Счетный участок"
-
-#~ msgid "agreement"
-#~ msgstr "соглашение"
-
-#~ msgid "QR code"
-#~ msgstr "QR код"
 
 #~ msgid "date joined"
 #~ msgstr "дата регистрации"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 15:07+0600\n"
-"PO-Revision-Date: 2020-02-19 15:10+0458\n"
+"POT-Creation-Date: 2020-02-19 16:55+0600\n"
+"PO-Revision-Date: 2020-02-19 16:59+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -152,6 +152,10 @@ msgstr "550456789 форматта болуу керек"
 msgid "region"
 msgstr "облус"
 
+#: .\users\models.py:48 .\users\models.py:158
+msgid "district"
+msgstr "район"
+
 #: .\users\models.py:142
 msgid "last name"
 msgstr "фамилиясы"
@@ -185,9 +189,45 @@ msgid "address"
 msgstr "дарек"
 
 #: .\users\models.py:151
-#| msgid "Authority"
 msgid "authority"
 msgstr "паспорт берген орган"
+
+#: .\users\models.py:152
+msgid "PIN"
+msgstr "ПИН"
+
+#: .\users\models.py:153
+msgid "photo"
+msgstr "сүрөт"
+
+#: .\users\models.py:154
+msgid "role"
+msgstr "ролу"
+
+#: .\users\models.py:155
+msgid "census department"
+msgstr "каттоо бөлүмү"
+
+#: .\users\models.py:156
+msgid "coordinator sector"
+msgstr "инструктордук участок"
+
+#: .\users\models.py:157
+#| msgid "Enumerator plot"
+msgid "enumerator plot"
+msgstr "каттоо участогу"
+
+#: .\users\models.py:159
+msgid "territory"
+msgstr "территория"
+
+#: .\users\models.py:160
+msgid "agreement"
+msgstr "келишим"
+
+#: .\users\models.py:161
+msgid "QR code"
+msgstr "QR код"
 
 #: .\users\views.py:48
 msgid ""
@@ -1613,9 +1653,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 #~ msgid "Region"
 #~ msgstr "Облус"
 
-#~ msgid "district"
-#~ msgstr "район"
-
 #~ msgid "is staff"
 #~ msgstr "кызматкер статусу"
 
@@ -1682,32 +1719,8 @@ msgstr "The option '%s' is not a valid option for a QR code."
 #~ msgid "female"
 #~ msgstr "аял"
 
-#~ msgid "PIN"
-#~ msgstr "ПИН"
-
-#~ msgid "photo"
-#~ msgstr "сүрөт"
-
-#~ msgid "role"
-#~ msgstr "ролу"
-
-#~ msgid "Census department"
-#~ msgstr "Каттоо бөлүмү"
-
 #~ msgid "Instructor sector"
 #~ msgstr "Инструктордук участок"
-
-#~ msgid "Enumerator plot"
-#~ msgstr "Каттоо участогу"
-
-#~ msgid "territory"
-#~ msgstr "территория"
-
-#~ msgid "agreement"
-#~ msgstr "келишим"
-
-#~ msgid "QR code"
-#~ msgstr "QR коду"
 
 #~ msgid "date joined"
 #~ msgstr "алынган күнү"
@@ -1733,9 +1746,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 
 #~ msgid "Controller"
 #~ msgstr "Инструктор"
-
-#~ msgid "Coordinator"
-#~ msgstr "Координатор"
 
 #~ msgid "Enumerator"
 #~ msgstr "Каттоочу"
