@@ -42,9 +42,9 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    number = models.CharField(max_length=255, validators=[phone],
-                              unique=True, verbose_name='номуру')
-    region = models.ForeignKey('Region', models.CASCADE, verbose_name='облус', null=True)
+    number = models.CharField(_('number'), max_length=255, validators=[phone],
+                              unique=True)
+    region = models.ForeignKey('Region', models.CASCADE, verbose_name=_('region'), null=True)
     district = models.ForeignKey('District', models.CASCADE, verbose_name='район', null=True)
     is_staff = models.BooleanField(default=True, verbose_name='кызматкер статусу')
     is_superuser = models.BooleanField(default=False, verbose_name='башкаруучу')
@@ -137,18 +137,18 @@ class Employee(models.Model):
 
     )
 
-    number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру',
+    number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
                               error_messages={'unique': "Мундай номер бар."})
-    last_name = models.CharField(max_length=45, verbose_name='фамилиясы')
-    first_name = models.CharField(max_length=45, verbose_name='аты')
-    patronymic = models.CharField(max_length=45, null=True, blank=True, verbose_name='атасынын аты')
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='2', verbose_name='жынысы')
-    birth_day = models.DateField(verbose_name='туулган күнү')
-    serial = models.CharField(max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
-                              default='ID', verbose_name='паспорт сериясы')
-    passport_num = models.CharField(max_length=7, verbose_name='паспорт номуру')
-    address = models.CharField(max_length=255, verbose_name='дарек')
-    authority = models.CharField(max_length=10, verbose_name='паспорт берген орган')
+    last_name = models.CharField(_('last name'), max_length=45)
+    first_name = models.CharField(_('first name'), max_length=45)
+    patronymic = models.CharField(_('patronymic'),max_length=45, null=True, blank=True)
+    gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES, default='2')
+    birth_day = models.DateField(_('birth day'))
+    serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
+                              default='ID')
+    passport_num = models.CharField(_('number of passport'), max_length=7)
+    address = models.CharField(_('address'), max_length=255)
+    authority = models.CharField(_('authority'), max_length=10)
     PIN = models.CharField(max_length=14, verbose_name='ПИН')
     photo = models.ImageField(upload_to='users/img', verbose_name='сүрөт')
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2], verbose_name='ролу')

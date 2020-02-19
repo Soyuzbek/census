@@ -14,7 +14,7 @@
                 <div class="row">
                     {% for field in form.visible_fields %}
                         <div class="form-group col-md-7 col-sm-12 mx-auto">
-                            <label for="id_{{ field.name|lower }}" class="col-form-label">{{ field.label }}</label>
+                            <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
                             {{ field }}
                             {{ field.help }}
                             {% if field.errors %}
