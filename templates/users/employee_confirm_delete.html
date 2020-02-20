@@ -9,8 +9,8 @@
         <div class="container">
             <form method="post">
                 {% csrf_token %}
-                <p>"{{ object }}" өчүрүлсүн?</p>
-                <input type="submit" value="Макул">
+                <p>{% trans 'Are you sure you want to delete?' %}</p>
+                <input type="submit" value="{% trans 'Delete' %}">
             </form>
         </div>
     </section>
