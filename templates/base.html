@@ -33,30 +33,30 @@
                 <nav class="main-nav-container d-flex w-100">
                     <ul class="main-nav">
                         {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'users:home' %}">Башкы бет</a></li>
+                            <li><a href="{% url 'users:home' %}">{% trans 'Home' %}</a></li>
                         {% endif %}
                         {% if request.user.is_staff %}
-                            <li><a href="{% url 'users:list' %}">Кызматкерлер</a></li>
+                            <li><a href="{% url 'users:list' %}">{% trans 'Employees' %}</a></li>
                         {% endif %}
                     </ul>
 
                     <ul class="main-nav main-nav__left ml-auto">
-{#                        <div class="language-picker">#}
-{#                            <div class="language-picker__items">#}
-{#                                {% get_available_languages as langs %}#}
-{#                                {% for lang, val in langs %}#}
-{#                                    {% ifnotequal lang curr %}#}
-{#                                        <a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a>#}
-{#                                    {% endifnotequal %}#}
-{#                                {% endfor %}#}
-{#                            </div>#}
-{#                        </div>#}
+                        <div class="language-picker">
+                            <div class="language-picker__items">
+                                {% get_available_languages as langs %}
+                                {% for lang, val in langs %}
+                                    {% ifnotequal lang curr %}
+                                        <a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a>
+                                    {% endifnotequal %}
+                                {% endfor %}
+                            </div>
+                        </div>
                         <li>
                             {% if request.user.is_authenticated %}
-                                <a href="{% url 'users:logout' %}">Чыгуу</a>
+                                <a href="{% url 'users:logout' %}">{% trans 'Logout' %}</a>
                             {% else %}
                                 {% if request.path != '/' %}
-                                    <a href="{% url 'users:login' %}">Кирүү</a>
+                                    <a href="{% url 'users:login' %}">{% trans 'Login' %}</a>
                                 {% endif %}
                             {% endif %}
                         </li>

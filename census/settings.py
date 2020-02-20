@@ -167,10 +167,11 @@ django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (
     ('ky', _('Kirghiz')),
-
+    ('ru', _('Russian')),
 )
 ROSETTA_LANGUAGES = (
     ('ky', _('Kirghiz')),
+    ('ru', _('Russian')),
 )
 LANGUAGE_CODE = 'en'
 

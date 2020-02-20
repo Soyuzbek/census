@@ -17,7 +17,7 @@
     <section class="no-print mt-5">
         <div class="container">
             <div class="detail__header">
-                <h1 class="detail-header__certificate">Күбөлүк &#8470;{{ object.agreement }}</h1>
+                <h1 class="detail-header__certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</h1>
                 <h1 class="detail-header__role">{{ object.get_role }}</h1>
             </div>
             <div class="detail__items d-flex mt-5">
@@ -27,7 +27,7 @@
                     {% else %}
                         <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
                     {% endif %}
-                    <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">Cүрөт өзгөртүү</a>
+                    <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">{% trans 'change image' %}</a>
                 </div>
             </div>
         </div>
@@ -57,14 +57,14 @@
                 </form>
             </div>
             <div class="buttons-group mt-5 no-print">
-                <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">Алып таштоо</a>
+                <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">{% trans 'Delete' %}</a>
                 {% if perms.users.change_employee %}
-                    <button class="nav-item" onclick="update()">Өзгөртүү</button>
+                    <button class="nav-item" onclick="update()">{% trans 'Update' %}</button>
                 {% endif %}
                 {% if request|is_pc and perms.users.can_print_badge %}
                     <button class="nav-item" onclick="printWindow()" id="badge_print">
                         <span class="fa fa-print" aria-hidden="true"></span>
-                        Басып чыгаруу
+                        {% trans 'Print' %}
                     </button>
                 {% endif %}
             </div>
@@ -77,7 +77,7 @@
                 <div class="badge-content__top">
                     <div class="employee__info d-flex">
                         <div class="employee-info__fio">
-                            <p class="certificate">күбөлүк &#8470;{{ object.agreement }}</p>
+                            <p class="certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</p>
                             <p class="role">{{ object.get_role }}</p>
                             <p>{{ object.last_name|upper }}</p>
                             <p>{{ object.first_name|upper }}</p>

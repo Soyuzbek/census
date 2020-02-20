@@ -42,20 +42,20 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    number = models.CharField(max_length=255, validators=[phone],
-                              unique=True, verbose_name='номуру')
-    region = models.ForeignKey('Region', models.CASCADE, verbose_name='облус', null=True)
-    district = models.ForeignKey('District', models.CASCADE, verbose_name='район', null=True)
-    is_staff = models.BooleanField(default=True, verbose_name='кызматкер статусу')
-    is_superuser = models.BooleanField(default=False, verbose_name='башкаруучу')
+    number = models.CharField(_('number'), max_length=255, validators=[phone],
+                              unique=True)
+    region = models.ForeignKey('Region', models.CASCADE, verbose_name=_('region'), null=True)
+    district = models.ForeignKey('District', models.CASCADE, verbose_name=_('district'), null=True)
+    is_staff = models.BooleanField(_('is staff'), default=True)
+    is_superuser = models.BooleanField(_('super user'), default=False)
 
     USERNAME_FIELD = 'number'
     EMAIL_FIELD = 'number'
     objects = UserManager()
 
     class Meta(AbstractBaseUser.Meta):
-        verbose_name = 'Колдонуучу'
-        verbose_name_plural = 'Колдонуучулар'
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')
         permissions = [
             ("can_print_badge", "Can print a badge"),
             ("can_print_agreement", "Can print an agreement"),
@@ -75,28 +75,28 @@ class Region(models.Model):
         ('nar', 'Нарын'),
         ('kol', 'Ысык-Көл')
     )
-    name = models.CharField(max_length=9, choices=REGION_CHOICES, unique=True, verbose_name='аты')
-    address = models.CharField(max_length=255, verbose_name='дарек')
+    name = models.CharField(_('name'), max_length=9, choices=REGION_CHOICES, unique=True)
+    address = models.CharField(_('address'), max_length=255)
 
     class Meta:
-        verbose_name = 'Облус'
-        verbose_name_plural = 'Облустар'
+        verbose_name = _('Region')
+        verbose_name_plural = _('Regions')
 
     def __str__(self):
         return f'{dict(self.REGION_CHOICES)[self.name]}'
 
 
 class District(models.Model):
-    name = models.CharField(max_length=55, verbose_name='аты')
-    region = models.ForeignKey(Region, models.CASCADE, verbose_name='облус')
+    name = models.CharField(_('name'), max_length=55)
+    region = models.ForeignKey(Region, models.CASCADE, verbose_name=_('region'))
     gov_admin = models.CharField(max_length=255, verbose_name='Мам админстрациа башчы (ААТ)')
     stat_admin = models.CharField(max_length=255, verbose_name='Статистика башчы (ААТ)')
     counter = models.CharField(max_length=8, default='000001')
-    center = models.CharField(max_length=255, verbose_name='райондун борбору', null=True, blank=True)
+    center = models.CharField(_('center of district'), max_length=255, null=True, blank=True)
 
     class Meta:
-        verbose_name = 'Район'
-        verbose_name_plural = 'Райондор'
+        verbose_name = _('District')
+        verbose_name_plural = _('Districts')
 
     def __str__(self):
         return f'{self.name}'
@@ -110,15 +110,15 @@ def increment_territory_country():
 
 
 class Territory(models.Model):
-    name = models.CharField(max_length=90, verbose_name='Аты')
-    code = models.CharField(max_length=14, unique=True, verbose_name='Коду')
-    district = models.ForeignKey(District, models.CASCADE, verbose_name='Район')
+    name = models.CharField(_('name'), max_length=90)
+    code = models.CharField(_('code'), max_length=14, unique=True)
+    district = models.ForeignKey(District, models.CASCADE)
     counter = models.CharField(max_length=4, default=increment_territory_country,
                                editable=False, unique=True)
 
     class Meta:
-        verbose_name = 'Территория'
-        verbose_name_plural = 'Территориялар'
+        verbose_name = _('Territory')
+        verbose_name_plural = _('Territories')
         ordering = ['code']
 
     def __str__(self):
@@ -127,47 +127,47 @@ class Territory(models.Model):
 
 class Employee(models.Model):
     GENDER_CHOICES = (
-        ('2', 'эркек'),
-        ('1', 'аял')
+        ('2', _('male')),
+        ('1', _('female')),
     )
     ROLE_CHOICES = (
-        ('enum', 'Каттоочу'),
-        ('ins', 'Инструктор'),
-        ('cor', 'Координатор'),
+        ('enum', _('Enumerator')),
+        ('ins', _('Instructor')),
+        ('cor', _('Coordinator')),
 
     )
 
-    number = models.CharField(max_length=255, validators=[phone], unique=True, verbose_name='телефон номуру',
+    number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
                               error_messages={'unique': "Мундай номер бар."})
-    last_name = models.CharField(max_length=45, verbose_name='фамилиясы')
-    first_name = models.CharField(max_length=45, verbose_name='аты')
-    patronymic = models.CharField(max_length=45, null=True, blank=True, verbose_name='атасынын аты')
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='2', verbose_name='жынысы')
-    birth_day = models.DateField(verbose_name='туулган күнү')
-    serial = models.CharField(max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
-                              default='ID', verbose_name='паспорт сериясы')
-    passport_num = models.CharField(max_length=7, verbose_name='паспорт номуру')
-    address = models.CharField(max_length=255, verbose_name='дарек')
-    authority = models.CharField(max_length=10, verbose_name='паспорт берген орган')
-    PIN = models.CharField(max_length=14, verbose_name='ПИН')
-    photo = models.ImageField(upload_to='users/img', verbose_name='сүрөт')
-    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2], verbose_name='ролу')
-    department = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо бөлүмү')
-    sector = models.PositiveSmallIntegerField(default=1, verbose_name='инструктордук участок')
-    plot = models.PositiveSmallIntegerField(default=1, verbose_name='каттоо участогу')
-    district = models.ForeignKey(District, models.CASCADE, verbose_name='район')
-    territory = models.ForeignKey(Territory, models.CASCADE, verbose_name='территория')
-    agreement = models.CharField(max_length=6, verbose_name='келишим')
-    qrcode = models.ImageField(upload_to='users/qr-codes', blank=True, null=True, verbose_name='QR код')
-    date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Ишке алынган күнү')
-    login = models.CharField(max_length=9, verbose_name='логин')
-    password = models.CharField(max_length=13, verbose_name='пароль')
-    is_badge_printed = models.BooleanField(default=False, verbose_name='бейджик басып чыгарылдыбы?')
-    is_badge_returned = models.BooleanField(default=False, verbose_name='бейджик кайтарылдыбы?')
+    last_name = models.CharField(_('last name'), max_length=45)
+    first_name = models.CharField(_('first name'), max_length=45)
+    patronymic = models.CharField(_('patronymic'),max_length=45, null=True, blank=True)
+    gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES, default='2')
+    birth_day = models.DateField(_('birth day'))
+    serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
+                              default='ID')
+    passport_num = models.CharField(_('number of passport'), max_length=7)
+    address = models.CharField(_('address'), max_length=255)
+    authority = models.CharField(_('authority'), max_length=10)
+    PIN = models.CharField(_('PIN'), max_length=14)
+    photo = models.ImageField(_('photo'), upload_to='users/img')
+    role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2])
+    department = models.PositiveSmallIntegerField(_('census department'), default=1)
+    sector = models.PositiveSmallIntegerField(_('coordinator sector'), default=1)
+    plot = models.PositiveSmallIntegerField(_('enumerator plot'), default=1)
+    district = models.ForeignKey(District, models.CASCADE, verbose_name=_('district'))
+    territory = models.ForeignKey(Territory, models.CASCADE, verbose_name=_('territory'))
+    agreement = models.CharField(_('agreement'), max_length=6)
+    qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
+    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
+    login = models.CharField(_('login'), max_length=9)
+    password = models.CharField(_('password'), max_length=13)
+    is_badge_printed = models.BooleanField(_('is badge printed?'), default=False)
+    is_badge_returned = models.BooleanField(_('is badge returned?'), default=False)
 
     class Meta:
-        verbose_name = 'Кызматкер'
-        verbose_name_plural = 'Кызматкерлер'
+        verbose_name = _('Employee')
+        verbose_name_plural = _('Employees')
         unique_together = ('district', 'agreement')
         ordering = ['-id']
 
