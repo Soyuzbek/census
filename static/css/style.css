@@ -281,13 +281,11 @@ button[type='button']:focus
     text-transform: uppercase;
 
     color: #000;
-    border-radius: 50px;
 }
 
 .language-picker__item.active
 {
     color: #000;
-    border-radius: 50px;
     background: lightgrey;
 }
 
