@@ -18,22 +18,20 @@ html, body{
 
 .badge-content__top .employee__info{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px;
+    grid-template-columns: auto 3.3cm;
+    grid-gap: 10px;
+    padding: 10px 5px 10px 0;
 }
 
 .employee-info__image img{
-    width: 3.5cm;
-    height: 4.5cm;
+    width: 3.3cm;
+    height: 4.3cm;
     object-fit: cover;
     box-sizing: border-box;
 }
 
 .employee-info__fio{
     text-align: right;
-    margin-left: 25px;
-    padding-right: 10px;
-    width: auto;
 }
 
 
@@ -60,7 +58,6 @@ html, body{
     margin-bottom: .7em;
     font-weight: 400;
 }
-
 
 
 @page {
@@ -126,3 +123,12 @@ html, body{
 .button__items{
     display: none;
 }
+
+[lang='ru'] .employee-info__fio .certificate {
+    font-size: 15px;
+}
+
+[lang='ru'] .employee-info__fio{
+    margin-left: 0;
+}
+

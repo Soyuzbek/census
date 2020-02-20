@@ -27,7 +27,8 @@
                     {% else %}
                         <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
                     {% endif %}
-                    <a href="{% url 'users:update_photo' pk=object.pk %}" style="display: block; text-align: center;">{% trans 'change image' %}</a>
+                    <a href="{% url 'users:update_photo' pk=object.pk %}"
+                       style="display: block; text-align: center;">{% trans 'change image' %}</a>
                 </div>
             </div>
         </div>
@@ -75,7 +76,7 @@
         <div class="badge__main d-flex">
             <div class="badge__content mx-auto">
                 <div class="badge-content__top">
-                    <div class="employee__info d-flex">
+                    <div class="employee__info">
                         <div class="employee-info__fio">
                             <p class="certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</p>
                             <p class="role">{{ object.get_role }}</p>
@@ -85,7 +86,7 @@
                                 <p>{{ object.patronymic|upper }}</p>
                             {% endif %}
                         </div>
-                        <div class="employee-info__image ml-auto">
+                        <div class="employee-info__image">
                             {% if object.photo %}
                                 <img class="user-image" src="{{ object.photo.url }}" alt="">
                             {% else %}
