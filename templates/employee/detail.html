@@ -4,14 +4,14 @@
 {% load replace_asterisk %}
 
 {% block title %}
-    Кызматкер
+    {% trans 'Employee' %}
 {% endblock %}
 {% block content %}
 
 <section class="section-detail mt-5">
     <div class="container">
         <div class="detail__header">
-            <h1 class="detail-header__certificate">Кубөлүк &#8470;{{ object.agreement }}</h1>
+            <h1 class="detail-header__certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</h1>
             <h1 class="detail-header__role">{{ object.get_role }}</h1>
         </div>
         <div class="detail__items d-flex">

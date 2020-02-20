@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 16:55+0600\n"
-"PO-Revision-Date: 2020-02-19 16:59+0458\n"
+"POT-Creation-Date: 2020-02-20 09:32+0600\n"
+"PO-Revision-Date: 2020-02-20 09:39+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,7 +27,7 @@ msgstr "Кыргызча"
 msgid "Russian"
 msgstr "Орусча"
 
-#: .\survey\models.py:32
+#: .\survey\models.py:32 .\templates\employee\list.html:33
 msgid "Role"
 msgstr "Ролу"
 
@@ -75,11 +75,11 @@ msgstr "Колдонуучу"
 msgid "User roles"
 msgstr "Колдонуучулар"
 
-#: .\survey\models.py:124
+#: .\survey\models.py:124 .\users\models.py:57
 msgid "User"
 msgstr "Колдонуучу"
 
-#: .\survey\models.py:125
+#: .\survey\models.py:125 .\users\models.py:58
 msgid "Users"
 msgstr "Колдонуучулар"
 
@@ -99,7 +99,7 @@ msgstr "Чыгуу"
 msgid "Project"
 msgstr "Долбоор"
 
-#: .\templates\agreements\enumerator.html:12
+#: .\templates\agreements\enumerator.html:12 .\templates\employee\list.html:32
 msgid "Agreement"
 msgstr "Келишим"
 
@@ -109,6 +109,7 @@ msgid "Home"
 msgstr "Башкы бет"
 
 #: .\templates\base.html:39 .\templates\employee\list.html:7
+#: .\users\models.py:170
 msgid "Employees"
 msgstr "Кызматкерлер"
 
@@ -119,6 +120,56 @@ msgstr "Чыгуу"
 #: .\templates\base.html:59
 msgid "Login"
 msgstr "Кирүү"
+
+#: .\templates\employee\detail.html:7 .\users\models.py:169
+msgid "Employee"
+msgstr "Кызматкер"
+
+#: .\templates\employee\detail.html:14 .\templates\users\update.html:20
+#: .\templates\users\update.html:80
+msgid "Certificate"
+msgstr "Күбөлүк"
+
+#: .\templates\employee\list.html:22
+msgid "Search"
+msgstr "Издөө"
+
+#: .\templates\employee\list.html:29
+msgid "Number"
+msgstr "Номери"
+
+#: .\templates\employee\list.html:30
+msgid "Name"
+msgstr "Аты"
+
+#: .\templates\employee\list.html:31
+msgid "Surname"
+msgstr "Фамилиясы"
+
+#: .\templates\index.html:11
+msgid "Employee Creation Form"
+msgstr "Кызматкер Кошуу Формасы"
+
+#: .\templates\index.html:43
+msgid "Add"
+msgstr "Кошуу"
+
+#: .\templates\users\update.html:30
+msgid "change image"
+msgstr "сүрөт жаңыртуу"
+
+#: .\templates\users\update.html:60
+#: .\venv\Lib\site-packages\django\forms\formsets.py:375
+msgid "Delete"
+msgstr "Алып таштоо"
+
+#: .\templates\users\update.html:62
+msgid "Update"
+msgstr "Өзгөртүү"
+
+#: .\templates\users\update.html:67
+msgid "Print"
+msgstr "Басып чыгаруу"
 
 #: .\users\admin.py:18
 #, python-format
@@ -140,7 +191,7 @@ msgstr "колдонуучулар"
 msgid "number"
 msgstr "номери"
 
-#: .\users\forms.py:25
+#: .\users\forms.py:25 .\users\models.py:164
 msgid "password"
 msgstr "сырсөз"
 
@@ -148,13 +199,83 @@ msgstr "сырсөз"
 msgid "must be in 123456789 format!"
 msgstr "550456789 форматта болуу керек"
 
-#: .\users\models.py:47
+#: .\users\models.py:47 .\users\models.py:91
 msgid "region"
 msgstr "облус"
 
 #: .\users\models.py:48 .\users\models.py:158
 msgid "district"
 msgstr "район"
+
+#: .\users\models.py:49
+msgid "is staff"
+msgstr "кызматкер статусу"
+
+#: .\users\models.py:50
+msgid "super user"
+msgstr "Башкаруучу"
+
+#: .\users\models.py:78 .\users\models.py:90 .\users\models.py:113
+msgid "name"
+msgstr "аты"
+
+#: .\users\models.py:79 .\users\models.py:150
+msgid "address"
+msgstr "дарек"
+
+#: .\users\models.py:82
+msgid "Region"
+msgstr "Облус"
+
+#: .\users\models.py:83
+msgid "Regions"
+msgstr "Облустар"
+
+#: .\users\models.py:95
+#, fuzzy
+#| msgid "counter of Territory"
+msgid "center of district"
+msgstr "Территория санакчысы"
+
+#: .\users\models.py:98
+msgid "District"
+msgstr "Район"
+
+#: .\users\models.py:99
+msgid "Districts"
+msgstr "Райондор"
+
+#: .\users\models.py:114
+msgid "code"
+msgstr "коду"
+
+#: .\users\models.py:120
+msgid "Territory"
+msgstr "Территория"
+
+#: .\users\models.py:121
+msgid "Territories"
+msgstr "Териториалар"
+
+#: .\users\models.py:130
+msgid "male"
+msgstr "эркек"
+
+#: .\users\models.py:131
+msgid "female"
+msgstr "аял"
+
+#: .\users\models.py:134
+msgid "Enumerator"
+msgstr "Каттоочу"
+
+#: .\users\models.py:135
+msgid "Instructor"
+msgstr "Инструктор"
+
+#: .\users\models.py:136
+msgid "Coordinator"
+msgstr "Координатор"
 
 #: .\users\models.py:142
 msgid "last name"
@@ -166,7 +287,7 @@ msgstr "аты"
 
 #: .\users\models.py:144
 msgid "patronymic"
-msgstr "Атасынын аты"
+msgstr "атасынын аты"
 
 #: .\users\models.py:145
 msgid "gender"
@@ -183,10 +304,6 @@ msgstr "паспорт сериасы"
 #: .\users\models.py:149
 msgid "number of passport"
 msgstr "паспорт номуру"
-
-#: .\users\models.py:150
-msgid "address"
-msgstr "дарек"
 
 #: .\users\models.py:151
 msgid "authority"
@@ -213,7 +330,6 @@ msgid "coordinator sector"
 msgstr "инструктордук участок"
 
 #: .\users\models.py:157
-#| msgid "Enumerator plot"
 msgid "enumerator plot"
 msgstr "каттоо участогу"
 
@@ -229,7 +345,23 @@ msgstr "келишим"
 msgid "QR code"
 msgstr "QR код"
 
-#: .\users\views.py:48
+#: .\users\models.py:162
+msgid "date joined"
+msgstr "алынган күнү"
+
+#: .\users\models.py:163
+msgid "login"
+msgstr "кирүү"
+
+#: .\users\models.py:165
+msgid "is badge printed?"
+msgstr "бейджик басып чыгарылдыбы?"
+
+#: .\users\models.py:166
+msgid "is badge returned?"
+msgstr "бейджик кайтарылдыбы?"
+
+#: .\users\views.py:47
 msgid ""
 "Number or password is incorrect. Note that both fields might be case-"
 "sensitive"
@@ -237,11 +369,11 @@ msgstr ""
 "Номур же сырсөз туура эмес. Эки аймак тең ЧОҢ кичинеликке сезгич болушу "
 "мүмкүн!"
 
-#: .\users\views.py:142
+#: .\users\views.py:140
 msgid "The employee added successfully."
 msgstr "Кызматкер ийгиликтүү кошулду"
 
-#: .\users\views.py:144
+#: .\users\views.py:142
 msgid "Please check the fields below form!"
 msgstr "Сураныч төмөндө талааларды текшериңиз!"
 
@@ -813,10 +945,6 @@ msgstr[1] "Please submit %d or more forms.\t"
 #: .\venv\Lib\site-packages\django\forms\formsets.py:373
 msgid "Order"
 msgstr "Ирет"
-
-#: .\venv\Lib\site-packages\django\forms\formsets.py:375
-msgid "Delete"
-msgstr "Алып сал"
 
 #: .\venv\Lib\site-packages\django\forms\models.py:751
 #, python-format
@@ -1622,42 +1750,14 @@ msgstr "The option '%s' is not a valid option for a QR code."
 #~ msgid "Print the document"
 #~ msgstr "Ишкагазды басуу"
 
-#~ msgid "certificate"
-#~ msgstr "күбөлүк"
-
-#, fuzzy
-#~ msgid "Print"
-#~ msgstr "Бэйжик басуу"
-
-#~ msgid "Number"
-#~ msgstr "Номери"
-
 #~ msgid "First name"
 #~ msgstr "Аты"
 
 #~ msgid "Last name"
 #~ msgstr "Атасынын аты"
 
-#~ msgid "Employee Creation Form"
-#~ msgstr "Кызматкер кошуу"
-
-#~ msgid "Add"
-#~ msgstr "Кошуу"
-
-#~ msgid "login"
-#~ msgstr "кирүү"
-
 #~ msgid "Employee Update Form"
 #~ msgstr "Кызматкер Өзгөртүү Форму"
-
-#~ msgid "Region"
-#~ msgstr "Облус"
-
-#~ msgid "is staff"
-#~ msgstr "кызматкер статусу"
-
-#~ msgid "super user"
-#~ msgstr "Башкаруучу"
 
 #~ msgid "Chue"
 #~ msgstr "Чүй"
@@ -1680,12 +1780,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 #~ msgid "Issikkol"
 #~ msgstr "Ысыккөл"
 
-#~ msgid "name"
-#~ msgstr "аты"
-
-#~ msgid "Regions"
-#~ msgstr "Облустар"
-
 #~ msgid "gov admin (NSP)"
 #~ msgstr "мам админстрациа башчы (ААТ)"
 
@@ -1694,39 +1788,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 
 #~ msgid "counter of agreements"
 #~ msgstr "келишимдер санакчысы"
-
-#~ msgid "District"
-#~ msgstr "Район"
-
-#~ msgid "Districts"
-#~ msgstr "Райондор"
-
-#~ msgid "code"
-#~ msgstr "коду"
-
-#~ msgid "counter of Territory"
-#~ msgstr "Территория санакчысы"
-
-#~ msgid "Territory"
-#~ msgstr "Территория"
-
-#~ msgid "Territories"
-#~ msgstr "Териториалар"
-
-#~ msgid "male"
-#~ msgstr "эркек"
-
-#~ msgid "female"
-#~ msgstr "аял"
-
-#~ msgid "Instructor sector"
-#~ msgstr "Инструктордук участок"
-
-#~ msgid "date joined"
-#~ msgstr "алынган күнү"
-
-#~ msgid "Employee"
-#~ msgstr "Кызматкер"
 
 #~ msgid "English"
 #~ msgstr "Инглизче"
@@ -1746,9 +1807,6 @@ msgstr "The option '%s' is not a valid option for a QR code."
 
 #~ msgid "Controller"
 #~ msgstr "Инструктор"
-
-#~ msgid "Enumerator"
-#~ msgstr "Каттоочу"
 
 #~ msgid "census 2020"
 #~ msgstr "Эл жана турак жай фондун каттоосу"

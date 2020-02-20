@@ -14,23 +14,23 @@
                 <div class="form-row">
                     {% for field in filterset.form.visible_fields %}
                         <div class="form-group col-md-3">
-                            <label for="id_{{ field.name|lower }}">{{ field.label }}</label>
+                            <label for="id_{{ field.label|lower }}">{{ field.label }}</label>
                             {% render_field field class="form-control" autocomplete="off" %}
                         </div>
                     {% endfor %}
                 </div>
-                <button type="submit" class="search-btn">Издөө</button>
+                <button type="submit" class="search-btn">{% trans 'Search' %}</button>
             </form>
         </div>
 
         <table class="table table-hover mt-5" id="myTable" data-card-width="1000">
             <thead>
             <tr>
-                <th scope="col">Номуру</th>
-                <th scope="col">Аты</th>
-                <th scope="col">Фамилиясы</th>
-                <th scope="col">Келишим</th>
-                <th scope="col">Ролу</th>
+                <th scope="col">{% trans 'Number' %}</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Surname' %}</th>
+                <th scope="col">{% trans 'Agreement' %}</th>
+                <th scope="col">{% trans 'Role' %}</th>
             </tr>
             </thead>
             <tbody>
