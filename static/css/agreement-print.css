@@ -20,10 +20,6 @@ section{
     display: none;
 }
 
-.list-item-inner{
-    padding-left: 100px;
-}
-
 .print-container{
     font-size: 21px;
     margin: 2cm 2cm 0 2.5cm;

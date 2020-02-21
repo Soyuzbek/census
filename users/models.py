@@ -7,6 +7,7 @@ import qrcode
 from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.core.cache import cache
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.validators import RegexValidator
 from django.db import models
@@ -141,7 +142,7 @@ class Employee(models.Model):
                               error_messages={'unique': "Мундай номер бар."})
     last_name = models.CharField(_('last name'), max_length=45)
     first_name = models.CharField(_('first name'), max_length=45)
-    patronymic = models.CharField(_('patronymic'),max_length=45, null=True, blank=True)
+    patronymic = models.CharField(_('patronymic'), max_length=45, null=True, blank=True)
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES, default='2')
     birth_day = models.DateField(_('birth day'))
     serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
@@ -220,3 +221,34 @@ def set_agreement_number(sender, instance, created=False, **kwargs):
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()
         instance.save()
+
+
+class SingletonModel(models.Model):
+    class Meta:
+        abstract = True
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    def set_cache(self):
+        cache.set(self.__class__.__name__, self)
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+
+class SiteSettings(SingletonModel):
+    census_start_date = models.DateField(null=True)
+    census_end_date = models.DateField(null=True)
+    coordinator_salary = models.PositiveIntegerField(null=True)
+    coordinator_workday = models.PositiveIntegerField(null=True)
+    instructor_salary = models.PositiveIntegerField(null=True)
+    instructor_workday = models.PositiveIntegerField(null=True)
+    enumerator_salary = models.PositiveIntegerField(null=True)
+    enumerator_workday = models.PositiveIntegerField(null=True)
