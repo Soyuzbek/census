@@ -13,6 +13,7 @@ import os
 
 import django.conf.locale
 import environ
+from django.conf.locale.ru import formats as ru_formats
 from django.utils.translation import ugettext_lazy as _
 
 DATE_INPUT_FORMATS = ("%d.%m.%Y",)
@@ -213,3 +214,11 @@ def FILTERS_VERBOSE_LOOKUPS():
         'icontains': '',
     })
     return verbose_lookups
+
+
+ru_formats.DATE_FORMAT = 'd.m.Y'
+ru_formats.TIME_FORMAT = 'H:i'
+ru_formats.DATETIME_FORMAT = 'd.m.Y H:i'
+DATE_FORMAT = 'j E Y'
+TIME_FORMAT = 'H:i'
+DATETIME_FORMAT = 'j E Y H:i'

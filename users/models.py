@@ -94,6 +94,8 @@ class District(models.Model):
     stat_admin = models.CharField(max_length=255, verbose_name='Статистика башчы (ААТ)')
     counter = models.CharField(max_length=8, default='000001')
     center = models.CharField(_('center of district'), max_length=255, null=True, blank=True)
+    agreement_ky = models.CharField(max_length=255, null=True, blank=True)
+    agreement_ru = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = _('District')
@@ -252,3 +254,10 @@ class SiteSettings(SingletonModel):
     instructor_workday = models.PositiveIntegerField(null=True)
     enumerator_salary = models.PositiveIntegerField(null=True)
     enumerator_workday = models.PositiveIntegerField(null=True)
+
+    class Meta:
+        verbose_name = 'Настройки сайта'
+        verbose_name_plural = 'Настройки сайта'
+
+    def __str__(self):
+        return "Настройки сайта"

@@ -12,6 +12,7 @@ from django.core.files.base import ContentFile
 from django.http import HttpResponseForbidden, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils import dateformat
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
@@ -86,6 +87,14 @@ class EmployeeDetailView(DetailView):
 class AgreementDetailView(LoginRequiredMixin, DetailView):
     model = Employee
     template_name = 'agreements/agreement-ru.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        date_joined_humanized = '{date_humanized}'.format(
+            date_humanized=dateformat.format(self.object.date_joined, settings.DATE_FORMAT)
+        )
+        context['date_joined'] = date_joined_humanized
+        return context
 
 
 class LogoutView(View):
