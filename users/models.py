@@ -97,6 +97,7 @@ class District(models.Model):
     center = models.CharField(_('center of district'), max_length=255, null=True, blank=True)
     agreement_ky = models.CharField(max_length=255, null=True, blank=True)
     agreement_ru = models.CharField(max_length=255, null=True, blank=True)
+    stat_address = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = _('District')
