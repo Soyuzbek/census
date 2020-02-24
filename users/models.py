@@ -14,6 +14,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
+from django.utils import dateformat
 from django.utils.translation import ugettext_lazy as _
 
 phone = RegexValidator(regex=r'^\d{9}$',
@@ -246,18 +247,43 @@ class SingletonModel(models.Model):
 
 
 class SiteSettings(SingletonModel):
-    census_start_date = models.DateField(null=True)
-    census_end_date = models.DateField(null=True)
-    coordinator_salary = models.PositiveIntegerField(null=True)
-    coordinator_workday = models.PositiveIntegerField(null=True)
-    instructor_salary = models.PositiveIntegerField(null=True)
-    instructor_workday = models.PositiveIntegerField(null=True)
-    enumerator_salary = models.PositiveIntegerField(null=True)
-    enumerator_workday = models.PositiveIntegerField(null=True)
-
     class Meta:
         verbose_name = 'Настройки сайта'
         verbose_name_plural = 'Настройки сайта'
 
     def __str__(self):
         return "Настройки сайта"
+
+
+class RoleInfo(models.Model):
+    ROLE_CHOICES = (
+        ('enum', _('Enumerator')),
+        ('ins', _('Instructor')),
+        ('cor', _('Coordinator')),
+
+    )
+    site_settings = models.ForeignKey(SiteSettings, on_delete=models.CASCADE)
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES, null=True)
+    salary = models.PositiveIntegerField(null=True)
+    workday_start_date = models.DateField(null=True)
+    workday_end_date = models.DateField(null=True)
+    days_off = models.CharField(max_length=255, null=True, blank=True)
+
+    @property
+    def census_start_date_humanized(self):
+        date_humanized = '{date_humanized}'.format(
+            date_humanized=dateformat.format(self.workday_start_date, settings.DATE_FORMAT)
+        )
+        return date_humanized
+
+    @property
+    def census_end_date_humanized(self):
+        date_humanized = '{date_humanized}'.format(
+            date_humanized=dateformat.format(self.workday_end_date, settings.DATE_FORMAT)
+        )
+        return date_humanized
+
+    @property
+    def workday(self):
+        dt = self.workday_end_date - self.workday_start_date
+        return dt.days

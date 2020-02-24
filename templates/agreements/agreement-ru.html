@@ -15,7 +15,7 @@
 
     <section>
         <div class="print-container">
-            <div class="text-center" style="font-size: 18.667px; font-weight: bold !important;"><strong>Трудовой договор
+            <div class="text-center title"><strong>Трудовой договор
                 № {{ object.agreement }}</strong></div>
 
             <div class="d-flex mt-5">
@@ -27,21 +27,15 @@
             </div>
             <p class="mt-3">Национальный статистический комитет Кыргызской Республики, расположенный по адресу: г.
                 Бишкек ул. Фрунзе
-                374 в лице начальника {{ object.district.agreement_ru }} городского управления {{ object.district.stat_admin|title }},
+                374 в лице начальника {{ object.district.agreement_ru }} городского
+                управления {{ object.district.stat_admin|title }},
                 действующего на основании Положения, именуемый в дальнейшем «Заказчик», с одной стороны,
                 и {{ object.last_name }} {{ object.first_name }} {% if object.patronymic %}
-                    {{ object.patronymic }} {% endif %}</p>
-
-            <p class="m1">дата рождения {{ object.birth_day|date:"d F Y" }}</p>
-
-            <p class="m1">проживающий(ая) по адресу: {{ object.address }}</p>
-
-            <p class="m1">паспорт серии {{ object.serial }} № {{ object.passport_num }}
-                выдан {{ object.authority }}.</p>
-
-            <p class="m1">Идентификационный номер {{ object.PIN }}</p>
-
-            <p class="m1">именуемый в дальнейшем «Исполнитель» с другой стороны, заключили настоящий договор о
+                    {{ object.patronymic }} {% endif %} дата рождения {{ birth_day }}
+                проживающий(ая) по
+                адресу: {{ object.address }} паспорт серии {{ object.serial }} № {{ object.passport_num }}
+                выдан {{ object.authority }} Идентификационный номер {{ object.PIN }} именуемый в дальнейшем
+                «Исполнитель» с другой стороны, заключили настоящий договор о
                 следующем:</p>
 
             <p class="text-center mt-2"><strong>1. Предмет договора</strong></p>
@@ -53,10 +47,9 @@
             <p class="list-item" id="i-12">Исполнитель обязуется выполнить следующую
                 работу: {{ object.get_role_display }}</p>
 
-            <p class="list-item" id="i-13">Срок выполнения работ с
-                «{{ settings.census_start_date|date:"d" }}» {{ settings.census_start_date|date:"F" }} {{ settings.census_start_date|date:"Y" }}
+            <p class="list-item" id="i-13">Срок выполнения работ с {{ role_info.census_start_date_humanized }}
                 <span>года</span><br>до
-                «{{ settings.census_end_date|date:"d" }}» {{ settings.census_end_date|date:"F" }} {{ settings.census_end_date|date:"Y" }}
+                {{ role_info.census_end_date_humanized }}
                 <span>года</span></p>
 
             <p class="list-item" id="i-131">Работа считается выполненной после подписания акта приема-сдачи работы
@@ -94,17 +87,13 @@
         <div class="print-container second">
             <p class="text-center"><strong>3. Оплата по договору</strong></p>
 
-            <p class="list-item" id="i-31">Сумма настоящего договора за
-                {% if object.role == 'cor' %}{{ settings.coordinator_workday }} {% elif object.role == 'ins' %}
-                    {{ settings.instructor_workday }}{% else %}{{ settings.enumerator_workday }}{% endif %} дня работы
-                составляет
-                {% if object.role == 'cor' %}{{ settings.coordinator_salary }} {% elif object.role == 'ins' %}
-                    {{ settings.instructor_salary }}{% else %}{{ settings.enumerator_salary }}{% endif %} сом</p>
+            <p class="list-item mt-2" id="i-31">Сумма настоящего договора за {{ role_info.workday }} дня работы
+                составляет {{ role_info.salary }} сом</p>
 
             <p class="list-item" id="i-32">Из начисленной суммы удерживается 10% в Социальный фонд, 10% подоходный
                 налог.</p>
 
-            <p class="text-center mt-1"><strong>4. Ответственность сторон</strong></p>
+            <p class="text-center mt-3"><strong>4. Ответственность сторон</strong></p>
 
             <p class="list-item" id="i-41">В случае неисполнения или ненадлежащего исполнения Исполнителем принятых в
                 рамках настоящего договора обязательств, право требования по их исполнению будут принадлежать
@@ -127,12 +116,12 @@
                 информации, Исполнитель несет ответственность в соответствии с уголовным законодательством Кыргызской
                 Республики.</p>
 
-            <p class="text-center mt-1"><strong>5. Порядок разрешения споров</strong></p>
+            <p class="text-center mt-3"><strong>5. Порядок разрешения споров</strong></p>
 
             <p class="list-item" id="i-51">Все споры или разногласия, возникающие между сторонами по настоящему договору
                 или в связи с ним, разрешаются в соответствии с действующим законодательством Кыргызской Республики.</p>
 
-            <p class="text-center mt-1"><strong>6. Порядок изменений и дополнения договора</strong></p>
+            <p class="text-center mt-3"><strong>6. Порядок изменений и дополнения договора</strong></p>
 
             <p class="list-item" id="i-61">Любые изменения и дополнения к настоящему договору имеют силу только в том
                 случае, если они оформлены в письменном виде и подписаны обеими сторонами.</p>
@@ -141,12 +130,12 @@
                 основаниям, предусмотренным действующим на территории Кыргызской Республики гражданским
                 законодательством, с возмещением понесенных убытков.</p>
 
-            <p class="text-center mt-1"><strong>7. Прочие условия</strong></p>
+            <p class="text-center mt-3"><strong>7. Прочие условия</strong></p>
 
             <p class="list-item" id="i-71">Настоящий договор составлен в двух экземплярах, имеющих одинаковую
                 юридическую силу, по одному экземпляру для каждой из сторон.</p>
 
-            <p class="text-center mt-1"><strong>8. Подписи сторон</strong></p>
+            <p class="text-center mt-3"><strong>8. Подписи сторон</strong></p>
 
             <TABLE WIDTH=560 CELLPADDING=10 CELLSPACING=0>
                 <COL WIDTH=273>
@@ -176,11 +165,11 @@
                 </TR>
                 <TR VALIGN=TOP>
                     <TD WIDTH=273 STYLE="border: none; padding: 0in">
-                        <P><span FACE="Times New Roman, serif"><span SIZE=3>(подпись)
+                        <P><span FACE="Times New Roman, serif"><span SIZE=2 style="font-size: 15px;">(подпись)
 						   (имя, фамилия)</span></span></P>
                     </TD>
                     <TD WIDTH=300 STYLE="border: none; padding: 0in">
-                        <P><span FACE="Times New Roman, serif"><span SIZE=3>(подпись)
+                        <P><span FACE="Times New Roman, serif"><span SIZE=2 style="font-size: 15px;">(подпись)
 						            (имя, фамилия)</span></span></P>
                     </TD>
                 </TR>

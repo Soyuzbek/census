@@ -1,44 +1,49 @@
 @charset "utf-8";
-@page{
-	size: A4 portrait;
-	margin: 0;
-    padding: 0;
-}
-
-html, body{
+@page {
+    size: A4 portrait;
     margin: 0;
     padding: 0;
 }
 
-section{
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
     margin: 0;
     padding: 0;
 }
 
 
-.no-print{
+.no-print {
     display: none;
 }
 
-.print-container{
-    font-size: 21px;
-    margin: 2cm 2cm 0 2.5cm;
+.print-container {
+    font-size: 20px;
+    margin: 2.5cm 2cm 0 3.5cm;
     padding: 0;
 }
 
-.print-container:not(.second){
+.title {
+    font-size: 23px;
+    font-weight: bold !important;
+}
+
+.print-container:not(.second) {
     page-break-after: always;
 }
 
-p{
-	margin: 0px;
-    line-height: 27px;
+p {
+    margin: 0px;
+    line-height: 25px;
 }
 
-p.m1{
+p.m1 {
     margin: 5px 2px;
 }
 
-table{
+table {
     width: 900px;
 }

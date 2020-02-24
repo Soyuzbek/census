@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _, ngettext
 from rest_framework.authtoken.models import Token
 
-from users.models import User, District, Employee, Region, Territory, SiteSettings
+from users.models import User, District, Employee, Region, Territory, SiteSettings, RoleInfo
 
 
 def regenerate(modeladmin, request, queryset):
@@ -105,6 +105,14 @@ class TerritoryAdminPure(admin.ModelAdmin):
     list_display = ['name', 'counter']
 
 
-admin.site.register(SiteSettings)
+class RoleInfoInline(admin.StackedInline):
+    model = RoleInfo
+    extra = 1
+
+
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(admin.ModelAdmin):
+    inlines = [RoleInfoInline]
+
 
 admin.site.unregister(Token)

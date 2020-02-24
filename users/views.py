@@ -22,7 +22,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
-from users.models import Employee, District, Territory
+from users.models import Employee, District, Territory, SiteSettings, RoleInfo
 
 
 class LoginView(View):
@@ -94,6 +94,9 @@ class AgreementDetailView(LoginRequiredMixin, DetailView):
             date_humanized=dateformat.format(self.object.date_joined, settings.DATE_FORMAT)
         )
         context['date_joined'] = date_joined_humanized
+        role_info = RoleInfo.objects.get(role=self.object.role)
+        context['role_info'] = role_info
+
         return context
 
 
