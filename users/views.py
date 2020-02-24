@@ -93,7 +93,11 @@ class AgreementDetailView(LoginRequiredMixin, DetailView):
         date_joined_humanized = '{date_humanized}'.format(
             date_humanized=dateformat.format(self.object.date_joined, settings.DATE_FORMAT)
         )
+        birth_day_humanized = '{date_humanized}'.format(
+            date_humanized=dateformat.format(self.object.birth_day, settings.DATE_FORMAT)
+        )
         context['date_joined'] = date_joined_humanized
+        context['birth_day'] = birth_day_humanized
         role_info = RoleInfo.objects.get(role=self.object.role)
         context['role_info'] = role_info
 
