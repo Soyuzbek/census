@@ -167,3 +167,8 @@ table{
 .credentials p{
 	font-size: 16px;
 }
+
+.title {
+    font-size: 18.667px;
+    font-weight: bold !important;
+}
