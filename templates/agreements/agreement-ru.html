@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load user_agents %}
+{% load users_extras %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'fonts/NewTimesRoman/stylesheet.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/agreement.css' %}"/>
@@ -24,7 +25,8 @@
                     <span>г.</span></p>
                 </div>
             </div>
-            <p class="mt-3">Национальный статистический комитет Кыргызской Республики, расположенный по адресу: г. Бишкек ул. Фрунзе
+            <p class="mt-3">Национальный статистический комитет Кыргызской Республики, расположенный по адресу: г.
+                Бишкек ул. Фрунзе
                 374 в лице начальника {{ object.district }} городского управления {{ object.district.stat_admin|title }},
                 действующего на основании Положения, именуемый в дальнейшем «Заказчик», с одной стороны,
                 и {{ object.last_name }} {{ object.first_name }} {% if object.patronymic %}
@@ -42,13 +44,14 @@
             <p class="m1">именуемый в дальнейшем «Исполнитель» с другой стороны, заключили настоящий договор о
                 следующем:</p>
 
-            <p class="text-center item-1"><strong>1. Предмет договора</strong></p>
+            <p class="text-center mt-2"><strong>1. Предмет договора</strong></p>
 
             <p class="list-item" id="i-11">Исполнитель обязуется выполнить по заданию Заказчика работу, указанную в
                 пункте 1.2. настоящего договора, и сдать ее результат Заказчику, а Заказчик обязуется принять результат
                 работы и оплатить его.</p>
 
-            <p class="list-item" id="i-12">Исполнитель обязуется выполнить следующую работу: {{ object.get_role_display }}</p>
+            <p class="list-item" id="i-12">Исполнитель обязуется выполнить следующую
+                работу: {{ object.get_role_display }}</p>
 
             <p class="list-item" id="i-13">Срок выполнения работ с
                 «{{ settings.census_start_date|date:"d" }}» {{ settings.census_start_date|date:"F" }} {{ settings.census_start_date|date:"Y" }}
@@ -63,7 +66,7 @@
                 согласие на предоставление и использование своих персональных данных для формирования АИС-
                 автоматизированная информационная система “Регистрация переписчика”.</p>
 
-            <p class="text-center"><strong>2. Права и обязанности сторон</strong></p>
+            <p class="text-center mt-2"><strong>2. Права и обязанности сторон</strong></p>
 
             <p class="list-item" id="i-21">Исполнитель обязан:</p>
 
@@ -91,13 +94,17 @@
         <div class="print-container second">
             <p class="text-center"><strong>3. Оплата по договору</strong></p>
 
-            <p class="list-item" id="i-31">Сумма настоящего договора за {{ settings.coordinator_workday }} дня работы
-                составляет {{ settings.coordinator_salary }} сом</p>
+            <p class="list-item" id="i-31">Сумма настоящего договора за
+                {% if object.role == 'cor' %}{{ settings.coordinator_workday }} {% elif object.role == 'ins' %}
+                    {{ settings.instructor_workday }}{% else %}{{ settings.enumerator_workday }}{% endif %} дня работы
+                составляет
+                {% if object.role == 'cor' %}{{ settings.coordinator_salary }} {% elif object.role == 'ins' %}
+                    {{ settings.instructor_salary }}{% else %}{{ settings.enumerator_salary }}{% endif %} сом</p>
 
             <p class="list-item" id="i-32">Из начисленной суммы удерживается 10% в Социальный фонд, 10% подоходный
                 налог.</p>
 
-            <p class="text-center"><strong>4. Ответственность сторон</strong></p>
+            <p class="text-center mt-1"><strong>4. Ответственность сторон</strong></p>
 
             <p class="list-item" id="i-41">В случае неисполнения или ненадлежащего исполнения Исполнителем принятых в
                 рамках настоящего договора обязательств, право требования по их исполнению будут принадлежать
@@ -120,12 +127,12 @@
                 информации, Исполнитель несет ответственность в соответствии с уголовным законодательством Кыргызской
                 Республики.</p>
 
-            <p class="text-center"><strong>5. Порядок разрешения споров</strong></p>
+            <p class="text-center mt-1"><strong>5. Порядок разрешения споров</strong></p>
 
             <p class="list-item" id="i-51">Все споры или разногласия, возникающие между сторонами по настоящему договору
                 или в связи с ним, разрешаются в соответствии с действующим законодательством Кыргызской Республики.</p>
 
-            <p class="text-center"><strong>6. Порядок изменений и дополнения договора</strong></p>
+            <p class="text-center mt-1"><strong>6. Порядок изменений и дополнения договора</strong></p>
 
             <p class="list-item" id="i-61">Любые изменения и дополнения к настоящему договору имеют силу только в том
                 случае, если они оформлены в письменном виде и подписаны обеими сторонами.</p>
@@ -134,12 +141,12 @@
                 основаниям, предусмотренным действующим на территории Кыргызской Республики гражданским
                 законодательством, с возмещением понесенных убытков.</p>
 
-            <p class="text-center"><strong>7. Прочие условия</strong></p>
+            <p class="text-center mt-1"><strong>7. Прочие условия</strong></p>
 
             <p class="list-item" id="i-71">Настоящий договор составлен в двух экземплярах, имеющих одинаковую
                 юридическую силу, по одному экземпляру для каждой из сторон.</p>
 
-            <p class="text-center"><strong>8. Подписи сторон</strong></p>
+            <p class="text-center mt-1"><strong>8. Подписи сторон</strong></p>
 
             <TABLE WIDTH=560 CELLPADDING=10 CELLSPACING=0>
                 <COL WIDTH=273>
