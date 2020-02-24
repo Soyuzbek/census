@@ -91,7 +91,7 @@ class Region(models.Model):
 class District(models.Model):
     name = models.CharField(_('name'), max_length=55)
     region = models.ForeignKey(Region, models.CASCADE, verbose_name=_('region'))
-    gov_admin = models.CharField(max_length=255, verbose_name='Мам админстрациа башчы (ААТ)')
+    gov_admin = models.CharField(max_length=255, verbose_name='Мам админстрация башчы (ААТ)')
     stat_admin = models.CharField(max_length=255, verbose_name='Статистика башчы (ААТ)')
     counter = models.CharField(max_length=8, default='000001')
     center = models.CharField(_('center of district'), max_length=255, null=True, blank=True)
@@ -150,10 +150,10 @@ class Employee(models.Model):
     birth_day = models.DateField(_('birth day'))
     serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
                               default='ID')
-    passport_num = models.CharField(_('number of passport'), max_length=7)
+    passport_num = models.CharField(_('number of passport'), max_length=7, unique=True)
     address = models.CharField(_('address'), max_length=255)
     authority = models.CharField(_('authority'), max_length=10)
-    PIN = models.CharField(_('PIN'), max_length=14)
+    PIN = models.CharField(_('PIN'), max_length=14, unique=True)
     photo = models.ImageField(_('photo'), upload_to='users/img')
     role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2])
     department = models.PositiveSmallIntegerField(_('census department'), default=1)
