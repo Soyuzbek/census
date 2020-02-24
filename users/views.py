@@ -85,7 +85,7 @@ class EmployeeDetailView(DetailView):
 
 class AgreementDetailView(LoginRequiredMixin, DetailView):
     model = Employee
-    template_name = 'agreements/agreement.html'
+    template_name = 'agreements/agreement-ru.html'
 
 
 class LogoutView(View):
