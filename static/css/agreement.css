@@ -72,6 +72,14 @@ p.m1{
 	content: '1.4';
 }
 
+#i-15:before{
+	content: '1.5';
+}
+
+#i-16:before{
+	content: '1.6';
+}
+
 #i-21:before{
 	content: '2.1';
 }
