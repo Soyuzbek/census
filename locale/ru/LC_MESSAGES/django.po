@@ -2,23 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-25 14:56+0600\n"
-"PO-Revision-Date: 2020-02-21 11:41+0458\n"
+"PO-Revision-Date: 2020-02-25 15:11+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
 #: .\census\settings.py:170 .\census\settings.py:174
@@ -138,7 +136,7 @@ msgstr "Сотрудник"
 #: .\templates\employee\detail.html:14 .\templates\users\update.html:20
 #: .\templates\users\update.html:83
 msgid "Certificate"
-msgstr "Свидетельство"
+msgstr "Удостоверение"
 
 #: .\templates\employee\list.html:22
 msgid "Search"
