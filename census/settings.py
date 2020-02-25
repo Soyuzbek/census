@@ -174,7 +174,7 @@ ROSETTA_LANGUAGES = (
     ('ky', _('Kirghiz')),
     ('ru', _('Russian')),
 )
-LANGUAGE_CODE = 'ky'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Bishkek'
 

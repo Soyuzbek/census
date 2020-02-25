@@ -45,9 +45,8 @@
                             <div class="language-picker__items">
                                 {% get_available_languages as langs %}
                                 {% for lang, val in langs %}
-                                    {% ifnotequal lang curr %}
-                                        <a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a>
-                                    {% endifnotequal %}
+                                    <a class="language-picker__item" href="{% url 'lang' lang %}">{% if lang == 'ky' %}
+                                        кыр{% elif lang == 'ru' %}рус{% endif %}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -80,9 +79,8 @@
             <div class="header-right-menu__item header-button">
                 {% get_available_languages as langs %}
                 {% for lang, val in langs %}
-                    {% ifnotequal lang curr %}
-                        <a class="language-picker__item" href="{% url 'lang' lang %}">{{ lang }}</a>
-                    {% endifnotequal %}
+                    <a class="language-picker__item" href="{% url 'lang' lang %}">{% if lang == 'ky' %}
+                        кыр{% elif lang == 'ru' %}рус{% endif %}</a>
                 {% endfor %}
             </div>
         </div>
