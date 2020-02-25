@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 17:22+0600\n"
-"PO-Revision-Date: 2020-02-25 17:27+0458\n"
+"POT-Creation-Date: 2020-02-25 18:06+0600\n"
+"PO-Revision-Date: 2020-02-25 18:16+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -114,7 +114,7 @@ msgid "Home"
 msgstr "Башкы бет"
 
 #: .\templates\base.html:39 .\templates\base.html:106
-#: .\templates\employee\list.html:7 .\users\models.py:181
+#: .\templates\employee\list.html:7 .\users\models.py:186
 msgid "Employees"
 msgstr "Кызматкерлер"
 
@@ -127,7 +127,7 @@ msgstr "Чыгуу"
 msgid "Login"
 msgstr "Кирүү"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:180
+#: .\templates\employee\detail.html:7 .\users\models.py:185
 msgid "Employee"
 msgstr "Кызматкер"
 
@@ -197,11 +197,11 @@ msgstr "QR ди кайрадан түзүү"
 msgid "users"
 msgstr "колдонуучулар"
 
-#: .\users\forms.py:21 .\users\models.py:47 .\users\models.py:149
+#: .\users\forms.py:21 .\users\models.py:47 .\users\models.py:154
 msgid "number"
 msgstr "номери"
 
-#: .\users\forms.py:25 .\users\models.py:174
+#: .\users\forms.py:25 .\users\models.py:179
 msgid "password"
 msgstr "сырсөз"
 
@@ -213,7 +213,7 @@ msgstr "550456789 форматта болуу керек"
 msgid "region"
 msgstr "облус"
 
-#: .\users\models.py:50 .\users\models.py:168
+#: .\users\models.py:50 .\users\models.py:173
 msgid "district"
 msgstr "район"
 
@@ -229,7 +229,7 @@ msgstr "Башкаруучу"
 msgid "name"
 msgstr "аты"
 
-#: .\users\models.py:83 .\users\models.py:159
+#: .\users\models.py:83 .\users\models.py:164
 msgid "address"
 msgstr "дарек"
 
@@ -275,119 +275,139 @@ msgstr "эркек"
 msgid "female"
 msgstr "аял"
 
-#: .\users\models.py:141 .\users\models.py:269
+#: .\users\models.py:141 .\users\models.py:274
 msgid "Coordinator"
 msgstr "Координатор"
 
 #: .\users\models.py:144
-msgid "secondary vocational education"
-msgstr ""
+msgid "bachelor"
+msgstr "бакалавр"
 
 #: .\users\models.py:145
-msgid "bachelor"
-msgstr ""
+msgid "specialist"
+msgstr "адис"
 
 #: .\users\models.py:146
 msgid "master"
-msgstr ""
+msgstr "магистр"
+
+#: .\users\models.py:147
+msgid "incomplete higher education"
+msgstr "толук эмес жогорку кесиптик(бүтпөгөн жогорку)"
+
+#: .\users\models.py:148
+msgid "specialized secondary education"
+msgstr "орто кесиптик (орто атайын)"
+
+#: .\users\models.py:149
+msgid "initial vocational training"
+msgstr "башталгыч кесиптик (кесиптик-техникалык)"
+
+#: .\users\models.py:150
+msgid "general secondary education"
+msgstr "орто (толук) жалпы"
 
 #: .\users\models.py:151
+msgid "lower secondary education"
+msgstr "негизги жалпы (толук эмес орто)"
+
+#: .\users\models.py:156
 msgid "last name"
 msgstr "фамилиясы"
 
-#: .\users\models.py:152
+#: .\users\models.py:157
 msgid "first name"
 msgstr "аты"
 
-#: .\users\models.py:153
+#: .\users\models.py:158
 msgid "patronymic"
 msgstr "атасынын аты"
 
-#: .\users\models.py:154
+#: .\users\models.py:159
 msgid "gender"
 msgstr "жынысы"
 
-#: .\users\models.py:155
+#: .\users\models.py:160
 msgid "birth day"
 msgstr "Туулган күнү"
 
-#: .\users\models.py:156
+#: .\users\models.py:161
 msgid "serial"
 msgstr "паспорт сериасы"
 
-#: .\users\models.py:158
+#: .\users\models.py:163
 msgid "number of passport"
 msgstr "паспорт номуру"
 
-#: .\users\models.py:160
+#: .\users\models.py:165
 msgid "authority"
 msgstr "паспорт берген орган"
 
-#: .\users\models.py:161
+#: .\users\models.py:166
 msgid "PIN"
 msgstr "ПИН"
 
-#: .\users\models.py:162
+#: .\users\models.py:167
 msgid "photo"
 msgstr "сүрөт"
 
-#: .\users\models.py:163
+#: .\users\models.py:168
 msgid "education"
 msgstr "билим деңгели"
 
-#: .\users\models.py:164
+#: .\users\models.py:169
 msgid "role"
 msgstr "ролу"
 
-#: .\users\models.py:165
+#: .\users\models.py:170
 msgid "census department"
 msgstr "каттоо бөлүмү"
 
-#: .\users\models.py:166
+#: .\users\models.py:171
 msgid "coordinator sector"
 msgstr "инструктордук участок"
 
-#: .\users\models.py:167
+#: .\users\models.py:172
 msgid "enumerator plot"
 msgstr "каттоо участогу"
 
-#: .\users\models.py:169
+#: .\users\models.py:174
 msgid "territory"
 msgstr "территория"
 
-#: .\users\models.py:170
+#: .\users\models.py:175
 msgid "agreement"
 msgstr "келишим"
 
-#: .\users\models.py:171
+#: .\users\models.py:176
 msgid "QR code"
 msgstr "QR код"
 
-#: .\users\models.py:172
+#: .\users\models.py:177
 msgid "date joined"
 msgstr "алынган күнү"
 
-#: .\users\models.py:173
+#: .\users\models.py:178
 msgid "login"
 msgstr "кирүү"
 
-#: .\users\models.py:175
+#: .\users\models.py:180
 msgid "is badge printed?"
 msgstr "бейджик басып чыгарылдыбы?"
 
-#: .\users\models.py:176
+#: .\users\models.py:181
 msgid "is badge returned?"
 msgstr "бейджик кайтарылдыбы?"
 
-#: .\users\models.py:177
+#: .\users\models.py:182
 msgid "Dismissed?"
 msgstr "Кызматтан чыгарылды?"
 
-#: .\users\models.py:267
+#: .\users\models.py:272
 msgid "Enumerator"
 msgstr "Каттоочу"
 
-#: .\users\models.py:268
+#: .\users\models.py:273
 msgid "Instructor"
 msgstr "Инструктор"
 

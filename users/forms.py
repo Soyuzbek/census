@@ -52,6 +52,7 @@ class EmployeeCreateForm(forms.ModelForm):
             'authority': TextInput(attrs={'style': 'text-transform: uppercase;', 'class': 'form-control'}),
             'PIN': TelInput(attrs={'class': 'form-control'}),
             # 'photo': forms.FileInput(attrs={'class': 'form-control-file'}),
+            'education': forms.Select(attrs={'class': 'form-control'}),
             'role': forms.Select(attrs={'class': 'form-control'}),
             'department': TextInput(attrs={'class': 'form-control'}),
             'sector': TextInput(attrs={'class': 'form-control'}),

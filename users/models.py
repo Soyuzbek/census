@@ -141,9 +141,14 @@ class Employee(models.Model):
         ('cor', _('Coordinator')),
     )
     EDUCATION_CHOICES = (
-        ('1', _('secondary vocational education')),
-        ('2', _('bachelor')),
+        ('1', _('bachelor')),
+        ('2', _('specialist')),
         ('3', _('master')),
+        ('4', _('incomplete higher education')),
+        ('5', _('specialized secondary education')),
+        ('6', _('initial vocational training')),
+        ('7', _('general secondary education')),
+        ('8', _('lower secondary education'))
     )
 
     number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
