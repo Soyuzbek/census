@@ -31,7 +31,7 @@
               enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Сактоо</button>
+            <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
         </form>
     </div>
 

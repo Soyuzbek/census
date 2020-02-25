@@ -195,7 +195,7 @@
         </div>
     </section>
 
-    {% if request|is_pc %}
+    {% if request|is_pc and perms.users.can_print_agreement %}
         <div class="button__items no-print">
             <button class="btn-add no-print" onclick="printWindow()"><span class="fa fa-print"
                                                                            aria-hidden="true"></span> {% trans 'Print' %}
