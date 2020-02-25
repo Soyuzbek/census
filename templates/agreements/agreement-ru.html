@@ -33,7 +33,7 @@
                     {{ object.patronymic }} {% endif %} дата рождения {{ birth_day }}
                 проживающий(ая) по
                 адресу: {{ object.address }} паспорт серии {{ object.serial }} № {{ object.passport_num }}
-                выдан {{ object.authority }} Идентификационный номер {{ object.PIN }} именуемый в дальнейшем
+                выдан {{ object.authority|upper }} Идентификационный номер {{ object.PIN }} именуемый в дальнейшем
                 «Исполнитель» с другой стороны, заключили настоящий договор о
                 следующем:</p>
 
