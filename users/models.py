@@ -75,7 +75,9 @@ class Region(models.Model):
         ('jal', 'Жалал-Абад'),
         ('tal', 'Талас'),
         ('nar', 'Нарын'),
-        ('kol', 'Ысык-Көл')
+        ('kol', 'Ысык-Көл'),
+        ('bis', 'г.Бишкек'),
+        ('oshc', 'г.Ош'),
     )
     name = models.CharField(_('name'), max_length=9, choices=REGION_CHOICES, unique=True)
     address = models.CharField(_('address'), max_length=255)
@@ -137,6 +139,11 @@ class Employee(models.Model):
     )
     ROLE_CHOICES = (
         ('cor', _('Coordinator')),
+    )
+    EDUCATION_CHOICES = (
+        ('1', _('secondary vocational education')),
+        ('2', _('bachelor')),
+        ('3', _('master')),
     )
 
     number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
