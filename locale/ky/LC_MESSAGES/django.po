@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 18:06+0600\n"
-"PO-Revision-Date: 2020-02-25 18:23+0458\n"
+"POT-Creation-Date: 2020-02-25 19:21+0600\n"
+"PO-Revision-Date: 2020-02-25 19:23+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -131,10 +131,14 @@ msgstr "Кирүү"
 msgid "Employee"
 msgstr "Кызматкер"
 
-#: .\templates\employee\detail.html:14 .\templates\users\update.html:20
+#: .\templates\employee\detail.html:15 .\templates\users\update.html:20
 #: .\templates\users\update.html:83
 msgid "Certificate"
 msgstr "Күбөлүк"
+
+#: .\templates\employee\detail.html:57
+msgid "This employee is dismissed"
+msgstr "Бул кызматкер кызматтан чыгарылган"
 
 #: .\templates\employee\list.html:22
 msgid "Search"

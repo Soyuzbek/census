@@ -8,72 +8,78 @@
 {% endblock %}
 {% block content %}
 
-<section class="section-detail mt-5">
-    <div class="container">
-        <div class="detail__header">
-            <h1 class="detail-header__certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</h1>
-            <h1 class="detail-header__role">{{ object.get_role }}</h1>
+    <section class="section-detail mt-5">
+        <div class="container">
+            {% if not object.dismissed %}
+                <div class="detail__header">
+                    <h1 class="detail-header__certificate">{% trans 'Certificate' %} &#8470;{{ object.agreement }}</h1>
+                    <h1 class="detail-header__role">{{ object.get_role }}</h1>
+                </div>
+                <div class="detail__items d-flex">
+                    <div class="image__item">
+                        {% if object.photo %}
+                            <img src="{{ object.photo.url }}" alt="" class="image">
+                        {% else %}
+                            <img src="{% static 'img/nophoto.png' %}" alt="" class="image">
+                        {% endif %}
+                    </div>
+                    <div class="employee__info mr-5 ml-5 my-auto">
+                        <div class="employee-info">
+                            <span>Фамилиясы:</span>
+                            {% if user.is_authenticated %}
+                                <span>{{ object.last_name }}</span>
+                            {% else %}
+                                <span>{{ object.last_name|cover:"*" }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="employee-info">
+                            <span>Аты:</span>
+                            {% if user.is_authenticated %}
+                                <span>{{ object.first_name }}</span>
+                            {% else %}
+                                <span>{{ object.first_name|cover:"*" }}</span>
+                            {% endif %}
+                        </div>
+                        {% if object.patronymic %}
+                            <div class="employee-info">
+                                <span>Атасынын аты:</span>
+                                {% if user.is_authenticated %}
+                                    <span>{{ object.patronymic }}</span>
+                                {% else %}
+                                    <span>{{ object.patronymic|cover:"*" }}</span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="alert alert-warning text-center">
+                    <h1>{% trans 'This employee is dismissed' %}</h1>
+                </div>
+            {% endif %}
         </div>
-        <div class="detail__items d-flex">
-            <div class="image__item">
-                <img src="{{ object.photo.url }}" alt="" class="image">
-            </div>
-            <div class="employee__info mr-5 ml-5 my-auto">
-                <div class="employee-info">
-                    <span>Фамилиясы:</span>
-                    {% if user.is_authenticated %}
-                        <span>{{object.last_name}}</span>
-                    {% else %}
-                        <span>{{object.last_name|cover:"*"}}</span>
-                    {% endif %}
-                </div>
-                <div class="employee-info">
-                    <span>Аты:</span>
-                    {% if user.is_authenticated %}
-                        <span>{{object.first_name}}</span>
-                    {% else %}
-                        <span>{{object.first_name|cover:"*"}}</span>
-                    {% endif %}
-                </div>
-                 {% if object.patronymic %}
-                <div class="employee-info">
-                    <span>Атасынын аты:</span>
-                    {% if user.is_authenticated %}
-                        <span>{{object.patronymic}}</span>
-                    {% else %}
-                        <span>{{object.patronymic|cover:"*"}}</span>
-                    {% endif %}
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
 
-    {% if not user.is_authenticated %}
-    <div class="mt-5">
-         <p class="text-center">Коопсуздук эрежелерин сактоо максатында ысымдар толук эмес түрдө берилген</p>
-    </div>
-    {% endif %}
+        {% if not user.is_authenticated %}
+            <div class="mt-5">
+                <p class="text-center">Коопсуздук эрежелерин сактоо максатында ысымдар толук эмес түрдө берилген</p>
+            </div>
+        {% endif %}
 
-</section>
+    </section>
 
 {% endblock %}
 
 {% block js %}
     <script>
-    $(document).ready(function(){
-        if( window.localStorage )
-        {
-            if(!localStorage.getItem('firstLoad'))
-            {
-                localStorage['firstLoad'] = true;
-                window.location.reload();
+        $(document).ready(function () {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                } else {
+                    localStorage.removeItem('firstLoad');
+                }
             }
-            else
-            {
-                localStorage.removeItem('firstLoad');
-            }
-        }
-    });
+        });
     </script>
 {% endblock js %}
