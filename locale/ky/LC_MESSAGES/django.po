@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-20 11:23+0600\n"
+"POT-Creation-Date: 2020-02-25 14:56+0600\n"
 "PO-Revision-Date: 2020-02-20 11:24+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: .\census\settings.py:169 .\census\settings.py:173
+#: .\census\settings.py:170 .\census\settings.py:174
 msgid "Kirghiz"
 msgstr "Кыргызча"
 
-#: .\census\settings.py:170 .\census\settings.py:174
+#: .\census\settings.py:171 .\census\settings.py:175
 msgid "Russian"
 msgstr "Орусча"
 
@@ -75,11 +75,11 @@ msgstr "Колдонуучу"
 msgid "User roles"
 msgstr "Колдонуучулар"
 
-#: .\survey\models.py:124 .\users\models.py:57
+#: .\survey\models.py:124 .\users\models.py:59
 msgid "User"
 msgstr "Колдонуучу"
 
-#: .\survey\models.py:125 .\users\models.py:58
+#: .\survey\models.py:125 .\users\models.py:60
 msgid "Users"
 msgstr "Колдонуучулар"
 
@@ -99,7 +99,8 @@ msgstr "Чыгуу"
 msgid "Project"
 msgstr "Долбоор"
 
-#: .\templates\agreements\agreement.html:191 .\templates\users\update.html:67
+#: .\templates\agreements\agreement-ru.html:201
+#: .\templates\agreements\agreement.html:191 .\templates\users\update.html:70
 msgid "Print"
 msgstr "Басып чыгаруу"
 
@@ -107,30 +108,31 @@ msgstr "Басып чыгаруу"
 msgid "Agreement"
 msgstr "Келишим"
 
-#: .\templates\base.html:36 .\templates\base.html:105 .\templates\index.html:6
+#: .\templates\base.html:36 .\templates\base.html:104 .\templates\index.html:6
 #: .\templates\login.html:6 .\templates\users\update.html:14
 msgid "Home"
 msgstr "Башкы бет"
 
-#: .\templates\base.html:39 .\templates\base.html:107
-#: .\templates\employee\list.html:7 .\users\models.py:170
+#: .\templates\base.html:39 .\templates\base.html:106
+#: .\templates\employee\list.html:7 .\users\models.py:172
 msgid "Employees"
 msgstr "Кызматкерлер"
 
-#: .\templates\base.html:56 .\templates\base.html:110
+#: .\templates\base.html:56 .\templates\base.html:109
 msgid "Logout"
 msgstr "Чыгуу"
 
-#: .\templates\base.html:59 .\templates\base.html:113
+#: .\templates\base.html:59 .\templates\base.html:112
+#: .\templates\login.html:46
 msgid "Login"
 msgstr "Кирүү"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:169
+#: .\templates\employee\detail.html:7 .\users\models.py:171
 msgid "Employee"
 msgstr "Кызматкер"
 
 #: .\templates\employee\detail.html:14 .\templates\users\update.html:20
-#: .\templates\users\update.html:80
+#: .\templates\users\update.html:83
 msgid "Certificate"
 msgstr "Күбөлүк"
 
@@ -159,20 +161,23 @@ msgid "Add"
 msgstr "Кошуу"
 
 #: .\templates\users\employee_confirm_delete.html:12
-#| msgid "Are you sure you want to delete"
 msgid "Are you sure you want to delete?"
 msgstr "Алып таштоого макулсузбу?"
 
 #: .\templates\users\employee_confirm_delete.html:13
-#: .\templates\users\update.html:60
+#: .\templates\users\update.html:62
 msgid "Delete"
 msgstr "Алып таштоо"
 
-#: .\templates\users\update.html:30
+#: .\templates\users\photo_update.html:34
+msgid "Save"
+msgstr "Сактоо"
+
+#: .\templates\users\update.html:31
 msgid "change image"
 msgstr "сүрөт жаңыртуу"
 
-#: .\templates\users\update.html:62
+#: .\templates\users\update.html:65
 msgid "Update"
 msgstr "Өзгөртүү"
 
@@ -192,181 +197,181 @@ msgstr "QR ди кайрадан түзүү"
 msgid "users"
 msgstr "колдонуучулар"
 
-#: .\users\forms.py:21 .\users\models.py:45 .\users\models.py:140
+#: .\users\forms.py:21 .\users\models.py:47 .\users\models.py:142
 msgid "number"
 msgstr "номери"
 
-#: .\users\forms.py:25 .\users\models.py:164
+#: .\users\forms.py:25 .\users\models.py:166
 msgid "password"
 msgstr "сырсөз"
 
-#: .\users\models.py:19
+#: .\users\models.py:21
 msgid "must be in 123456789 format!"
 msgstr "550456789 форматта болуу керек"
 
-#: .\users\models.py:47 .\users\models.py:91
+#: .\users\models.py:49 .\users\models.py:93
 msgid "region"
 msgstr "облус"
 
-#: .\users\models.py:48 .\users\models.py:158
+#: .\users\models.py:50 .\users\models.py:160
 msgid "district"
 msgstr "район"
 
-#: .\users\models.py:49
+#: .\users\models.py:51
 msgid "is staff"
 msgstr "кызматкер статусу"
 
-#: .\users\models.py:50
+#: .\users\models.py:52
 msgid "super user"
 msgstr "Башкаруучу"
 
-#: .\users\models.py:78 .\users\models.py:90 .\users\models.py:113
+#: .\users\models.py:80 .\users\models.py:92 .\users\models.py:118
 msgid "name"
 msgstr "аты"
 
-#: .\users\models.py:79 .\users\models.py:150
+#: .\users\models.py:81 .\users\models.py:152
 msgid "address"
 msgstr "дарек"
 
-#: .\users\models.py:82
+#: .\users\models.py:84
 msgid "Region"
 msgstr "Облус"
 
-#: .\users\models.py:83
+#: .\users\models.py:85
 msgid "Regions"
 msgstr "Облустар"
 
-#: .\users\models.py:95
+#: .\users\models.py:97
 #, fuzzy
 #| msgid "counter of Territory"
 msgid "center of district"
 msgstr "Территория санакчысы"
 
-#: .\users\models.py:98
+#: .\users\models.py:103
 msgid "District"
 msgstr "Район"
 
-#: .\users\models.py:99
+#: .\users\models.py:104
 msgid "Districts"
 msgstr "Райондор"
 
-#: .\users\models.py:114
+#: .\users\models.py:119
 msgid "code"
 msgstr "коду"
 
-#: .\users\models.py:120
+#: .\users\models.py:125
 msgid "Territory"
 msgstr "Территория"
 
-#: .\users\models.py:121
+#: .\users\models.py:126
 msgid "Territories"
 msgstr "Териториалар"
 
-#: .\users\models.py:130
+#: .\users\models.py:135
 msgid "male"
 msgstr "эркек"
 
-#: .\users\models.py:131
+#: .\users\models.py:136
 msgid "female"
 msgstr "аял"
 
-#: .\users\models.py:134
-msgid "Enumerator"
-msgstr "Каттоочу"
-
-#: .\users\models.py:135
-msgid "Instructor"
-msgstr "Инструктор"
-
-#: .\users\models.py:136
+#: .\users\models.py:139 .\users\models.py:260
 msgid "Coordinator"
 msgstr "Координатор"
 
-#: .\users\models.py:142
+#: .\users\models.py:144
 msgid "last name"
 msgstr "фамилиясы"
 
-#: .\users\models.py:143
+#: .\users\models.py:145
 msgid "first name"
 msgstr "аты"
 
-#: .\users\models.py:144
+#: .\users\models.py:146
 msgid "patronymic"
 msgstr "атасынын аты"
 
-#: .\users\models.py:145
+#: .\users\models.py:147
 msgid "gender"
 msgstr "жынысы"
 
-#: .\users\models.py:146
+#: .\users\models.py:148
 msgid "birth day"
 msgstr "Туулган күнү"
 
-#: .\users\models.py:147
+#: .\users\models.py:149
 msgid "serial"
 msgstr "паспорт сериасы"
 
-#: .\users\models.py:149
+#: .\users\models.py:151
 msgid "number of passport"
 msgstr "паспорт номуру"
 
-#: .\users\models.py:151
+#: .\users\models.py:153
 msgid "authority"
 msgstr "паспорт берген орган"
 
-#: .\users\models.py:152
+#: .\users\models.py:154
 msgid "PIN"
 msgstr "ПИН"
 
-#: .\users\models.py:153
+#: .\users\models.py:155
 msgid "photo"
 msgstr "сүрөт"
 
-#: .\users\models.py:154
+#: .\users\models.py:156
 msgid "role"
 msgstr "ролу"
 
-#: .\users\models.py:155
+#: .\users\models.py:157
 msgid "census department"
 msgstr "каттоо бөлүмү"
 
-#: .\users\models.py:156
+#: .\users\models.py:158
 msgid "coordinator sector"
 msgstr "инструктордук участок"
 
-#: .\users\models.py:157
+#: .\users\models.py:159
 msgid "enumerator plot"
 msgstr "каттоо участогу"
 
-#: .\users\models.py:159
+#: .\users\models.py:161
 msgid "territory"
 msgstr "территория"
 
-#: .\users\models.py:160
+#: .\users\models.py:162
 msgid "agreement"
 msgstr "келишим"
 
-#: .\users\models.py:161
+#: .\users\models.py:163
 msgid "QR code"
 msgstr "QR код"
 
-#: .\users\models.py:162
+#: .\users\models.py:164
 msgid "date joined"
 msgstr "алынган күнү"
 
-#: .\users\models.py:163
+#: .\users\models.py:165
 msgid "login"
 msgstr "кирүү"
 
-#: .\users\models.py:165
+#: .\users\models.py:167
 msgid "is badge printed?"
 msgstr "бейджик басып чыгарылдыбы?"
 
-#: .\users\models.py:166
+#: .\users\models.py:168
 msgid "is badge returned?"
 msgstr "бейджик кайтарылдыбы?"
 
-#: .\users\views.py:47
+#: .\users\models.py:258
+msgid "Enumerator"
+msgstr "Каттоочу"
+
+#: .\users\models.py:259
+msgid "Instructor"
+msgstr "Инструктор"
+
+#: .\users\views.py:48
 msgid ""
 "Number or password is incorrect. Note that both fields might be case-"
 "sensitive"
@@ -374,11 +379,11 @@ msgstr ""
 "Номур же сырсөз туура эмес. Эки аймак тең ЧОҢ кичинеликке сезгич болушу "
 "мүмкүн!"
 
-#: .\users\views.py:140
+#: .\users\views.py:160
 msgid "The employee added successfully."
 msgstr "Кызматкер ийгиликтүү кошулду"
 
-#: .\users\views.py:142
+#: .\users\views.py:162
 msgid "Please check the fields below form!"
 msgstr "Сураныч төмөндө талааларды текшериңиз!"
 
@@ -433,7 +438,8 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid ""
 #~ "Ensure that there are no more than %(max)s digit before the decimal point."
 #~ msgid_plural ""
-#~ "Ensure that there are no more than %(max)s digits before the decimal point."
+#~ "Ensure that there are no more than %(max)s digits before the decimal "
+#~ "point."
 #~ msgstr[0] ""
 #~ "Ensure that there are no more than %(max)s digit before the decimal point."
 #~ msgstr[1] ""
@@ -490,28 +496,28 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ "format."
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
-#~ "date."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an "
+#~ "invalid date."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
-#~ "date."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an "
+#~ "invalid date."
 
 #~ msgid "Date (without time)"
 #~ msgstr "Күн (убакытсыз)"
 
 #~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
-#~ "HH:MM[:ss[.uuuuuu]][TZ] format."
+#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:"
+#~ "ss[.uuuuuu]][TZ] format."
 #~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
-#~ "HH:MM[:ss[.uuuuuu]][TZ] format."
+#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:"
+#~ "ss[.uuuuuu]][TZ] format."
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD "
-#~ "HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+#~ "[TZ]) but it is an invalid date/time."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD "
-#~ "HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+#~ "[TZ]) but it is an invalid date/time."
 
 #~ msgid "Date (with time)"
 #~ msgstr "Күн (убак менен)"
@@ -523,11 +529,11 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "Ондук бөлчөк"
 
 #~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in [DD] "
-#~ "[HH:[MM:]]ss[.uuuuuu] format."
+#~ "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+#~ "uuuuuu] format."
 #~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in [DD] "
-#~ "[HH:[MM:]]ss[.uuuuuu] format."
+#~ "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+#~ "uuuuuu] format."
 
 #~ msgid "Email address"
 #~ msgstr "Эпочта дареги"
@@ -545,18 +551,18 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "Slug (up to %(max_length)s)"
 
 #~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-#~ "format."
+#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[."
+#~ "uuuuuu]] format."
 #~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-#~ "format."
+#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[."
+#~ "uuuuuu]] format."
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-#~ "invalid time."
+#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is "
+#~ "an invalid time."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-#~ "invalid time."
+#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is "
+#~ "an invalid time."
 
 #~ msgid "'%(value)s' is not a valid UUID."
 #~ msgstr "'%(value)s' is not a valid UUID."
@@ -609,8 +615,10 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr[1] ""
 #~ "Ensure this filename has at most %(max)d characters (it has %(length)d).\t"
 
-#~ msgid "Select a valid choice. %(value)s is not one of the available choices."
-#~ msgstr "Select a valid choice. %(value)s is not one of the available choices."
+#~ msgid ""
+#~ "Select a valid choice. %(value)s is not one of the available choices."
+#~ msgstr ""
+#~ "Select a valid choice. %(value)s is not one of the available choices."
 
 #~ msgid "(Hidden field %(name)s) %(error)s"
 #~ msgstr "(Hidden field %(name)s) %(error)s"
@@ -631,7 +639,8 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "Please correct the duplicate data for %(field)s."
 #~ msgstr "Please correct the duplicate data for %(field)s."
 
-#~ msgid "Please correct the duplicate data for %(field)s, which must be unique."
+#~ msgid ""
+#~ "Please correct the duplicate data for %(field)s, which must be unique."
 #~ msgstr ""
 #~ "Please correct the duplicate data for %(field)s, which must be unique."
 
@@ -646,11 +655,11 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "\"%(pk)s\" is not a valid value."
 
 #~ msgid ""
-#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
-#~ "may be ambiguous or it may not exist."
+#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; "
+#~ "it may be ambiguous or it may not exist."
 #~ msgstr ""
-#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
-#~ "may be ambiguous or it may not exist."
+#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; "
+#~ "it may be ambiguous or it may not exist."
 
 #~ msgid "Clear"
 #~ msgstr "Алып сал"
@@ -959,11 +968,11 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "No %(verbose_name_plural)s available"
 
 #~ msgid ""
-#~ "Future %(verbose_name_plural)s not available because "
-#~ "%(class_name)s.allow_future is False."
+#~ "Future %(verbose_name_plural)s not available because %(class_name)s."
+#~ "allow_future is False."
 #~ msgstr ""
-#~ "Future %(verbose_name_plural)s not available because "
-#~ "%(class_name)s.allow_future is False."
+#~ "Future %(verbose_name_plural)s not available because %(class_name)s."
+#~ "allow_future is False."
 
 #~ msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
 #~ msgstr "Invalid date string '%(datestr)s' given format '%(format)s'"
@@ -985,21 +994,23 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 
 #~ msgid ""
 #~ "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django "
+#~ "%(version)s"
 #~ msgstr ""
 #~ "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django "
+#~ "%(version)s"
 
 #~ msgid ""
-#~ "You are seeing this page because <a "
-#~ "href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-#~ "target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-#~ "and you have not configured any URLs."
+#~ "You are seeing this page because <a href=\"https://docs.djangoproject.com/"
+#~ "en/%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+#~ "\">DEBUG=True</a> is in your settings file and you have not configured "
+#~ "any URLs."
 #~ msgstr ""
-#~ "You are seeing this page because <a "
-#~ "href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-#~ "target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-#~ "and you have not configured any URLs."
+#~ "You are seeing this page because <a href=\"https://docs.djangoproject.com/"
+#~ "en/%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+#~ "\">DEBUG=True</a> is in your settings file and you have not configured "
+#~ "any URLs."
 
 #~ msgid "Django Documentation"
 #~ msgstr "Эл каттоо башкармалыгы"
@@ -1177,7 +1188,8 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "акыркы кириши"
 
 #~ msgid "Population and Housing Census of the Kyrgyz Republic 2020"
-#~ msgstr "Кыргыз республикасынын 2020-жылдагы эл жана турак жай фондун каттоосу"
+#~ msgstr ""
+#~ "Кыргыз республикасынын 2020-жылдагы эл жана турак жай фондун каттоосу"
 
 #~ msgid "Patronymic"
 #~ msgstr "Теги"

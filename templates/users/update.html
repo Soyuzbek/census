@@ -58,7 +58,9 @@
                 </form>
             </div>
             <div class="buttons-group mt-5 no-print">
-                <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">{% trans 'Delete' %}</a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">{% trans 'Delete' %}</a>
+                {% endif %}
                 {% if perms.users.change_employee %}
                     <button class="nav-item" onclick="update()">{% trans 'Update' %}</button>
                 {% endif %}
