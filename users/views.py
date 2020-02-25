@@ -75,6 +75,10 @@ class EmployeeListView(LoginRequiredMixin, FilteredListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
+
+        if self.request.user.is_superuser:
+            return qs
+
         filtered = qs.filter(district=self.request.user.district)
         return filtered
 
