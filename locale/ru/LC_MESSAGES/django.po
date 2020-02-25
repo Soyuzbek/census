@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 14:56+0600\n"
-"PO-Revision-Date: 2020-02-25 15:11+0458\n"
+"POT-Creation-Date: 2020-02-25 15:37+0600\n"
+"PO-Revision-Date: 2020-02-25 15:42+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -116,7 +116,7 @@ msgid "Home"
 msgstr "Главная"
 
 #: .\templates\base.html:39 .\templates\base.html:106
-#: .\templates\employee\list.html:7 .\users\models.py:172
+#: .\templates\employee\list.html:7 .\users\models.py:173
 msgid "Employees"
 msgstr "Сотрудники"
 
@@ -129,7 +129,7 @@ msgstr "Выйти"
 msgid "Login"
 msgstr "Вход"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:171
+#: .\templates\employee\detail.html:7 .\users\models.py:172
 msgid "Employee"
 msgstr "Сотрудник"
 
@@ -284,7 +284,7 @@ msgstr "мужской"
 msgid "female"
 msgstr "женский"
 
-#: .\users\models.py:139 .\users\models.py:260
+#: .\users\models.py:139 .\users\models.py:261
 msgid "Coordinator"
 msgstr "Координатор"
 
@@ -374,11 +374,15 @@ msgstr "распечатан ли бейджик?"
 msgid "is badge returned?"
 msgstr "возвращен ли бейджик?"
 
-#: .\users\models.py:258
+#: .\users\models.py:169
+msgid "Dismissed?"
+msgstr "Уволен?"
+
+#: .\users\models.py:259
 msgid "Enumerator"
 msgstr "Переписчик"
 
-#: .\users\models.py:259
+#: .\users\models.py:260
 msgid "Instructor"
 msgstr "Инструктор"
 
@@ -419,11 +423,90 @@ msgstr "Төмөнкү талааларды текшер"
 #~ msgid "That page contains no results"
 #~ msgstr "Страница не содержит результат"
 
+#, fuzzy
+#~ msgid "Decimal number"
+#~ msgstr "номер"
+
+#, fuzzy
+#~ msgid "Duration"
+#~ msgstr "Документация переписи"
+
+#, fuzzy
+#~ msgid "Email address"
+#~ msgstr "адрес"
+
+#, fuzzy
+#~ msgid "IPv4 address"
+#~ msgstr "адрес"
+
+#, fuzzy
+#~ msgid "IP address"
+#~ msgstr "адрес"
+
+#, fuzzy
+#~ msgid "Image"
+#~ msgstr "картинка"
+
+#, fuzzy
+#~ msgid "This field is required."
+#~ msgstr "Бул талаа керектүү"
+
+#, fuzzy
+#~ msgid "Please correct the duplicate values below."
+#~ msgstr "Төмөнкү талааларды текшер"
+
+#, fuzzy
+#~ msgid "Sun"
+#~ msgstr "Фамилия"
+
+#, fuzzy
+#~ msgid "March"
+#~ msgstr "Поиск"
+
+#, fuzzy
+#~ msgid "November"
+#~ msgstr "Номер"
+
+#, fuzzy
+#~ msgid "oct"
+#~ msgstr "Сайт"
+
+#, fuzzy
+#~ msgctxt "abbrev. month"
+#~ msgid "March"
+#~ msgstr "Поиск"
+
+#, fuzzy
+#~ msgctxt "alt. month"
+#~ msgid "March"
+#~ msgstr "Поиск"
+
+#, fuzzy
+#~ msgctxt "alt. month"
+#~ msgid "November"
+#~ msgstr "Номер"
+
 #~ msgid "Forbidden"
 #~ msgstr "Воспрещен"
 
+#, fuzzy
+#~ msgid "\"%(path)s\" does not exist"
+#~ msgstr "Сүрөт жок"
+
 #~ msgid "Django Documentation"
 #~ msgstr "Документация переписи"
+
+#, fuzzy
+#~ msgid "Django Community"
+#~ msgstr "Документация переписи"
+
+#, fuzzy
+#~ msgid "argument %s is required"
+#~ msgstr "Пароль обязателен"
+
+#, fuzzy
+#~ msgid "%r is not callable"
+#~ msgstr "лого переписи не доступен"
 
 #~ msgid "English"
 #~ msgstr "Английский"
@@ -489,9 +572,6 @@ msgstr "Төмөнкү талааларды текшер"
 #~ msgid "census 2020"
 #~ msgstr "эл жана турак жай фондун каттоосу"
 
-#~ msgid "photo does not exist"
-#~ msgstr "Сүрөт жок"
-
 #~ msgid "QR code does not exist"
 #~ msgstr "QR жок"
 
@@ -500,15 +580,6 @@ msgstr "Төмөнкү талааларды текшер"
 
 #~ msgid "Print the Form"
 #~ msgstr "Формду басуу"
-
-#~ msgid "This field required"
-#~ msgstr "Бул талаа керектүү"
-
-#~ msgid "Password required"
-#~ msgstr "Пароль обязателен"
-
-#~ msgid "image"
-#~ msgstr "картинка"
 
 #~ msgid "Statistics"
 #~ msgstr "Статистика"
@@ -554,9 +625,6 @@ msgstr "Төмөнкү талааларды текшер"
 
 #~ msgid "statictistics logo is not available"
 #~ msgstr "лого статкома не доступен"
-
-#~ msgid "census logo is not available"
-#~ msgstr "лого переписи не доступен"
 
 #~ msgid "Adduser"
 #~ msgstr "Добавить"

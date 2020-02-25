@@ -166,6 +166,7 @@ class Employee(models.Model):
     password = models.CharField(_('password'), max_length=13)
     is_badge_printed = models.BooleanField(_('is badge printed?'), default=False)
     is_badge_returned = models.BooleanField(_('is badge returned?'), default=False)
+    dismissed = models.BooleanField(_('Dismissed?'), default=False)
 
     class Meta:
         verbose_name = _('Employee')
