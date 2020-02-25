@@ -160,6 +160,7 @@ class Employee(models.Model):
     authority = models.CharField(_('authority'), max_length=10)
     PIN = models.CharField(_('PIN'), max_length=14, unique=True)
     photo = models.ImageField(_('photo'), upload_to='users/img')
+    education = models.CharField(_('education'), max_length=1, choices=EDUCATION_CHOICES, default=1)
     role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default='cor')
     department = models.PositiveSmallIntegerField(_('census department'), default=1)
     sector = models.PositiveSmallIntegerField(_('coordinator sector'), default=1)
