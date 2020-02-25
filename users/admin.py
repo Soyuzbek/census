@@ -77,7 +77,7 @@ class EmployeeAdmin(admin.ModelAdmin):
         }),
     )
 
-    ordering = ('first_name',)
+    ordering = ('id',)
     list_display = ('first_name', 'last_name', 'login', 'birth_day')
     list_filter = ('role', 'district', 'department', 'sector')
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
