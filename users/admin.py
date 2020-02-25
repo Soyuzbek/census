@@ -42,7 +42,7 @@ class UserAdmin(UserAdmin):
     )
     ordering = ('number',)
     list_display = ('number', 'is_superuser')
-    list_filter = ('number', 'is_superuser', 'is_staff')
+    list_filter = ('number', 'is_superuser', 'is_staff', 'district')
     search_fields = ('number',)
     filter_horizontal = ('groups', 'user_permissions',)
 
