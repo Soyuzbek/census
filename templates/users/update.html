@@ -44,7 +44,7 @@
                                 <label for="id_{{ field.name|lower }}"
                                        class="col-sm-3 col-form-label">{{ field.label }}</label>
                                 <div class="col-sm-9">
-                                    {% if field.name == 'photo' or field.name == 'is_badge_printed' or field.name == 'is_badge_returned' %}
+                                    {% if field.name == 'photo' or field.name == 'is_badge_printed' or field.name == 'is_badge_returned' or field.name == 'dismissed' %}
                                         {% render_field field %}
                                     {% elif field.name == 'number' %}
                                         {% render_field field class="form-control masked" %}

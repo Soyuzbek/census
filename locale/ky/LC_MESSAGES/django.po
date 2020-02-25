@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 14:56+0600\n"
-"PO-Revision-Date: 2020-02-20 11:24+0458\n"
+"POT-Creation-Date: 2020-02-25 15:37+0600\n"
+"PO-Revision-Date: 2020-02-25 15:42+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -114,7 +114,7 @@ msgid "Home"
 msgstr "Башкы бет"
 
 #: .\templates\base.html:39 .\templates\base.html:106
-#: .\templates\employee\list.html:7 .\users\models.py:172
+#: .\templates\employee\list.html:7 .\users\models.py:173
 msgid "Employees"
 msgstr "Кызматкерлер"
 
@@ -127,7 +127,7 @@ msgstr "Чыгуу"
 msgid "Login"
 msgstr "Кирүү"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:171
+#: .\templates\employee\detail.html:7 .\users\models.py:172
 msgid "Employee"
 msgstr "Кызматкер"
 
@@ -275,7 +275,7 @@ msgstr "эркек"
 msgid "female"
 msgstr "аял"
 
-#: .\users\models.py:139 .\users\models.py:260
+#: .\users\models.py:139 .\users\models.py:261
 msgid "Coordinator"
 msgstr "Координатор"
 
@@ -363,11 +363,15 @@ msgstr "бейджик басып чыгарылдыбы?"
 msgid "is badge returned?"
 msgstr "бейджик кайтарылдыбы?"
 
-#: .\users\models.py:258
+#: .\users\models.py:169
+msgid "Dismissed?"
+msgstr "Кызматтан чыгарылды?"
+
+#: .\users\models.py:259
 msgid "Enumerator"
 msgstr "Каттоочу"
 
-#: .\users\models.py:259
+#: .\users\models.py:260
 msgid "Instructor"
 msgstr "Инструктор"
 
@@ -389,6 +393,42 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 
 #~ msgid "Messages"
 #~ msgstr "Билдирүүлөр"
+
+#, fuzzy
+#~ msgid "Static Files"
+#~ msgstr "Статистик"
+
+#, fuzzy
+#~ msgid "Syndication"
+#~ msgstr "Аймагы"
+
+#, fuzzy
+#~ msgid "Enter a valid value."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid URL."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid integer."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid email address."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid IPv4 address."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid IPv6 address."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid IPv4 or IPv6 address."
+#~ msgstr "Туура күндү тандаңыз"
 
 #~ msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
 #~ msgstr "Ensure this value is %(limit_value)s (it is %(show_value)s)."
@@ -425,6 +465,10 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ "Ensure this value has at most %(limit_value)d characters (it has "
 #~ "%(show_value)d).\t"
 
+#, fuzzy
+#~ msgid "Enter a number."
+#~ msgstr "Ондук бөлчөк"
+
 #~ msgid "Ensure that there are no more than %(max)s digit in total."
 #~ msgid_plural "Ensure that there are no more than %(max)s digits in total."
 #~ msgstr[0] "Ensure that there are no more than %(max)s digit in total."
@@ -438,8 +482,7 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid ""
 #~ "Ensure that there are no more than %(max)s digit before the decimal point."
 #~ msgid_plural ""
-#~ "Ensure that there are no more than %(max)s digits before the decimal "
-#~ "point."
+#~ "Ensure that there are no more than %(max)s digits before the decimal point."
 #~ msgstr[0] ""
 #~ "Ensure that there are no more than %(max)s digit before the decimal point."
 #~ msgstr[1] ""
@@ -453,8 +496,16 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ "File extension '%(extension)s' is not allowed. Allowed extensions are: "
 #~ "'%(allowed_extensions)s'."
 
+#, fuzzy
+#~ msgid "and"
+#~ msgstr "янв"
+
 #~ msgid "%(model_name)s with this %(field_labels)s already exists."
 #~ msgstr "%(model_name)s with this %(field_labels)s already exists."
+
+#, fuzzy
+#~ msgid "Value %(value)r is not a valid choice."
+#~ msgstr "'%(value)s' is not a valid UUID."
 
 #~ msgid "This field cannot be null."
 #~ msgstr "Бул талаа бош маани албайт"
@@ -496,28 +547,28 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ "format."
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an "
-#~ "invalid date."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+#~ "date."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an "
-#~ "invalid date."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+#~ "date."
 
 #~ msgid "Date (without time)"
 #~ msgstr "Күн (убакытсыз)"
 
 #~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:"
-#~ "ss[.uuuuuu]][TZ] format."
+#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
+#~ "HH:MM[:ss[.uuuuuu]][TZ] format."
 #~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:"
-#~ "ss[.uuuuuu]][TZ] format."
+#~ "'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
+#~ "HH:MM[:ss[.uuuuuu]][TZ] format."
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-#~ "[TZ]) but it is an invalid date/time."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD "
+#~ "HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-#~ "[TZ]) but it is an invalid date/time."
+#~ "'%(value)s' value has the correct format (YYYY-MM-DD "
+#~ "HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 
 #~ msgid "Date (with time)"
 #~ msgstr "Күн (убак менен)"
@@ -529,11 +580,15 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "Ондук бөлчөк"
 
 #~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
-#~ "uuuuuu] format."
+#~ "'%(value)s' value has an invalid format. It must be in [DD] "
+#~ "[HH:[MM:]]ss[.uuuuuu] format."
 #~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
-#~ "uuuuuu] format."
+#~ "'%(value)s' value has an invalid format. It must be in [DD] "
+#~ "[HH:[MM:]]ss[.uuuuuu] format."
+
+#, fuzzy
+#~ msgid "Duration"
+#~ msgstr "Ишкагаздоо"
 
 #~ msgid "Email address"
 #~ msgstr "Эпочта дареги"
@@ -544,25 +599,41 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "'%(value)s' value must be a float."
 #~ msgstr "'%(value)s' value must be a float."
 
+#, fuzzy
+#~ msgid "IPv4 address"
+#~ msgstr "дарек"
+
+#, fuzzy
+#~ msgid "IP address"
+#~ msgstr "дарек"
+
 #~ msgid "'%(value)s' value must be either None, True or False."
 #~ msgstr "'%(value)s' value must be either None, True or False."
+
+#, fuzzy
+#~ msgid "Boolean (Either True, False or None)"
+#~ msgstr "'%(value)s' value must be either True, False, or None."
 
 #~ msgid "Slug (up to %(max_length)s)"
 #~ msgstr "Slug (up to %(max_length)s)"
 
-#~ msgid ""
-#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[."
-#~ "uuuuuu]] format."
-#~ msgstr ""
-#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[."
-#~ "uuuuuu]] format."
+#, fuzzy
+#~ msgid "Small integer"
+#~ msgstr "Сан"
 
 #~ msgid ""
-#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is "
-#~ "an invalid time."
+#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+#~ "format."
 #~ msgstr ""
-#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is "
-#~ "an invalid time."
+#~ "'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+#~ "format."
+
+#~ msgid ""
+#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+#~ "invalid time."
+#~ msgstr ""
+#~ "'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+#~ "invalid time."
 
 #~ msgid "'%(value)s' is not a valid UUID."
 #~ msgstr "'%(value)s' is not a valid UUID."
@@ -585,14 +656,30 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "%(from)s-%(to)s relationships"
 #~ msgstr "%(from)s-%(to)s relationships"
 
+#, fuzzy
+#~ msgid "Many-to-many relationship"
+#~ msgstr "Бирге-бир байланышы"
+
 #~ msgid "This field is required."
 #~ msgstr "Бул талаа керектүү"
+
+#, fuzzy
+#~ msgid "Enter a whole number."
+#~ msgstr "Туура күндү тандаңыз"
 
 #~ msgid "Enter a valid date."
 #~ msgstr "Туура күндү тандаңыз"
 
+#, fuzzy
+#~ msgid "Enter a valid time."
+#~ msgstr "Туура күндү тандаңыз"
+
 #~ msgid "Enter a valid date/time."
 #~ msgstr "Туура күн/убакты тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid duration."
+#~ msgstr "Туура күндү тандаңыз"
 
 #~ msgid "The number of days must be between {min_days} and {max_days}."
 #~ msgstr "The number of days must be between {min_days} and {max_days}."
@@ -615,10 +702,20 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr[1] ""
 #~ "Ensure this filename has at most %(max)d characters (it has %(length)d).\t"
 
-#~ msgid ""
-#~ "Select a valid choice. %(value)s is not one of the available choices."
-#~ msgstr ""
-#~ "Select a valid choice. %(value)s is not one of the available choices."
+#~ msgid "Select a valid choice. %(value)s is not one of the available choices."
+#~ msgstr "Select a valid choice. %(value)s is not one of the available choices."
+
+#, fuzzy
+#~ msgid "Enter a list of values."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a complete value."
+#~ msgstr "Туура күндү тандаңыз"
+
+#, fuzzy
+#~ msgid "Enter a valid UUID."
+#~ msgstr "Туура күндү тандаңыз"
 
 #~ msgid "(Hidden field %(name)s) %(error)s"
 #~ msgstr "(Hidden field %(name)s) %(error)s"
@@ -639,8 +736,7 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "Please correct the duplicate data for %(field)s."
 #~ msgstr "Please correct the duplicate data for %(field)s."
 
-#~ msgid ""
-#~ "Please correct the duplicate data for %(field)s, which must be unique."
+#~ msgid "Please correct the duplicate data for %(field)s, which must be unique."
 #~ msgstr ""
 #~ "Please correct the duplicate data for %(field)s, which must be unique."
 
@@ -650,16 +746,25 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr ""
 #~ "Please correct the duplicate data for %(field_name)s which must be unique "
 #~ "for the %(lookup)s in %(date_field)s."
+
+#, fuzzy
+#~ msgid "Please correct the duplicate values below."
+#~ msgstr "Please correct the duplicate data for %(field)s."
+
+#, fuzzy
+#~ msgid ""
+#~ "Select a valid choice. That choice is not one of the available choices."
+#~ msgstr "Select a valid choice. %(value)s is not one of the available choices."
 
 #~ msgid "\"%(pk)s\" is not a valid value."
 #~ msgstr "\"%(pk)s\" is not a valid value."
 
 #~ msgid ""
-#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; "
-#~ "it may be ambiguous or it may not exist."
+#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+#~ "may be ambiguous or it may not exist."
 #~ msgstr ""
-#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; "
-#~ "it may be ambiguous or it may not exist."
+#~ "%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+#~ "may be ambiguous or it may not exist."
 
 #~ msgid "Clear"
 #~ msgstr "Алып сал"
@@ -930,6 +1035,10 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "December"
 #~ msgstr "Декабрь"
 
+#, fuzzy
+#~ msgid "This is not a valid IPv6 address."
+#~ msgstr "\"%(pk)s\" is not a valid value."
+
 #~ msgctxt "String to return when truncating text"
 #~ msgid "%(truncated_text)s…"
 #~ msgstr "%(truncated_text)s…"
@@ -964,15 +1073,19 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr[0] "%d minute"
 #~ msgstr[1] "%d minutes\t"
 
+#, fuzzy
+#~ msgid "0 minutes"
+#~ msgstr "%d minute"
+
 #~ msgid "No %(verbose_name_plural)s available"
 #~ msgstr "No %(verbose_name_plural)s available"
 
 #~ msgid ""
-#~ "Future %(verbose_name_plural)s not available because %(class_name)s."
-#~ "allow_future is False."
+#~ "Future %(verbose_name_plural)s not available because "
+#~ "%(class_name)s.allow_future is False."
 #~ msgstr ""
-#~ "Future %(verbose_name_plural)s not available because %(class_name)s."
-#~ "allow_future is False."
+#~ "Future %(verbose_name_plural)s not available because "
+#~ "%(class_name)s.allow_future is False."
 
 #~ msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
 #~ msgstr "Invalid date string '%(datestr)s' given format '%(format)s'"
@@ -994,25 +1107,27 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 
 #~ msgid ""
 #~ "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django "
-#~ "%(version)s"
+#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
 #~ msgstr ""
 #~ "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django "
-#~ "%(version)s"
+#~ "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
 
 #~ msgid ""
-#~ "You are seeing this page because <a href=\"https://docs.djangoproject.com/"
-#~ "en/%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-#~ "\">DEBUG=True</a> is in your settings file and you have not configured "
-#~ "any URLs."
+#~ "You are seeing this page because <a "
+#~ "href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+#~ "target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+#~ "and you have not configured any URLs."
 #~ msgstr ""
-#~ "You are seeing this page because <a href=\"https://docs.djangoproject.com/"
-#~ "en/%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-#~ "\">DEBUG=True</a> is in your settings file and you have not configured "
-#~ "any URLs."
+#~ "You are seeing this page because <a "
+#~ "href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+#~ "target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+#~ "and you have not configured any URLs."
 
 #~ msgid "Django Documentation"
+#~ msgstr "Эл каттоо башкармалыгы"
+
+#, fuzzy
+#~ msgid "Django Community"
 #~ msgstr "Эл каттоо башкармалыгы"
 
 #~ msgid "unknown parser %r (choices: %s)"
@@ -1027,6 +1142,10 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "conflicting option string(s): %s"
 #~ msgstr "conflicting option string(s): %s"
 
+#, fuzzy
+#~ msgid "optional arguments"
+#~ msgstr "not allowed with argument %s"
+
 #~ msgid "unrecognized arguments: %s"
 #~ msgstr "unrecognized arguments: %s"
 
@@ -1036,11 +1155,27 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "ignored explicit argument %r"
 #~ msgstr "ignored explicit argument %r"
 
+#, fuzzy
+#~ msgid "too few arguments"
+#~ msgstr "not allowed with argument %s"
+
 #~ msgid "argument %s is required"
 #~ msgstr "argument %s is required"
 
 #~ msgid "one of the arguments %s is required"
 #~ msgstr "one of the arguments %s is required"
+
+#, fuzzy
+#~ msgid "expected one argument"
+#~ msgstr "expected %s argument(s)"
+
+#, fuzzy
+#~ msgid "expected at most one argument"
+#~ msgstr "expected %s argument(s)"
+
+#, fuzzy
+#~ msgid "expected at least one argument"
+#~ msgstr "expected %s argument(s)"
 
 #~ msgid "expected %s argument(s)"
 #~ msgstr "expected %s argument(s)"
@@ -1050,6 +1185,10 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 
 #~ msgid "unexpected option string: %s"
 #~ msgstr "unexpected option string: %s"
+
+#, fuzzy
+#~ msgid "%r is not callable"
+#~ msgstr "каттоо лого жетикиликтүү эмес"
 
 #~ msgid "invalid %s value: %r"
 #~ msgstr "invalid %s value: %r"
@@ -1160,9 +1299,6 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgid "image"
 #~ msgstr "сүрөтү"
 
-#~ msgid "Statistics"
-#~ msgstr "Статистик"
-
 #~ msgid "something here"
 #~ msgstr "Бир нерсе"
 
@@ -1188,17 +1324,13 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 #~ msgstr "акыркы кириши"
 
 #~ msgid "Population and Housing Census of the Kyrgyz Republic 2020"
-#~ msgstr ""
-#~ "Кыргыз республикасынын 2020-жылдагы эл жана турак жай фондун каттоосу"
+#~ msgstr "Кыргыз республикасынын 2020-жылдагы эл жана турак жай фондун каттоосу"
 
 #~ msgid "Patronymic"
 #~ msgstr "Теги"
 
 #~ msgid "Address"
 #~ msgstr "Дарек"
-
-#~ msgid "Location"
-#~ msgstr "Аймагы"
 
 #~ msgid "National Statistic Committee"
 #~ msgstr "Улуттук статистика комитети"
@@ -1208,9 +1340,6 @@ msgstr "Сураныч төмөндө талааларды текшериңиз!
 
 #~ msgid "statictistics logo is not available"
 #~ msgstr "статистик лого жеткиликтүү эмес"
-
-#~ msgid "census logo is not available"
-#~ msgstr "каттоо лого жетикиликтүү эмес"
 
 #~ msgid "Adduser"
 #~ msgstr "Кошуу"
