@@ -136,10 +136,7 @@ class Employee(models.Model):
         ('1', _('female')),
     )
     ROLE_CHOICES = (
-        ('enum', _('Enumerator')),
-        ('ins', _('Instructor')),
         ('cor', _('Coordinator')),
-
     )
 
     number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
@@ -156,7 +153,7 @@ class Employee(models.Model):
     authority = models.CharField(_('authority'), max_length=10)
     PIN = models.CharField(_('PIN'), max_length=14, unique=True)
     photo = models.ImageField(_('photo'), upload_to='users/img')
-    role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[2])
+    role = models.CharField(_('role'), max_length=50, choices=ROLE_CHOICES, default=ROLE_CHOICES[0])
     department = models.PositiveSmallIntegerField(_('census department'), default=1)
     sector = models.PositiveSmallIntegerField(_('coordinator sector'), default=1)
     plot = models.PositiveSmallIntegerField(_('enumerator plot'), default=1)
@@ -288,3 +285,6 @@ class RoleInfo(models.Model):
     def workday(self):
         dt = self.workday_end_date - self.workday_start_date
         return dt.days
+
+#('enum', _('Enumerator')),
+#('ins', _('Instructor')),
