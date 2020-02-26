@@ -151,6 +151,10 @@ class Employee(models.Model):
         ('7', _('general secondary education')),
         ('8', _('lower secondary education'))
     )
+    WORKDAY_CHOICES = (
+        ('full', _('full time work')),
+        ('half', _('half time work'))
+    )
 
     number = models.CharField(_('number'), max_length=255, validators=[phone], unique=True,
                               error_messages={'unique': "Мундай номер бар."})
@@ -173,6 +177,7 @@ class Employee(models.Model):
     plot = models.PositiveSmallIntegerField(_('enumerator plot'), default=1)
     district = models.ForeignKey(District, models.CASCADE, verbose_name=_('district'))
     territory = models.ForeignKey(Territory, models.CASCADE, verbose_name=_('territory'), null=True, blank=True)
+    workday = models.CharField(_('workday'), max_length=4, choices=WORKDAY_CHOICES, default='full')
     agreement = models.CharField(_('agreement'), max_length=6)
     qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
@@ -282,6 +287,7 @@ class RoleInfo(models.Model):
     workday_end_date = models.DateField(null=True)
     days_off = models.CharField(max_length=255, null=True, blank=True)
     agreement_day = models.DateField(null=True, blank=True)
+    workday_num = models.PositiveSmallIntegerField(null=True, blank=True)
 
     @property
     def census_start_date_humanized(self):
@@ -298,9 +304,8 @@ class RoleInfo(models.Model):
         return date_humanized
 
     @property
-    def workday(self):
-        dt = self.workday_end_date - self.workday_start_date
-        return dt.days
+    def half_salary(self):
+        return int(self.salary/2)
 
 #('enum', _('Enumerator')),
 #('ins', _('Instructor')),
