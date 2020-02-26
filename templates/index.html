@@ -17,69 +17,21 @@
             <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data" data-ajax="false">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="form-group col-md-7 col-sm-12 mx-auto">
-                        <label for="id_{{ form.PIN.label|lower }}" class="col-form-label">{{ form.PIN.label }}</label>
-                        {{ form.PIN }}
-                        {{ form.PIN.help }}
-                        {% if form.PIN.errors %}
-                            <div class="invalid-feedback">
-                                {% for error in form.PIN.errors %}
-                                    <small>
-                                        {{ error|striptags }}
-                                    </small><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group col-md-7 col-sm-12 mx-auto">
-                        <label for="id_{{ form.serial.label|lower }}"
-                               class="col-form-label">{{ form.serial.label }}</label>
-                        {{ form.serial }}
-                        {{ form.serial.help }}
-                        {% if form.serial.errors %}
-                            <div class="invalid-feedback">
-                                {% for error in form.serial.errors %}
-                                    <small>
-                                        {{ error|striptags }}
-                                    </small><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group col-md-7 col-sm-12 mx-auto">
-                        <label for="id_{{ form.passport_num.label|lower }}"
-                               class="col-form-label">{{ form.passport_num.label }}</label>
-                        {{ form.passport_num }}
-                        {{ form.passport_num.help }}
-                        {% if form.passport_num.errors %}
-                            <div class="invalid-feedback">
-                                {% for error in form.passport_num.errors %}
-                                    <small>
-                                        {{ error|striptags }}
-                                    </small><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
                     {% for field in form.visible_fields %}
-                        {% if not field.name == 'PIN' and not field.name == 'serial' and not field.name == 'passport_num' %}
-                            <div class="form-group col-md-7 col-sm-12 mx-auto">
-                                <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
-                                {{ field }}
-                                {{ field.help }}
-                                {% if field.errors %}
-                                    <div class="invalid-feedback">
-                                        {% for error in field.errors %}
-                                            <small>
-                                                {{ error|striptags }}
-                                            </small><br>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endif %}
+                        <div class="form-group col-md-7 col-sm-12 mx-auto">
+                            <label for="id_{{ field.label|lower }}" class="col-form-label">{{ field.label }}</label>
+                            {{ field }}
+                            {{ field.help }}
+                            {% if field.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in field.errors %}
+                                        <small>
+                                            {{ error|striptags }}
+                                        </small><br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
                     {% endfor %}
                     {% for field in form.hidden_fields %}
                         <div style="display:none;">{{ field }}</div>
@@ -156,7 +108,7 @@
                 }
             });
 
-            $('#id_PIN').change(function () {
+            $('#id_none').change(function (e) {
                 let pin = $(this).val();
                 let serial = $('#id_serial').val();
                 let passport_num = $('#id_passport_num').val();
@@ -189,6 +141,7 @@
                         }
                     }
                 });
+                e.preventDefault();
             });
         });
     </script>

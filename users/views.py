@@ -98,15 +98,19 @@ class AgreementDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        role_info = RoleInfo.objects.get(role=self.object.role)
         date_joined_humanized = '{date_humanized}'.format(
             date_humanized=dateformat.format(self.object.date_joined, settings.DATE_FORMAT)
         )
         birth_day_humanized = '{date_humanized}'.format(
             date_humanized=dateformat.format(self.object.birth_day, settings.DATE_FORMAT)
         )
+        if role_info.agreement_day is not None:
+            date_joined_humanized = '{date_humanized}'.format(
+                date_humanized=dateformat.format(role_info.agreement_day, settings.DATE_FORMAT)
+            )
         context['date_joined'] = date_joined_humanized
         context['birth_day'] = birth_day_humanized
-        role_info = RoleInfo.objects.get(role=self.object.role)
         context['role_info'] = role_info
 
         return context
@@ -280,7 +284,7 @@ class LoadDataByPINView(View):
 
             if not xml.find('faultcode'):
                 not_allowed = ('addressRegion', 'addressLocality', 'addressStreet', 'addressHouse')
-                address = '{}, {}, {} {}'
+                address = '{} {} {} {}'
                 for field in FIELDS:
                     if field == 'gender':
                         gender = find_field(xml, field)
@@ -299,11 +303,26 @@ class LoadDataByPINView(View):
                             data[field] = find_field(xml, field).capitalize()
 
                 region = find_field(xml, 'addressRegion')
+                if region is None:
+                    region = ''
+                else:
+                    region += ','
+
                 locality = find_field(xml, 'addressLocality')
+                if locality is None:
+                    locality = ''
+                else:
+                    locality += ','
+
                 street = find_field(xml, 'addressStreet')
+                if street is None:
+                    street = ''
+                else:
+                    street += ','
+
                 house = find_field(xml, 'addressHouse')
 
-                address = address.format(region, locality, street, house)
+                address = address.format(region, locality, street, house).strip()
 
                 data['address'] = address
 

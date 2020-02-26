@@ -280,6 +280,7 @@ class RoleInfo(models.Model):
     workday_start_date = models.DateField(null=True)
     workday_end_date = models.DateField(null=True)
     days_off = models.CharField(max_length=255, null=True, blank=True)
+    agreement_day = models.DateField(null=True, blank=True)
 
     @property
     def census_start_date_humanized(self):
