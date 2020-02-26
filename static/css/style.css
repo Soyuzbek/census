@@ -694,3 +694,22 @@ button[type='button']:focus
 #id_authority{
     text-transform: uppercase;
 }
+
+
+.loading
+{
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    right: 0;
+    left: 0;
+
+    transform: translateY(-50%);
+    text-align: center;
+
+    display: none !important;
+}
+
+.loading.show{
+    display: block !important;
+}

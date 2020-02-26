@@ -1,7 +1,10 @@
+import re
 from io import BytesIO
 
 import piexif
+import requests
 from PIL import Image
+from bs4 import BeautifulSoup as BS
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -20,9 +23,10 @@ from django.views.generic import DetailView, ListView
 # my imports
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from users.consts import (URL, BODY, HEADERS, FIELDS)
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
-from users.models import Employee, District, Territory, SiteSettings, RoleInfo
+from users.models import Employee, District, Territory, RoleInfo
 
 
 class LoginView(View):
@@ -259,3 +263,58 @@ def rotate_jpeg(img):
 
             img.save('profile.jpeg', exif=exif_bytes)
     return img
+
+
+class LoadDataByPINView(View):
+    def get(self, request):
+        if request.is_ajax():
+            pin = request.GET.get('pin', None)
+            serial = request.GET.get('serial', None)
+            passport_num = request.GET.get('passport_num', None)
+            response = requests.post(URL, data=BODY.format(pin, serial, passport_num), headers=HEADERS)
+            xml = BS(response.text, 'xml')
+            # print(xml.prettify())
+            data = {
+                'is_exist': True
+            }
+
+            if not xml.find('faultcode'):
+                not_allowed = ('addressRegion', 'addressLocality', 'addressStreet', 'addressHouse')
+                address = '{}, {}, {} {}'
+                for field in FIELDS:
+                    if field == 'gender':
+                        gender = find_field(xml, field)
+                        if gender == 'M':
+                            data[field] = 2
+                        else:
+                            data[field] = 1
+                    elif field == 'dateOfBirth':
+                        date = find_field(xml, field)
+                        date = date.split('T')[0].split("-")
+                        date.reverse()
+                        date = '.'.join(date)
+                        data[field] = date
+                    else:
+                        if field not in not_allowed:
+                            data[field] = find_field(xml, field).capitalize()
+
+                region = find_field(xml, 'addressRegion')
+                locality = find_field(xml, 'addressLocality')
+                street = find_field(xml, 'addressStreet')
+                house = find_field(xml, 'addressHouse')
+
+                address = address.format(region, locality, street, house)
+
+                data['address'] = address
+
+                return JsonResponse(data)
+            data['is_exist'] = False
+
+            return JsonResponse(data)
+
+
+def find_field(xml, field):
+    data = re.compile('<ts1:.*>(.*?)</ts1:.*>').search(str(xml.find(field)))
+    if data:
+        return data.group(1)
+    return None
