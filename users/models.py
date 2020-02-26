@@ -95,11 +95,12 @@ class District(models.Model):
     region = models.ForeignKey(Region, models.CASCADE, verbose_name=_('region'))
     gov_admin = models.CharField(max_length=255, verbose_name='Мам админстрация башчы (ААТ)')
     stat_admin = models.CharField(max_length=255, verbose_name='Статистика башчы (ААТ)')
-    counter = models.CharField(max_length=8, default='000001')
+    counter = models.CharField(max_length=6, default='000001')
     center = models.CharField(_('center of district'), max_length=255, null=True, blank=True)
     agreement_ky = models.CharField(max_length=255, null=True, blank=True)
     agreement_ru = models.CharField(max_length=255, null=True, blank=True)
     stat_address = models.CharField(max_length=255, null=True, blank=True)
+    did = models.CharField(max_length=2, null=True, blank=True)
 
     class Meta:
         verbose_name = _('District')
@@ -232,7 +233,7 @@ def set_agreement_number(sender, instance, created=False, **kwargs):
         instance.login = instance.number
         # password generation using department, sector, plot and 4 random character
         instance.password = f'{instance.number}' + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
-        instance.agreement = instance.district.counter
+        instance.agreement = "{:02}{:04}".format(int(instance.district.did), int(instance.district.counter))
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()
         instance.save()
