@@ -58,6 +58,7 @@ class EmployeeCreateForm(forms.ModelForm):
             'sector': TextInput(attrs={'class': 'form-control'}),
             'plot': TextInput(attrs={'class': 'form-control'}),
             'territory': forms.Select(attrs={'class': 'form-control'}),
+            'workday': forms.Select(attrs={'class': 'form-control'}),
             'district': forms.HiddenInput(
                 attrs={'class': 'text-dark font-weight-bold form-control'}),
         }
