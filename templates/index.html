@@ -8,6 +8,11 @@
 {% block content %}
     <section>
         <div class="container">
+            <div class="d-flex justify-content-center loading">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
             <h5 class="mt-5 text-center">{% trans 'Employee Creation Form' %}</h5>
             <form action="{% url 'users:home' %}" method="post" enctype="multipart/form-data" data-ajax="false">
                 {% csrf_token %}
@@ -101,6 +106,42 @@
                         "display": "block"
                     });
                 }
+            });
+
+            $('#id_none').change(function (e) {
+                let pin = $(this).val();
+                let serial = $('#id_serial').val();
+                let passport_num = $('#id_passport_num').val();
+                let name = document.getElementById('id_first_name');
+                let surname = document.getElementById('id_last_name');
+                let patronymic = document.getElementById('id_patronymic');
+                let gender = document.getElementById('id_gender');
+                let date_of_birth = document.getElementById('id_birth_day');
+                let address = document.getElementById('id_address');
+                $('.loading').addClass('show');
+                $.ajax({
+                    url: "{% url 'users:load_data_by_pin' %}",
+                    data: {
+                        'pin': pin,
+                        'serial': serial,
+                        'passport_num': passport_num
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('.loading').removeClass('show');
+                        if (data.is_exist) {
+                            name.value = data.name;
+                            surname.value = data.surname;
+                            patronymic.value = data.patronymic;
+                            gender.value = data.gender;
+                            date_of_birth.value = data.dateOfBirth;
+                            address.value = data.address;
+                        } else {
+                            alert("The PIN is invalid. Try again.");
+                        }
+                    }
+                });
+                e.preventDefault();
             });
         });
     </script>

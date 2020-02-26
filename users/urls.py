@@ -10,7 +10,7 @@ from users.views import (LoginView,
                          IndexView,
                          PhotoUpdateView,
                          load_territories_view,
-                         load_districts_view)
+                         load_districts_view, LoadDataByPINView)
 
 urlpatterns = [
     path('', LoginView.as_view(), name='login'),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('ajax/load-districts/', load_districts_view, name='load_districts'),
     path('ajax/load-territories/', load_territories_view, name='load_territories'),
     path('ajax/update-photo/<int:pk>', PhotoUpdateView.as_view(), name='update_photo'),
+    path('ajax/load-data-by-pin', LoadDataByPINView.as_view(), name='load_data_by_pin'),
 ]
