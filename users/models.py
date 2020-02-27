@@ -16,6 +16,7 @@ from django.dispatch import receiver
 from django.urls import reverse
 from django.utils import dateformat
 from django.utils.translation import ugettext_lazy as _
+from num2words import num2words
 
 phone = RegexValidator(regex=r'^\d{9}$',
                        message=_("must be in 123456789 format!"))
@@ -305,7 +306,18 @@ class RoleInfo(models.Model):
 
     @property
     def half_salary(self):
-        return int(self.salary/2)
+        return int(self.salary / 2)
 
-#('enum', _('Enumerator')),
-#('ins', _('Instructor')),
+    @property
+    def salary2words(self):
+        return num2words(self.salary, lang='ru')
+
+    @property
+    def half_salary2words(self):
+        return num2words(self.half_salary, lang='ru')
+
+    @property
+    def workday2words(self):
+        return num2words(self.workday_num, lang='ru')
+# ('enum', _('Enumerator')),
+# ('ins', _('Instructor')),
