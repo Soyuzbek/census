@@ -43,9 +43,9 @@
                 пункте 1.2. настоящего договора, и сдать ее результат Заказчику, а Заказчик обязуется принять результат
                 работы и оплатить его.</p>
 
-            <p class="list-item" id="i-12">Исполнитель обязуется выполнить работу {% if object.role == 'cor' %}
+            <p class="list-item" id="i-12">Исполнитель принимается на временную работу в качестве {% if object.role == 'cor' %}
                 Координатора {% elif object.role == 'ins' %} Инструктора-контролера {% elif object.role == 'enum' %}
-                Переписчика {% endif %}</p>
+                Переписчика {% endif %} переписи населения и жилищного фонда</p>
 
             <p class="list-item" id="i-13">Срок выполнения работ с {{ role_info.census_start_date_humanized }}
                 <span>года</span> до {{ role_info.census_end_date_humanized }} <span>года</span>
