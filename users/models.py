@@ -177,7 +177,7 @@ class Employee(models.Model):
     sector = models.PositiveSmallIntegerField(_('coordinator sector'), default=1)
     plot = models.PositiveSmallIntegerField(_('enumerator plot'), default=1)
     district = models.ForeignKey(District, models.CASCADE, verbose_name=_('district'))
-    territory = models.ForeignKey(Territory, models.CASCADE, verbose_name=_('territory'), null=True, blank=True)
+    territory = models.ForeignKey(Territory, models.SET_NULL, verbose_name=_('territory'), null=True, blank=True)
     workday = models.CharField(_('workday'), max_length=4, choices=WORKDAY_CHOICES, default='full')
     agreement = models.CharField(_('agreement'), max_length=6)
     qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
