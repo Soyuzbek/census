@@ -25,9 +25,9 @@
                     <span>г.</span></p>
                 </div>
             </div>
-            <p class="mt-3 indent">Национальный статистический комитет Кыргызской Республики, расположенный по адресу:
+            <p class="mt-3 indent">{{ object.district.agreement_ru }}, расположенный по адресу:
                 {{ object.district.stat_address }} в лице
-                начальника {{ object.district.agreement_ru }} {{ object.district.stat_admin|title }},
+                руководителя {{ object.district.stat_admin|title }},
                 действующего на основании Положения, именуемый в дальнейшем «Заказчик», с одной стороны,
                 и {{ object.last_name }} {{ object.first_name }} {% if object.patronymic %}
                     {{ object.patronymic }} {% endif %} дата рождения {{ birth_day }}
