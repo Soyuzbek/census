@@ -83,7 +83,7 @@ class EmployeeListView(LoginRequiredMixin, FilteredListView):
         if self.request.user.is_superuser:
             return qs
 
-        filtered = qs.filter(district=self.request.user.district)
+        filtered = qs.filter(district=self.request.user.district, dismissed=False)
         return filtered
 
 
