@@ -19,7 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from num2words import num2words
 
 phone = RegexValidator(regex=r'^\d{9}$',
-                       message=_("must be in 123456789 format!"))
+                       message=_("must be in 555 500 000 format!"))
 
 
 class UserManager(BaseUserManager):
