@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 13:14+0600\n"
-"PO-Revision-Date: 2020-02-28 15:01+0458\n"
+"POT-Creation-Date: 2020-03-02 14:36+0600\n"
+"PO-Revision-Date: 2020-03-02 14:36+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -101,7 +101,7 @@ msgstr "Выйти"
 msgid "Project"
 msgstr "Сайт"
 
-#: .\templates\agreements\agreement-ru.html:207
+#: .\templates\agreements\agreement-ru.html:226
 #: .\templates\agreements\agreement.html:191 .\templates\users\update.html:70
 msgid "Print"
 msgstr "Распечатать"
@@ -116,7 +116,7 @@ msgid "Home"
 msgstr "Главная"
 
 #: .\templates\base.html:39 .\templates\base.html:106
-#: .\templates\employee\list.html:7 .\users\models.py:193
+#: .\templates\employee\list.html:7 .\users\models.py:195
 msgid "Employees"
 msgstr "Сотрудники"
 
@@ -129,7 +129,7 @@ msgstr "Выйти"
 msgid "Login"
 msgstr "Вход"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:192
+#: .\templates\employee\detail.html:7 .\users\models.py:194
 msgid "Employee"
 msgstr "Сотрудник"
 
@@ -158,11 +158,11 @@ msgstr "Имя"
 msgid "Surname"
 msgstr "Фамилия"
 
-#: .\templates\index.html:11
+#: .\templates\index.html:18
 msgid "Employee Creation Form"
 msgstr "Форма добавления сотрудника"
 
-#: .\templates\index.html:43
+#: .\templates\index.html:99
 msgid "Add"
 msgstr "Добавить"
 
@@ -205,16 +205,30 @@ msgstr "Регенерация QR кода"
 msgid "users"
 msgstr "пользователи"
 
-#: .\users\forms.py:21 .\users\models.py:48 .\users\models.py:160
+#: .\users\forms.py:20 .\users\models.py:48 .\users\models.py:162
 msgid "number"
 msgstr "номер"
 
-#: .\users\forms.py:25 .\users\models.py:186
+#: .\users\forms.py:24 .\users\models.py:188
 msgid "password"
 msgstr "пароль"
 
+#: .\users\forms.py:76 .\users\models.py:143 .\users\models.py:274
+#: .\users\models.py:291
+msgid "Coordinator"
+msgstr "Координатор"
+
+#: .\users\forms.py:80 .\users\models.py:145 .\users\models.py:273
+#: .\users\models.py:290
+msgid "Instructor"
+msgstr "Инструктор"
+
+#: .\users\forms.py:84 .\users\models.py:144 .\users\models.py:272
+#: .\users\models.py:289
+msgid "Enumerator"
+msgstr "Переписчик"
+
 #: .\users\models.py:22
-#| msgid "must be in +996 (123) 45 67 89 format!"
 msgid "must be in 555 500 000 format!"
 msgstr "должно быть в формате 555 500 000!"
 
@@ -222,7 +236,7 @@ msgstr "должно быть в формате 555 500 000!"
 msgid "region"
 msgstr "область"
 
-#: .\users\models.py:51 .\users\models.py:179
+#: .\users\models.py:51 .\users\models.py:181
 msgid "district"
 msgstr "район"
 
@@ -238,7 +252,7 @@ msgstr "суперпользователь"
 msgid "name"
 msgstr "имя"
 
-#: .\users\models.py:84 .\users\models.py:170
+#: .\users\models.py:84 .\users\models.py:172
 msgid "address"
 msgstr "адрес"
 
@@ -269,7 +283,6 @@ msgid "code"
 msgstr "QR код"
 
 #: .\users\models.py:129
-#| msgid "territory"
 msgid "Territory"
 msgstr "территория"
 
@@ -285,154 +298,141 @@ msgstr "мужской"
 msgid "female"
 msgstr "женский"
 
-#: .\users\models.py:143 .\users\models.py:281
-msgid "Coordinator"
-msgstr "Координатор"
-
-#: .\users\models.py:146
+#: .\users\models.py:148
 msgid "bachelor"
 msgstr "бакалавриат"
 
-#: .\users\models.py:147
+#: .\users\models.py:149
 msgid "specialist"
 msgstr "специалист"
 
-#: .\users\models.py:148
+#: .\users\models.py:150
 msgid "master"
 msgstr "магистратура"
 
-#: .\users\models.py:149
+#: .\users\models.py:151
 msgid "incomplete higher education"
 msgstr "неполное высшее образование"
 
-#: .\users\models.py:150
+#: .\users\models.py:152
 msgid "specialized secondary education"
 msgstr "среднее специальное образование"
 
-#: .\users\models.py:151
+#: .\users\models.py:153
 msgid "initial vocational training"
 msgstr "начальное профессиональное образование"
 
-#: .\users\models.py:152
+#: .\users\models.py:154
 msgid "general secondary education"
 msgstr "общее среднее образование"
 
-#: .\users\models.py:153
+#: .\users\models.py:155
 msgid "lower secondary education"
 msgstr "неполное среднее образование"
 
-#: .\users\models.py:156
+#: .\users\models.py:158
 msgid "full time work"
 msgstr "полный рабочий день"
 
-#: .\users\models.py:157
+#: .\users\models.py:159
 msgid "half time work"
 msgstr "неполный рабочий день"
 
-#: .\users\models.py:162
+#: .\users\models.py:164
 msgid "last name"
 msgstr "фамилия"
 
-#: .\users\models.py:163
+#: .\users\models.py:165
 msgid "first name"
 msgstr "имя"
 
-#: .\users\models.py:164
+#: .\users\models.py:166
 msgid "patronymic"
 msgstr "отчество"
 
-#: .\users\models.py:165
+#: .\users\models.py:167
 msgid "gender"
 msgstr "пол"
 
-#: .\users\models.py:166
+#: .\users\models.py:168
 msgid "birth day"
 msgstr "дата рождения"
 
-#: .\users\models.py:167
+#: .\users\models.py:169
 msgid "serial"
 msgstr "серия"
 
-#: .\users\models.py:169
+#: .\users\models.py:171
 msgid "number of passport"
 msgstr "номер паспорта"
 
-#: .\users\models.py:171
+#: .\users\models.py:173
 msgid "authority"
 msgstr "орган выдавший документ"
 
-#: .\users\models.py:172
+#: .\users\models.py:174
 msgid "PIN"
 msgstr "Персональный номер"
 
-#: .\users\models.py:173
+#: .\users\models.py:175
 msgid "photo"
 msgstr "фото"
 
-#: .\users\models.py:174
+#: .\users\models.py:176
 msgid "education"
 msgstr "уровень образовании"
 
-#: .\users\models.py:175
+#: .\users\models.py:177
 msgid "role"
 msgstr "Роль"
 
-#: .\users\models.py:176
+#: .\users\models.py:178
 msgid "census department"
 msgstr "отдел переписи населения"
 
-#: .\users\models.py:177
+#: .\users\models.py:179
 msgid "coordinator sector"
 msgstr "инструкторский участок"
 
-#: .\users\models.py:178
+#: .\users\models.py:180
 msgid "enumerator plot"
 msgstr "cчетный участок"
 
-#: .\users\models.py:180
+#: .\users\models.py:182
 msgid "territory"
 msgstr "территория"
 
-#: .\users\models.py:181
+#: .\users\models.py:183
 msgid "workday"
 msgstr "рабочий день"
 
-#: .\users\models.py:182
+#: .\users\models.py:184
 msgid "agreement"
 msgstr "соглашение"
 
-#: .\users\models.py:183
+#: .\users\models.py:185
 msgid "QR code"
 msgstr "QR код"
 
-#: .\users\models.py:184
+#: .\users\models.py:186
 msgid "date joined"
 msgstr "дата регистрации"
 
-#: .\users\models.py:185
-#| msgid "Login"
+#: .\users\models.py:187
 msgid "login"
 msgstr "Вход"
 
-#: .\users\models.py:187
+#: .\users\models.py:189
 msgid "is badge printed?"
 msgstr "распечатан ли бейджик?"
 
-#: .\users\models.py:188
+#: .\users\models.py:190
 msgid "is badge returned?"
 msgstr "возвращен ли бейджик?"
 
-#: .\users\models.py:189
+#: .\users\models.py:191
 msgid "Dismissed?"
 msgstr "Уволен?"
-
-#: .\users\models.py:279
-msgid "Enumerator"
-msgstr "Переписчик"
-
-#: .\users\models.py:280
-msgid "Instructor"
-msgstr "Инструктор"
 
 #: .\users\views.py:52
 msgid ""
@@ -449,6 +449,11 @@ msgstr "Кызматкер ийгиликтүү кошулду"
 #: .\users\views.py:170
 msgid "Please check the fields below form!"
 msgstr "Төмөнкү талааларды текшер"
+
+#: .\users\views.py:332
+#| msgid "The PIN is invalid. Try again or type by hand."
+msgid "PIN is not valid. Try again or enter manually."
+msgstr "PIN-код недействителен. Попробуйте еще раз или введите вручную."
 
 #~ msgid "Messages"
 #~ msgstr "Сообщения"
@@ -470,6 +475,22 @@ msgstr "Төмөнкү талааларды текшер"
 
 #~ msgid "That page contains no results"
 #~ msgstr "Страница не содержит результат"
+
+#, fuzzy
+#~ msgid "Enter a valid email address."
+#~ msgstr "адрес"
+
+#, fuzzy
+#~ msgid "Enter a valid IPv4 address."
+#~ msgstr "адрес"
+
+#, fuzzy
+#~ msgid "Enter a number."
+#~ msgstr "номер"
+
+#, fuzzy
+#~ msgid "This field cannot be null."
+#~ msgstr "Бул талаа керектүү"
 
 #, fuzzy
 #~ msgid "Decimal number"
@@ -500,6 +521,14 @@ msgstr "Төмөнкү талааларды текшер"
 #~ msgstr "Бул талаа керектүү"
 
 #, fuzzy
+#~ msgid "Please correct the duplicate data for %(field)s."
+#~ msgstr "Төмөнкү талааларды текшер"
+
+#, fuzzy
+#~ msgid "Please correct the duplicate data for %(field)s, which must be unique."
+#~ msgstr "Төмөнкү талааларды текшер"
+
+#, fuzzy
 #~ msgid "Please correct the duplicate values below."
 #~ msgstr "Төмөнкү талааларды текшер"
 
@@ -514,6 +543,18 @@ msgstr "Төмөнкү талааларды текшер"
 #, fuzzy
 #~ msgid "November"
 #~ msgstr "Номер"
+
+#, fuzzy
+#~ msgid "December"
+#~ msgstr "номер"
+
+#, fuzzy
+#~ msgid "mar"
+#~ msgstr "магистратура"
+
+#, fuzzy
+#~ msgid "jun"
+#~ msgstr "Фамилия"
 
 #, fuzzy
 #~ msgid "oct"
@@ -534,6 +575,11 @@ msgstr "Төмөнкү талааларды текшер"
 #~ msgid "November"
 #~ msgstr "Номер"
 
+#, fuzzy
+#~ msgctxt "alt. month"
+#~ msgid "December"
+#~ msgstr "номер"
+
 #~ msgid "Forbidden"
 #~ msgstr "Воспрещен"
 
@@ -550,6 +596,10 @@ msgstr "Төмөнкү талааларды текшер"
 
 #, fuzzy
 #~ msgid "argument %s is required"
+#~ msgstr "Пароль обязателен"
+
+#, fuzzy
+#~ msgid "one of the arguments %s is required"
 #~ msgstr "Пароль обязателен"
 
 #, fuzzy

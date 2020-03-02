@@ -1,8 +1,7 @@
 from django import forms
 from django.forms import TextInput, PasswordInput
 from django.utils.translation import ugettext_lazy as _
-
-from users.models import phone, Employee, District, Territory
+from users.models import phone, Employee, District, Territory, SiteSettings
 
 
 class TelInput(TextInput):
@@ -35,7 +34,8 @@ class UserLoginForm(forms.Form):
 class EmployeeCreateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        exclude = ['qrcode', 'agreement', 'login', 'password', 'is_badge_printed', 'is_badge_returned', 'photo', 'dismissed']
+        exclude = ['qrcode', 'agreement', 'login', 'password', 'is_badge_printed', 'is_badge_returned', 'photo',
+                   'dismissed']
         widgets = {
             'number': TelInput(attrs={'class': 'form-control masked', 'placeholder': '555 500 000',
                                       'pattern': '\d{9}'}),
@@ -69,6 +69,22 @@ class EmployeeCreateForm(forms.ModelForm):
         self.fields['district'].initial = District.objects.first()
         self.fields['district'].empty_label = None
         self.fields['territory'].queryset = Territory.objects.filter(district=user.district)
+        settings = SiteSettings.load()
+        role_temp = settings.role
+        if role_temp == 'cor':
+            role = (
+                ('cor', _('Coordinator')),
+            )
+        elif role_temp == 'ins':
+            role = (
+                ('ins', _('Instructor')),
+            )
+        elif role_temp == 'enum':
+            role = (
+                ('enum', _('Enumerator')),
+            )
+
+        self.fields['role'].choices = role
 
 
 class EmployeeUpdateForm(forms.ModelForm):
