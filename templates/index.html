@@ -183,7 +183,6 @@
 
             $('#id_PIN').keypress(function (e) {
                 if (e.which == 13) {
-                    $('.loading').addClass('show');
                     $('.disabled-wrap-box input').removeAttr('disabled');
                     $('.disabled-wrap-box select').removeAttr('disabled');
                     let pin = $(this).val();
@@ -204,7 +203,7 @@
                         },
                         dataType: 'json',
                         success: function (data) {
-                            $('.loading').removeClass('show');
+                            console.log(data);
                             if (data.is_exist) {
                                 name.value = data.name;
                                 surname.value = data.surname;
