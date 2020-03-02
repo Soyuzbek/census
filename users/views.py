@@ -26,7 +26,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from users.consts import (URL, BODY, HEADERS, FIELDS)
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
-from users.models import Employee, District, Territory, RoleInfo
+from users.models import Employee, District, Territory, RoleInfo, SiteSettings
 
 
 class LoginView(View):
@@ -79,11 +79,12 @@ class EmployeeListView(LoginRequiredMixin, FilteredListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-
+        site_settings = SiteSettings.load()
+        role = site_settings.role
         if self.request.user.is_superuser:
             return qs
 
-        filtered = qs.filter(district=self.request.user.district, dismissed=False)
+        filtered = qs.filter(district=self.request.user.district, dismissed=False, role=role)
         return filtered
 
 
@@ -323,11 +324,13 @@ class LoadDataByPINView(View):
                 house = find_field(xml, 'addressHouse')
 
                 address = address.format(region, locality, street, house).strip()
-
+                address_split = [i.strip().capitalize() for i in address.split('.,')]
+                address = ".,".join(address_split)
                 data['address'] = address
 
                 return JsonResponse(data)
             data['is_exist'] = False
+            data['error_text'] = _('PIN is not valid. Try again or enter manually.')
 
             return JsonResponse(data)
 

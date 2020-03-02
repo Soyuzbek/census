@@ -141,6 +141,8 @@ class Employee(models.Model):
     )
     ROLE_CHOICES = (
         ('cor', _('Coordinator')),
+        ('enum', _('Enumerator')),
+        ('ins', _('Instructor')),
     )
     EDUCATION_CHOICES = (
         ('1', _('bachelor')),
@@ -266,6 +268,14 @@ class SingletonModel(models.Model):
 
 
 class SiteSettings(SingletonModel):
+    ROLE_CHOICES = (
+        ('enum', _('Enumerator')),
+        ('ins', _('Instructor')),
+        ('cor', _('Coordinator')),
+
+    )
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES, null=True)
+
     class Meta:
         verbose_name = 'Настройки сайта'
         verbose_name_plural = 'Настройки сайта'
@@ -319,5 +329,3 @@ class RoleInfo(models.Model):
     @property
     def workday2words(self):
         return num2words(self.workday_num, lang='ru')
-# ('enum', _('Enumerator')),
-# ('ins', _('Instructor')),
