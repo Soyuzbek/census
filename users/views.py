@@ -26,7 +26,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from users.consts import (URL, BODY, HEADERS, FIELDS)
 from users.filters import EmployeeFilter
 from users.forms import UserLoginForm, EmployeeCreateForm, EmployeeUpdateForm, PhotoUpdateForm
-from users.models import Employee, District, Territory, RoleInfo, SiteSettings
+from users.models import Employee, District, Territory, RoleInfo
 
 
 class LoginView(View):
@@ -79,12 +79,11 @@ class EmployeeListView(LoginRequiredMixin, FilteredListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        site_settings = SiteSettings.load()
-        role = site_settings.role
+
         if self.request.user.is_superuser:
             return qs
 
-        filtered = qs.filter(district=self.request.user.district, dismissed=False, role=role)
+        filtered = qs.filter(district=self.request.user.district, dismissed=False)
         return filtered
 
 
