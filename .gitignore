@@ -120,4 +120,3 @@ nohup.out
 package-lock.json
 
 .env
-db_backups/
