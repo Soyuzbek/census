@@ -69,22 +69,6 @@ class EmployeeCreateForm(forms.ModelForm):
         self.fields['district'].initial = District.objects.first()
         self.fields['district'].empty_label = None
         self.fields['territory'].queryset = Territory.objects.filter(district=user.district)
-        settings = SiteSettings.load()
-        role_temp = settings.role
-        if role_temp == 'cor':
-            role = (
-                ('cor', _('Coordinator')),
-            )
-        elif role_temp == 'ins':
-            role = (
-                ('ins', _('Instructor')),
-            )
-        elif role_temp == 'enum':
-            role = (
-                ('enum', _('Enumerator')),
-            )
-
-        self.fields['role'].choices = role
 
 
 class EmployeeUpdateForm(forms.ModelForm):
