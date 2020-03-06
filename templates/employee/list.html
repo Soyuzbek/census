@@ -13,7 +13,7 @@
             <form method="get">
                 <div class="form-row">
                     {% for field in filterset.form.visible_fields %}
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label for="id_{{ field.label|lower }}">{{ field.label }}</label>
                             {% render_field field class="form-control" autocomplete="off" %}
                         </div>

@@ -82,6 +82,7 @@ class Region(models.Model):
     )
     name = models.CharField(_('name'), max_length=9, choices=REGION_CHOICES, unique=True)
     address = models.CharField(_('address'), max_length=255)
+    stat = models.CharField(_('stat'), max_length=255, null=True)
 
     class Meta:
         verbose_name = _('Region')
@@ -203,9 +204,8 @@ class Employee(models.Model):
         if self.qrcode:
             try:
                 os.remove(self.qrcode.path)
-            except FileNotFoundError:
-                pass
-        super().delete()
+            finally:
+                super().delete()
 
     def generate_qrcode(self):
         qr = qrcode.QRCode(
