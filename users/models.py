@@ -289,6 +289,7 @@ class SiteSettings(SingletonModel):
 class RoleInfo(models.Model):
     ROLE_CHOICES = (
         ('enum', _('Enumerator')),
+        ('enum1', _('Enumerator1')),
         ('ins', _('Instructor')),
         ('cor', _('Coordinator')),
 
