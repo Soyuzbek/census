@@ -80,7 +80,8 @@
             <div class="header-right-menu__item header-button">
                 {% get_available_languages as langs %}
                 {% for lang, val in langs %}
-                    <a class="language-picker__item {% ifequal lang curr %}active{% endifequal %}" href="{% url 'lang' lang %}">{% if lang == 'ky' %}
+                    <a class="language-picker__item {% ifequal lang curr %}active{% endifequal %}"
+                       href="{% url 'lang' lang %}">{% if lang == 'ky' %}
                         кыр{% elif lang == 'ru' %}рус{% endif %}</a>
                 {% endfor %}
             </div>
@@ -117,6 +118,10 @@
 </div>
 
 <div class="container-fluid messages">
+    <div class="alert-danger"
+         role="alert">
+        <strong>Эскертүү! кошумча каттоочу  ролу кошулду. көңүл бурганыңыз үчүн рахмат.</strong>
+    </div>
     {% if messages %}
         {% for message in messages %}
             <div class="alert{% if message.extra_tags %} {{ message.tags }} {% endif %} alert-dismissible "

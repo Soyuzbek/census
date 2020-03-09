@@ -143,6 +143,7 @@ class Employee(models.Model):
     ROLE_CHOICES = (
         ('cor', _('Coordinator')),
         ('enum', _('Enumerator')),
+        ('enum1', _('Enumerator1')),
         ('ins', _('Instructor')),
     )
     EDUCATION_CHOICES = (
@@ -270,6 +271,7 @@ class SingletonModel(models.Model):
 class SiteSettings(SingletonModel):
     ROLE_CHOICES = (
         ('enum', _('Enumerator')),
+        ('enum1', _('Enumerator1')),
         ('ins', _('Instructor')),
         ('cor', _('Coordinator')),
 
@@ -287,6 +289,7 @@ class SiteSettings(SingletonModel):
 class RoleInfo(models.Model):
     ROLE_CHOICES = (
         ('enum', _('Enumerator')),
+        ('enum1', _('Enumerator1')),
         ('ins', _('Instructor')),
         ('cor', _('Coordinator')),
 

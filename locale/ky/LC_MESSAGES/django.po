@@ -224,6 +224,11 @@ msgstr "Инструктор"
 msgid "Enumerator"
 msgstr "Каттоочу"
 
+#: .\users\forms.py:84 .\users\models.py:146 .\users\models.py:274
+#: .\users\models.py:292
+msgid "Enumerator1"
+msgstr "Каттоочу 2"
+
 #: .\users\models.py:22
 msgid "must be in 555 500 000 format!"
 msgstr "555 500 000 форматта болуу керек"
