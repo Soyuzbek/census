@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-02 14:36+0600\n"
-"PO-Revision-Date: 2020-03-05 15:48+0458\n"
+"PO-Revision-Date: 2020-03-06 08:56+0458\n"
 "Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -376,7 +376,7 @@ msgstr "сүрөт"
 
 #: .\users\models.py:176
 msgid "education"
-msgstr "билим деңгели"
+msgstr "билим деңгээли"
 
 #: .\users\models.py:177
 msgid "role"
@@ -420,11 +420,11 @@ msgstr "кирүү"
 
 #: .\users\models.py:189
 msgid "is badge printed?"
-msgstr "бежик берилдиби?"
+msgstr "бежик берилди?"
 
 #: .\users\models.py:190
 msgid "is badge returned?"
-msgstr "бейджик кайтарылдыбы?"
+msgstr "бежик кайтарылды?"
 
 #: .\users\models.py:191
 msgid "Dismissed?"
