@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.core.files.base import ContentFile
 from django.http import HttpResponseForbidden, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.utils import dateformat
 from django.utils.decorators import method_decorator
@@ -92,28 +92,25 @@ class EmployeeDetailView(DetailView):
     template_name = 'employee/detail.html'
 
 
-class AgreementDetailView(LoginRequiredMixin, DetailView):
+class AgreementDetailView(LoginRequiredMixin, View):
     model = Employee
-    template_name = 'agreements/agreement-ru.html'
+    template_name = 'agreements/agreement_new.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        role_info = RoleInfo.objects.get(role=self.object.role)
-        date_joined_humanized = '{date_humanized}'.format(
-            date_humanized=dateformat.format(self.object.date_joined, settings.DATE_FORMAT)
+    def get(self, request, pk):
+        object = get_object_or_404(self.model, pk=pk)
+        date_joined = '{date_humanized}'.format(
+            date_humanized=dateformat.format(object.date_joined, settings.DATE_FORMAT)
         )
         birth_day_humanized = '{date_humanized}'.format(
-            date_humanized=dateformat.format(self.object.birth_day, settings.DATE_FORMAT)
+            date_humanized=dateformat.format(object.birth_day, settings.DATE_FORMAT)
         )
+        role_info = RoleInfo.objects.get(role=object.role)
         if role_info.agreement_day is not None:
             date_joined_humanized = '{date_humanized}'.format(
                 date_humanized=dateformat.format(role_info.agreement_day, settings.DATE_FORMAT)
             )
-        context['date_joined'] = date_joined_humanized
-        context['birth_day'] = birth_day_humanized
-        context['role_info'] = role_info
-
-        return context
+        print(object.role)
+        return render(request, self.template_name, locals())
 
 
 class LogoutView(View):

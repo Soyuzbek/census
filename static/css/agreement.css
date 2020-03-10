@@ -116,6 +116,10 @@ p.m1{
 	content: '2.2.1';
 }
 
+#i-222:before{
+	content: '2.2.2';
+}
+
 #i-31:before{
 	content: '3.1';
 }
