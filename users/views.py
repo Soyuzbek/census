@@ -109,7 +109,6 @@ class AgreementDetailView(LoginRequiredMixin, View):
             date_joined_humanized = '{date_humanized}'.format(
                 date_humanized=dateformat.format(role_info.agreement_day, settings.DATE_FORMAT)
             )
-        print(object.role)
         return render(request, self.template_name, locals())
 
 

@@ -13,7 +13,7 @@
 {% endblock %}
 {% block content %}
 
-    <section>
+    <section lang="ru">
         <div class="print-container">
             <div class="text-center title"><strong>Трудовой договор
                 № {{ object.agreement }}</strong></div>
@@ -30,7 +30,7 @@
                 руководителя {{ object.district.stat_admin|title }},
                 действующего на основании Положения, именуемый в дальнейшем «Заказчик», с одной стороны,
                 и {{ object.last_name }} {{ object.first_name }} {% if object.patronymic %}
-                    {{ object.patronymic }} {% endif %} дата рождения {{ birth_day }}
+                    {{ object.patronymic }} {% endif %} дата рождения {{ birth_day_humanized }}
                 проживающий(ая) по
                 адресу: {{ object.address }} паспорт серии {{ object.serial }} № {{ object.passport_num }}
                 выдан {{ object.authority|upper }} Идентификационный номер {{ object.PIN }} именуемый в дальнейшем

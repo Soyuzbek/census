@@ -14,6 +14,7 @@ import os
 import django.conf.locale
 import environ
 from django.conf.locale.ru import formats as ru_formats
+from django.conf.locale.ky import formats as ky_formats
 from django.utils.translation import ugettext_lazy as _
 
 DATE_INPUT_FORMATS = ("%d.%m.%Y",)
@@ -174,7 +175,7 @@ ROSETTA_LANGUAGES = (
     ('ky', _('Kirghiz')),
     ('ru', _('Russian')),
 )
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Bishkek'
 
@@ -218,6 +219,11 @@ def FILTERS_VERBOSE_LOOKUPS():
 ru_formats.DATE_FORMAT = 'd.m.Y'
 ru_formats.TIME_FORMAT = 'H:i'
 ru_formats.DATETIME_FORMAT = 'd.m.Y H:i'
+
+ky_formats.DATE_FORMAT = 'd.m.Y'
+ky_formats.TIME_FORMAT = 'H:i'
+ky_formats.DATETIME_FORMAT = 'd.m.Y H:i'
+
 DATE_FORMAT = 'j E Y'
 TIME_FORMAT = 'H:i'
 DATETIME_FORMAT = 'j E Y H:i'
