@@ -10,7 +10,7 @@ def territories(request):
 
 
 class EmployeeFilter(django_filters.FilterSet):
-    territory = django_filters.ModelChoiceFilter(queryset=territories)
+    # territory = django_filters.ModelChoiceFilter(queryset=territories)
 
     class Meta:
         model = Employee
@@ -19,7 +19,8 @@ class EmployeeFilter(django_filters.FilterSet):
             'first_name': ['icontains'],
             'last_name': ['icontains'],
             'role': ['exact'],
-            'dismissed': ['exact'],
+            'territory': ['exact'],
             'is_badge_printed': ['exact'],
+            'dismissed': ['exact'],
 
         }
