@@ -71,15 +71,13 @@ class EmployeeAdmin(admin.ModelAdmin):
                 'district',
                 'territory',
                 'agreement',
-                'login',
-                'password'
             )
         }),
     )
 
     ordering = ('id',)
-    list_display = ('first_name', 'last_name', 'login', 'birth_day')
-    list_filter = ('role', 'district', 'department', 'sector')
+    list_display = ('first_name', 'last_name', 'login', 'dismissed')
+    list_filter = ('role', 'dismissed', 'region', 'district', )
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
 

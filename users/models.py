@@ -186,8 +186,6 @@ class Employee(models.Model):
     agreement = models.CharField(_('agreement'), max_length=6)
     qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
-    login = models.CharField(_('login'), max_length=9)
-    password = models.CharField(_('password'), max_length=13)
     is_badge_printed = models.BooleanField(_('is badge printed?'), default=False)
     is_badge_returned = models.BooleanField(_('is badge returned?'), default=False)
     dismissed = models.BooleanField(_('Dismissed?'), default=False)
@@ -239,9 +237,6 @@ class Employee(models.Model):
 def set_agreement_number(sender, instance, created=False, **kwargs):
     if created:
         instance.generate_qrcode()
-        instance.login = instance.number
-        # password generation using department, sector, plot and 4 random character
-        instance.password = f'{instance.number}' + ''.join(random.choice(string.ascii_lowercase) for i in range(4))
         instance.agreement = "{:02}{:04}".format(int(instance.district.did), int(instance.district.counter))
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()
