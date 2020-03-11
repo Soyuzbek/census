@@ -115,6 +115,9 @@
             <p class="list-item" id="i-31">Срок настоящего договора составляет {{ role_info.workday_num }}
                 ({{ role_info.workday2words }}) календарных дней, включая выходные и праздничные дни.</p>
 
+        </div>
+
+        <div class="print-container second">
             {% if not object.role == 'enum' %}
 
                 <p class="list-item" id="i-32">{% if object.workday == 'half' %}
@@ -127,10 +130,6 @@
                 <p class="list-item" id="i-33">Из начисленной суммы удерживается 10% в Социальный фонд, 10% подоходный
                     налог.</p>
             {% endif %}
-        </div>
-
-        <div class="print-container second">
-
             {% if object.role == 'enum' %}
                 <p class="list-item" id="i-32">{% if object.workday == 'half' %}
                     Полставки{% elif object.workday == 'full' %}Полная ставка{% endif %}
@@ -187,18 +186,12 @@
 
             <p class="text-center mt-3"><strong>8. Подписи сторон</strong></p>
             <pre style="border: none;">
-
-
             <strong>Заказчик:                                                             Исполнитель:</strong>
 
 
             _________ __________________                        ___________ ___________________
             (подпись)   (имя, фамилия)                                  (подпись)       (имя, фамилия)
-
-
-
-            <p>М.П.</p>
-            </pre>
+            <p>М.П.</p></pre>
         </div>
     </section>
 
