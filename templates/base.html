@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load admin_urls %}
 <!DOCTYPE html>
 {% get_current_language as curr %}
 <html lang="{{ curr }}" xmlns="http://www.w3.org/1999/xhtml">
@@ -37,6 +38,9 @@
                         {% endif %}
                         {% if request.user.is_staff %}
                             <li><a href="{% url 'users:list' %}">{% trans 'Employees' %}</a></li>
+                        {% endif %}
+                        {% if request.user.is_superuser %}
+                            <li><a href="{% url 'admin:index' %}">{% trans 'admin' %}</a></li>
                         {% endif %}
                     </ul>
 
