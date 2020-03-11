@@ -76,8 +76,8 @@ class EmployeeAdmin(admin.ModelAdmin):
     )
 
     ordering = ('id',)
-    list_display = ('first_name', 'last_name', 'login', 'dismissed')
-    list_filter = ('role', 'dismissed', 'region', 'district', )
+    list_display = ('first_name', 'last_name', 'dismissed')
+    list_filter = ('role', 'dismissed', 'district', )
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
 
