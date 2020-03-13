@@ -2,6 +2,7 @@ import os
 
 from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
+from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _, ngettext
 from rest_framework.authtoken.models import Token
 
@@ -22,6 +23,40 @@ def regenerate(modeladmin, request, queryset):
 
 
 regenerate.short_description = _("Regenerate QR code")
+
+
+class InputFilter(admin.SimpleListFilter):
+    template = 'admin/input_filter.html'
+
+    def lookups(self, request, model_admin):
+        # Dummy, required to show the filter.
+        return (),
+
+    def choices(self, changelist):
+        # Grab only the "all" option.
+        all_choice = next(super().choices(changelist))
+        all_choice['query_parts'] = (
+            (k, v)
+            for k, v in changelist.get_filters_params().items()
+            if k != self.parameter_name
+        )
+        yield all_choice
+
+
+class TerritoryFilter(InputFilter):
+    parameter_name = 'territory'
+    title = _('territory')
+
+    def queryset(self, request, queryset):
+        term = self.value()
+        if term is None:
+            return
+        any_name = Q()
+        for bit in term.split():
+            any_name &= (
+                Q(territory__name__icontains=bit)
+            )
+        return queryset.filter(any_name)
 
 
 @admin.register(User)
@@ -77,7 +112,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
     ordering = ('id',)
     list_display = ('first_name', 'last_name', 'dismissed')
-    list_filter = ('role', 'dismissed', 'district', )
+    list_filter = ('role', 'dismissed', 'district', TerritoryFilter)
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
 
