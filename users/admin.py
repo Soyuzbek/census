@@ -91,6 +91,8 @@ class TerritoryAdmin(admin.TabularInline):
 class DistrictAdmin(admin.ModelAdmin):
     exclude = ('counter',)
     inlines = [TerritoryAdmin]
+    ordering = ('name', )
+    list_filter = ('region',)
 
 
 @admin.register(Region)
@@ -101,6 +103,9 @@ class RegionAdmin(admin.ModelAdmin):
 @admin.register(Territory)
 class TerritoryAdminPure(admin.ModelAdmin):
     list_display = ['name', 'counter']
+    search_fields = ('name', 'code')
+    list_filter = ('district', )
+    ordering = ('name',)
 
 
 class RoleInfoInline(admin.StackedInline):

@@ -62,7 +62,7 @@ class FilteredListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset, request=self.request)
         return self.filterset.qs.distinct()
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -83,7 +83,7 @@ class EmployeeListView(LoginRequiredMixin, FilteredListView):
         if self.request.user.is_superuser:
             return qs
 
-        filtered = qs.filter(district=self.request.user.district, dismissed=False)
+        filtered = qs.filter(district=self.request.user.district)
         return filtered
 
 
