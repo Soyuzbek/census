@@ -32,6 +32,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
+            <a href="{{ request.META.HTTP_REFERER|escape }}" class="btn btn-secondary"> Артка </a>
         </form>
     </div>
 

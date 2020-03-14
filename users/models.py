@@ -170,7 +170,7 @@ class Employee(models.Model):
     birth_day = models.DateField(_('birth day'))
     serial = models.CharField(_('serial'), max_length=2, choices=(('ID', 'ID'), ('AN', 'AN'), ('AC', 'AC')),
                               default='ID')
-    passport_num = models.CharField(_('number of passport'), max_length=7, unique=True)
+    passport_num = models.CharField(_('number of passport'), max_length=7)
     address = models.CharField(_('address'), max_length=255)
     authority = models.CharField(_('authority'), max_length=10)
     PIN = models.CharField(_('PIN'), max_length=14, unique=True)
@@ -193,7 +193,7 @@ class Employee(models.Model):
     class Meta:
         verbose_name = _('Employee')
         verbose_name_plural = _('Employees')
-        unique_together = ('district', 'agreement')
+        unique_together = (('district', 'agreement'), ('serial', 'passport_num'))
         ordering = ['-id']
 
     def get_absolute_url(self):
@@ -203,6 +203,8 @@ class Employee(models.Model):
         if self.qrcode:
             try:
                 os.remove(self.qrcode.path)
+            except FileNotFoundError:
+                pass
             finally:
                 super().delete()
 

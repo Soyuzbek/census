@@ -12,6 +12,7 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('employee_create/', views.EmployeeCreateView.as_view(), name='employee_create'),
     path('docs/', views.APIDocsView.as_view(), name='docs'),
+    path('excel/', views.EmployeeExcel.as_view(), name='excel')
 ]
 
 urlpatterns += router.urls

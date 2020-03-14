@@ -10,7 +10,8 @@
             <form method="post">
                 {% csrf_token %}
                 <p>{% trans 'Are you sure you want to delete?' %}</p>
-                <input type="submit" value="{% trans 'Delete' %}">
+                <input type="submit" class="btn btn-danger" value="{% trans 'Delete' %}">
+                <a href="{{ request.META.HTTP_REFERER|escape }}" class="btn btn-primary"> Айнуу </a>
             </form>
         </div>
     </section>

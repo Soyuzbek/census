@@ -18,6 +18,7 @@ class EmployeeFilter(django_filters.FilterSet):
             'number': ['exact'],
             'first_name': ['icontains'],
             'last_name': ['icontains'],
+            'PIN': ['exact'],
             'role': ['exact'],
             'is_badge_printed': ['exact'],
             'territory': ['exact'],

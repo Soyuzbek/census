@@ -1,6 +1,8 @@
 import os
+from abc import ABC
 
 from django.contrib import admin, messages
+from django.contrib.admin import SimpleListFilter
 from django.contrib.auth.admin import UserAdmin
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _, ngettext
@@ -25,7 +27,7 @@ def regenerate(modeladmin, request, queryset):
 regenerate.short_description = _("Regenerate QR code")
 
 
-class InputFilter(admin.SimpleListFilter):
+class InputFilter(admin.SimpleListFilter, ABC):
     template = 'admin/input_filter.html'
 
     def lookups(self, request, model_admin):
@@ -57,6 +59,21 @@ class TerritoryFilter(InputFilter):
                 Q(territory__name__icontains=bit)
             )
         return queryset.filter(any_name)
+
+
+class CustomTerritory(SimpleListFilter, ABC):
+    title = _('Territory')
+    parameter_name = 'territory'
+
+    def lookups(self, request, model_admin):
+        list_of_territories = []
+        queryset = Territory.objects.filter(district=request.user.district)
+        return [(t.id, t.name) for t in queryset]
+
+    def queryset(self, request, queryset):
+        if self.value() is not None:
+            return queryset.filter(territory=self.value())
+        return queryset
 
 
 @admin.register(User)
@@ -112,9 +129,20 @@ class EmployeeAdmin(admin.ModelAdmin):
 
     ordering = ('id',)
     list_display = ('first_name', 'last_name', 'dismissed')
-    list_filter = ('role', 'dismissed', 'district', TerritoryFilter)
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
     actions = [regenerate]
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(district=request.user.district)
+
+    def get_list_filter(self, request):
+        if request.user.is_superuser:
+            return 'role', 'dismissed', 'district', TerritoryFilter
+        else:
+            return 'role', 'dismissed', CustomTerritory
 
 
 class TerritoryAdmin(admin.TabularInline):

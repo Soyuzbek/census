@@ -27,8 +27,10 @@
                     {% else %}
                         <img src="{% static 'img/nophoto.png' %}" alt="" class="image" style="object-fit: cover">
                     {% endif %}
-                    <a href="{% url 'users:update_photo' pk=object.pk %}"
-                       style="display: block; text-align: center;">{% trans 'change image' %}</a>
+                    {% if perms.users.change_employee %}
+                        <a href="{% url 'users:update_photo' pk=object.pk %}"
+                           style="display: block; text-align: center;">{% trans 'change image' %}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -58,7 +60,7 @@
                 </form>
             </div>
             <div class="buttons-group mt-5 no-print">
-                {% if user.is_superuser %}
+                {% if perms.users.delete_employee %}
                     <a href="{% url 'users:delete' pk=object.pk %}" class="nav-item delete-btn">{% trans 'Delete' %}</a>
                 {% endif %}
                 {% if perms.users.change_employee %}
@@ -106,7 +108,8 @@
                         <p>{% get_initials object.district.gov_admin %}</p>
                         <p class="badge-help">Райондук (шаардык) мамадминистрация башчысы-аким (мэр), колу</p>
                         <p>{% get_initials object.district.stat_admin %}</p>
-                        <p class="badge-help">{% if object.district.id ==  44 or object.district.id == 26 %}Облустук {% else %}Райондук{% endif %}(шаардык) мамстатистика жетекчиси, колу</p>
+                        <p class="badge-help">{% if object.district.id ==  44 or object.district.id == 26 %}
+                            Облустук {% else %}Райондук{% endif %}(шаардык) мамстатистика жетекчиси, колу</p>
                     </div>
                 </div>
             </div>

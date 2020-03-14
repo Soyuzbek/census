@@ -16,7 +16,7 @@ from rest_framework.status import (
 )
 
 from ..models import Employee
-from .serializers import EmployeeSerializer
+from .serializers import EmployeeSerializer, EmployeeExcelSerializer
 
 
 class LoginView(APIView):
@@ -82,3 +82,25 @@ class EmployeeCreateView(APIView):
 
 class APIDocsView(TemplateView):
     template_name = 'docs.html'
+
+
+class EmployeeExcel(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    @csrf_exempt
+    def get(self, request):
+        serializer = EmployeeExcelSerializer(data=request.data)
+        if serializer.is_valid():
+            print(serializer)
+            return Response(status=HTTP_200_OK, data=serializer)
+
+
+
+
+
+
+
+
+
+
+

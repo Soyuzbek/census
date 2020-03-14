@@ -39,7 +39,7 @@
                         {% if request.user.is_staff %}
                             <li><a href="{% url 'users:list' %}">{% trans 'Employees' %}</a></li>
                         {% endif %}
-                        {% if request.user.is_superuser %}
+                        {% if perms.users.change_employee %}
                             <li><a href="{% url 'admin:index' %}">{% trans 'admin' %}</a></li>
                         {% endif %}
                     </ul>
@@ -117,15 +117,14 @@
                     <i class="fa fa-sign-in"></i> {% trans 'Login' %}
                 </a>
             {% endif %}
+            {% if perms.users.change_employee %}
+                <li><a href="{% url 'admin:index' %}">{% trans 'admin' %}</a></li>
+            {% endif %}
         </div>
     </div>
 </div>
 
 <div class="container-fluid messages no-print">
-    <div class="alert-danger"
-         role="alert">
-        <strong>Эскертүү! кошумча каттоочу  ролу кошулду. Өзгөрүүлөр ишке кирүү үчүн (CTRL + SHIFT + R) баскычтарын бир убакта басып алгыла. Көңүл бурганыңыз үчүн рахмат.</strong>
-    </div>
     {% if messages %}
         {% for message in messages %}
             <div class="alert{% if message.extra_tags %} {{ message.tags }} {% endif %} alert-dismissible "

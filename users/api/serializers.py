@@ -19,5 +19,12 @@ class EmployeeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_validation_exclusions(self):
-        exclusions = super(EmployeeSerializer, self).get_validation_exclusions()
+        exclusions = super().get_validation_exclusions()
         return exclusions + ['agreement', 'login', 'password']
+
+
+class EmployeeExcelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Employee
+        fields = ('last_name', 'first_name', 'patronymic', 'department', 'sector', 'plot')
