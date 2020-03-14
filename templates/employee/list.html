@@ -7,8 +7,15 @@
     {% trans 'Employees' %}
 {% endblock %}
 {% block content %}
+        <div class="symbols">
+        <button value="Ө" onclick="insertSymbol(this)" class="symbol">Ө</button>
+        <button value="Ү" onclick="insertSymbol(this)" class="symbol">Ү</button>
+        <button value="Ң" onclick="insertSymbol(this)" class="symbol">Ң</button>
+        <button value="ө" onclick="insertSymbol(this)" class="symbol">ө</button>
+        <button value="ү" onclick="insertSymbol(this)" class="symbol">ү</button>
+        <button value="ң" onclick="insertSymbol(this)" class="symbol">ң</button>
+    </div>
     <div class="container">
-
         <div>
             <form method="get">
                 <div class="form-row">

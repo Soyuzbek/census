@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Translation of django project to kyrgyz language.
+# Copyright (C) 2020
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Soyuzbek Orozbek uulu <Soyuzbek196.kg@gmail.com>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-10 20:02+0600\n"
+"POT-Creation-Date: 2020-03-14 15:17+0600\n"
 "PO-Revision-Date: 2020-03-10 20:10+0458\n"
-"Last-Translator: b'Anonymous User <anonymous@user.tld>'\n"
+"Last-Translator: b'Soyuzbek Orozbek uulu <anonymous@user.tld>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -86,8 +86,8 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:246
 msgid ""
-"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or"
-" hyphens."
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\core\validators.py:255
@@ -187,8 +187,7 @@ msgid_plural ""
 msgstr[0] ""
 "Ensure that there are no more than %(max)s digit before the decimal point."
 msgstr[1] ""
-"Ensure that there are no more than %(max)s digits before the decimal "
-"point.\t"
+"Ensure that there are no more than %(max)s digits before the decimal point.\t"
 
 #: .\env\Lib\site-packages\django\core\validators.py:469
 #, python-format
@@ -312,20 +311,20 @@ msgstr "Күн (убакытсыз)"
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1296
 #, python-format
 msgid ""
-"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ] format."
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
 msgstr ""
-"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ] format."
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1300
 #, python-format
 msgid ""
-"'%(value)s' value has the correct format (YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
 msgstr ""
-"'%(value)s' value has the correct format (YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1304
 msgid "Date (with time)"
@@ -343,11 +342,11 @@ msgstr "Ондук бөлчөк"
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1593
 #, python-format
 msgid ""
-"'%(value)s' value has an invalid format. It must be in [DD] "
-"[HH:[MM:]]ss[.uuuuuu] format."
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
 msgstr ""
-"'%(value)s' value has an invalid format. It must be in [DD] "
-"[HH:[MM:]]ss[.uuuuuu] format."
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
 
 #: .\env\Lib\site-packages\django\db\models\fields\__init__.py:1596
 #, fuzzy
@@ -492,8 +491,7 @@ msgid "Many-to-many relationship"
 msgstr "Бирге-бир байланышы"
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the
-#. label
+#. characters will prevent the default label_suffix to be appended to the label
 #: .\env\Lib\site-packages\django\forms\boundfield.py:146
 msgid ":?.!"
 msgstr ""
@@ -546,8 +544,7 @@ msgstr "Жүктөлгөн файл бош."
 
 #: .\env\Lib\site-packages\django\forms\fields.py:536
 #, python-format
-msgid ""
-"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -624,7 +621,7 @@ msgstr "Ирет"
 
 #: .\env\Lib\site-packages\django\forms\formsets.py:375
 #: .\templates\users\employee_confirm_delete.html:13
-#: .\templates\users\update.html:62
+#: .\templates\users\update.html:64
 msgid "Delete"
 msgstr "Алып таштоо"
 
@@ -636,8 +633,7 @@ msgstr "Please correct the duplicate data for %(field)s."
 #: .\env\Lib\site-packages\django\forms\models.py:755
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
-"Please correct the duplicate data for %(field)s, which must be unique."
+msgstr "Please correct the duplicate data for %(field)s, which must be unique."
 
 #: .\env\Lib\site-packages\django\forms\models.py:761
 #, python-format
@@ -659,8 +655,7 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\forms\models.py:1158
 #, fuzzy
-msgid ""
-"Select a valid choice. That choice is not one of the available choices."
+msgid "Select a valid choice. That choice is not one of the available choices."
 msgstr "Select a valid choice. %(value)s is not one of the available choices."
 
 #: .\env\Lib\site-packages\django\forms\models.py:1272
@@ -1127,11 +1122,11 @@ msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:124
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
-" including the 'Referrer-Policy: no-referrer' header, please remove them. "
-"The CSRF protection requires the 'Referer' header to do strict referer "
-"checking. If you're concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" ...> for links to third-party sites."
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" ...> for links to third-party sites."
 msgstr ""
 
 #: .\env\Lib\site-packages\django\views\csrf.py:132
@@ -1182,11 +1177,11 @@ msgstr "No %(verbose_name_plural)s available"
 #: .\env\Lib\site-packages\django\views\generic\dates.py:589
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because "
-"%(class_name)s.allow_future is False."
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
 msgstr ""
-"Future %(verbose_name_plural)s not available because "
-"%(class_name)s.allow_future is False."
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
 
 #: .\env\Lib\site-packages\django\views\generic\dates.py:623
 #, python-format
@@ -1246,15 +1241,15 @@ msgstr ""
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:368
 #, python-format
 msgid ""
-"You are seeing this page because <a "
-"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-"and you have not configured any URLs."
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
 msgstr ""
-"You are seeing this page because <a "
-"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-"and you have not configured any URLs."
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
 
 #: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:383
 msgid "Django Documentation"
@@ -1512,10 +1507,19 @@ msgstr "Чыгуу"
 msgid "Project"
 msgstr "Долбоор"
 
+#: .\templates\admin\input_filter.html:3
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: .\templates\admin\input_filter.html:18
+msgid "Remove"
+msgstr ""
+
 #: .\templates\agreements\agreement-ru.html:226
 #: .\templates\agreements\agreement.html:191
-#: .\templates\agreements\agreement_new.html:235
-#: .\templates\users\update.html:70
+#: .\templates\agreements\agreement_new.html:200
+#: .\templates\users\update.html:72
 msgid "Print"
 msgstr "Басып чыгаруу"
 
@@ -1523,31 +1527,35 @@ msgstr "Басып чыгаруу"
 msgid "Agreement"
 msgstr "Келишим"
 
-#: .\templates\base.html:36 .\templates\base.html:105 .\templates\index.html:6
+#: .\templates\base.html:37 .\templates\base.html:109 .\templates\index.html:6
 #: .\templates\login.html:6 .\templates\users\update.html:14
 msgid "Home"
 msgstr "Башкы бет"
 
-#: .\templates\base.html:39 .\templates\base.html:107
-#: .\templates\employee\list.html:7 .\users\models.py:197
+#: .\templates\base.html:40 .\templates\base.html:111
+#: .\templates\employee\list.html:7 .\users\models.py:195
 msgid "Employees"
 msgstr "Кызматкерлер"
 
-#: .\templates\base.html:56 .\templates\base.html:110
+#: .\templates\base.html:43 .\templates\base.html:121
+msgid "admin"
+msgstr ""
+
+#: .\templates\base.html:60 .\templates\base.html:114
 msgid "Logout"
 msgstr "Чыгуу"
 
-#: .\templates\base.html:59 .\templates\base.html:113
+#: .\templates\base.html:63 .\templates\base.html:117
 #: .\templates\login.html:46
 msgid "Login"
 msgstr "Кирүү"
 
-#: .\templates\employee\detail.html:7 .\users\models.py:196
+#: .\templates\employee\detail.html:7 .\users\models.py:194
 msgid "Employee"
 msgstr "Кызматкер"
 
 #: .\templates\employee\detail.html:15 .\templates\users\update.html:20
-#: .\templates\users\update.html:83
+#: .\templates\users\update.html:85
 msgid "Certificate"
 msgstr "Күбөлүк"
 
@@ -1587,15 +1595,15 @@ msgstr "Алып таштоого макулсузбу?"
 msgid "Save"
 msgstr "Сактоо"
 
-#: .\templates\users\update.html:31
+#: .\templates\users\update.html:32
 msgid "change image"
 msgstr "сүрөт жаңыртуу"
 
-#: .\templates\users\update.html:65
+#: .\templates\users\update.html:67
 msgid "Update"
 msgstr "Өзгөртүү"
 
-#: .\users\admin.py:18
+#: .\users\admin.py:21
 #, python-format
 msgid "The QR code for instance of model %(model)s is regenerated"
 msgid_plural ""
@@ -1603,9 +1611,17 @@ msgid_plural ""
 msgstr[0] "%(model)s үчүн QR код кайрадан түзүлдү."
 msgstr[1] "%(model)s үчүн  %(queryset)d даана QR код кайрадан түзүлдү."
 
-#: .\users\admin.py:24
+#: .\users\admin.py:27
 msgid "Regenerate QR code"
 msgstr "QR ди кайрадан түзүү"
+
+#: .\users\admin.py:50 .\users\models.py:184
+msgid "territory"
+msgstr "территория"
+
+#: .\users\admin.py:65 .\users\models.py:130
+msgid "Territory"
+msgstr "Территория"
 
 #: .\users\apps.py:7
 msgid "users"
@@ -1615,7 +1631,7 @@ msgstr "колдонуучулар"
 msgid "number"
 msgstr "номери"
 
-#: .\users\forms.py:24 .\users\models.py:190
+#: .\users\forms.py:24
 msgid "password"
 msgstr "сырсөз"
 
@@ -1677,10 +1693,6 @@ msgstr "Райондор"
 msgid "code"
 msgstr "коду"
 
-#: .\users\models.py:130
-msgid "Territory"
-msgstr "Территория"
-
 #: .\users\models.py:131
 msgid "Territories"
 msgstr "Териториалар"
@@ -1693,19 +1705,19 @@ msgstr "эркек"
 msgid "female"
 msgstr "аял"
 
-#: .\users\models.py:144 .\users\models.py:276 .\users\models.py:294
+#: .\users\models.py:144 .\users\models.py:273 .\users\models.py:291
 msgid "Coordinator"
 msgstr "Координатор"
 
-#: .\users\models.py:145 .\users\models.py:273 .\users\models.py:291
+#: .\users\models.py:145 .\users\models.py:270 .\users\models.py:288
 msgid "Enumerator"
 msgstr "Каттоочу"
 
-#: .\users\models.py:146 .\users\models.py:274 .\users\models.py:292
+#: .\users\models.py:146 .\users\models.py:271 .\users\models.py:289
 msgid "Enumerator1"
 msgstr "Каттоочу 2"
 
-#: .\users\models.py:147 .\users\models.py:275 .\users\models.py:293
+#: .\users\models.py:147 .\users\models.py:272 .\users\models.py:290
 msgid "Instructor"
 msgstr "Инструктор"
 
@@ -1809,10 +1821,6 @@ msgstr "инструктордук участок"
 msgid "enumerator plot"
 msgstr "каттоо участогу"
 
-#: .\users\models.py:184
-msgid "territory"
-msgstr "территория"
-
 #: .\users\models.py:185
 msgid "workday"
 msgstr "иштөө күнү"
@@ -1830,22 +1838,18 @@ msgid "date joined"
 msgstr "алынган күнү"
 
 #: .\users\models.py:189
-msgid "login"
-msgstr "кирүү"
-
-#: .\users\models.py:191
 msgid "is badge printed?"
 msgstr "бежик берилди?"
 
-#: .\users\models.py:192
+#: .\users\models.py:190
 msgid "is badge returned?"
 msgstr "бежик кайтарылды?"
 
-#: .\users\models.py:193
+#: .\users\models.py:191
 msgid "Dismissed?"
 msgstr "Кызматтан чыгарылды?"
 
-#: .\users\views.py:52
+#: .\users\views.py:53
 msgid ""
 "Number or password is incorrect. Note that both fields might be case-"
 "sensitive"
@@ -1853,14 +1857,17 @@ msgstr ""
 "Номур же сырсөз туура эмес. Эки аймак тең ЧОҢ кичинеликке сезгич болушу "
 "мүмкүн!"
 
-#: .\users\views.py:164
+#: .\users\views.py:165
 msgid "The employee added successfully."
 msgstr "Кызматкер ийгиликтүү кошулду"
 
-#: .\users\views.py:166
+#: .\users\views.py:167
 msgid "Please check the fields below form!"
 msgstr "Сураныч төмөндө талааларды текшериңиз!"
 
-#: .\users\views.py:328
+#: .\users\views.py:329
 msgid "PIN is not valid. Try again or enter manually."
 msgstr "PIN туура эмес. Дагы бир жолу аракет кылгыла же кол менен толтургула."
+
+#~ msgid "login"
+#~ msgstr "кирүү"

@@ -713,3 +713,15 @@ button[type='button']:focus
 .loading.show{
     display: block !important;
 }
+
+.symbols {
+    position: fixed;
+    display: inline-grid;
+    padding-top: 10rem;
+    z-index: 100000;
+    margin-left: -15px;
+}
+
+.symbols button {
+    margin-bottom: 10px;
+}
