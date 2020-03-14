@@ -717,7 +717,6 @@ button[type='button']:focus
 .symbols {
     position: fixed;
     display: inline-grid;
-    padding-top: 10rem;
     z-index: 100000;
     margin-left: -15px;
 }
