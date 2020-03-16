@@ -13,6 +13,13 @@ def param_replace(context, **kwargs):
     return d.urlencode()
 
 
+@register.filter(name='mul')
+def mul(number, page):
+    if page is None:
+        return number
+    return 10 * page + number
+
+
 @register.simple_tag(name='get_initials')
 def get_initials(full_name):
     full_name_list = full_name.split()
