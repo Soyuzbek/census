@@ -17,7 +17,7 @@ def param_replace(context, **kwargs):
 def mul(number, page):
     if page is None:
         return number
-    return 10 * page + number
+    return 10 * (page-1) + number
 
 
 @register.simple_tag(name='get_initials')
