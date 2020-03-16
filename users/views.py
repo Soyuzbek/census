@@ -231,7 +231,7 @@ class PhotoUpdateView(UpdateView):
         img = Image.open(image)
         img1 = rotate_jpeg(img)
         profile_img = img1.crop((x1, y1, x2, y2))
-        profile_img.save(img_io, format='JPEG', quality=100)
+        profile_img.convert('RGB').save(img_io, format='JPEG', quality=100)
         profile_img.seek(0)
         image = ContentFile(img_io.getvalue(), 'profile.jpg')
         self.object.photo = image
