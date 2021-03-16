@@ -3,7 +3,6 @@ from io import BytesIO
 
 import piexif
 import requests
-import xlsxwriter as xl
 from PIL import Image
 from bs4 import BeautifulSoup as BS
 from django.conf import settings

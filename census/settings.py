@@ -12,16 +12,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 import django.conf.locale
-import environ
 from django.conf.locale.ru import formats as ru_formats
 from django.conf.locale.ky import formats as ky_formats
 from django.utils.translation import ugettext_lazy as _
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 DATE_INPUT_FORMATS = ("%d.%m.%Y",)
-
-env = environ.Env()
-
-environ.Env.read_env('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,10 +29,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['212.42.101.125', 'census.kg', 'localhost', '127.0.0.1']
 
@@ -114,8 +113,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'census',
-        'USER': env('DJANGO_CENSUS_USER'),
-        'PASSWORD': env('DJANGO_CENSUS_PASSWORD'),
+        'USER': os.getenv('DJANGO_CENSUS_USER'),
+        'PASSWORD': os.getenv('DJANGO_CENSUS_PASSWORD'),
         'HOST': 'localhost',
         'PORT': ''
     }
@@ -139,12 +138,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:11211',
+#     }
+# }
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = 'users:login'
@@ -153,19 +152,6 @@ LOGOUT_REDIRECT_URL = 'users:home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-
-EXTRA_LANG_INFO = {
-    'ky': {
-        'bidi': False,
-        'code': 'ky',
-        'name': 'Kirghiz',
-        'name_local': u'Кыргызча',
-    }
-}
-
-LANG_INFO = {**django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO}
-
-django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (
     ('ky', _('Kirghiz')),

@@ -181,4 +181,4 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     inlines = [RoleInfoInline]
 
 
-admin.site.unregister(Token)
+# admin.site.unregister(Token)
