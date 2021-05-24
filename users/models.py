@@ -1,9 +1,5 @@
 import os
-import random
-import string
-from io import BytesIO
 
-import qrcode
 from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -184,7 +180,6 @@ class Employee(models.Model):
     territory = models.ForeignKey(Territory, models.SET_NULL, verbose_name=_('territory'), null=True, blank=True)
     workday = models.CharField(_('workday'), max_length=4, choices=WORKDAY_CHOICES, default='full')
     agreement = models.CharField(_('agreement'), max_length=6)
-    qrcode = models.ImageField(_('QR code'), upload_to='users/qr-codes', blank=True, null=True)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_badge_printed = models.BooleanField(_('is badge printed?'), default=False)
     is_badge_returned = models.BooleanField(_('is badge returned?'), default=False)
@@ -199,34 +194,6 @@ class Employee(models.Model):
     def get_absolute_url(self):
         return reverse('users:detail', args=[self.id])
 
-    def delete(self, using=None, keep_parents=False):
-        if self.qrcode:
-            try:
-                os.remove(self.qrcode.path)
-            except FileNotFoundError:
-                pass
-            finally:
-                super().delete()
-
-    def generate_qrcode(self):
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=6,
-            border=2
-        )
-        qr.add_data(settings.DOMAIN_NAME + self.get_absolute_url())
-        qr.make(fit=True)
-
-        img = qr.make_image()
-        buffer = BytesIO()
-        img.save(buffer)
-        filename = f'{self.number}'
-        filebuffer = InMemoryUploadedFile(
-            buffer, None, filename, 'image/png', buffer.tell(), None
-        )
-        self.qrcode.save(filename, filebuffer)
-
     @property
     def get_role(self):
         return dict(Employee.ROLE_CHOICES).get(self.role)
@@ -238,7 +205,6 @@ class Employee(models.Model):
 @receiver(post_save, sender=Employee)
 def set_agreement_number(sender, instance, created=False, **kwargs):
     if created:
-        instance.generate_qrcode()
         instance.agreement = "{:02}{:04}".format(int(instance.district.did), int(instance.district.counter))
         instance.district.counter = "{:06}".format(int(instance.district.counter) + 1)
         instance.district.save()

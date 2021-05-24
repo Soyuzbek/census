@@ -11,22 +11,6 @@ from rest_framework.authtoken.models import Token
 from users.models import User, District, Employee, Region, Territory, SiteSettings, RoleInfo
 
 
-def regenerate(modeladmin, request, queryset):
-    for instance in queryset:
-        try:
-            os.remove(instance.qrcode.path)
-        except:
-            pass
-        instance.generate_qrcode()
-    messages.info(request, ngettext("The QR code for instance of model %(model)s is regenerated",
-                                    "The QR codes for %(queryset)d instances of model %(model)s are regenerated",
-                                    len(queryset)) % {"queryset": len(queryset),
-                                                      "model": modeladmin.model._meta.verbose_name})
-
-
-regenerate.short_description = _("Regenerate QR code")
-
-
 class InputFilter(admin.SimpleListFilter, ABC):
     template = 'admin/input_filter.html'
 
@@ -130,7 +114,6 @@ class EmployeeAdmin(admin.ModelAdmin):
     ordering = ('id',)
     list_display = ('first_name', 'last_name', 'dismissed')
     search_fields = ('first_name', 'last_name', 'patronymic', 'number')
-    actions = [regenerate]
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)

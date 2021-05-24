@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
 
-import django.conf.locale
-from django.conf.locale.ru import formats as ru_formats
-from django.conf.locale.ky import formats as ky_formats
+from pathlib import Path
 from django.utils.translation import ugettext_lazy as _
 
 from dotenv import load_dotenv
@@ -23,7 +21,7 @@ load_dotenv()
 DATE_INPUT_FORMATS = ("%d.%m.%Y",)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -90,7 +88,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -172,7 +170,7 @@ USE_L10N = False
 USE_TZ = True
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
+    BASE_DIR / 'locale'
 ]
 
 # Static files (CSS, JavaScript, Images)
@@ -181,13 +179,13 @@ LOCALE_PATHS = [
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+STATIC_ROOT = BASE_DIR / 'staticroot'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 USER_AGENTS_CACHE = 'default'
 
@@ -200,16 +198,3 @@ def FILTERS_VERBOSE_LOOKUPS():
         'icontains': '',
     })
     return verbose_lookups
-
-
-ru_formats.DATE_FORMAT = 'd.m.Y'
-ru_formats.TIME_FORMAT = 'H:i'
-ru_formats.DATETIME_FORMAT = 'd.m.Y H:i'
-
-ky_formats.DATE_FORMAT = 'd.m.Y'
-ky_formats.TIME_FORMAT = 'H:i'
-ky_formats.DATETIME_FORMAT = 'd.m.Y H:i'
-
-DATE_FORMAT = 'j E Y'
-TIME_FORMAT = 'H:i'
-DATETIME_FORMAT = 'j E Y H:i'
