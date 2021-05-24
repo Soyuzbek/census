@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='employee',
             name='department',
-            field=models.PositiveSmallIntegerField(default=1, verbose_name='census department'),
+            field=models.PositiveSmallIntegerField(default=1, verbose_name='root department'),
         ),
         migrations.AlterField(
             model_name='employee',
